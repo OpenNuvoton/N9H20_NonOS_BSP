@@ -1,0 +1,10 @@
+v2.30.001 : 	Support N9H20, N9H26,  it is for HMI.
+		support [N9H20 USER_DEFINE] in ini file
+			[N9H26 USER_DEFINE] 
+
+[N9H2X]
+
+2018/04/30-v01: Support N9H20, N9H26,  it is for HMI
+
+Notice: If you want to fix the USB transfer speed in FullSpeed mode, please rename the file 
+	N9H20_musb_FullSpeed.bin to N9H20_musb.bin and replace the origrinal one.

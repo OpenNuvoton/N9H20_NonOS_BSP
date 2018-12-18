@@ -1,0 +1,169 @@
+
+
+Enter Connect thread
+
+API AddPMPdevice
+ACPI\PNPA000\4&5D18F2DF&1
+DISPLAY\ACR05E7\5&25E091D&3&11335578&04&00
+ROOT\KEYBOARD\0000
+USB\VID_0416&PID_9396\USB_DEV
+USB\VID_046D&PID_C016\5&508D21E&0&2
+USB\VID_1366&PID_0101\0055400033
+V1394\NIC1394\0BA00100
+
+Device Descriptor SCSI/RAID Host Controller
+
+Device Descriptor 隨插即用監視器
+
+Device Descriptor DameWare Virtual Keyboard Emulation for Standard Keyboard
+
+Device Descriptor USB Mass Storage Device
+
+Device Descriptor USB 人性化介面裝置
+
+Device Descriptor J-Link driver
+
+Device Descriptor 1394 Net Adapter
+
+No Device found
+API AddPMPdevice
+ACPI\PNPA000\4&5D18F2DF&1
+DISPLAY\ACR05E7\5&25E091D&3&11335578&04&00
+ROOT\KEYBOARD\0000
+USB\VID_0416&PID_9396\USB_DEV
+USB\VID_046D&PID_C016\5&508D21E&0&2
+USB\VID_1366&PID_0101\0055400033
+V1394\NIC1394\0BA00100
+
+Device Descriptor SCSI/RAID Host Controller
+
+Device Descriptor 隨插即用監視器
+
+Device Descriptor DameWare Virtual Keyboard Emulation for Standard Keyboard
+
+Device Descriptor USB Mass Storage Device - Drive (M:)
+
+Device Descriptor USB 人性化介面裝置 - Drive (M:)
+
+Device Descriptor J-Link driver - Drive (M:)
+
+Device Descriptor 1394 Net Adapter - Drive (M:)
+MASS STORAGE 9396 FOUNDnum = 1, Dev=M
+ Handle ID = 140
+OK = 1.00
+Detect VCOM...Failed
+Detect IBR_MASSSTOR ... 
+Running recovery mode
+API AddPMPdevice
+ACPI\PNPA000\4&5D18F2DF&1
+DISPLAY\ACR05E7\5&25E091D&3&11335578&04&00
+ROOT\KEYBOARD\0000
+USB\VID_0416&PID_9396\USB_DEV
+USB\VID_046D&PID_C016\5&508D21E&0&2
+USB\VID_1366&PID_0101\0055400033
+V1394\NIC1394\0BA00100
+
+Device Descriptor SCSI/RAID Host Controller
+
+Device Descriptor 隨插即用監視器
+
+Device Descriptor DameWare Virtual Keyboard Emulation for Standard Keyboard
+
+Device Descriptor USB Mass Storage Device - Drive (M:)
+
+Device Descriptor USB 人性化介面裝置 - Drive (M:)
+
+Device Descriptor J-Link driver - Drive (M:)
+
+Device Descriptor 1394 Net Adapter - Drive (M:)
+MASS STORAGE 9396 FOUNDnum = 1, Dev=M
+ Handle ID = 150
+OK = 1.00
+Detect Mass Storage...(1)
+Running recovery mode OK, send commands
+Enter IBR connection
+Please reset chip and retry!
+
+Enter Connect thread
+
+API AddPMPdevice
+ACPI\PNPA000\4&5D18F2DF&1
+DISPLAY\ACR05E7\5&25E091D&3&11335578&04&00
+ROOT\KEYBOARD\0000
+USB\VID_0416&PID_9396\USB_DEV
+USB\VID_046D&PID_C016\5&508D21E&0&2
+USB\VID_1366&PID_0101\0055400033
+V1394\NIC1394\0BA00100
+
+Device Descriptor SCSI/RAID Host Controller
+
+Device Descriptor 隨插即用監視器
+
+Device Descriptor DameWare Virtual Keyboard Emulation for Standard Keyboard
+
+Device Descriptor USB Mass Storage Device
+
+Device Descriptor USB 人性化介面裝置
+
+Device Descriptor J-Link driver
+
+Device Descriptor 1394 Net Adapter
+
+No Device found
+API AddPMPdevice
+ACPI\PNPA000\4&5D18F2DF&1
+DISPLAY\ACR05E7\5&25E091D&3&11335578&04&00
+ROOT\KEYBOARD\0000
+USB\VID_0416&PID_9396\USB_DEV
+USB\VID_046D&PID_C016\5&508D21E&0&2
+USB\VID_1366&PID_0101\0055400033
+V1394\NIC1394\0BA00100
+
+Device Descriptor SCSI/RAID Host Controller
+
+Device Descriptor 隨插即用監視器
+
+Device Descriptor DameWare Virtual Keyboard Emulation for Standard Keyboard
+
+Device Descriptor USB Mass Storage Device - Drive (M:)
+
+Device Descriptor USB 人性化介面裝置 - Drive (M:)
+
+Device Descriptor J-Link driver - Drive (M:)
+
+Device Descriptor 1394 Net Adapter - Drive (M:)
+MASS STORAGE 9396 FOUNDnum = 1, Dev=M
+ Handle ID = 13c
+OK = 1.00
+Detect VCOM...Failed
+Detect IBR_MASSSTOR ... 
+Running recovery mode
+API AddPMPdevice
+ACPI\PNPA000\4&5D18F2DF&1
+DISPLAY\ACR05E7\5&25E091D&3&11335578&04&00
+ROOT\KEYBOARD\0000
+USB\VID_0416&PID_9396\USB_DEV
+USB\VID_046D&PID_C016\5&508D21E&0&2
+USB\VID_1366&PID_0101\0055400033
+V1394\NIC1394\0BA00100
+
+Device Descriptor SCSI/RAID Host Controller
+
+Device Descriptor 隨插即用監視器
+
+Device Descriptor DameWare Virtual Keyboard Emulation for Standard Keyboard
+
+Device Descriptor USB Mass Storage Device - Drive (M:)
+
+Device Descriptor USB 人性化介面裝置 - Drive (M:)
+
+Device Descriptor J-Link driver - Drive (M:)
+
+Device Descriptor 1394 Net Adapter - Drive (M:)
+MASS STORAGE 9396 FOUNDnum = 1, Dev=M
+ Handle ID = 164
+OK = 1.00
+Detect Mass Storage...(1)
+Running recovery mode OK, send commands
+Enter IBR connection
+Please reset chip and retry!

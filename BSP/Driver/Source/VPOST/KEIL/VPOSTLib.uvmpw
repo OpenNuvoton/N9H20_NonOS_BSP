@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ProjectWorkspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_mpw.xsd">
+
+  <SchemaVersion>1.0</SchemaVersion>
+
+  <Header>### uVision Project, (C) Keil Software</Header>
+
+  <WorkspaceName>WorkSpace</WorkspaceName>
+
+  <project>
+    <PathAndName>.\GIANTPLUS_GPM1006\GIANTPLUS_GPM1006.uvproj</PathAndName>
+    <NodeIsExpanded>1</NodeIsExpanded>
+  </project>
+
+  <project>
+    <PathAndName>.\TIANMA_TM022HDH31\TIANMA_TM022HDH31.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\GOWORLD_GW8973\GOWORLD_GW8973.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\FW050TFT_800x480\FW050TFT_800x480.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\FW043TFT_480x272\FW043TFT_480x272.uvproj</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
+    <NodeIsExpanded>1</NodeIsExpanded>
+  </project>
+
+</ProjectWorkspace>

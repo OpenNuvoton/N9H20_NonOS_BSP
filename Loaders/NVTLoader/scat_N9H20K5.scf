@@ -1,0 +1,42 @@
+;/******************************************************************************
+; *
+; * Copyright (c) 2009 Nuvoton Tech. Corp.
+; * All rights reserved.
+; *
+; * $Workfile: $
+; *
+; * $Author: $
+; ******************************************************************************/
+
+
+
+
+ROM_LOAD 0x800000
+{
+    ROM +0
+    {
+        wb_init.o (WB_INIT, +First)
+        anon$$obj.o
+        __main.o(!!!)
+        * (+RO)
+        * (+RW, +ZI) 
+        
+    }
+    
+    RAM 0x0
+    {
+        vectors.o(Vect, +First)  
+    }
+      
+    
+    HEAP 0x1000000 UNINIT
+    {
+        heap.o (+ZI)
+    }
+
+
+	STACK 0x1800000 UNINIT
+	{
+		stack.o (+ZI)
+	}    
+}
