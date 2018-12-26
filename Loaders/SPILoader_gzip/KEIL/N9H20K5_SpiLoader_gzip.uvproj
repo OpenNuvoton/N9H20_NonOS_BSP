@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\SpiLoader_gzip_Data\N9H20K5_GPM1006D0\</OutputDirectory>
-          <OutputName>SpiLoader_gzip_GPM1006_QVGA</OutputName>
+          <OutputName>N9H20K5_SpiLoader_gzip_GPM1006D0</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -502,7 +502,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\SpiLoader_gzip_Data\N9H20K5_NoLCM\</OutputDirectory>
-          <OutputName>SpiLoader_gzip</OutputName>
+          <OutputName>N9H20K5_SpiLoader_gzip_NoLCM</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>

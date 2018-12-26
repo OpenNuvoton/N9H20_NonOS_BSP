@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\SpiLoader_Security_gzip_Data\N9H20K3_GPM1006D0\</OutputDirectory>
-          <OutputName>N9H20K3_SpiLoader_Security_gzip_GPM</OutputName>
+          <OutputName>N9H20K3_SpiLoader(S)_gzip_GPM1006D0</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -512,7 +512,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\SpiLoader_Security_gzip_Data\N9H20K3_NoLCM\</OutputDirectory>
-          <OutputName>N9H20K3_SpiLoader_Security_gzip</OutputName>
+          <OutputName>N9H20K3_SpiLoader(S)_gzip_NoLCM</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>

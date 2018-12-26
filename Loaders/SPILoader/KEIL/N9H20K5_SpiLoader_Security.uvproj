@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\SpiLoader_Security_Data\N9H20K5_GPM1006D0\</OutputDirectory>
-          <OutputName>N9H20K5_SpiLoader_Security_GPM</OutputName>
+          <OutputName>N9H20K5_SpiLoader(S)_GPM1006D0</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -502,7 +502,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\SpiLoader_Security_Data\N9H20K5_NoLCM\</OutputDirectory>
-          <OutputName>N9H20K5_SpiLoader_Security_NoLCM</OutputName>
+          <OutputName>N9H20K5_SpiLoader(S)_NoLCM</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
