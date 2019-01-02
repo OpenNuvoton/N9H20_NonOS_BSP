@@ -110,12 +110,17 @@ halt:
 void TMR0_IRQHandler(void)
 {
     OS_TimeMS++;
-    if ( OS_TimeMS % 20 == 0 )
+}
+
+/*********************************************************************
+*
+*       TMR0_IRQHandler_TouchTask
+*/
+void TMR0_IRQHandler_TouchTask(void)
+{
+    if ( g_enable_Touch == 1 )
     {
-        if ( g_enable_Touch == 1 )
-        {
-            TouchTask();
-        }
+        TouchTask();
     }
 }
 
@@ -139,18 +144,16 @@ static void _SYS_Init(void)
     uart.uiParity = WB_PARITY_NONE;
     uart.uiRxTriggerLevel = LEVEL_1_BYTE;
     sysInitializeUART(&uart);
-    sysSetLocalInterrupt(ENABLE_FIQ_IRQ);
 
     sysEnableCache(CACHE_WRITE_BACK);
 
     /* start timer 0 */
     OS_TimeMS = 0;
 
-    sysSetTimerReferenceClock(TIMER0, u32ExtFreq);                  //External Crystal
-    sysStartTimer(TIMER0, 1000, PERIODIC_MODE);                     /* 100 ticks/per sec ==> 1tick/10ms */
-    sysSetTimerEvent(TIMER0, 1, (PVOID)TMR0_IRQHandler);        /* 1 ticks  call back */
-
-    sysSetLocalInterrupt(ENABLE_IRQ);
+    sysSetTimerReferenceClock(TIMER0, u32ExtFreq);  //External Crystal
+    sysStartTimer(TIMER0, 1000, PERIODIC_MODE);     /* 1000 ticks/per sec ==> 1tick/1ms */
+    sysSetTimerEvent(TIMER0,  1, (PVOID)TMR0_IRQHandler);           /* 1  tick   call back */
+    sysSetTimerEvent(TIMER0, 20, (PVOID)TMR0_IRQHandler_TouchTask); /* 20 ticks  call back */
 
     sysprintf("fsInitFileSystem.\n");
     fsInitFileSystem();

@@ -260,10 +260,16 @@ int ts_calibrate(int xsize, int ysize)
     for (i = 0; i < NR_COLORS; i++)
         setcolor (i, palette [i]);
 
-    put_string_center (xres / 2, yres / 4,
-                       "TSLIB calibration utility", 1);
-    put_string_center (xres / 2, yres / 4 + 20,
-                       "Touch crosshair to calibrate", 2);
+//    put_string_center (xres / 2, yres / 4,
+//                       "TSLIB calibration utility", 1);
+//    put_string_center (xres / 2, yres / 4 + 20,
+//                       "Touch crosshair to calibrate", 2);
+
+    GUI_SetColor(0xffffe080);
+    GUI_DispStringHCenterAt("TSLIB calibration utility", xres / 2, yres / 4);
+
+    GUI_SetColor(0xffffffff);
+    GUI_DispStringHCenterAt("Touch crosshair to calibrate", xres / 2, yres / 4 + 20);
 
     sysprintf("xres = %d, yres = %d\n", xres, yres);
 

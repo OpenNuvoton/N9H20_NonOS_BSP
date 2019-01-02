@@ -74,9 +74,9 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
-            <RunUserProg2>0</RunUserProg2>
+            <RunUserProg2>1</RunUserProg2>
             <UserProg1Name>fromelf.exe --bin --output "$L@L.bin" "$L@L.axf"</UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg2Name>fromelf.exe --bin --output "$P../Bin/@L.bin" "$L@L.axf"</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
           </AfterMake>
@@ -510,11 +510,6 @@
               <FileName>fbutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\fbutils.c</FilePath>
-            </File>
-            <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
             </File>
             <File>
               <FileName>testutils.c</FileName>
@@ -1206,11 +1201,6 @@
               <FilePath>..\tslib\fbutils.c</FilePath>
             </File>
             <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
-            </File>
-            <File>
               <FileName>testutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\testutils.c</FilePath>
@@ -1898,11 +1888,6 @@
               <FileName>fbutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\fbutils.c</FilePath>
-            </File>
-            <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
             </File>
             <File>
               <FileName>testutils.c</FileName>
@@ -2594,11 +2579,6 @@
               <FilePath>..\tslib\fbutils.c</FilePath>
             </File>
             <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
-            </File>
-            <File>
               <FileName>testutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\testutils.c</FilePath>
@@ -3288,11 +3268,6 @@
               <FilePath>..\tslib\fbutils.c</FilePath>
             </File>
             <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
-            </File>
-            <File>
               <FileName>testutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\testutils.c</FilePath>
@@ -3544,9 +3519,9 @@
           </BeforeMake>
           <AfterMake>
             <RunUserProg1>1</RunUserProg1>
-            <RunUserProg2>0</RunUserProg2>
+            <RunUserProg2>1</RunUserProg2>
             <UserProg1Name>fromelf.exe --bin --output "$L@L.bin" "$L@L.axf"</UserProg1Name>
-            <UserProg2Name></UserProg2Name>
+            <UserProg2Name>fromelf.exe --bin --output "$P../Bin/@L.bin" "$L@L.axf"</UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
           </AfterMake>
@@ -3980,11 +3955,6 @@
               <FileName>fbutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\fbutils.c</FilePath>
-            </File>
-            <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
             </File>
             <File>
               <FileName>testutils.c</FileName>
@@ -4676,11 +4646,6 @@
               <FilePath>..\tslib\fbutils.c</FilePath>
             </File>
             <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
-            </File>
-            <File>
               <FileName>testutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\testutils.c</FilePath>
@@ -5368,11 +5333,6 @@
               <FileName>fbutils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\tslib\fbutils.c</FilePath>
-            </File>
-            <File>
-              <FileName>font_8x8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\tslib\font_8x8.c</FilePath>
             </File>
             <File>
               <FileName>testutils.c</FileName>
