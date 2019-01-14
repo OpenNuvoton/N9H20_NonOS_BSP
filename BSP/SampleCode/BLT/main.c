@@ -25,7 +25,9 @@ static uint8_t src_pat[] = {
 
 __align (32) uint8_t txmem[SIZE_TXMEM];
 
-#define ADDR_SRCIMG         (((uint32_t) txmem))
+/* To avoid error-prone cache synchronization, the txmem for CPU and BLT operation is always
+ * non-cacheable. */
+#define ADDR_SRCIMG         (sysGetCacheState() ? (((uint32_t) txmem) | 0x80000000) : (((uint32_t) txmem)))
 #define ADDR_DISP           (ADDR_SRCIMG + SIZE_SRCIMG_BUF)
 
 #define FMT_DST             eDRVBLT_DEST_RGB565
@@ -161,17 +163,11 @@ void demo_scale(float ox, float oy, float sx, float sy, int is_tiling)
         
         bltSetDestFrameBuf(dst_img);
     }
-    
-    if (sysGetCacheState ()) {  // Flush source/destination buffers beflore Blit operation.
-        sysFlushCache(I_D_CACHE);
-    }
-    
+
+    /* We assume txmem for CPU and BLT is non-cacheable, so we needn't do any cache-related
+     * synchronization. */
     bltTrigger();   // Trigger Blit operation.  
-    bltFlush(); // Wait for complete.
-        
-    if (sysGetCacheState ()) {  // Invalidate CPU cache.
-        sysInvalidCache ();
-    }
+    bltFlush();     // Wait for complete.
 }
 
 #define PI_OVER_180 0.01745329252f
@@ -279,13 +275,11 @@ void demo_rotate(float ox, float oy, float deg)
     if (sysGetCacheState ()) {  // Flush source/destination buffers beflore Blit operation.
         sysFlushCache(I_D_CACHE);
     }
-    
+
+    /* We assume txmem for CPU and BLT is non-cacheable, so we needn't do any cache-related
+     * synchronization. */
     bltTrigger();   // Trigger Blit operation.  
-    bltFlush(); // Wait for complete.
-        
-    if (sysGetCacheState ()) {  // Invalidate CPU cache.
-        sysInvalidCache ();
-    }
+    bltFlush();     // Wait for complete.
 }
 
 /**
@@ -389,17 +383,11 @@ void demo_reflect(float ox, float oy, int mx, int my)
         
         bltSetDestFrameBuf(dst_img);
     }
-    
-    if (sysGetCacheState ()) {  // Flush source/destination buffers beflore Blit operation.
-        sysFlushCache(I_D_CACHE);
-    }
-    
+
+    /* We assume txmem for CPU and BLT is non-cacheable, so we needn't do any cache-related
+     * synchronization. */
     bltTrigger();   // Trigger Blit operation.  
-    bltFlush(); // Wait for complete.
-        
-    if (sysGetCacheState ()) {  // Invalidate CPU cache.
-        sysInvalidCache ();
-    }
+    bltFlush();     // Wait for complete.
 }
 
 void demo_alpha(float ox, float oy, float alpha)
@@ -468,17 +456,11 @@ void demo_alpha(float ox, float oy, float alpha)
         
         bltSetDestFrameBuf(dst_img);
     }
-    
-    if (sysGetCacheState ()) {  // Flush source/destination buffers beflore Blit operation.
-        sysFlushCache(I_D_CACHE);
-    }
-    
+
+    /* We assume txmem for CPU and BLT is non-cacheable, so we needn't do any cache-related
+     * synchronization. */
     bltTrigger();   // Trigger Blit operation.  
-    bltFlush(); // Wait for complete.
-        
-    if (sysGetCacheState ()) {  // Invalidate CPU cache.
-        sysInvalidCache ();
-    }
+    bltFlush();     // Wait for complete.
 }
 
 int main()
