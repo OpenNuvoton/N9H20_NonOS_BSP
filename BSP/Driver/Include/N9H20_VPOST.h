@@ -53,7 +53,7 @@
 // Frame buffer data selection
 #define DRVVPOST_FRAME_RGB555     0x0   // RGB555
 #define DRVVPOST_FRAME_RGB565     0x1   // RGB565
-#define DRVVPOST_FRAME_RGBx888    0x2   // Dummy+B888
+#define DRVVPOST_FRAME_RGBx888    0x2   // Dummy+888
 #define DRVVPOST_FRAME_RGB888x    0x3   // 888+Dummy
 #define DRVVPOST_FRAME_CBYCRY     0x4   // Cb0  Y0  Cr0  Y1
 #define DRVVPOST_FRAME_YCBYCR     0x5   // Y0  Cb0  Y1  Cr0
