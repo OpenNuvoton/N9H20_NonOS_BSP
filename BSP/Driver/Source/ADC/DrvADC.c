@@ -619,8 +619,8 @@ void printlist(UINT16 list[],int n)
 {   
 	int i; 
 	for(i=0;i<n;i++) 	   
-		sysprintf("%d\t",list[i]); 
-	sysprintf("\n");
+		DBG_PRINTF("%d\t",list[i]); 
+	DBG_PRINTF("\n");
 } 
 /*-----------------------------------------------------------------------------------------------------------
 	Function adc_read.
@@ -748,7 +748,7 @@ int adc_read(unsigned char mode, unsigned short *x, unsigned short *y)
 			if(DrvADC_IsPenDown()==FALSE)
 #endif		
 			{
-				sysprintf("Library Pen up\n");	
+				DBG_PRINTF("Library Pen up\n");	
 				return 0;	//Means pen up.
 			}	
 			else
