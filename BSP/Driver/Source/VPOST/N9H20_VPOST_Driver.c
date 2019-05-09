@@ -302,6 +302,81 @@ VOID vpostSetDataBusPin(E_DRVVPOST_DATABUS eDataBus)
 	}
 }
 
+VOID vpostSetDataBusPin_noDE(E_DRVVPOST_DATABUS eDataBus)
+{
+
+	if (eDataBus == eDRVVPOST_DATA_8BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0x0000FFFF);		// enable LVDATA[7:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x003C0000);		// enable HSYNC/VSYNC pins
+	}
+	else if (eDataBus == eDRVVPOST_DATA_9BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0x0003FFFF);		// enable LVDATA[8:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x003C0000);		// enable HSYNC/VSYNC pins
+	}
+	else if (eDataBus == eDRVVPOST_DATA_16BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0xFFFFFFFF);		// enable LVDATA[15:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x003C0000);		// enable HSYNC/VSYNC pins
+	}
+	else if (eDataBus == eDRVVPOST_DATA_18BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0xFFFFFFFF);		// enable LVDATA[15:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x003C0000);		// enable HSYNC/VSYNC pins
+		outpw(REG_GPEFUN, inpw(REG_GPEFUN) | 0x0000000F);		// enable LVDATA[17:16] pins		
+	}
+	else if (eDataBus == eDRVVPOST_DATA_24BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0xFFFFFFFF);		// enable LVDATA[15:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x003C0000);		// enable HSYNC/VSYNC pins
+		outpw(REG_GPEFUN, inpw(REG_GPEFUN) | 0x0000000F);		// enable LVDATA[17:16] pins
+		outpw(REG_GPBFUN, (inpw(REG_GPBFUN) & (~0x03FFC000)) | 0x02AA8000);	// enable LVDATA[23:18] pins	
+	}
+}
+
+VOID vpostSetDataBusPin_onlyDE(E_DRVVPOST_DATABUS eDataBus)
+{
+
+	if (eDataBus == eDRVVPOST_DATA_8BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0x0000FFFF);		// enable LVDATA[7:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x00C00000);		// enable VDEN pin
+	}
+	else if (eDataBus == eDRVVPOST_DATA_9BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0x0003FFFF);		// enable LVDATA[8:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x00C00000);		// enable VDEN pin
+	}
+	else if (eDataBus == eDRVVPOST_DATA_16BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0xFFFFFFFF);		// enable LVDATA[15:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x00C00000);		// enable VDEN pin
+	}
+	else if (eDataBus == eDRVVPOST_DATA_18BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0xFFFFFFFF);		// enable LVDATA[15:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x00C00000);		// enable VDEN pin
+		outpw(REG_GPEFUN, inpw(REG_GPEFUN) | 0x0000000F);		// enable LVDATA[17:16] pins		
+	}
+	else if (eDataBus == eDRVVPOST_DATA_24BITS)
+	{
+		outpw(REG_GPBFUN, inpw(REG_GPBFUN) | 0xC0000000);		// enable LPCLK pin
+		outpw(REG_GPCFUN, inpw(REG_GPCFUN) | 0xFFFFFFFF);		// enable LVDATA[15:0] pins
+		outpw(REG_GPDFUN, inpw(REG_GPDFUN) | 0x00C00000);		// enable VDEN pin
+		outpw(REG_GPEFUN, inpw(REG_GPEFUN) | 0x0000000F);		// enable LVDATA[17:16] pins
+		outpw(REG_GPBFUN, (inpw(REG_GPBFUN) & (~0x03FFC000)) | 0x02AA8000);	// enable LVDATA[23:18] pins	
+	}
+}
 // only for Sync LCM timing async with TV 
 VOID vpostSetSyncLCM_HTiming
 (
@@ -597,7 +672,6 @@ VOID vpostSetMPULCM_BusModeSelect
 } // vpostSetMPULCM_BusModeSelect
 
 #if 1
-//void vpostSetOSD_Enable(void)
 void vpostSetOSD_Enable(void)
 {
 	outp32(REG_LCM_OSD_CTL, inp32(REG_LCM_OSD_CTL) |  OSD_CTL_OSD_EN);

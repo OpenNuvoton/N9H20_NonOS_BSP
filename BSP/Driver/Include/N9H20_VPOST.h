@@ -41,6 +41,8 @@
 #include "wbio.h"
 #include "wblib.h"
 
+//#define PRINTF(...)
+#define PRINTF	sysprintf
 
 #define LCM_ERR_ID				0xFFF06000	/* LCM library ID */
 
@@ -114,6 +116,7 @@
 #define DRVVPOST_LCD_STNCTYPE_STN    0x2  // Sync-type Color STN LCD
 #define DRVVPOST_LCD_MPUTYPE         0x3  // MPU-type LCD
 
+#define OPT_MAXIMUM_LCM_REG		256
 // LCD information structure
 typedef struct
 {
@@ -171,7 +174,7 @@ typedef enum {
 											} E_DRVVPOST_8BIT_SYNCLCM_INTERFACE;
 
 typedef enum {
-				eDRVVPOST_CCIR656_360 = 0,	// CCIR656 320 mode
+				eDRVVPOST_CCIR656_360 = 0,	// CCIR656 360 mode
 				eDRVVPOST_CCIR656_320 		// CCIR656 320 mode
 											} E_DRVVPOST_CCIR656_MODE;
 
@@ -258,7 +261,7 @@ typedef struct {
 				BOOL bIsVsyncActiveLow;		// Vsync polarity
 				BOOL bIsHsyncActiveLow;		// Hsync polarity
 				BOOL bIsVDenActiveLow;		// VDEN polarity				
-				BOOL bIsDClockRisingEdge;		// VDEN polarity								
+				BOOL bIsDClockRisingEdge;	// pixel clock polarity								
 											} S_DRVVPOST_SYNCLCM_POLARITY;
 
 // for MVsync & FrameMark signal
@@ -287,6 +290,198 @@ typedef struct {
 				S_DRVVPOST_MPULCM_TIMING*	psTiming;
 				
 												} S_DRVVPOST_MPULCM_CTRL;
+
+#if 1
+#define DRVVPOST_CLK_LOW			 0x0  		// clock active low
+#define DRVVPOST_CLK_HIGH		     0x1  		// clock active high
+
+#define DRVVPOST_REG_NO_INDEX		0xFFCC	 	// need not send RegIndex for LCD register setting
+#define DRVVPOST_REG_NO_DATA		0xFFCD	 	// need not send RegData for LCD register setting
+#define DRVVPOST_REG_DELAY			0xFFDD	 	// delay (ms) ID for LCD register setting
+//#define DRVVPOST_REG_END			0xFFFF	 	// end ID for LCD register setting
+
+typedef enum {
+				eDRVVPOST_SPI = 0,		
+				eDRVVPOST_I2C,
+				eDRVVPOST_NONE
+											} E_DRVVPOST_CONFIG_INTERFACE;
+
+typedef struct {
+				UINT32	u32PixelPerLine;
+				UINT32	u32LinePerPanel;
+											} S_DRVVPOST_LCM_WINDOW;
+											
+typedef enum {
+				eDRVVPOST_GPA = 0,		
+				eDRVVPOST_GPB,
+				eDRVVPOST_GPC,
+				eDRVVPOST_GPD,
+				eDRVVPOST_GPE,
+				eDRVVPOST_GPF,
+				eDRVVPOST_GPG,
+				eDRVVPOST_GPH
+											} E_DRVVPOST_PORT_SELECT;
+
+typedef enum {
+				eDRVVPOST_PIN_0 = 0,		
+				eDRVVPOST_PIN_1,
+				eDRVVPOST_PIN_2,
+				eDRVVPOST_PIN_3,
+				eDRVVPOST_PIN_4,
+				eDRVVPOST_PIN_5,
+				eDRVVPOST_PIN_6,
+				eDRVVPOST_PIN_7,
+				eDRVVPOST_PIN_8,
+				eDRVVPOST_PIN_9,
+				eDRVVPOST_PIN_10,
+				eDRVVPOST_PIN_11,
+				eDRVVPOST_PIN_12,
+				eDRVVPOST_PIN_13,
+				eDRVVPOST_PIN_14,
+				eDRVVPOST_PIN_15
+											} E_DRVVPOST_PIN_SELECT;
+
+typedef struct {
+				UINT32	u32RegIndex;		// regsiter index
+				UINT32	u32RegData;			// register data
+											} S_DRVVPOST_LCM_REG;
+
+typedef enum {
+				eDRVVPOST_PIN_LOW = 0,		
+				eDRVVPOST_PIN_HI
+											} E_DRVVPOST_PIN_STATE;
+typedef enum {
+             eDRVVPOST_SPI_RW_ADDR_DATA = 0,
+             eDRVVPOST_SPI_ADDR_RW_DATA,
+             eDRVVPOST_SPI_RESERVED
+                       } E_DRVVPOST_SPI_TYPE;
+											
+typedef struct {
+				E_DRVVPOST_PORT_SELECT	eCSPort;			// CS port	
+				E_DRVVPOST_PIN_SELECT	eCSPin;				// CS pin
+				E_DRVVPOST_PORT_SELECT	eClkPort;			// clock port	
+				E_DRVVPOST_PIN_SELECT	eClkPin;			// clock pin				
+				E_DRVVPOST_PORT_SELECT	eDataPort;			// data port	
+				E_DRVVPOST_PIN_SELECT	eDataPin;			// data pin
+				E_DRVVPOST_SPI_TYPE		eSpiType;			// reserved
+				UINT8	u8RegIndexWidth;					// regsiter index width, 8/16/24
+				UINT8	u8RegDataWidth;						// regsiter data width, 8/16/24
+											} S_DRVVPOST_SPI_CONFIGURE;
+
+typedef struct {
+				UINT8	u8I2C_ID;							// I2C ID address
+				E_DRVVPOST_PORT_SELECT	eClkPort;			// clock port	
+				E_DRVVPOST_PIN_SELECT	eClkPin;			// clock pin				
+				E_DRVVPOST_PORT_SELECT	eDataPort;			// data port	
+				E_DRVVPOST_PIN_SELECT	eDataPin;			// data pin
+				UINT8	u8RegIndexWidth;					// regsiter index width, 8/16/24
+				UINT8	u8RegDataWidth;						// regsiter data width, 8/16/24
+											} S_DRVVPOST_I2C_CONFIGURE;
+
+typedef struct {
+				E_DRVVPOST_CONFIG_INTERFACE eInterface;		// SPI, I2C or don't configure (eDRVVPOST_NONE)
+				S_DRVVPOST_SPI_CONFIGURE* psSpiConfig;		// SPI configuration
+				S_DRVVPOST_I2C_CONFIGURE* psI2cConfig;		// I2C configuration
+				S_DRVVPOST_LCM_REG* psLcmReg;				// LCM regsiter table
+				UINT32	u32RegNum;							// total regsiters number
+											} S_DRVVPOST_CONFIGURE;
+
+typedef struct {
+				BOOL	bDoNeedEnaPort;						// check whether need to control backlight ENA pin
+				E_DRVVPOST_PORT_SELECT	eEnaPort;			// CS port	
+				E_DRVVPOST_PIN_SELECT	eEnaPin;			// CS pin
+				E_DRVVPOST_PIN_STATE	eEnaStae;
+				BOOL	bDoNeedPWMPort;						// check whether need to control backlight PWM pin
+				E_DRVVPOST_PORT_SELECT	ePWMPort;			// clock port	
+				E_DRVVPOST_PIN_SELECT	ePWMPin;			// clock pin
+				E_DRVVPOST_PIN_STATE	ePWMState;				
+											} S_DRVVPOST_BACKLIGHT_CTRL;
+											
+typedef struct {
+				BOOL	bDoNeedReset;						// check whether need to reset LCM
+				E_DRVVPOST_PORT_SELECT	eResetPort;			// RESET port	
+				E_DRVVPOST_PIN_SELECT	eResetPin;			// RESET pin
+				E_DRVVPOST_PIN_STATE	eResetStae;
+											} S_DRVVPOST_RESET_CTRL;
+											
+typedef struct {
+				BOOL bHClock;				// Hsync polarity
+				BOOL bVClock;				// Vsync polarity
+				BOOL bVDenClock;			// VDEN polarity				
+				BOOL bPixelClock;			// pixel clock polarity
+											} S_DRVVPOST_CLK_POLARITY;
+
+typedef enum {
+				eDRVVPOST_RGB565 = 0,
+				eDRVVPOST_RGB666,
+				eDRVVPOST_RGB888,
+				eDRVVPOST_CCIR601,
+				eDRVVPOST_RGBDummy,
+				eDRVVPOST_CCIR656,
+				eDRVVPOST_RGBThrough
+											} E_DRVVPOST_SYNCLCM_INTERFACE;
+
+typedef enum {
+				eDRVVPOST_HSYNC_VSYNC_DE = 0,	// LCM needs Hsync, Vsync and DE pins.
+				eDRVVPOST_HSYNC_VSYNC_ONLY,		// LCM only needs Hsync and Vsync pins
+				eDRVVPOST_DE_ONLY				// LCM only needs DE pin
+											} E_DRVVPOST_HSYNC_VSYNC_DE_MODE;
+
+typedef struct {
+				UINT32	u32BufAddr;			// buffer starting address
+				UINT16  u16HSize;			// pixel number per line
+				UINT16  u16VSize;    		// lines number per screen
+				UINT32	u32PixClock;		// pixel clock freq (KHz), for example, 9000 (9MHz)
+				E_DRVVPOST_FRAME_DATA_TYPE	eDataFormat;	// eDRVVPOST_FRAME_RGB555, ...
+				S_DRVVPOST_SYNCLCM_HTIMING* psHTiming;		// {H_sync. H_BackPorch, H_FrontPorch}
+				S_DRVVPOST_SYNCLCM_VTIMING* psVTiming;		// {V_sync. V_BackPorch, V_FrontPorch}
+				S_DRVVPOST_CLK_POLARITY* psClockPolarity;
+				E_DRVVPOST_SYNCLCM_INTERFACE eSyncInterface;// eDRVVPOST_CCIR601, ...
+				BOOL	bDoNeedConfigLcm;					// check whether need to configure LCM internal registers
+				S_DRVVPOST_CONFIGURE*		psConfig;		// configure LCM related registers
+				BOOL	bDoNeedCtrlBacklight;				// check whether need to control LCM backlight
+				S_DRVVPOST_BACKLIGHT_CTRL*	psBacklight;	// control LCM backlight
+				S_DRVVPOST_RESET_CTRL*		psReset;		// control Reset pin
+				E_DRVVPOST_HSYNC_VSYNC_DE_MODE eHVDeMode;	// Hsync, Vsync and DE pins selection
+									} S_DRVVPOST_SYNCLCM_INIT;
+
+typedef struct {
+				UINT32	u32BufAddr;			// buffer starting address
+				UINT16  u16HSize;			// pixel number per line
+				UINT16  u16VSize;    		// lines number per screen
+				UINT32	u32PixClock;		// pixel clock freq (KHz), for example, 9000 (9MHz)
+				E_DRVVPOST_FRAME_DATA_TYPE	eDataFormat;	// eDRVVPOST_FRAME_RGB555, ...
+				E_DRVVPOST_MPULCM_DATABUS	eBusType;		// MPU data bus type, 8+8, 16+0, ...
+				BOOL	bDoNeedCtrlBacklight;				// check whether need to control LCM backlight
+				S_DRVVPOST_BACKLIGHT_CTRL*	psBacklight;	// control LCM backlight
+				S_DRVVPOST_RESET_CTRL*		psReset;		// control Reset pin	
+	
+				S_DRVVPOST_LCM_REG* psLcmReg;				// LCM regsiter table
+				UINT32	u32RegNum;							// total regsiters number
+
+									} S_DRVVPOST_MPULCM_INIT;
+
+typedef enum {
+				eDRVVPOST_LCM_TYPE_OFFSET = 0,
+				eDRVVPOST_RESOLUTION_OFFSET = 1,
+				eDRVVPOST_CLOCK_FREQ_OFFSET = 3,
+				eDRVVPOST_DATA_TYPE_OFFSET = 4,
+				eDRVVPOST_HTIMING_OFFSET = 5,
+				eDRVVPOST_VTIMING_OFFSET = 8,
+				eDRVVPOST_SYNC_INTERFACE_OFFSET = 9,
+				eDRVVPOST_MPU_INTERFACE_OFFSET = 10,
+				eDRVVPOST_POLARITY_OFFSET = 11,
+				eDRVVPOST_CONFIG_INTERFACE_OFFSET = 12,
+				eDRVVPOST_SPI_CONFIG_OFFSET = 13,
+				eDRVVPOST_I2C_CONFIG_OFFSET = 16,
+				eDRVVPOST_BACKLIGHT_CTRL_OFFSET = 18,
+				eDRVVPOST_RESET_CTRL_OFFSET = 20,
+				eDRVVPOST_HSYNC_VSYNC_DE_OFFSET = 21,
+				eDRVVPOST_REG_NUM_OFFSET = 22,
+				eDRVVPOST_REG_OFFSET = 23
+									} E_DRVVPOST_INIT_OFFSET;
+											
+#endif												
 
 typedef struct 
 {
@@ -371,6 +566,9 @@ void vpostSetOSD_Transparent_Enable(void);
 void vpostSetOSD_Transparent_Disable(void);
 int vpostSetOSD_Transparent(E_DRVVPOST_OSD_TRANSPARENT_DATA_TYPE eType, UINT32 u32Pattern);
 void vpostSetOSD_BaseAddress(UINT32 u32BaseAddress);
+void N9HxxLCMInit(UINT32* Vpost_Frame, UINT8* Lcm_Data);
+void vpostSyncLCMInit(S_DRVVPOST_SYNCLCM_INIT* pLCM);
+void vpostMpuLCMInit(S_DRVVPOST_MPULCM_INIT* pMpuLCM);
 							
 #endif   /* _N9H20_VPOST_H_  */
 

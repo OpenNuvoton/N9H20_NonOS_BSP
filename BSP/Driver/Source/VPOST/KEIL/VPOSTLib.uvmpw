@@ -9,7 +9,6 @@
 
   <project>
     <PathAndName>.\GIANTPLUS_GPM1006\GIANTPLUS_GPM1006.uvproj</PathAndName>
-    <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
   <project>
@@ -18,6 +17,7 @@
 
   <project>
     <PathAndName>.\GOWORLD_GW8973\GOWORLD_GW8973.uvproj</PathAndName>
+    <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
   <project>
@@ -26,6 +26,11 @@
 
   <project>
     <PathAndName>.\FW043TFT_480x272\FW043TFT_480x272.uvproj</PathAndName>
+    <NodeIsExpanded>1</NodeIsExpanded>
+  </project>
+
+  <project>
+    <PathAndName>.\SYNC_MPU_LCM\SYNC_MPU_LCM.uvproj</PathAndName>
     <NodeIsActive>1</NodeIsActive>
     <NodeIsExpanded>1</NodeIsExpanded>
   </project>

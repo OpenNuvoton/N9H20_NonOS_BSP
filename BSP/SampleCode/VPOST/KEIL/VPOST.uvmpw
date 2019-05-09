@@ -9,17 +9,19 @@
 
   <project>
     <PathAndName>.\VPOST_N9H20_GIANTPLUS_GPM1006D.uvproj</PathAndName>
-    <NodeIsActive>1</NodeIsActive>
-    <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
   <project>
     <PathAndName>.\VPOST_N9H20_FW043TFT_480x272.uvproj</PathAndName>
-    <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
   <project>
     <PathAndName>.\VPOST_N9H20_FW050TFT_800x480.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\VPOST_N9H20_LCM.uvproj</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
     <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
