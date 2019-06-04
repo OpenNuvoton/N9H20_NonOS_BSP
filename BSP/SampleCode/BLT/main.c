@@ -4,6 +4,21 @@
 #include <math.h>
 #include "N9H20.h"
 
+/* Convert a token into string */
+#ifndef NU_STRINGIFY
+#define NU_STRINGIFY(a) NU_STRINGIFY_(a)
+#define NU_STRINGIFY_(a) #a
+#endif
+
+/* Declare a variable to be aligned on an N-byte boundary */
+#ifndef NU_ALIGN
+#if defined(__ICCARM__)
+#define NU_ALIGN(N) _Pragma(NU_STRINGIFY(data_alignment=N))
+#else
+#define NU_ALIGN(N) __attribute__((aligned(N)))
+#endif
+#endif
+
 static uint8_t src_pat[] = {
 #include "Pat_RGB888_size160x120.txt"
 };
@@ -23,7 +38,7 @@ static uint8_t src_pat[] = {
 
 #define SIZE_TXMEM          (SIZE_SRCIMG_BUF + SIZE_DISP_BUF)
 
-__align (32) uint8_t txmem[SIZE_TXMEM];
+NU_ALIGN(32) uint8_t txmem[SIZE_TXMEM];
 
 /* To avoid error-prone cache synchronization, the txmem for CPU and BLT operation is always
  * non-cacheable. */
