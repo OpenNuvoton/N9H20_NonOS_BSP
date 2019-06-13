@@ -38,7 +38,12 @@
 UINT32 _fmi_uR3_CMD=0;
 UINT32 _fmi_uR7_CMD=0;
 
-__align(4096) UCHAR _fmi_ucSDHCBuffer[512];
+#if defined (__GNUC__)
+    UCHAR _fmi_ucSDHCBuffer[512] __attribute__((aligned (4096)));
+#else
+    __align(4096) UCHAR _fmi_ucSDHCBuffer[512];
+#endif
+
 UINT8 *_fmi_pSDHCBuffer;
 
 //--- 2014/3/27, check the sector number is valid or not for current SD card.

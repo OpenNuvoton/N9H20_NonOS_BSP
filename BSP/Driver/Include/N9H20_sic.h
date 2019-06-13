@@ -164,6 +164,10 @@ INT nand_chip_erase1(void);
 
 
 /* Declare callback function in waiting loop of SD driver */
-__weak void schedule(void);
+#if defined (__GNUC__)
+    __attribute__((weak)) void schedule(void);
+#else
+    __weak void schedule(void);
+#endif
 
 #endif //_FMILIB_H_

@@ -237,19 +237,19 @@ INT  fmiSD_CardSel(INT cardSel)
 {
     if (cardSel==0)
     {
-        outpw(REG_GPEFUN, inpw(REG_GPEFUN)&(~0x0000FFF0) | 0x0000aaa0); // SD0_CLK/CMD/DAT0_3 pins selected
+        outpw(REG_GPEFUN, (inpw(REG_GPEFUN)&(~0x0000FFF0)) | 0x0000aaa0); // SD0_CLK/CMD/DAT0_3 pins selected
         outpw(REG_SDCR, inpw(REG_SDCR) & (~SDCR_SDPORT));               // SD_0 port selected
     }
     else if (cardSel==1)
     {
-        outpw(REG_GPBFUN, inpw(REG_GPBFUN)&(~0x00000FFF) | 0x00000AAA); // SD1_CLK_CMD_DAT0_3 pins selected
-        outpw(REG_SDCR, inpw(REG_SDCR) & (~0x60000000) | 0x20000000);   // SD_1 port selected
+        outpw(REG_GPBFUN, (inpw(REG_GPBFUN)&(~0x00000FFF)) | 0x00000AAA); // SD1_CLK_CMD_DAT0_3 pins selected
+        outpw(REG_SDCR, (inpw(REG_SDCR) & (~0x60000000)) | 0x20000000);   // SD_1 port selected
     }
     else if (cardSel==2)
     {
-        outpw(REG_GPEFUN, inpw(REG_GPEFUN)&(~0x000F0000) | 0x00050000); // SD2_DAT0_1 pins selected
-        outpw(REG_GPDFUN, inpw(REG_GPDFUN)&(~0x0003FC00) | 0x00015400); // SD2_CLK/CMD/DAT2_3 pins selected
-        outpw(REG_SDCR, inpw(REG_SDCR) & (~0x60000000) | 0x40000000);   // SD_2 port selected
+        outpw(REG_GPEFUN, (inpw(REG_GPEFUN)&(~0x000F0000)) | 0x00050000); // SD2_DAT0_1 pins selected
+        outpw(REG_GPDFUN, (inpw(REG_GPDFUN)&(~0x0003FC00)) | 0x00015400); // SD2_CLK/CMD/DAT2_3 pins selected
+        outpw(REG_SDCR, (inpw(REG_SDCR) & (~0x60000000)) | 0x40000000);   // SD_2 port selected
     }
     else
         return 1;   // wrong SD card select

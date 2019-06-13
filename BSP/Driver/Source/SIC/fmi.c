@@ -25,6 +25,12 @@ cyg_interrupt  /* dmac_interrupt, */ fmi_interrupt;
 cyg_handle_t   /* dmac_interrupt_handle, */ fmi_interrupt_handle;
 #endif
 
+#if defined (__GNUC__)
+    #ifdef NULL
+        #undef NULL
+    #endif
+    #define NULL ((void *)0)
+#endif
 
 // global variable
 UINT32 _fmi_uFMIReferenceClock;
@@ -34,11 +40,12 @@ typedef void (*fmi_pvFunPtr)();   /* function pointer */
 void (*fmiSD0RemoveFun)() = NULL;
 void (*fmiSD0InsertFun)() = NULL;
 
-extern PDISK_T *pDisk_SD0;
-extern PDISK_T *pDisk_SD1;
-extern PDISK_T *pDisk_SD2;
-
 #ifdef _SIC_USE_INT_
+
+extern PDISK_T *pDisk_SD0;
+//extern PDISK_T *pDisk_SD1;
+//extern PDISK_T *pDisk_SD2;
+
 #ifdef ECOS
 static cyg_uint32 fmiIntHandler(cyg_vector_t vector, cyg_addrword_t data)
 #else

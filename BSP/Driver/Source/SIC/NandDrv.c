@@ -38,10 +38,17 @@
 #endif
 
 BOOL volatile _fmi_bIsNandFirstAccess = TRUE;
-extern BOOL volatile _fmi_bIsSMDataReady;
+#ifdef _SIC_USE_INT_
+    extern BOOL volatile _fmi_bIsSMDataReady;
+#endif
 INT fmiSMCheckBootHeader(INT chipSel, FMI_SM_INFO_T *pSM);
 static int _nand_init0 = 0, _nand_init1 = 0;
-__align(4096) UCHAR _fmi_ucSMBuffer[4096];
+
+#if defined (__GNUC__)
+    UCHAR _fmi_ucSMBuffer[4096] __attribute__((aligned (4096)));
+#else
+    __align(4096) UCHAR _fmi_ucSMBuffer[4096];
+#endif
 
 UINT8 *_fmi_pSMBuffer;
 
@@ -2807,7 +2814,10 @@ static INT sicSM_is_page_dirty(INT chipSel, INT PBA, INT page)
 
     data0 = inpw(REG_SMDATA);
     data1 = inpw(REG_SMDATA);
+#if defined (__GNUC__)
+#else
     data1 = data1;      // avoid compile warning message
+#endif
 
     if (pSM->nPageSize == NAND_PAGE_512B)
         fmiSM_Reset(pSM);

@@ -388,7 +388,9 @@ VOID    sysCheckPllConstraint(BOOL bIsCheck);
 INT32   sysPowerDownPLL(E_SYS_SRC_CLK eSrcClk, BOOL bIsPowerDown);
 VOID    sysPowerDownPLLDuringSysPowerDown(BOOL bIsPowerDownPLL);
 
-
+#if defined (__GNUC__)
+unsigned char * _sbrk ( int incr );
+#endif
 
 #ifdef __cplusplus
 }

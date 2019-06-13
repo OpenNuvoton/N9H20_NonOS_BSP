@@ -35,9 +35,9 @@
 #include "wbtypes.h"
 #endif
 
-
+#ifndef  LITTLE_ENDIAN
 #define LITTLE_ENDIAN
-
+#endif
 
 #define outpb(port,value)     (*((UINT8 volatile *) (port))=value)
 #define inpb(port)            (*((UINT8 volatile *) (port)))
