@@ -24,7 +24,8 @@ BOOL volatile g_bPowerKeyPress = FALSE;
 #define SW_POWER_OFF	1
 #define SYSTEM_CLOCK	12000000
 
-__align(32) UINT8 u32Array[1024*1024];
+UINT8 u32Array[1024*1024] __attribute__((aligned(4)));
+
 /*--------------------------------------------------------------------------------------------------------*
  *                                                                                                        *
  *  Wake up source                                                                                        *

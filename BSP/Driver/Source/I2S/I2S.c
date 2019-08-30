@@ -5,7 +5,7 @@
  ****************************************************************/
 
 #include "wblib.h"
-#include "n9h20_i2s.h"
+#include "N9H20_I2S.h"
 
 PFN_DRVI2S_CB_FUNC 	*g_pfnRecordCallBack;
 PFN_DRVI2S_CB_FUNC 	*g_pfnPlayCallBack;	

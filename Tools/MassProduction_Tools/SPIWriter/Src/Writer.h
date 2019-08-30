@@ -14,11 +14,11 @@
 
 //#define __DEBUG__
 
-#ifdef __DEBUG__
-  #define PRINTF sysprintf
-#else
-  #define PRINTF(...)
-#endif
+//#ifdef __DEBUG__
+//  #define PRINTF sysprintf
+//#else
+//  #define PRINTF(...)
+//#endif
 
 extern UINT	g_Font_Height, g_Font_Width, g_Font_Step;
 

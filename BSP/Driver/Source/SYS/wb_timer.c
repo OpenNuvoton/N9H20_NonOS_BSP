@@ -113,7 +113,7 @@ VOID sysTimerISR()
 	{
 		_sys_uTimer1Count++;
 		outpw(REG_TISR, 0x02); /* clear TIF0 */
-		if (_sys_uTimer0Count >= 0xfffffff)
+		if (_sys_uTimer1Count >= 0xfffffff)
 		  	_sys_uTimer1Count = 0;
 
 		if (_sys_bIsSetTime1Event)

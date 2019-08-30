@@ -167,11 +167,13 @@ int main( void )
 
 	sysprintf("start the FreeRTOS demo\n");
 
+#if 1
 	/* Start the demo/test application tasks. */
 	vStartPolledQueueTasks( mainQUEUE_POLL_PRIORITY );
 	vStartBlockingQueueTasks( mainBLOCK_Q_PRIORITY );
 	vStartSemaphoreTasks( mainSEM_TEST_PRIORITY );
 	vStartDynamicPriorityTasks();
+#endif
 
 	vStartBltTasks( mainBLT_TASK_PRIORITY );
 

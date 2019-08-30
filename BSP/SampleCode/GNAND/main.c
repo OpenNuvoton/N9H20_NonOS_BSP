@@ -46,8 +46,15 @@ NDISK_T MassNDisk1;
 #define SECTOR_SIZE         512
 #define SECTOR_MAX_COUNT    1024
 #define BUF_SIZE    (SECTOR_SIZE * SECTOR_MAX_COUNT)
-__align (32) UINT8 g_ram0[BUF_SIZE];
-__align (32) UINT8 g_ram1[BUF_SIZE];
+
+#if defined (__GNUC__)
+    UINT8 g_ram0[BUF_SIZE] __attribute__((aligned (32)));
+    UINT8 g_ram1[BUF_SIZE] __attribute__((aligned (32)));
+#else
+    __align (32) UINT8 g_ram0[BUF_SIZE];
+    __align (32) UINT8 g_ram1[BUF_SIZE];
+#endif
+
 UINT8 *ptr_g_ram0;
 UINT8 *ptr_g_ram1;
 
@@ -310,11 +317,6 @@ int main(void)
 {
     UINT32  u32Item, u32Item2;
 
-    init_UART();
-    init_timer();
-
-    sysprintf("\n=====> N9H20 Non-OS GNAND Library Sampe Code [tick %d] <=====\n", sysGetTicks(0));
-
     ptr_g_ram0 = (UINT8 *)((UINT32)g_ram0 | 0x80000000);    // non-cache
     ptr_g_ram1 = (UINT8 *)((UINT32)g_ram1 | 0x80000000);    // non-cache
 
@@ -322,6 +324,10 @@ int main(void)
     sysDisableCache();
     sysFlushCache(I_D_CACHE);
     sysEnableCache(CACHE_WRITE_BACK);
+
+    init_UART();
+    init_timer();
+    sysprintf("\n=====> N9H20 Non-OS GNAND Library Sample Code [tick %d] <=====\n", sysGetTicks(0));
     DBG_PRINTF("    ** enable cache to CACHE_WRITE_BACK mode.\n");
 
     //--- initialize SIC/FMI

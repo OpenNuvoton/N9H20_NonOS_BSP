@@ -3,10 +3,18 @@
 #include <string.h>
 #include "N9H20.h"
 
+#if defined(__GNUC__)
+__attribute__((aligned(32))) UINT8 DestBuffer[320*240*2];
+#else
 __align(32) UINT8 DestBuffer[320*240*2];
+#endif
 #define	DEST_ADDR	((UINT32)DestBuffer | NON_CACHE_BIT)
 
+#if defined(__GNUC__)
+extern __attribute__((aligned(32))) UINT8 LoadAddr[];
+#else
 extern __align(32) UINT8 LoadAddr[];
+#endif
 extern LCDFORMATEX lcdFormat;
 
 INT32 g_VdmaCh = 0;

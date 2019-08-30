@@ -43,7 +43,7 @@ Purpose     : Display controller configuration (single layer)
 
 #include "GUI.h"
 #include "GUIDRV_Lin.h"
-#include "LCDconf.h"
+#include "LCDConf.h"
 #include "N9H20.h"
 #include "N9H20TouchPanel.h"
 

@@ -35,14 +35,13 @@
  **************************************************************************/
 #include "stdio.h"
 #include "stdlib.h"
-#include "N9H20_vpost.h"
+#include "N9H20_VPOST.h"
 
 extern void LCDDelay(unsigned int nCount);
 
 #if defined(__HAVE_GIANTPLUS_GPM1006D0__)
 
 //#define OPT_SPI_CS_BY_GPD2
-
 static UINT32 g_nScreenWidth;
 static UINT32 g_nScreenHeight;
 
@@ -167,12 +166,12 @@ void ILI_I9322_RGBDummy_NTSC_INIT(void)
 
 #if 1
 	ILITek_WtReg(0x07,0xEE);		// turn off charge-pump
-	delay_loop(40000);													
+	delay_loop(200);
 	ILITek_WtReg(0x07,0xEF);		// turn on charge-pump
-	delay_loop(40000);													
+	delay_loop(200);
 	
 	ILITek_WtReg(0x04,0x00);		// reset all registers to the default values
-	delay_loop(400);														
+	delay_loop(200);
 	ILITek_WtReg(0x04,0x01);		// normal operation
 	
 	ILITek_WtReg(0x03,0x09);		// Vreg1 out = 4.5V
@@ -341,16 +340,16 @@ INT vpostLCMInit_GIANTPLUS_GPM1006D0(PLCDFORMATEX plcdformatex, UINT32 *pFramebu
 //	ILI_I9322_RGBThrough_NTSC_INIT();
 
     // set Horizontal scanning line timing for Syn type LCD 
-    vpostSetSyncLCM_HTiming(&sHTiming);
+    vpostSetSyncLCM_HTiming((S_DRVVPOST_SYNCLCM_HTIMING *)&sHTiming);
 
 	// set Vertical scanning line timing for Syn type LCD   
-    vpostSetSyncLCM_VTiming(&sVTiming);
+    vpostSetSyncLCM_VTiming((S_DRVVPOST_SYNCLCM_VTIMING *)&sVTiming);
 	
 	// set both "active pixel per line" and "active lines per screen" for Syn type LCD   
-	vpostSetSyncLCM_ImageWindow(&sWindow);
+	vpostSetSyncLCM_ImageWindow((S_DRVVPOST_SYNCLCM_WINDOW *)&sWindow);
 
   	// set Hsync/Vsync/Vden/Pclk poalrity
-	vpostSetSyncLCM_SignalPolarity(&sPolarity);  	
+	vpostSetSyncLCM_SignalPolarity((S_DRVVPOST_SYNCLCM_POLARITY *)&sPolarity);
     
     // set frambuffer base address
     if(pFramebuf != NULL) {

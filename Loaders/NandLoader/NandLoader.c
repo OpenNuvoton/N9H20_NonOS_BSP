@@ -4,7 +4,7 @@
 #include "N9H20_VPOST.h"
 
 // define DATE CODE and show it when running to make maintaining easy.
-#define DATE_CODE   "20181204"
+#define DATE_CODE   "20190604"
 
 /* global variable */
 typedef struct nand_info
@@ -113,7 +113,12 @@ void initTimer(void)
 #endif
 
 #define E_CLKSKEW   0x00888800
-#define __DDR_6__
+
+#ifdef N9H20K5
+    #define __DDR2__	// N9H20K5 use DDR2
+#else
+    #define __DDR_6__
+#endif
 void initClock(void)
 {
     UINT32 u32ExtFreq;

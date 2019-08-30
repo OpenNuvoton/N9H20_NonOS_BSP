@@ -11,9 +11,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "wblib.h"
-#include "N9H20_gpio.h"
+#include "N9H20.h"
 
-__align(32) UINT8 u32Array[1024*1024];
+UINT8 u32Array[1024*1024] __attribute__((aligned(32)));
 /*--------------------------------------------------------------------------------------------------------*
  *                                                                                                        *
  *  Wake up source                                                                                        *

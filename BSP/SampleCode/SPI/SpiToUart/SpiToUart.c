@@ -24,8 +24,13 @@
 
 unsigned  char *pSrc,*pDst,*pDst2;
 #define TEST_SIZE	512 * 2 * 64
+#if defined(__GNUC__)
+__attribute__((aligned(4096))) UINT8 WriteBuffer[TEST_SIZE];
+__attribute__((aligned(4096))) UINT8 ReadBuffer[TEST_SIZE];
+#else
 __align(4096) UINT8 WriteBuffer[TEST_SIZE];
 __align(4096) UINT8 ReadBuffer[TEST_SIZE];
+#endif
 
 void UARTTestItem()
 {
@@ -110,8 +115,6 @@ int main()
   uart.uiRxTriggerLevel = LEVEL_1_BYTE;
   sysInitializeUART(&uart);
 
-	sysprintf("SpiFlash Test...\n");
-
 	pSrc = (UINT8 *)((UINT32)WriteBuffer | 0x80000000);
 	pDst = (UINT8 *)((UINT32)ReadBuffer | 0x80000000);
 
@@ -171,6 +174,7 @@ int main()
 				sysprintf("READ(UART%d)=%c\n",UART_PORT0,*pDst); break;
 
 			default:
+				break;
 				
 		}
 	}while(item!=0x1B);

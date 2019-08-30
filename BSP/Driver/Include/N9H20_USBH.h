@@ -135,6 +135,16 @@
 #define USB_REQ_SET_IDLE                0x0A
 #define USB_REQ_SET_PROTOCOL            0x0B
 
+#if defined(__GNUC__)
+typedef struct
+{
+    UINT8  requesttype;
+    UINT8  request;
+    UINT16 value;
+    UINT16 index;
+    UINT16 length;
+}__attribute__((packed)) DEV_REQ_T;
+#else
 typedef struct 
 {
     __packed UINT8  requesttype;
@@ -143,7 +153,7 @@ typedef struct
     __packed UINT16 index;
     __packed UINT16 length;
 } DEV_REQ_T;
-
+#endif
 /*
  * USB-status codes:
  * USB_ST* maps to -E* and should go away in the future
@@ -212,13 +222,40 @@ struct usb_device;
 struct urb;
 
 /* All standard descriptors have these 2 fields in common */
+#if defined(__GNUC__)
+typedef struct usb_descriptor_header 
+{
+    UINT8  bLength;
+    UINT8  bDescriptorType;
+} __attribute__((packed)) USB_DESC_HDR_T;  
+#else
 typedef struct usb_descriptor_header 
 {
     __packed UINT8  bLength;
-    __packed UINT8  bDescriptorType;
+    __packed UINT8  bDescriptorType;     
 } USB_DESC_HDR_T;
+#endif
 
 /* Device descriptor */
+#if defined(__GNUC__)
+typedef struct usb_device_descriptor 
+{
+    UINT8  bLength;
+    UINT8  bDescriptorType;
+    UINT16 bcdUSB;
+    UINT8  bDeviceClass;
+    UINT8  bDeviceSubClass;
+    UINT8  bDeviceProtocol;
+    UINT8  bMaxPacketSize0;
+    UINT16 idVendor;
+    UINT16 idProduct;
+    UINT16 bcdDevice;
+    UINT8  iManufacturer;
+    UINT8  iProduct;
+    UINT8  iSerialNumber;
+    UINT8  bNumConfigurations; 
+} __attribute__((packed)) USB_DEV_DESC_T;
+#else  
 typedef struct usb_device_descriptor 
 {
     __packed UINT8  bLength;
@@ -234,10 +271,27 @@ typedef struct usb_device_descriptor
     __packed UINT8  iManufacturer;
     __packed UINT8  iProduct;
     __packed UINT8  iSerialNumber;
-    __packed UINT8  bNumConfigurations;
+    __packed UINT8  bNumConfigurations;     
 } USB_DEV_DESC_T;
+#endif
 
 /* Endpoint descriptor */
+#if defined(__GNUC__)
+typedef struct usb_endpoint_descriptor 
+{
+    UINT8  bLength;
+    UINT8  bDescriptorType;
+    UINT8  bEndpointAddress;
+    UINT8  bmAttributes;
+    UINT16 wMaxPacketSize;
+    UINT8  bInterval;
+    UINT8  bRefresh;
+    UINT8  bSynchAddress;
+
+    UINT8   *extra;                    /* Extra descriptors */
+    INT     extralen;
+} __attribute__((packed)) USB_EP_DESC_T;
+#else   
 typedef struct usb_endpoint_descriptor 
 {
     __packed UINT8  bLength;
@@ -252,8 +306,28 @@ typedef struct usb_endpoint_descriptor
     UINT8   *extra;                    /* Extra descriptors */
     INT     extralen;
 } USB_EP_DESC_T;
+#endif
 
 /* Interface descriptor */
+#if defined(__GNUC__)
+typedef struct usb_interface_descriptor 
+{
+    UINT8  bLength;
+    UINT8  bDescriptorType;
+    UINT8  bInterfaceNumber;
+    UINT8  bAlternateSetting;
+    UINT8  bNumEndpoints;
+    UINT8  bInterfaceClass;
+    UINT8  bInterfaceSubClass;
+    UINT8  bInterfaceProtocol;
+    UINT8  iInterface;
+
+    USB_EP_DESC_T *endpoint;
+
+    UINT8  *extra;                     /* Extra descriptors */
+    INT    extralen;   
+} __attribute__((packed)) USB_IF_DESC_T;
+#else  
 typedef struct usb_interface_descriptor 
 {
     __packed UINT8  bLength;
@@ -269,8 +343,9 @@ typedef struct usb_interface_descriptor
     USB_EP_DESC_T *endpoint;
 
     UINT8  *extra;                     /* Extra descriptors */
-    INT    extralen;
+    INT    extralen;    
 } USB_IF_DESC_T;
+#endif 
 
 typedef struct usb_interface 
 {
@@ -283,6 +358,23 @@ typedef struct usb_interface
 } USB_IF_T;
 
 /* Configuration descriptor information.. */
+#if defined(__GNUC__)
+typedef struct usb_config_descriptor 
+{
+    UINT8   bLength;
+    UINT8   bDescriptorType;
+    UINT16  wTotalLength;
+    UINT8   bNumInterfaces;
+    UINT8   bConfigurationValue;
+    UINT8   iConfiguration;
+    UINT8   bmAttributes;
+    UINT8   MaxPower;
+
+    USB_IF_T  *interface;
+    UINT8   *extra;                    /* Extra descriptors */
+    INT     extralen;   
+}__attribute__((packed)) USB_CONFIG_DESC_T;
+#else
 typedef struct usb_config_descriptor 
 {
     __packed UINT8   bLength;
@@ -296,17 +388,27 @@ typedef struct usb_config_descriptor
 
     USB_IF_T  *interface;
     UINT8   *extra;                    /* Extra descriptors */
-    INT     extralen;
+    INT     extralen;   
 } USB_CONFIG_DESC_T;
+#endif
 
 
 /* String descriptor */
+#if defined(__GNUC__)
+typedef struct usb_string_descriptor
+{
+    UINT8  bLength;
+    UINT8  bDescriptorType;
+    UINT16 wData[1];
+} __attribute__((packed)) USB_STR_DESC_T;
+#else  
 typedef struct usb_string_descriptor 
 {
     __packed UINT8  bLength;
     __packed UINT8  bDescriptorType;
-    __packed UINT16 wData[1];
+    __packed UINT16 wData[1];   
 } USB_STR_DESC_T;
+#endif
 
 typedef void (*PFN_PORT_MS_CALLBACK)(VOID  *);
 VOID umass_register_connect(PFN_PORT_MS_CALLBACK pfnCallback);

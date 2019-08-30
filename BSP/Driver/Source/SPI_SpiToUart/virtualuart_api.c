@@ -56,7 +56,7 @@ volatile int tmp_j=0;
 volatile int tmp_uart0_j=0;
 volatile int tmp_uart1_j=0;
 int FLAG_CLOSE_SPI=1;
-VU_CMD_STATUS vu[12];
+volatile VU_CMD_STATUS vu[12];
 
 void vu_OpenUART(UINT8 UART_port)
 {

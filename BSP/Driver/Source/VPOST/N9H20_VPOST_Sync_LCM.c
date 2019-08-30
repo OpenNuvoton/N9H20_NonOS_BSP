@@ -35,7 +35,7 @@
  **************************************************************************/
 #include "stdio.h"
 #include "stdlib.h"
-#include "N9H20_vpost.h"
+#include "N9H20_VPOST.h"
 
 volatile UINT32 u32SpiCs_offset, u32SpiClk_offset, u32SpiData_offset;
 volatile UINT32 u32SpiCs_port, u32SpiClk_port, u32SpiData_port;
@@ -543,7 +543,7 @@ void vpostSyncLCMInit(S_DRVVPOST_SYNCLCM_INIT* pLCM)
 	}
 	sWindow.u16PixelPerLine = pLCM->u16HSize;
 	sWindow.u16LinePerPanel = pLCM->u16VSize;		
-	vpostSetSyncLCM_ImageWindow(&sWindow);
+	vpostSetSyncLCM_ImageWindow((S_DRVVPOST_SYNCLCM_WINDOW *)&sWindow);
 
 	// little-endian for YUV format
 	vpostSetYUVEndianSelect(eDRVVPOST_YUV_LITTLE_ENDIAN);

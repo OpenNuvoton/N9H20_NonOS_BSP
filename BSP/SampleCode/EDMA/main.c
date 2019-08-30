@@ -3,10 +3,17 @@
 #include <string.h>
 #include "N9H20.h"
 
+#if defined(__GNUC__)
+__attribute__((aligned(32))) UINT8 LoadAddr[]=
+{
+	#include "../../VPOST/ASIC/roof_320x240_RGB565.dat"
+};
+#else
 __align(32) UINT8 LoadAddr[]=
 {
-	#include "..\..\VPOST\ASIC\roof_320x240_rgb565.dat"
+	#include "../../VPOST/ASIC/roof_320x240_RGB565.dat"
 };
+#endif
 
 LCDFORMATEX lcdFormat;
 extern void TransferLengthTest(void);

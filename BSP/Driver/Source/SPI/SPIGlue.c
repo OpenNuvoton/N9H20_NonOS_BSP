@@ -37,7 +37,11 @@ extern UINT8 g_u8Is4ByteMode;
 #define		SPI_SECTOR_ERASE_SIZE	4*1024
 #define		SPI_ERASE_CMD			0x20
 
-__align(32) UINT8 SPI_BackupBuf[SPI_SECTOR_ERASE_SIZE];			// Backup Buffer to save SPI content
+#if defined(__GNUC__)
+UINT8 SPI_BackupBuf[SPI_SECTOR_ERASE_SIZE] __attribute__((aligned(32)));	// Backup Buffer to save SPI content
+#else
+__align(32) UINT8 SPI_BackupBuf[SPI_SECTOR_ERASE_SIZE];			
+#endif
 
 extern INT  fsPhysicalDiskConnected(PDISK_T *pDisk);
 extern int usiWriteEnable(void);

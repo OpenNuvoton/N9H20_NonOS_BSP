@@ -34,12 +34,12 @@ extern PUINT8 g_pu8JpegBuffer;        /* The source bit stream data for decoding
 extern PUINT8 g_pu8DecFrameBuffer;    /* The buffer for decoding output */
 
 extern PUINT8 g_pu8DecFrameBuffer;                /* The buffer for decoding output */
-extern UINT8 __align(32) g_au8BitstreamBuffer[];  /* The buffer for encoding output */
+extern UINT8  g_au8BitstreamBuffer[] __attribute__((aligned(32)));  /* The buffer for encoding output */
 
 /*-----------------------------------------------------------------------*/
 /*  Decode Input Wait parameter                                          */
 /*-----------------------------------------------------------------------*/   
-extern UINT8 __align(32) g_au8DecInputWaitBuffer[];  /* Buffer for Decode Input Wait */
+extern UINT8  g_au8DecInputWaitBuffer[] __attribute__((aligned(32)));  /* Buffer for Decode Input Wait */
 extern UINT32 g_u32IpwUsedSize;
 extern UINT32 g_u32BitstreamSize;
 

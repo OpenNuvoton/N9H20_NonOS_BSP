@@ -68,7 +68,12 @@ typedef	struct
 	#define _LCM_WIDTH_		800
 	#define _LCM_HEIGHT_	480
 #endif
-
+#ifdef _DEMO_SVGA_
+	#define _FONT_STRIDE_	800
+	#define _FONT_LINE_		79			//800/10 = 80,
+	#define _LCM_WIDTH_		800
+	#define _LCM_HEIGHT_	600
+#endif
 
 #define _FONT_ASCII_START_		32
 #define _FONT_ASCII_END_		126

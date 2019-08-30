@@ -129,7 +129,9 @@ void kpi_close(void)
 	return;
 }
 
-
+#ifdef __GNUC__
+__attribute__((optimize("O0")))
+#endif
 int kpi_read(unsigned char mode)
 {
 	// add this var in case key released right before return.
@@ -151,7 +153,9 @@ int kpi_read(unsigned char mode)
 			return(0);
 		}
 		// not pressed, non blocking, wait for key pressed
+#ifndef __GNUC__		
 #pragma O0
+#endif
 // ARMCC is tooooo smart to compile this line correctly, so ether set O0 or use pulling....
 		while((k = _key) == 0);
 	} else {

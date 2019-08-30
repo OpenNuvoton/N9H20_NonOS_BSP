@@ -28,7 +28,7 @@ extern USB_CMD_T  _usb_cmd_pkt;
 
 UINT32 volatile u32Ready = 0;
 #ifdef HID_MOUSE
-__align(4) UINT8  g_HID_au8MouseReportDescriptor[] =
+UINT8  g_HID_au8MouseReportDescriptor[] __attribute__((aligned(4))) =
 {
     0x05, 0x01,         /* Usage Page(Generic Desktop Controls) */
     0x09, 0x02,         /* Usage(Mouse) */
@@ -67,7 +67,7 @@ UINT32 g_HID_u32MouseReportDescriptorSize = HID_MOUSE_REPORT_DESCRIPTOR_SIZE;
 
 #define HID_REPORT_DESCRIPTOR_SIZE HID_MOUSE_REPORT_DESCRIPTOR_SIZE
 
-__align(4) UINT8 g_au8MouseReport[4];
+UINT8 g_au8MouseReport[4] __attribute__((aligned(4)));
 UINT32 g_u32MouseReportSize = sizeof(g_au8MouseReport) / sizeof(g_au8MouseReport[0]);
 
 #endif
@@ -76,8 +76,8 @@ UINT32 g_u32MouseReportSize = sizeof(g_au8MouseReport) / sizeof(g_au8MouseReport
 #ifdef HID_KEYBOARD
 
 //keyboard 101keys
-__align(4) UINT8 g_HID_au8KeyboardReportDescriptor[] = {
-
+UINT8 g_HID_au8KeyboardReportDescriptor[] __attribute__((aligned(4))) =
+{
       0x05, 0x01,
       0x09, 0x06,
       0xA1, 0x01,
@@ -118,14 +118,14 @@ UINT32 g_HID_u32KeyboardReportDescriptorSize = HID_KEYBOARD_REPORT_DESCRIPTOR_SI
 
 # define HID_REPORT_DESCRIPTOR_SIZE HID_KEYBOARD_REPORT_DESCRIPTOR_SIZE
 
-__align(4) UINT8 g_au8KeyboardReport[8];
+UINT8 g_au8KeyboardReport[8] __attribute__((aligned(4)));
 UINT32 g_u32KeyboardReportSize = sizeof(g_au8KeyboardReport) / sizeof(g_au8KeyboardReport[0]);
 
 #endif
 
 
 /* MSC Descriptor */
-__align(4) UINT8 HID_DeviceDescriptor[] =
+UINT8 HID_DeviceDescriptor[] __attribute__((aligned(4))) =
 {
     LEN_DEVICE,     /* bLength */
     DESC_DEVICE,    /* bDescriptorType */
@@ -147,7 +147,7 @@ __align(4) UINT8 HID_DeviceDescriptor[] =
     0x01            /* bNumConfigurations */
 };
 
-__align(4) static UINT8 HID_ConfigurationBlock[] =
+static UINT8 HID_ConfigurationBlock[] __attribute__((aligned(4))) =
 {
 
     LEN_CONFIG,     /* bLength */
@@ -195,7 +195,7 @@ __align(4) static UINT8 HID_ConfigurationBlock[] =
 };
 
 /* Identifier Language */
-__align(4) static UINT8 HID_StringDescriptor0[4] = 
+static UINT8 HID_StringDescriptor0[4] __attribute__((aligned(4))) =
 {
     4,               /* bLength */
     USB_DT_STRING,   /* bDescriptorType */
@@ -203,7 +203,7 @@ __align(4) static UINT8 HID_StringDescriptor0[4] =
 };
 
 /* iManufacturer */
-__align(4) UINT8 HID_StringDescriptor1[] = 
+UINT8 HID_StringDescriptor1[] __attribute__((aligned(4))) =
 {
     0x10,        /* bLength (Dafault Value is 0x10, the value will be set to actual value according to the Descriptor size wehn calling mscdInit) */
     0x03,        /* bDescriptorType */
@@ -211,7 +211,7 @@ __align(4) UINT8 HID_StringDescriptor1[] =
 };
 
 /* iProduct */
-__align(4) UINT8 HID_StringDescriptor2[] = 
+UINT8 HID_StringDescriptor2[] __attribute__((aligned(4))) =
 {
     0x10,        /* bLength (Dafault Value is 0x10, the value will be set to actual value according to the Descriptor size wehn calling mscdInit) */
     0x03,        /* bDescriptorType */
@@ -219,7 +219,7 @@ __align(4) UINT8 HID_StringDescriptor2[] =
 };
 
 /* iSerialNumber */
-__align(4) UINT8 HID_StringDescriptor3[] = 
+UINT8 HID_StringDescriptor3[] __attribute__((aligned(4))) =
 {
     0x1A,        /* bLength (Dafault Value is 0x1A, the value will be set to actual value according to the Descriptor size wehn calling mscdInit) */
     0x03,        /* bDescriptorType */
@@ -450,7 +450,7 @@ void HID_SetInReport(void)
                 outp8(EPA_DATA_BUF ,buf[i]);
             outp32(EPA_RSP_SC, PK_END); /* Set Packet End */
 
-            delay  = 20000;
+            delay  = 2;
             string_index++;
             if(string_index > sizeof(output_string))
             {

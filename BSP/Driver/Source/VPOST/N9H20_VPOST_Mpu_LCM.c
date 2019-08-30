@@ -35,7 +35,7 @@
  **************************************************************************/
 #include "stdio.h"
 #include "stdlib.h"
-#include "N9H20_vpost.h"
+#include "N9H20_VPOST.h"
 
 typedef enum {
 	eEXT 	= 0,
@@ -240,7 +240,7 @@ void vpostMpuLCMInit(S_DRVVPOST_MPULCM_INIT* pMpuLCM)
 
     // set MPU timing 
 	PRINTF("confiure LCM timing !! \n");
-    vpostSetMPULCM_TimingConfig(&sTiming);
+    vpostSetMPULCM_TimingConfig((S_DRVVPOST_MPULCM_TIMING *)&sTiming);
 	
 	// set frame buffer start addr
 	outpw(REG_LCM_FSADDR, (UINT32)pMpuLCM->u32BufAddr);
@@ -305,7 +305,7 @@ void vpostMpuLCMInit(S_DRVVPOST_MPULCM_INIT* pMpuLCM)
     // set MPU LCM window
 	sWindow.u16PixelPerLine = pMpuLCM->u16HSize;
 	sWindow.u16LinePerPanel = pMpuLCM->u16VSize;		
-	vpostSetMPULCM_ImageWindow(&sWindow);
+	vpostSetMPULCM_ImageWindow((S_DRVVPOST_MPULCM_WINDOW *)&sWindow);
 
 	// little-endian for YUV format
 	vpostSetYUVEndianSelect(eDRVVPOST_YUV_LITTLE_ENDIAN);

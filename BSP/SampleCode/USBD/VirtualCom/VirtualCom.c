@@ -28,7 +28,7 @@
 extern USB_CMD_T  _usb_cmd_pkt;
 extern volatile USBD_INFO_T usbdInfo;
 
-__align(4) UINT8 _DeviceDescriptor[] =
+UINT8 _DeviceDescriptor[] __attribute__((aligned(4))) =
 {
     0x12,          /* bLength              */
     0x01,          /* bDescriptorType      */
@@ -50,7 +50,7 @@ __align(4) UINT8 _DeviceDescriptor[] =
 
 
 /*!<USB Quflifier Descriptor */
-__align(4) UINT8 _QualifierDescriptor[] =
+UINT8 _QualifierDescriptor[] __attribute__((aligned(4))) =
 {
     0x0a,        /* bLength            */
     0x06,        /* bDescriptorType    */
@@ -64,7 +64,7 @@ __align(4) UINT8 _QualifierDescriptor[] =
 };
 
 /*!<USB Configure Descriptor */
-__align(4) UINT8 _ConfigurationBlock[] =
+UINT8 _ConfigurationBlock[] __attribute__((aligned(4))) =
 {
     0x09,        /* bLength              */
     0x02,        /* bDescriptorType      */
@@ -150,7 +150,7 @@ __align(4) UINT8 _ConfigurationBlock[] =
 
 
 /*!<USB Configure Descriptor */
-__align(4) UINT8 _ConfigurationBlockFull[] =
+UINT8 _ConfigurationBlockFull[] __attribute__((aligned(4))) =
 {
     0x09,        /* bLength              */
     0x02,        /* bDescriptorType      */
@@ -237,7 +237,7 @@ __align(4) UINT8 _ConfigurationBlockFull[] =
 
 
 /*!<USB Configure Descriptor */
-__align(4) UINT8 _OSConfigurationBlock[] =
+UINT8 _OSConfigurationBlock[] __attribute__((aligned(4))) =
 {
     0x09,           /* bLength              */
     0x07,           /* bDescriptorType      */
@@ -323,21 +323,21 @@ __align(4) UINT8 _OSConfigurationBlock[] =
 };
 
 /*!<USB Language String Descriptor */
-__align(4) UINT8 _StringDescriptor0[4] =
+UINT8 _StringDescriptor0[4] __attribute__((aligned(4))) =
 {
     4,            /* bLength           */
     0x03,        /* bDescriptorType    */
     0x09, 0x04
 };
 
-__align(4) UINT8 _StringDescriptor1[] =
+UINT8 _StringDescriptor1[] __attribute__((aligned(4))) =
 {
     16,
     0x03,
     'N', 0, 'u', 0, 'v', 0, 'o', 0, 't', 0, 'o', 0, 'n', 0
 };
 
-__align(4) UINT8 _StringDescriptor2[] =
+UINT8 _StringDescriptor2[] __attribute__((aligned(4))) =
 {
     32,             /* bLength            */
     0x03,           /* bDescriptorType    */
@@ -365,9 +365,9 @@ S_VCOM_LINE_CODING gLineCoding = {115200, 0, 0, 8};    /* Baud rate : 115200    
 
 UINT32 volatile  u32RxPoint =0, u32TxPoint = 0, u32DataCount =0;
 
-__align(64) unsigned char rec[BUFFER_SIZE + 512];
+unsigned char rec[BUFFER_SIZE + 512] __attribute__((aligned(64)));
 
-__align(64) unsigned char rec_tmp[512];
+unsigned char rec_tmp[512] __attribute__((aligned(64)));
 
 void vcomHighSpeedInit()
 {

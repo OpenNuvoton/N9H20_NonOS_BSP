@@ -45,8 +45,12 @@
 #define TRUE              (1)
 #endif
 
-typedef void            VOID;
-//#define VOID		  void
+#if defined (__GNUC__) && !(__CC_ARM)
+typedef void              VOID;
+#else
+#define VOID              void
+#endif
+
 typedef void *            PVOID;
 
 typedef char              BOOL;

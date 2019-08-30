@@ -14,7 +14,7 @@
 #include "tslib.h"
 #include "fbutils.h"
 #include "testutils.h"
-#include "LCDconf.h"
+#include "LCDConf.h"
 #include "GUI.h"
 #include "N9H20TouchPanel.h"
 

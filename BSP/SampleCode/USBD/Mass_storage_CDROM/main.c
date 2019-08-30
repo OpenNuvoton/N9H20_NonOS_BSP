@@ -128,7 +128,6 @@ INT main(VOID)
 #endif
 #ifdef __SD__
     #ifdef  __SD_PORT0__
-    sicIoctl(SIC_SET_CARD_DETECT, TRUE, 0, 0);  /* MUST call sicIoctl() BEFORE sicSdOpen0() */
     status = sicSdOpen0();
     if(status < 0)
         sicSdClose0();
@@ -149,7 +148,7 @@ INT main(VOID)
     u32CdromSize = sizeof(CD_Tracks);
 
 #ifdef __NAND_ONLY__
-    mscdFlashInitCDROM(&MassNDisk,NULL,CDROM_Read,u32CdromSize);
+    mscdFlashInitCDROM(&MassNDisk,0,CDROM_Read,u32CdromSize);
 #else
 #ifdef __SPI_ONLY__
 {
@@ -183,7 +182,7 @@ INT main(VOID)
 }                              
     mscdFlashInitCDROM(NULL,status,CDROM_Read,u32CdromSize);
 #elif defined (__RAM_DISK_ONLY__)
-    mscdFlashInitCDROM(NULL,NULL,CDROM_Read,u32CdromSize);
+    mscdFlashInitCDROM(NULL,0,CDROM_Read,u32CdromSize);
 #elif defined (__SD_ONLY__)
     /* Calling mscdSdPortSelect() with parameter - port index:0/1/2 can change the SD port used by MSC library before mscdFlashInit */
     /* Note: Corresponding SIC SD open - sicSdOpen0/sicSdOpen1/sicSdOpen2 must be called and set return value to the variable - status */

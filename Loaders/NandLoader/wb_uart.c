@@ -38,8 +38,8 @@ BOOL volatile _sys_bIsUseUARTInt = TRUE;
 UINT32 _sys_uUARTClockRate = EXTERNAL_CRYSTAL_CLOCK;
 //UINT32 UART_BA = UART0_BA;
 
-#define sysTxBufReadNextOne()	(((_sys_uUartTxHead+1)==UART_BUFFSIZE)? NULL: _sys_uUartTxHead+1)
-#define sysTxBufWriteNextOne()	(((_sys_uUartTxTail+1)==UART_BUFFSIZE)? NULL: _sys_uUartTxTail+1)
+#define sysTxBufReadNextOne()	(((_sys_uUartTxHead+1)==UART_BUFFSIZE)? (UINT32)NULL: _sys_uUartTxHead+1)
+#define sysTxBufWriteNextOne()	(((_sys_uUartTxTail+1)==UART_BUFFSIZE)? (UINT32)NULL: _sys_uUartTxTail+1)
 #define UART_BUFFSIZE	256
 UINT8 _sys_ucUartTxBuf[UART_BUFFSIZE];
 UINT32 volatile _sys_uUartTxHead, _sys_uUartTxTail;
@@ -291,7 +291,7 @@ static VOID sysPutNumber(INT value, INT radix, INT width, INT8 fill)
 		if (uvalue != 0)
 		{
 			if ((radix == 10)
-			    && ((bi == 3) || (bi == 7) || (bi == 11) | (bi == 15)))
+			    && ((bi == 3) || (bi == 7) || (bi == 11) || (bi == 15)))
 			{
 				buffer[bi++] = ',';
 			}

@@ -30,24 +30,24 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>Src/NandDrv.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/NandDrv.c</locationURI>
-		</link>
-		<link>
-			<name>Src/SDGlue.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/SDGlue.c</locationURI>
-		</link>
-		<link>
 			<name>Src/fmi.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/fmi.c</locationURI>
 		</link>
 		<link>
+			<name>Src/nandDrv.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/nandDrv.c</locationURI>
+		</link>
+		<link>
 			<name>Src/sd.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/sd.c</locationURI>
+		</link>
+		<link>
+			<name>Src/sdGlue.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/sdGlue.c</locationURI>
 		</link>
 		<link>
 			<name>Src/sic.c</name>

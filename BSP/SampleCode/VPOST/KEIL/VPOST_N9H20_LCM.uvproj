@@ -347,7 +347,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__LCD_320x240__</Define>
+              <Define>__LCD_320x240__, OPT_LCMTESTTOOL</Define>
               <Undefine></Undefine>
               <IncludePath>..\ASIC;..\..\..\Driver\Include;..\LCM_INIT</IncludePath>
             </VariousControls>
@@ -404,6 +404,11 @@
               <FileName>main_2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\main_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -765,7 +770,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__LCD_320x240__</Define>
+              <Define>__LCD_320x240__, OPT_LCMTESTTOOL</Define>
               <Undefine></Undefine>
               <IncludePath>..\ASIC;..\..\..\Driver\Include;..\LCM_INIT</IncludePath>
             </VariousControls>
@@ -822,6 +827,11 @@
               <FileName>main_2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\main_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1183,7 +1193,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__LCD_320x240__</Define>
+              <Define>__LCD_320x240__, OPT_LCMTESTTOOL</Define>
               <Undefine></Undefine>
               <IncludePath>..\ASIC;..\..\..\Driver\Include;..\LCM_INIT</IncludePath>
             </VariousControls>
@@ -1240,6 +1250,11 @@
               <FileName>main_2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\main_2.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\main.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -13,16 +13,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include "N9H20.h"
-#include "writer.h"
+#include "Writer.h"
 
 #define  LAST_LINE  11
 
 UINT  g_Font_Height, g_Font_Width,g_Font_Step;
 
-__align(32) S_DEMO_FONT s_sDemo_Font;
+S_DEMO_FONT s_sDemo_Font __attribute__((aligned(32)));
 
 #ifndef __NoLCM__
-__align(32) UINT16 FrameBuffer[_LCM_WIDTH_*_LCM_HEIGHT_];
+UINT16 FrameBuffer[_LCM_WIDTH_*_LCM_HEIGHT_] __attribute__((aligned(32)));
 #endif
 
 #if 0

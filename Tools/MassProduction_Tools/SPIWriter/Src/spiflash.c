@@ -14,11 +14,11 @@
 
 //#define __DEBUG__
 
-#ifdef __DEBUG__
-    #define PRINTF sysprintf
-#else
-    #define PRINTF(...)
-#endif
+//#ifdef __DEBUG__
+//    #define PRINTF sysprintf
+//#else
+//    #define PRINTF(...)
+//#endif
 
 #define SPIFLASH_WINBOND        0xEF
 #define SPIFLASH_SST            0xBF

@@ -57,10 +57,16 @@ NDRV_T _nandDiskDriver0 =
     0
 };
 
+#if defined (__GNUC__)
+    UINT8 infoBufArray[0x40000] __attribute__((aligned (32)));
+    UINT8 StorageBufferArray[0x50000] __attribute__((aligned (32)));
+    UINT8 CompareBufferArray[0x50000] __attribute__((aligned (32)));
+#else
+    __align(32) UINT8 infoBufArray[0x40000];
+    __align(32) UINT8 StorageBufferArray[0x50000];
+    __align(32) UINT8 CompareBufferArray[0x50000];
+#endif
 
-__align(32) UINT8 infoBufArray[0x40000];
-__align(32) UINT8 StorageBufferArray[0x50000];
-__align(32) UINT8 CompareBufferArray[0x50000];
 UINT32 infoBuf, StorageBuffer, CompareBuffer, BufferSize=0;
 UINT32 NAND_BACKUP_BASE;
 UINT8 *tmpBackPtr;

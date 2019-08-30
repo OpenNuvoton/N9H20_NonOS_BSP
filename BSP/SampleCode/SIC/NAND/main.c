@@ -28,8 +28,13 @@
 NDISK_T *ptMassNDisk;
 NDISK_T MassNDisk;
 
-__align (32) UINT8 g_ram0[BUF_SIZE];
-__align (32) UINT8 g_ram1[BUF_SIZE];
+#if defined (__GNUC__)
+    UINT8 g_ram0[BUF_SIZE] __attribute__((aligned (32)));
+    UINT8 g_ram1[BUF_SIZE] __attribute__((aligned (32)));
+#else
+    __align (32) UINT8 g_ram0[BUF_SIZE];
+    __align (32) UINT8 g_ram1[BUF_SIZE];
+#endif
 
 
 /*-----------------------------------------------------------------------------

@@ -41,6 +41,7 @@
 #include "N9H20_VPOST.h"
 
 BOOL vpostClearVABuffer(void);
+void *memset (void *str, int c, size_t n);
 
 UINT g_nFrameBufferSize = 0;
 

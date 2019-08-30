@@ -119,7 +119,11 @@ VOID sysIrqHandler(UINT32 _mIPER, UINT32 _mISNR)
 	outpw(REG_AIC_EOSCR, 1);
 }
 #else
+#if defined (__GNUC__) && !(__CC_ARM)
+static void __attribute__ ((interrupt("IRQ"))) sysIrqHandler(void)
+#else
 __irq VOID sysIrqHandler()
+#endif
 {
 	if (_sys_bIsHWMode)
 	{
@@ -145,8 +149,11 @@ __irq VOID sysIrqHandler()
 	}
 }
 #endif
-
+#if defined (__GNUC__) && !(__CC_ARM)
+static void __attribute__ ((interrupt("FIQ"))) sysFiqHandler(void)
+#else
 __irq VOID sysFiqHandler()
+#endif
 {
 	if (_sys_bIsHWMode)
 	{
@@ -390,30 +397,52 @@ INT32 sysSetInterruptType(INT_SOURCE_E eIntNo, UINT32 uIntSourceType)
 //OK
 INT32 sysSetLocalInterrupt(INT32 nIntState)
 {
-	INT32 temp;
+#if defined (__GNUC__) && !(__CC_ARM)
+
+# else
+    INT32 temp;
+#endif
 
 	switch (nIntState)
 	{
 		case ENABLE_IRQ:
 		case ENABLE_FIQ:
 		case ENABLE_FIQ_IRQ:
+#if defined (__GNUC__) && !(__CC_ARM)
+            asm
+            (
+                "mrs    r0, CPSR  \n"
+                "bic    r0, r0, #0x80  \n"
+                "msr    CPSR_c, r0  \n"
+            );
+#else
 			__asm
 			{
 			   MRS    temp, CPSR
 			   AND    temp, temp, nIntState
 			   MSR    CPSR_c, temp
 			}
+#endif
 		break;
 
 		case DISABLE_IRQ:
 		case DISABLE_FIQ:
 		case DISABLE_FIQ_IRQ:
+#if defined ( __GNUC__ ) && !(__CC_ARM)
+            asm
+            (
+                "MRS    r0, CPSR  \n"
+                "ORR    r0, r0, #0x80  \n"
+                "MSR    CPSR_c, r0  \n"
+            );
+#else
 			__asm
 			{
 			   MRS    temp, CPSR
 			   ORR    temp, temp, nIntState
 			   MSR    CPSR_c, temp
 			}
+#endif
 		   break;
 
 		default:
@@ -438,12 +467,18 @@ UINT32	sysGetInterruptEnableStatus(VOID)
 BOOL sysGetIBitState()
 {
 	INT32 temp;
-
+#if defined (__GNUC__) && !(__CC_ARM)
+    asm
+    (
+        "MRS %0, CPSR   \n"
+        :"=r" (temp) : :
+    );
+#else
 	__asm
 	{
 		MRS	temp, CPSR
 	}
-
+#endif
 	if (temp & 0x80)
 		return FALSE;
 	else

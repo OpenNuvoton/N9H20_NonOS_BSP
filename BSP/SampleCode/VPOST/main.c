@@ -11,40 +11,42 @@
 #include "N9H20.h"
 
 
-__align (32) UINT8 g_ram0[512*16*16];
-__align (32) UINT8 g_ram1[512*16*16];
 UINT32 u32SecCnt;
 UINT32 u32backup[10];
 
+#if defined (__GNUC__) && !(__CC_ARM)
+__attribute__ ((aligned (32))) UINT8 Vpost_Frame[]=
+#else
 __align(32) UINT8 Vpost_Frame[]=
+#endif
 {
 	
 #ifdef __LCD_800x600__
-	#include "roof_800x600_rgb565.dat"		// for SVGA size test
+	#include "roof_800x600_RGB565.dat"		// for SVGA size test
 #endif
 
 #ifdef __LCD_800x480__
-	#include "sea_800x480_rgb565.dat"		
-//	#include "roof_800x480_rgb565.dat"				
+	#include "sea_800x480_RGB565.dat"		
+//	#include "roof_800x480_RGB565.dat"				
 #endif
 
 #ifdef __LCD_720x480__
-	#include "lake_720x480_rgb565.dat"		// for D1 size test
-//	#include "roof_720x480_rgb565.dat"		// for D1 size test
+	#include "lake_720x480_RGB565.dat"		// for D1 size test
+//	#include "roof_720x480_RGB565.dat"		// for D1 size test
 #endif
 
 #ifdef __LCD_640x480__
-    #include "mountain_640x480_rgb565.dat"	// for VGA size test	
+    #include "mountain_640x480_RGB565.dat"	// for VGA size test	
 #endif
 
 #ifdef __LCD_480x272__
-	#include "river_480x272_rgb565.dat"
+	#include "river_480x272_RGB565.dat"
 #endif
 
 #ifdef __LCD_320x240__	
-	#include "roof_320x240_rgb565.dat"	
-//	#include "roof_320x240_yuv422.dat"	
-//	#include "roof_320x240_rgb888x.dat"		
+	#include "roof_320x240_RGB565.dat"
+//	#include "roof_320x240_YUV422.dat"	
+//	#include "roof_320x240_RGB888x.dat"		
 #endif
 };
 
@@ -68,7 +70,11 @@ __align(32) UINT8 Vpost_Frame[]=
 #endif 
 
 #ifdef OPT_OSD_DEMO
+#if defined (__GNUC__) && !(__CC_ARM)
+__attribute__ ((aligned (32))) UINT8 OSD_Frame_Buffer[]=
+#else
 __align (32) UINT8 OSD_Frame_Buffer[]=
+#endif
 {
 #ifdef __LCD_320x240__
 	#include "osd_320x240_RGB888x.dat"
@@ -82,6 +88,11 @@ __align (32) UINT8 OSD_Frame_Buffer[]=
 LCDFORMATEX lcdFormat;
 int volatile gTotalSectors_SD = 0, gTotalSectors_SM = 0;
 void SmplVpost_OSD_Display(void);
+//extern void vpostEnaBacklight(void);
+
+#ifdef OPT_LCMTESTTOOL
+extern int main_forLcmTestTool(void);
+#endif
 
 
 void initUART(void)
@@ -121,15 +132,18 @@ int main(void)
 	
     initUART();
 	initTimer();
-	
+
+#ifdef OPT_LCMTESTTOOL
+	main_forLcmTestTool();
+#else
 	lcdFormat.ucVASrcFormat = DRVVPOST_FRAME_RGB565;
 //	lcdFormat.ucVASrcFormat = DRVVPOST_FRAME_RGB888x;
-
 	vpostLCMInit(&lcdFormat, (UINT32*)Vpost_Frame);
 	
 	/* If backlight control signal is different from nuvoton's demo board,
 	   please don't call this function and must implement another similar one to enable LCD backlight. */
 	vpostEnaBacklight();
+#endif
 
     sysprintf("LCD initialized successfully.\n");	
 

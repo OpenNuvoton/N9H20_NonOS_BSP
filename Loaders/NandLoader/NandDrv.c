@@ -1130,7 +1130,7 @@ INT sicSMInit()
         outp32(REG_SMCSR, inp32(REG_SMCSR) |   SMCR_CS1);           // CS1 pin high
 
         /* set timing */
-        outpw(REG_SMTCR, 0x3050b);
+        outpw(REG_SMTCR, 0x3050b);	// 192MHz OK
 
         memset((char *)&SMInfo, 0, sizeof(FMI_SM_INFO_T));
         pSM0 = &SMInfo;

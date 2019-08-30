@@ -406,11 +406,6 @@
               <FilePath>..\wb_config.c</FilePath>
             </File>
             <File>
-              <FileName>wb_dcache.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\wb_dcache.s</FilePath>
-            </File>
-            <File>
               <FileName>wb_mmu.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\wb_mmu.c</FilePath>
@@ -419,11 +414,6 @@
               <FileName>wb_power.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\wb_power.c</FilePath>
-            </File>
-            <File>
-              <FileName>wb_sysctl.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\wb_sysctl.s</FilePath>
             </File>
             <File>
               <FileName>wb_timer.c</FileName>
@@ -849,11 +839,6 @@
               <FilePath>..\wb_config.c</FilePath>
             </File>
             <File>
-              <FileName>wb_dcache.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\wb_dcache.s</FilePath>
-            </File>
-            <File>
               <FileName>wb_mmu.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\wb_mmu.c</FilePath>
@@ -862,11 +847,6 @@
               <FileName>wb_power.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\wb_power.c</FilePath>
-            </File>
-            <File>
-              <FileName>wb_sysctl.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\wb_sysctl.s</FilePath>
             </File>
             <File>
               <FileName>wb_timer.c</FileName>

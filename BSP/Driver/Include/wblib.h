@@ -71,12 +71,12 @@ extern "C"{
 /* Define the vector numbers associated with each interrupt */
 typedef enum int_source_e
 {
-	IRQ_WDT = 1, 
-	IRQ_EXTINT0 = 2, 
-	IRQ_EXTINT1 = 3, 
-	IRQ_EXTINT2 = 4, 
+    IRQ_WDT = 1, 
+    IRQ_EXTINT0 = 2, 
+    IRQ_EXTINT1 = 3, 
+    IRQ_EXTINT2 = 4, 
     IRQ_EXTINT3 = 5, 
-   	IRQ_SPU = 6, 
+    IRQ_SPU = 6, 
     IRQ_I2S = 7, 
     IRQ_VPOST = 8, 
     IRQ_VIDEOIN = 9, 
@@ -95,35 +95,35 @@ typedef enum int_source_e
     IRQ_ADC = 22, 
     IRQ_RTC = 23, 
     IRQ_UART = 24, 
-   	IRQ_PWM = 25, 
-   	IRQ_JPG = 26,  
-   	//IRQ_PWM2 = 27, 
-   	IRQ_KPI = 28, 
-	IRQ_DES	= 29,
+    IRQ_PWM = 25, 
+    IRQ_JPG = 26,  
+    //IRQ_PWM2 = 27, 
+    IRQ_KPI = 28, 
+    IRQ_DES	= 29,
     IRQ_I2C = 30, 
     IRQ_PWR = 31	
 } INT_SOURCE_E;
 
 typedef enum
 {
-	WE_GPIO =0x01,
-	WE_RTC =0x02,
-	WE_SDH =0x04,
-	WE_UART =0x08,
-	WE_UDC =0x10,
-	WE_UHC =0x20,
-	WE_ADC =0x40,
-	WE_KPI =0x80
+    WE_GPIO =0x01,
+    WE_RTC =0x02,
+    WE_SDH =0x04,
+    WE_UART =0x08,
+    WE_UDC =0x10,
+    WE_UHC =0x20,
+    WE_ADC =0x40,
+    WE_KPI =0x80
 }WAKEUP_SOURCE_E;
 
 typedef struct datetime_t
 {
-	UINT32	year;
-	UINT32	mon;
-	UINT32	day;
-	UINT32	hour;
-	UINT32	min;
-	UINT32	sec;
+    UINT32	year;
+    UINT32	mon;
+    UINT32	day;
+    UINT32	hour;
+    UINT32	min;
+    UINT32	sec;
 } DateTime_T;
 
 /* Define constants for use timer in service parameters.  */
@@ -215,11 +215,19 @@ typedef struct datetime_t
 /* Define system clock come from */
 typedef enum 
 {
-	eSYS_EXT 	= 0,
-	eSYS_X32K 	= 1,
-	eSYS_APLL  	= 2,
-	eSYS_UPLL  	= 3
+    eSYS_EXT 	= 0,
+    eSYS_X32K 	= 1,
+    eSYS_APLL  	= 2,
+    eSYS_UPLL  	= 3,
+	
+    eSYS_SYSTEM = 4,
+    eSYS_HCLK1  = 5,
+    eSYS_HCLK234 = 6,
+    eSYS_PCLK   = 7,
+    eSYS_CPU    = 8,
+	
 }E_SYS_SRC_CLK;
+
 
 /* Define constants for use Cache in service parameters.  */
 #define CACHE_4M		2
@@ -234,7 +242,7 @@ typedef enum
 /* Define UART initialization data structure */
 typedef struct UART_INIT_STRUCT
 {
-	UINT32		uart_no;
+    UINT32		uart_no;
     UINT32		uiFreq;
     UINT32		uiBaudrate;
     UINT8		uiDataBits;

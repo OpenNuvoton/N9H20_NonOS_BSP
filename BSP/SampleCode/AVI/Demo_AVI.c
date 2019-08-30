@@ -6,10 +6,17 @@
 #include "N9H20.h"
 
 
-//#pragma import(__use_no_semihosting_swi)
-#define VPOST_FRAME_BUFSZ		(480*272*2)
+#if (N9H20K1)
+#define VPOST_FRAME_BUFSZ		(320*240*2)
+#else
+#define VPOST_FRAME_BUFSZ		(800*480*2)
+#endif
 
+#if defined (__GNUC__)
+UINT8  _VpostFrameBufferPool[VPOST_FRAME_BUFSZ] __attribute__((aligned (32)));
+#else
 static __align(256) UINT8  _VpostFrameBufferPool[VPOST_FRAME_BUFSZ];
+#endif
 static UINT8   *_VpostFrameBuffer;
 
 

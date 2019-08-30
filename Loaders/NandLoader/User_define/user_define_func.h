@@ -18,7 +18,7 @@
 #include <string.h>
 #include "wblib.h"
 #include "turbowriter.h"
-#include "N9H20_vpost.h"
+#include "N9H20_VPOST.h"
 
 // for Nuvoton N9H20 Demo Board panel 320x240
 #define PANEL_WIDTH     320

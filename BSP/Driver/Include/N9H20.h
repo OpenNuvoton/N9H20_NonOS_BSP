@@ -19,13 +19,13 @@
 #include "N9H20_MSC.h"
 #include "N9H20_ADC.h"
 #include "N9H20_EDMA.h"
-#include "N9H20_gnand.h"
-#include "GNAND_global.h"	/* Place behind N9H20_gnand.h */
+#include "N9H20_GNAND.h"
+#include "GNAND_Global.h"	/* Place behind N9H20_GNAND.h */
 #include "N9H20_GPIO.h"
 #include "N9H20_I2C.h"
 #include "N9H20_I2S.h"
 #include "N9H20_KPI.h"
-#include "N9H20_sic.h"
+#include "N9H20_SIC.h"
 #include "N9H20_SPI.h"
 #include "N9H20_SPI_SPIToUART.h"
 #include "N9H20_VPOST.h"

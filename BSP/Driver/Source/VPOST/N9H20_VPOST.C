@@ -34,11 +34,20 @@
  *
  **************************************************************************/
 #include "wblib.h"
-#include "N9H20_vpost.h"
-
-
-
+#include "N9H20_VPOST.h"
 #include <stdio.h>
+
+extern INT vpostLCMInit_FW043TFT_480x272(PLCDFORMATEX plcdformatex, UINT32 *pFramebuf);
+extern INT vpostLCMInit_FW050TFT_800x480(PLCDFORMATEX plcdformatex, UINT32 *pFramebuf);
+extern INT vpostLCMInit_GIANTPLUS_GPM1006D0(PLCDFORMATEX plcdformatex, UINT32 *pFramebuf);
+extern INT vpostLCMInit_GOWORLD_GW8973(PLCDFORMATEX plcdformatex, UINT32 *pFramebuf);
+extern INT vpostLCMInit_TIANMA_TM022HDH31(PLCDFORMATEX plcdformatex, UINT32 *pFramebuf);
+
+extern INT32 vpostLCMDeinit_FW043TFT_480x272(VOID);
+extern INT32 vpostLCMDeinit_FW050TFT_800x480(VOID);
+extern INT32 vpostLCMDeinit_GIANTPLUS_GPM1006D0(VOID);
+extern INT32 vpostLCMDeinit_GOWORLD_GW8973(VOID);
+extern INT32 vpostLCMDeinit_TIANMA_TM022HDH31(VOID);
 
 VOID * g_VAFrameBuf = NULL;
 VOID * g_VAOrigFrameBuf = NULL;

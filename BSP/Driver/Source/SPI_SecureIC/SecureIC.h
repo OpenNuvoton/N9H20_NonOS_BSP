@@ -19,7 +19,10 @@
  * RMPC Functions (13/04/23)
  *****************************************************************************************/
 #define uchar unsigned char   /* 8-bit byte */
+
+#if !defined (__GNUC__)
 #define uint unsigned long    /* 32-bit word */
+#endif
 /* DBL_INT_ADD treats two unsigned ints a and b as one 64-bit integer and adds c to it */
 #define DBL_INT_ADD(a,b,c) if (a > 0xffffffff - (c)) ++b; a += c;
 #define ROTLEFT(a,b) (((a) << (b)) | ((a) >> (32-(b))))

@@ -1,7 +1,7 @@
 #include <string.h>
 #include "wblib.h"
 #include "N9H20_reg.h"
-#include "N9H20_vpost.h"
+#include "N9H20_VPOST.h"
 
 volatile S_DRVVPOST_LCM_WINDOW *psLcmWindow;
 volatile S_DRVVPOST_SYNCLCM_INIT sLcmInit, *psLcmInit;

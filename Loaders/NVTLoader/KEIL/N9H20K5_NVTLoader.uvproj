@@ -459,6 +459,29 @@
               </FileOption>
             </File>
             <File>
+              <FileName>N9H20_VPOST_FW050TFT_800x480.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_FW050TFT_800x480.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
               <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
@@ -1021,6 +1044,29 @@
               </FileOption>
             </File>
             <File>
+              <FileName>N9H20_VPOST_FW050TFT_800x480.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_FW050TFT_800x480.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
               <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
@@ -1545,6 +1591,29 @@
               <FileName>N9H20_VPOST_FW043TFT_480x272.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_FW043TFT_480x272.lib</FilePath>
+            </File>
+            <File>
+              <FileName>N9H20_VPOST_FW050TFT_800x480.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_FW050TFT_800x480.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
             </File>
             <File>
               <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
@@ -2109,6 +2178,29 @@
               </FileOption>
             </File>
             <File>
+              <FileName>N9H20_VPOST_FW050TFT_800x480.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_FW050TFT_800x480.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
               <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
@@ -2541,7 +2633,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__GWMT9360A__ __LCM_QVGA__ N9H20K5</Define>
+              <Define>__GWMT9360A__ __LCM_800x480__ N9H20K5</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\BSP\Driver\Include</IncludePath>
             </VariousControls>
@@ -2653,6 +2745,11 @@
               </FileOption>
             </File>
             <File>
+              <FileName>N9H20_VPOST_FW050TFT_800x480.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_FW050TFT_800x480.lib</FilePath>
+            </File>
+            <File>
               <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
@@ -2663,7 +2760,7 @@
                   <RVCTZI>0</RVCTZI>
                   <RVCTOtherData>0</RVCTOtherData>
                   <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>2</IncludeInBuild>
+                  <IncludeInBuild>0</IncludeInBuild>
                   <AlwaysBuild>2</AlwaysBuild>
                   <GenerateAssemblyFile>2</GenerateAssemblyFile>
                   <AssembleAssemblyFile>2</AssembleAssemblyFile>
@@ -2800,7 +2897,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\NVT_Loader_Data\N9H20K5_SD_GPM1006D0\</OutputDirectory>
-          <OutputName>N9H20K5_NVT_SDU0_GPM1006D0</OutputName>
+          <OutputName>N9H20K5_NVT_SDU0_FW050TFT</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -3103,7 +3200,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>__GWMT9360A__ __LCM_QVGA__ __ENABLE_SD_CARD_0__ N9H20K5</Define>
+              <Define>__GWMT9360A__ __LCM_800x480__  __ENABLE_SD_CARD_0__ N9H20K5</Define>
               <Undefine></Undefine>
               <IncludePath>..\..\..\BSP\Driver\Include</IncludePath>
             </VariousControls>
@@ -3215,9 +3312,32 @@
               </FileOption>
             </File>
             <File>
+              <FileName>N9H20_VPOST_FW050TFT_800x480.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_FW050TFT_800x480.lib</FilePath>
+            </File>
+            <File>
               <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\..\BSP\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
             </File>
             <File>
               <FileName>N9H20_UDC.lib</FileName>

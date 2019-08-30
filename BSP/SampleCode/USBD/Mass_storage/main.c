@@ -124,7 +124,6 @@ INT main(VOID)
 #endif
 #ifdef __SD__
     #ifdef  __SD_PORT0__
-    sicIoctl(SIC_SET_CARD_DETECT, TRUE, 0, 0);  /* MUST call sicIoctl() BEFORE sicSdOpen0() */
     status = sicSdOpen0();
     if(status < 0)
         sicSdClose0();
@@ -143,7 +142,7 @@ INT main(VOID)
     mscdInit();
 
 #ifdef __NAND_ONLY__
-    mscdFlashInit(&MassNDisk,NULL);
+    mscdFlashInit(&MassNDisk,  0);
 #else
     #ifdef __SPI_ONLY__
     {

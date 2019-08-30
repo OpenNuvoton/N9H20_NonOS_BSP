@@ -7,7 +7,11 @@ static INT32 g_PdmaCh = 0;
 
 #define E_UART_BUF 32
 
+#if defined(__GNUC__)
+__attribute__((aligned(32))) UINT8 g_UARTBuf[E_UART_BUF];
+#else
 __align(32) UINT8 g_UARTBuf[E_UART_BUF];
+#endif
 
 volatile BOOL bIsBufferDone=0;
 volatile BOOL bIsUARTDone=FALSE;

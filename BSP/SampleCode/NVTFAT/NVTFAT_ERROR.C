@@ -121,6 +121,7 @@ static FS_ERR_T	 _ptErrorCodeList[] =
 
 
 
+
 /*************************************************************************/
 /*                                                                       */
 /* FUNCTION                                                              */
@@ -145,7 +146,7 @@ static FS_ERR_T	 _ptErrorCodeList[] =
 /*      Otherwise   Failed, use GET_LAST_ERROR to obtain the reason      */
 /*                                                                       */
 /*************************************************************************/
-VOID  fsGetErrorDescription(INT nErrCode, CHAR *szDescription, INT bIsPrint)
+void  fsGetErrorDescription(INT nErrCode, CHAR *szDescription, INT bIsPrint)
 {
 	FS_ERR_T	*ptErrCodePtr = _ptErrorCodeList;
 	

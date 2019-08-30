@@ -2,7 +2,7 @@
 #include "wbio.h"
 #include "wblib.h"
 #include "wbtypes.h"
-#include "n9h20_i2s.h"
+#include "N9H20_I2S.h"
 #include "DrvI2CH.h"
 
 #define	WM_8000		(5<<1)

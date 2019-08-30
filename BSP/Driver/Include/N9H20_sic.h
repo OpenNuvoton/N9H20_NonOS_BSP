@@ -143,7 +143,7 @@ INT sicSdWrite2(INT32 sdSectorNo, INT32 sdSectorCount, INT32 sdSourceAddr);
 VOID fmiSMClose(INT chipSel);
 
 /* gnand use */
-#include "N9H20_gnand.h"
+#include "N9H20_GNAND.h"
 
 INT nandInit0(NDISK_T *NDISK_info);
 INT nandpread0(INT PBA, INT page, UINT8 *buff);

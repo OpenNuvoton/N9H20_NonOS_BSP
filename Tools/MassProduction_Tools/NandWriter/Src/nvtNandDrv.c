@@ -1152,10 +1152,10 @@ int fmiSM_Read(FMI_SM_INFO_T *pSM, UINT32 uPageIndex,UINT32 uDAddr) //Added
 BOOL volatile bIsNandInit = FALSE;
 FMI_SM_INFO_T nvtSMInfo, *pNvtSM0, *pNvtSMInfo;
 
+#ifdef __Bad_Block_Check__
 extern volatile BOOL _fmi_bIsNandFirstAccess;
 extern INT sicSMChangeBadBlockMark(INT chipSel);
 
-#ifdef __Bad_Block_Check__
 INT fmiSMCheckHeader(FMI_SM_INFO_T* pSM)
 {
     int i, status;

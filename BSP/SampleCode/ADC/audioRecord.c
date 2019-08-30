@@ -7,6 +7,17 @@
 
 static volatile INT8 g_i8PcmReady = FALSE;
 //__align(4) static INT16 g_pi16SampleBuf[16000*AUDIO_REC_SEC];		/* Keep max 16K sample rate */
+
+#if defined (__GNUC__)
+INT16 g_pi16SampleBuf[16000*AUDIO_REC_SEC]  __attribute__ ((aligned (32)));		/* Keep max 16K sample rate */
+
+char WaveHeader[]  __attribute__ ((aligned (4))) = {'R', 'I', 'F', 'F', 0x00, 0x00, 0x00, 0x00,	   //ForthCC code+(RAW-data-size+0x24)
+					'W', 'A', 'V', 'E', 'f', 'm', 't', ' ',
+					0x10, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00,//Chunk-size, audio format, and NUMChannel
+					0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,//Sample-Rate and Byte-Count-Per-Sec
+					0x02, 0x00, 0x10, 0x00,						   //Align and Bits-per-sample.
+					'd', 'a', 't', 'a', 0x00, 0x00, 0x00, 0x00};   //"data"and RAW-data-size
+#else
 __align(32) INT16 g_pi16SampleBuf[16000*AUDIO_REC_SEC];		/* Keep max 16K sample rate */
 
 __align(4) char WaveHeader[]= {'R', 'I', 'F', 'F', 0x00, 0x00, 0x00, 0x00,	   //ForthCC code+(RAW-data-size+0x24)	
@@ -15,7 +26,7 @@ __align(4) char WaveHeader[]= {'R', 'I', 'F', 'F', 0x00, 0x00, 0x00, 0x00,	   //
 					0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,//Sample-Rate and Byte-Count-Per-Sec 
 					0x02, 0x00, 0x10, 0x00,						   //Align and Bits-per-sample.
 					'd', 'a', 't', 'a', 0x00, 0x00, 0x00, 0x00};   //"data"and RAW-data-size		
-						
+#endif
 INT32 AudioWriteFile(char* szAsciiName, 
 					PUINT16 pu16BufAddr, 
 					UINT32 u32Length,
@@ -67,7 +78,6 @@ INT32 AudioWriteFileHead(char* szAsciiName,
 	INT hFile, i32Errcode=0, u32WriteLen;
 	char suFileName[256];
 	UINT32 *pu32ptr; 
-	
 	strcat(szAsciiName, ".wav");
 	fsAsciiToUnicode(szAsciiName, suFileName, TRUE);
 	hFile = fsOpenFile(suFileName, NULL, O_CREATE);
@@ -100,7 +110,7 @@ INT32 AudioWriteFileHead(char* szAsciiName,
 	i32Errcode = fsWriteFile(hFile, 
 							(UINT8 *)((UINT32)WaveHeader | 0x80000000), 
 							0x2C, 
-							&u32WriteLen);	
+							&u32WriteLen);
 	if(i32Errcode < 0)
 		sysprintf("Write bitstream fail\n");
 	return hFile;						
@@ -195,50 +205,48 @@ static INT32 nIdx=1;
 #define E_AUD_BUF 16000
 INT32 AudioRecord(UINT32 u32SampleRate)
 {	
-	CHAR    	szFileName[128];	
-	PFN_ADC_CALLBACK 	pfnOldCallback;
-    INT32 hFile;
+    CHAR    szFileName[128];	
+    PFN_ADC_CALLBACK    pfnOldCallback;
+    INT32   hFile;
     UINT32 u32Length=0;
 
-	audio_Open(eSYS_APLL, u32SampleRate/1000);
-	adc_disableInt(eADC_AUD_INT);//(PVOID)pfnRecordCallback, 0);
-	adc_installCallback(eADC_AUD_INT,
-							pfnRecordCallback,	/* Invalid if EDMA enable */
-							&pfnOldCallback);													
-	
-	InitEDMA(E_AUD_BUF);												     	    
-	audio_StartRecord(); 
-	sprintf(szFileName, "C:\\Audio_%04d", nIdx);	
-	hFile = AudioWriteFileHead(szFileName,							
-							u32SampleRate*2*AUDIO_REC_SEC,		
-							u32SampleRate);
-	DrvEDMA_CHEnablelTransfer(eDRVEDMA_CHANNEL_1);
-	bIsBufferDone = 0;
-	do
-	{
-		if(bIsBufferDone==1)
-		{		
-			AudioWriteFileData(hFile,
-							(UINT16*)(((UINT32)g_pi16SampleBuf+E_AUD_BUF/2) |0x80000000),
-							E_AUD_BUF/2);							
-			u32Length = u32Length+E_AUD_BUF/2;		
-			bIsBufferDone = 0;		
-		}
-		else if(bIsBufferDone==2)
-		{		
-			
-			AudioWriteFileData(hFile,
-							(PUINT16)((UINT32)(&g_pi16SampleBuf) | 0x80000000),
-							E_AUD_BUF/2);
-							
-			u32Length = u32Length+E_AUD_BUF/2;	
-			bIsBufferDone = 0;
-		}		
-	}while(u32Length<(u32SampleRate*2*AUDIO_REC_SEC));
-	AudioWriteFileClose(hFile);
-	audio_StopRecord();   
-	DrvEDMA_Close();
-	sysprintf("Close File\n");
-	nIdx = nIdx+1;			    
-    	return Successful;
+
+    audio_Open(eSYS_APLL, u32SampleRate/1000);
+    adc_disableInt(eADC_AUD_INT);//(PVOID)pfnRecordCallback, 0);
+    adc_installCallback(eADC_AUD_INT,
+			pfnRecordCallback,	/* Invalid if EDMA enable */
+			&pfnOldCallback);													
+    InitEDMA(E_AUD_BUF);
+    audio_StartRecord();
+    sprintf(szFileName, "C:\\Audio_%04d", nIdx);
+    hFile = AudioWriteFileHead(szFileName,							
+			        (u32SampleRate*2*AUDIO_REC_SEC),
+				u32SampleRate);
+    DrvEDMA_CHEnablelTransfer(eDRVEDMA_CHANNEL_1);
+    bIsBufferDone = 0;
+    do
+    {
+        if(bIsBufferDone==1)
+        {		
+            AudioWriteFileData(hFile,
+				(UINT16*)(((UINT32)g_pi16SampleBuf+E_AUD_BUF/2) |0x80000000),
+				E_AUD_BUF/2);							
+            u32Length = u32Length+E_AUD_BUF/2;		
+            bIsBufferDone = 0;
+	}
+	else if(bIsBufferDone==2)
+	{		
+            AudioWriteFileData(hFile,
+                               (PUINT16)((UINT32)(&g_pi16SampleBuf) | 0x80000000),
+                               E_AUD_BUF/2);						
+            u32Length = u32Length+E_AUD_BUF/2;	
+            bIsBufferDone = 0;
+        }		
+    }while(u32Length<(u32SampleRate*2*AUDIO_REC_SEC));
+    AudioWriteFileClose(hFile);
+    audio_StopRecord();   
+    DrvEDMA_Close();
+    sysprintf("Close File\n");
+    nIdx = nIdx+1;			    
+    return Successful;
 }

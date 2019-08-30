@@ -5,9 +5,6 @@
 #include "wbtypes.h"
 
 #include "N9H20.h"
-//#include "N9H20_reg.h"
-//#include "N9H20_i2s.h"
-//#include "N9H20_i2c.h"
 #include "nau8822.h"
 
 #define OPT_CACHE_ON
@@ -17,8 +14,12 @@ volatile S_DRVI2S_PLAY g_sPlay;
 volatile S_DRVI2S_RECORD g_sRrecord;
 
 #define 	BUFSIZE		0x100000
-__align (32) char g_baAudioBuf[BUFSIZE];
 
+#if defined (__GNUC__) && !(__CC_ARM)
+__attribute__ ((aligned (32))) char g_baAudioBuf[BUFSIZE];
+#else
+__align (32) char g_baAudioBuf[BUFSIZE];
+#endif
 
 int  audio_RecordCallBack(UINT8 *pu8Buff, UINT32 uDataLen)
 {

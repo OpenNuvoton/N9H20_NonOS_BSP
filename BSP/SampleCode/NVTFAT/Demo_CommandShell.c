@@ -75,20 +75,21 @@ NDRV_T _nandDiskDriver0 =
 };
 #endif
 
+
 UINT32 g_u32TotalSize;
-extern INT32  InitRAMDisk(UINT32 uStartAddr, UINT32 uDiskSize);
-extern VOID  fsGetErrorDescription(INT nErrCode, CHAR *szDescription, INT bIsPrint);
-extern INT   fsBIG5toUnicode(VOID *bstr, VOID *ustr);
+extern void  fsGetErrorDescription(INT nErrCode, CHAR *szDescription, INT bIsPrint);
 extern void  FAT_dump_sector_cache(void);
 
+#ifdef ENABLE_RAM
+extern INT  InitRAMDisk(UINT32 uStartAddr, UINT32 uDiskSize);
 extern INT32 RemoveRAMDisk(void);
 extern void FormatRamDisk(void);
-
 #define RAM_DISK_SIZE 	((1024*1024))		/* Fit for N9H20K1/N9H20K3/N9H20K5 */
 INT8 i8RamDisk[RAM_DISK_SIZE];
+#endif
 
 /* imported from WBFILE_DISK.C */
-extern PDISK_T		*_fs_ptPDiskList;
+//extern PDISK_T		*_fs_ptPDiskList;
 
 #define DUMMY_BUFFER_SIZE		(64 * 1024)
 
@@ -269,7 +270,9 @@ static VOID  accept_string(CHAR *pcString, INT nLength)
 			}
 		}
 		else if (chr == 10)
+		{
 			;
+		}
 		else
 		{
 			if ((chr == 0xd) || (chr == '!'))
@@ -277,7 +280,8 @@ static VOID  accept_string(CHAR *pcString, INT nLength)
 				if (nCount == 0)
 					sysprintf("\n");
 				pcString[nCount] = 0;
-				return;
+				//return;
+				break;
 			}
 		  
 			sysprintf("%c", chr);
@@ -545,8 +549,10 @@ static INT  Action_ReadSpeedTest(CHAR *suFileName, CHAR *szAsciiName)
 	uKBCnt = 0;
 	hFile = fsOpenFile(suFileName, szAsciiName, O_RDONLY);
 	if (hFile < 0)
+	{
+		sysprintf("Open file fail\n");
 		return hFile;
-		
+	}
 	nStatus = 0;
 	nTime0 = get_timer_ticks();
 	while (1)
@@ -558,7 +564,7 @@ static INT  Action_ReadSpeedTest(CHAR *suFileName, CHAR *szAsciiName)
 		
 		uKBCnt += nReadLen / 1024;
 		
-		if (uKBCnt % 8192 == 0)
+		if (uKBCnt % 8192 == 0)	//Print for every 8MB
 			sysprintf("%d MB\n", uKBCnt/1024);
 	}
 	nTime0 = get_timer_ticks() - nTime0;
@@ -580,15 +586,18 @@ static INT  Action_WriteSpeedTest(CHAR *suFileName, CHAR *szAsciiName)
 
 	hFile = fsOpenFile(suFileName, szAsciiName, O_CREATE | O_TRUNC);
 	if (hFile < 0)
+	{
+		sysprintf("Open file fail\n");
 		return hFile;
-		
+	}
+
 	for (i = 0, j = 0; i < DUMMY_BUFFER_SIZE; i += 2, j++)
 	{
 		_pucDummy[i] = (j >> 8) & 0xff;
 		_pucDummy[i + 1] = j & 0xff;
 	}
+
 	memset((UINT8 *)_pucDummy + 0x7e0, 0x97, 32);
-		
 	nStatus = 0;
 	nTime0 = get_timer_ticks();
 
@@ -597,12 +606,11 @@ static INT  Action_WriteSpeedTest(CHAR *suFileName, CHAR *szAsciiName)
 		nStatus = fsWriteFile(hFile, (UINT8 *)_pucDummy, DUMMY_BUFFER_SIZE, &nWriteLen);
 		if (nStatus < 0)
 			break;
-		
+
 		uKBCnt += nWriteLen / 1024;
 		
 		if (uKBCnt % 1024 == 0)
 			sysprintf("%d MB\r", uKBCnt);
-		
 		if (uKBCnt >= 40*1024)
 			break;
 	}
@@ -636,7 +644,7 @@ static INT  Action_FileAppendTest(CHAR *suFileName, CHAR *szAsciiName)
 		nStatus = fsWriteFile(hFile, (UINT8 *)szPattern, 26, &nWriteLen);
 		if (nStatus < 0)
 		{
-			fsGetErrorDescription(nStatus, NULL, 1);
+			fsGetErrorDescription(nStatus, "", 1);
 			break;
 		}
 		nWriteCnt -= nWriteLen;
@@ -921,7 +929,7 @@ void  CommandShell()
 #endif
 {
 	INT     	nCmdCode;
-	CHAR    	*szCmd, *szArgum1, *szArgum2, *szArgum3, *pcPtr;
+	CHAR    	*szCmd, *szArgum1, *szArgum2, *pcPtr; // *szArgum3
 	CHAR		szPath1[MAX_PATH_LEN], szPath2[MAX_PATH_LEN];
 	CHAR 		suFullName1[MAX_PATH_LEN], suFullName2[MAX_PATH_LEN];
 	INT			hFile, nStatus;
@@ -1006,7 +1014,7 @@ void  CommandShell()
 		szCmd = &_szCommandLine[0];
 		szArgum1 = get_token(szCmd, " \t\r\n", 8);
 		szArgum2 = get_token(szArgum1, " \t\r\n", 128);
-		szArgum3 = get_token(szArgum2, " \t\r\n", 128);
+		//szArgum3 = get_token(szArgum2, " \t\r\n", 128);
 			
 		//sysprintf("Command:<%s> <%s> <%s>\n", szCmd, szArgum1, szArgum2);
 		
@@ -1218,7 +1226,7 @@ void  CommandShell()
 				#if defined(ENABLE_GNAND)||defined(ENABLE_SD_ONE_PART)||defined(ENABLE_SD_TWO_PART)||defined(ENABLE_SD_FOUR_PART)
 					UINT32 u32BlockSize, u32FreeSize, u32DiskSize;
 				#endif
-				#if defined(ENABLE_SD_ONE_PART)||defined(ENABLE_SD_TWO_PART)||defined(ENABLE_SD_FOUR_PART) 	
+				#if defined(ENABLE_SD_TWO_PART)||defined(ENABLE_SD_FOUR_PART) 	
 					UINT32 u32RemainingSize;
 				#endif	
 					char chr;
@@ -1349,7 +1357,7 @@ void  CommandShell()
 		}
 
 	   	if (nStatus != ERR_FILE_EOF)
-	  		fsGetErrorDescription(nStatus, NULL, 1);
+	  		fsGetErrorDescription(nStatus, "", 1);
 	} 
 }
 
@@ -1408,13 +1416,13 @@ void	FormatDisk(void)
 #endif	
 }
 
-
 void GetDiskInformation(void)
 {
 	PDISK_T       *pDiskList, *ptPDiskPtr;
 	PARTITION_T   *ptPartition;
 	INT           nDiskIdx = 0;
 	INT           nPartIdx;
+
 	ptPDiskPtr = pDiskList = fsGetFullDiskInfomation();
 	while (ptPDiskPtr != NULL)
 	{
@@ -1500,8 +1508,6 @@ void FormatRamDisk(void)
 	fsReleaseDiskInformation(pDiskList);  
 }
 
-
-INT  InitRAMDisk(UINT32 uStartAddr, UINT32 uDiskSize);
 int main()
 {
     WB_UART_T 	uart;
@@ -1514,8 +1520,7 @@ int main()
 #endif
 	
 	/* CACHE_ON	*/
-	//sysEnableCache(CACHE_WRITE_BACK);
-	
+	sysEnableCache(CACHE_WRITE_BACK);
 	u32ExtFreq = sysGetExternalClock();
 	sysUartPort(1);
 	uart.uiFreq = u32ExtFreq*1000;	//use APB clock
@@ -1525,7 +1530,17 @@ int main()
     uart.uiParity = WB_PARITY_NONE;
     uart.uiRxTriggerLevel = LEVEL_1_BYTE;
     sysInitializeUART(&uart);
-    	
+
+    sysDisableInterrupt(IRQ_UDC);	
+   
+    sysSetSystemClock(eSYS_UPLL, 	//E_SYS_SRC_CLK eSrcClk,
+    						192000,		  //UINT32 u32PllKHz,
+							192000,		  //UINT32 u32SysKHz,
+							192000,		  //UINT32 u32CpuKHz,
+							192000/2,	  //UINT32 u32HclkKHz,
+							192000/4);    //UINT32 u32ApbKHz
+
+
     u32PllOutKHz = sysGetPLLOutputKhz(eSYS_UPLL, u32ExtFreq);
 	sysprintf("PLL out frequency %d Khz\n", u32PllOutKHz);	
 
@@ -1557,6 +1572,7 @@ int main()
 		sysprintf("Error in initializing SD card !! \n");						
 		while(1);
 	}	
+	sysprintf("sicOpen done !! \n");
 #endif			
 #ifdef ENABLE_SD_ONE_PART	
 	fsAssignDriveNumber('C', DISK_TYPE_SD_MMC, 0, 1);
@@ -1641,7 +1657,11 @@ int main()
  	cyg_thread_create(20, CommandShell, 0, "cs",
         				_Statck, STACKSIZE, &thread_handle, &thread);
 	cyg_thread_resume(thread_handle);
-#else	
+#else
+
+
+
+
 	CommandShell();
 #endif
 

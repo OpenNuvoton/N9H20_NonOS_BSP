@@ -1,7 +1,7 @@
 #include "N9H20.h"
 
 #include "GUI.h"
-#include "LCDconf.h"
+#include "LCDConf.h"
 
 #include "WM.h"
 #include "TEXT.h"
@@ -19,7 +19,12 @@ Constraints on LCD panel N9H20_VPOST_FW050TFT_800x480.lib:
 5. If the bus bandwidth condition is too busy it may causes blinking result.
 */
 
-__align(32) UINT8 u8FrameBuf[XSIZE_PHYS*YSIZE_PHYS*2];
+#ifdef __ICCARM__
+#pragma data_alignment = 32
+UINT8 u8FrameBuf[XSIZE_PHYS*YSIZE_PHYS*2];
+#else
+UINT8 u8FrameBuf[XSIZE_PHYS*YSIZE_PHYS*2] __attribute__((aligned(32)));
+#endif
 
 UINT8 *u8FrameBufPtr;
 

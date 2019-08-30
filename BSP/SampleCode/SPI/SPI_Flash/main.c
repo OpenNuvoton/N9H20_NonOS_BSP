@@ -22,8 +22,13 @@
 #include "N9H20.h"
 
 #define TEST_SIZE	512 * 2 * 64
+#if defined(__GNUC__)
+__attribute__((aligned(4096))) UINT8 WriteBuffer[TEST_SIZE];
+__attribute__((aligned(4096))) UINT8 ReadBuffer[TEST_SIZE];
+#else
 __align(4096) UINT8 WriteBuffer[TEST_SIZE];
 __align(4096) UINT8 ReadBuffer[TEST_SIZE];
+#endif
 
 int main()
 {

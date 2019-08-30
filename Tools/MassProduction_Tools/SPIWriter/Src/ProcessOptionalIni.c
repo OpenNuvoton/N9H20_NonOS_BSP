@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "N9H20.h"
-#include "writer.h"
+#include "Writer.h"
 #include <ctype.h>
 
 #if 1

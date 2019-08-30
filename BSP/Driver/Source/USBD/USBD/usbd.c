@@ -17,8 +17,8 @@
 
 #define DATA_CODE  "20180315"
 
-__align(4) volatile USBD_INFO_T usbdInfo = {0};
-__align(4) volatile USBD_STATUS_T usbdStatus = {0};
+volatile USBD_INFO_T usbdInfo  __attribute__((aligned(4))) = {0};
+volatile USBD_STATUS_T usbdStatus  __attribute__((aligned(4))) = {0};
 UINT32 g_u32Suspend_Flag = 0;
 PFN_USBD_CALLBACK pfnSuspend = NULL;
 

@@ -363,7 +363,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>N9H20K5</Define>
+              <Define>N9H20K1</Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
             </VariousControls>
@@ -377,7 +377,7 @@
             <useFile>0</useFile>
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0xF8002000</DataAddressRange>
-            <ScatterFile>..\..\..\..\Script\N9H20K5\N9H20K5.sct</ScatterFile>
+            <ScatterFile>..\..\..\..\Script\N9H20K1\N9H20K1.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc>--entry 0</Misc>

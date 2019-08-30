@@ -416,9 +416,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_sys.lib</FileName>
+              <FileName>N9H20_SYS.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_sys.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_SYS.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_SIC.lib</FileName>
@@ -426,9 +426,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_SIC.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_nvtfat.lib</FileName>
+              <FileName>N9H20_NVTFAT.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\NVTFATLib\N9H20_nvtfat.lib</FilePath>
+              <FilePath>..\..\..\Library\NVTFATLib\N9H20_NVTFAT.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_GNAND.lib</FileName>
@@ -436,9 +436,9 @@
               <FilePath>..\..\..\Library\GNANDLib\N9H20_GNAND.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_spu.lib</FileName>
+              <FileName>N9H20_SPU.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_spu.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_SPU.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_JPEG.lib</FileName>
@@ -869,9 +869,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_sys.lib</FileName>
+              <FileName>N9H20_SYS.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_sys.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_SYS.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_SIC.lib</FileName>
@@ -879,9 +879,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_SIC.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_nvtfat.lib</FileName>
+              <FileName>N9H20_NVTFAT.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\NVTFATLib\N9H20_nvtfat.lib</FilePath>
+              <FilePath>..\..\..\Library\NVTFATLib\N9H20_NVTFAT.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_GNAND.lib</FileName>
@@ -889,9 +889,9 @@
               <FilePath>..\..\..\Library\GNANDLib\N9H20_GNAND.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_spu.lib</FileName>
+              <FileName>N9H20_SPU.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_spu.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_SPU.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_JPEG.lib</FileName>
@@ -1322,9 +1322,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_sys.lib</FileName>
+              <FileName>N9H20_SYS.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_sys.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_SYS.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_SIC.lib</FileName>
@@ -1332,9 +1332,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_SIC.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_nvtfat.lib</FileName>
+              <FileName>N9H20_NVTFAT.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\NVTFATLib\N9H20_nvtfat.lib</FilePath>
+              <FilePath>..\..\..\Library\NVTFATLib\N9H20_NVTFAT.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_GNAND.lib</FileName>
@@ -1342,9 +1342,9 @@
               <FilePath>..\..\..\Library\GNANDLib\N9H20_GNAND.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_spu.lib</FileName>
+              <FileName>N9H20_SPU.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_spu.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_SPU.lib</FilePath>
             </File>
             <File>
               <FileName>N9H20_JPEG.lib</FileName>

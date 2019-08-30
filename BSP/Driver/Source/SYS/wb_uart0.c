@@ -46,8 +46,8 @@ static UINT8 uart_rx[RX_ARRAY_NUM] = {0};
 VOID _PutChar_f0(UINT8 ucCh);
 static UINT32 volatile rx_cnt = 0;
 
-#define sysTxBufReadNextOne()	(((_sys_uUartTxHead+1)==UART_BUFFSIZE)? NULL: _sys_uUartTxHead+1)
-#define sysTxBufWriteNextOne()	(((_sys_uUartTxTail+1)==UART_BUFFSIZE)? NULL: _sys_uUartTxTail+1)
+#define sysTxBufReadNextOne()	(((_sys_uUartTxHead+1)==UART_BUFFSIZE)? (UINT32)NULL: _sys_uUartTxHead+1)
+#define sysTxBufWriteNextOne()	(((_sys_uUartTxTail+1)==UART_BUFFSIZE)? (UINT32)NULL: _sys_uUartTxTail+1)
 #define UART_BUFFSIZE	256
 static UINT8 _sys_ucUartTxBuf[UART_BUFFSIZE];
 static UINT32 volatile _sys_uUartTxHead, _sys_uUartTxTail;
@@ -321,13 +321,13 @@ INT32 sysInitializeUART0(WB_UART_T *uart)
 	// hook UART interrupt service routine
 	if (u32UartPort)
 	{//==1 NORMAL UART
-		_sys_uUartTxHead = _sys_uUartTxTail = NULL;
+		_sys_uUartTxHead = _sys_uUartTxTail = (UINT32)NULL;
 		_sys_pvOldUartVect = sysInstallISR(IRQ_LEVEL_1, IRQ_UART, (PVOID)sysUartISR);
 		sysEnableInterrupt(IRQ_UART);		
 	}
 	else
 	{//==0 High SPEED
-		_sys_uUartTxHead = _sys_uUartTxTail = NULL;
+		_sys_uUartTxHead = _sys_uUartTxTail = (UINT32)NULL;
 		_sys_pvOldUartVect = sysInstallISR(IRQ_LEVEL_1, IRQ_HUART, (PVOID)sysUartISR);
 		sysEnableInterrupt(IRQ_HUART);
 	}
@@ -449,7 +449,7 @@ static VOID sysPutNumber(INT value, INT radix, INT width, INT8 fill)
 		if (uvalue != 0)
 		{
 			if ((radix == 10)
-			    && ((bi == 3) || (bi == 7) || (bi == 11) | (bi == 15)))
+			    && ((bi == 3) || (bi == 7) || (bi == 11) || (bi == 15)))
 			{
 				buffer[bi++] = ',';
 			}

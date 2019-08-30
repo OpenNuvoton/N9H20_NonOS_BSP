@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1</TargetName>
+      <TargetName>N9H20K1_I2S</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -435,7 +435,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3</TargetName>
+      <TargetName>N9H20K3_I2S</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -863,7 +863,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5</TargetName>
+      <TargetName>N9H20K5_I2S</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>

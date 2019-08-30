@@ -5,8 +5,13 @@
 
 //#define TEST_SIZE	512 * 2 * 1024
 #define TEST_SIZE	100 * 1024
+#if defined(__GNUC__)
+__attribute__((aligned(4096))) UINT8 WriteBuffer[TEST_SIZE];
+__attribute__((aligned(4096))) UINT8 ReadBuffer[TEST_SIZE];
+#else
 __align(4096) UINT8 WriteBuffer[TEST_SIZE];
 __align(4096) UINT8 ReadBuffer[TEST_SIZE];
+#endif
 
 static INT32 g_PdmaCh = 0;
 volatile static BOOL g_bPdmaInt = FALSE;
@@ -35,7 +40,7 @@ int initSPIPDMA_Write(UINT32 src_addr, UINT32 dma_length)
 						PdmaCallback_SPI, 				//void (*irq_handler) (void *),
 						NULL);					//void *data
 
-	EDMA_SetWrapINTType(g_PdmaCh , NULL);								
+	EDMA_SetWrapINTType(g_PdmaCh , 0);								
 
 	EDMA_SetDirection(g_PdmaCh , eDRVEDMA_DIRECTION_INCREMENTED, eDRVEDMA_DIRECTION_FIXED);
 
@@ -62,7 +67,7 @@ int initSPIPDMA_Read(UINT32 dest_addr, UINT32 dma_length)
 						PdmaCallback_SPI, 				//void (*irq_handler) (void *),
 						NULL);					//void *data
 
-	EDMA_SetWrapINTType(g_PdmaCh , NULL);								
+	EDMA_SetWrapINTType(g_PdmaCh , 0);								
 
 	EDMA_SetDirection(g_PdmaCh , eDRVEDMA_DIRECTION_FIXED, eDRVEDMA_DIRECTION_INCREMENTED);
 

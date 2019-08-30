@@ -8,7 +8,11 @@
 #include "N9H20.h"
 #include "demo.h"
 
+#if defined(__GNUC__)
+UINT8 u32Array[1024*1024] __attribute__((aligned(32)));
+#else
 __align(32) UINT8 u32Array[1024*1024];
+#endif
 /*--------------------------------------------------------------------------------------------------------*
  *                                                                                                        					     *
  * 																		     *

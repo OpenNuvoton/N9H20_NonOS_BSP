@@ -1,13 +1,13 @@
 #include <string.h>
 #include "wblib.h"
 #include "turbowriter.h"
-#include "N9H20_vpost.h"
+#include "N9H20_VPOST.h"
 
 // define DATE CODE and show it when running to make maintaining easy.
 #ifdef _S605_
-    #define DATE_CODE   "20181204 for S605"
+    #define DATE_CODE   "20190604 for S605"
 #else
-    #define DATE_CODE   "20181204"
+    #define DATE_CODE   "20190604"
 #endif
 
 /* global variable */
@@ -76,7 +76,12 @@ void initTimer(void)
 #endif
 
 #define E_CLKSKEW   0x00888800
-#define __DDR_6__
+#ifdef N9H20K5
+    #define __DDR2__	// N9H20K5 use DDR2
+#else
+    #define __DDR_6__
+#endif
+
 void initClock(void)
 {
     UINT32 u32ExtFreq;
@@ -107,8 +112,8 @@ void initClock(void)
         outp32(REG_SDTIME, 0x098E7549); // DDR Speed grade-75
     #endif
     #ifdef __DDR_6__
-//        outp32(REG_SDTIME, 0x094E7425); // DDR Speed grade-6, for N9H20K5 with 32MB DDR-6 under 96MHz HCLK
-// For N9H20K1/N9H20K3 must use
+        //outp32(REG_SDTIME, 0x094E7425); // DDR Speed grade-6, for N9H20K5 with 32MB DDR-6 under 96MHz HCLK
+        // For N9H20K1/N9H20K3 must use
 		outp32(REG_SDTIME, 0x29AC8525);
     #endif
     #ifdef __DDR_5__
