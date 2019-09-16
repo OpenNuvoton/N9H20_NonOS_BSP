@@ -13,7 +13,7 @@
 #endif
 
 #if defined (__GNUC__)
-UINT8  _VpostFrameBufferPool[VPOST_FRAME_BUFSZ] __attribute__((aligned (32)));
+UINT8  _VpostFrameBufferPool[VPOST_FRAME_BUFSZ] __attribute__((aligned (256)));
 #else
 static __align(256) UINT8  _VpostFrameBufferPool[VPOST_FRAME_BUFSZ];
 #endif
