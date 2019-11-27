@@ -196,13 +196,13 @@ int main(void)
     char szCalibrationFile[40];
     int hFile;
 
-#ifdef GUI_SUPPORT_TOUCH
+#if GUI_SUPPORT_TOUCH
     g_enable_Touch = 0;
 #endif
 
     _SYS_Init();
 
-#ifdef GUI_SUPPORT_TOUCH
+#if GUI_SUPPORT_TOUCH
     Init_TouchPanel();
 
     sprintf(szFileName, "C:\\ts_calib");
