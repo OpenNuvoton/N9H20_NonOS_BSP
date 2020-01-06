@@ -10,13 +10,23 @@
 
 UINT32 g_u32Idx=0;
 volatile BOOL bIsTimeOut=0;
-char pi8UartBuf[10010];
+
+
+#if defined(__GNUC__)
+char pi8UartBuf[10010] __attribute__((aligned (32)));
+#else
+__align(32) char pi8UartBuf[10010];
+#endif
 
 UINT32 g_u32Len; 
 UINT32 g_u32Valid = 0;
 UINT32 g_u32Timeout = 0;
 
-UINT32 u32LenR[30]={0};
+#if defined(__GNUC__)
+UINT32 u32LenR[30] __attribute__((aligned (32))) = {0};
+#else
+__align(32) UINT32 u32LenR[30]={0};
+#endif
 UINT32 u32LenPtr = 0;
 /*
 	Receive file with ASCII code from PC. The program excape if receive the 'q' letter

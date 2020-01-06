@@ -1325,8 +1325,6 @@ VOID fmiInitDevice()
 }
 
 
-UINT8 dummy_buffer[4096];
-
 /*-----------------------------------------------------------------------------
  * To check if block is valid or not.
  * The block is GOOD only when all checked bytes are 0xFF as below:

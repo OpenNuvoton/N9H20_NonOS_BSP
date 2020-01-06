@@ -22,7 +22,17 @@ extern void playAni(int fd, char* pcString);
 void mass(NDISK_T *disk, INT32 i32TotalSector);
 extern void lcmFill2Dark(unsigned char*);
 extern void initVPostShowLogo(void);
-unsigned char kbuf[CP_SIZE]; /* save first 16k of buffer. Copy to 0 after vector table is no longer needed */
+
+#if defined(__GNUC__)
+unsigned char kbuf[CP_SIZE] __attribute__((aligned (32))); /* save first 16k of buffer. Copy to 0 after vector table is no longer needed */
+UINT8 dummy_buffer[512] __attribute__((aligned (32)));
+#else
+__align(32) unsigned char kbuf[CP_SIZE];
+__align(32) UINT8 dummy_buffer[512];
+#endif
+
+
+
 extern void AudioChanelControl(void);
 extern void backLightEnable(void);
 int kfd, mfd;
@@ -159,7 +169,6 @@ typedef struct sd_info
 	unsigned int executeAddr;
 }NVT_SD_INFO_T;
 
-UINT8 dummy_buffer[512];
 unsigned char *buf;
 unsigned int *pImageList;
 

@@ -48,7 +48,12 @@
 #define IMAGE_BUFFER        0x100000
 #endif
 
-UINT8 image_buffer[512];
+#if defined (__GNUC__)
+UINT8  image_buffer[512] __attribute__((aligned(32)));
+#else
+UINT8 __align(32) image_buffer[512];
+#endif
+
 unsigned char *imagebuf;
 unsigned int *pImageList;
 

@@ -11,7 +11,7 @@ static volatile INT8 g_i8PcmReady = FALSE;
 #if defined (__GNUC__)
 INT16 g_pi16SampleBuf[16000*AUDIO_REC_SEC]  __attribute__ ((aligned (32)));		/* Keep max 16K sample rate */
 
-char WaveHeader[]  __attribute__ ((aligned (4))) = {'R', 'I', 'F', 'F', 0x00, 0x00, 0x00, 0x00,	   //ForthCC code+(RAW-data-size+0x24)
+char WaveHeader[]  __attribute__ ((aligned (32))) = {'R', 'I', 'F', 'F', 0x00, 0x00, 0x00, 0x00,	   //ForthCC code+(RAW-data-size+0x24)
 					'W', 'A', 'V', 'E', 'f', 'm', 't', ' ',
 					0x10, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00,//Chunk-size, audio format, and NUMChannel
 					0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,//Sample-Rate and Byte-Count-Per-Sec
@@ -20,7 +20,7 @@ char WaveHeader[]  __attribute__ ((aligned (4))) = {'R', 'I', 'F', 'F', 0x00, 0x
 #else
 __align(32) INT16 g_pi16SampleBuf[16000*AUDIO_REC_SEC];		/* Keep max 16K sample rate */
 
-__align(4) char WaveHeader[]= {'R', 'I', 'F', 'F', 0x00, 0x00, 0x00, 0x00,	   //ForthCC code+(RAW-data-size+0x24)	
+__align(32) char WaveHeader[]= {'R', 'I', 'F', 'F', 0x00, 0x00, 0x00, 0x00,	   //ForthCC code+(RAW-data-size+0x24)	
 					'W', 'A', 'V', 'E', 'f', 'm', 't', ' ',			
 					0x10, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00,//Chunk-size, audio format, and NUMChannel
 					0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,//Sample-Rate and Byte-Count-Per-Sec 
@@ -78,6 +78,7 @@ INT32 AudioWriteFileHead(char* szAsciiName,
 	INT hFile, i32Errcode=0, u32WriteLen;
 	char suFileName[256];
 	UINT32 *pu32ptr; 
+	
 	strcat(szAsciiName, ".wav");
 	fsAsciiToUnicode(szAsciiName, suFileName, TRUE);
 	hFile = fsOpenFile(suFileName, NULL, O_CREATE);
@@ -96,7 +97,7 @@ INT32 AudioWriteFileHead(char* szAsciiName,
 	pu32ptr = (UINT32*)(WaveHeader+0x18);//(UINT32*)WaveHeader[0x10];
 	*pu32ptr = u32SampleRate;
 	pu32ptr = (UINT32*)(WaveHeader+0x1C);//(UINT32*)WaveHeader[0x14];
-	*pu32ptr = u32SampleRate*2;				//16bits
+	*pu32ptr = u32SampleRate*2;				//16bits 
 #else
 	pu32ptr =  (UINT32*) ((UINT32)(WaveHeader+4) | 0x80000000);
 	*pu32ptr = u32Length+0x24;		

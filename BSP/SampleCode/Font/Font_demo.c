@@ -19,8 +19,11 @@ UINT32 u32SkipX;
 
 
 
-
-char pstrDisp[26][32] = {
+#if defined (__GNUC__)
+char pstrDisp[26][32] __attribute__((aligned(32))) = {
+#else
+__align(32) char pstrDisp[26][32] = {
+#endif
  {"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"},
  {"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"},
  {"CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"},
@@ -57,14 +60,37 @@ char pstrDisp[26][32] = {
 int main()
 {
     DateTime_T ltime;
+    WB_UART_T uart;
 
     int j, i;
-    UINT32 wait_ticks, no, dispno, dispcolor;
+    UINT32 wait_ticks, no, dispno, dispcolor, u32ExtFreq, u32PllOutKHz;
 
     //--- Reset SIC engine to make sure it under normal status.
     outp32(REG_AHBCLK, inp32(REG_AHBCLK) | (SIC_CKE | NAND_CKE | SD_CKE));
     outp32(REG_AHBIPRST, inp32(REG_AHBIPRST) | SICRST);     // SIC engine reset is avtive
     outp32(REG_AHBIPRST, inp32(REG_AHBIPRST) & ~SICRST);    // SIC engine reset is no active. Reset completed.
+
+	u32ExtFreq = sysGetExternalClock();
+	u32PllOutKHz = sysGetPLLOutputKhz(eSYS_UPLL, u32ExtFreq);
+	sysUartPort(1);
+	uart.uiFreq = u32ExtFreq*1000;
+	uart.uiBaudrate = 115200;
+	uart.uiDataBits = WB_DATA_BITS_8;
+	uart.uiStopBits = WB_STOP_BITS_1;
+	uart.uiParity = WB_PARITY_NONE;
+	uart.uiRxTriggerLevel = LEVEL_1_BYTE;
+	sysInitializeUART(&uart);
+
+	sysprintf("PLL out frequency %d Khz\n", u32PllOutKHz);
+	sysprintf("Switch clock end\n");
+
+
+    sysSetSystemClock(eSYS_UPLL, 	//E_SYS_SRC_CLK eSrcClk,
+    						192000,		  //UINT32 u32PllKHz,
+    						192000,		  //UINT32 u32SysKHz,
+    						192000,		  //UINT32 u32CpuKHz,
+    						192000/2,	  //UINT32 u32HclkKHz,
+    						192000/4);    //UINT32 u32ApbKHz
 
     /* enable cache */
     sysDisableCache();

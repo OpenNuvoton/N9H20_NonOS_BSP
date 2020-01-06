@@ -80,7 +80,11 @@ static UINT8 usb_kbd_keycode[256] =
 #endif
 
 /* YCHuang: I translate the key position into key code. */
-static UINT8  _UsbKeyCodeMap[256][20] = 
+#if defined(__GNUC__)
+static UINT8 _UsbKeyCodeMap[256][20] __attribute__((aligned (32))) = 
+#else
+static __align(32) UINT8 _UsbKeyCodeMap[256][20] = 
+#endif	
 {
     "N/A",
     "N/A",
