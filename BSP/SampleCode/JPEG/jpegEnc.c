@@ -19,6 +19,7 @@ extern CHAR g_u8String[100];
 extern UINT32 g_u32StringIndex;
           
 PUINT8 g_pu8EncFrameBuffer;    /* Source image data for encoding */ 
+UINT32 g_u32EncFrameBuffer;    /* Source image data for encoding */ 
 
 UINT32 g_u32EncWidth = 640, g_u32EncHeight = 480;       /* Encode Width & Height */
 
@@ -63,11 +64,12 @@ VOID JpegEncTest (VOID)
     sysprintf("\tRaw data size for Encode is %d\n", len);
 
     /* Allocate the Raw Data Buffer for Encode Operation */
-    g_pu8EncFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * len);
+    g_pu8EncFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * (len + 0x03));
 
-    sysprintf("\tJPEG Bitstream is located 0x%X\n", (UINT32)g_au8BitstreamBuffer);
+    g_u32EncFrameBuffer = (((UINT32)g_pu8EncFrameBuffer + 0x03) & ~0x03) | 0x80000000;
+    sysprintf("\tJPEG Bitstream is located 0x%X\n", (UINT32)g_u32EncFrameBuffer);
 
-    nStatus = fsReadFile(hFile, (UINT8 *)((UINT32)g_pu8EncFrameBuffer | 0x80000000), len, &nReadLen);
+    nStatus = fsReadFile(hFile, (UINT8 *)g_u32EncFrameBuffer, len, &nReadLen);
     if (nStatus < 0)
         sysprintf("\tRead error!!\n");
 
@@ -81,7 +83,7 @@ VOID JpegEncTest (VOID)
     jpegInit();	
 
     /* Set Source Address */
-    jpegIoctl(JPEG_IOCTL_SET_YADDR, (UINT32)g_pu8EncFrameBuffer, 0);
+    jpegIoctl(JPEG_IOCTL_SET_YADDR, (UINT32)g_u32EncFrameBuffer, 0);
 
     /* Set Source Y/U/V Stride */
     jpegIoctl(JPEG_IOCTL_SET_YSTRIDE, u16Width, 0);

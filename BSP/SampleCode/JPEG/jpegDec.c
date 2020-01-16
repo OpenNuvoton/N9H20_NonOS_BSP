@@ -22,6 +22,7 @@ extern UINT32 g_u32StringIndex;
 
 UINT32 g_u32DecFormat = JPEG_DEC_PRIMARY_PACKET_RGB565;    /* Decode Output format */
 PUINT8 g_pu8JpegBuffer;    /* The source bit stream data for decoding */
+UINT32 g_u32JpegBuffer;
 PUINT8 g_pu8DecFrameBuffer;    /* The buffer for decoding output */
    
 /*-----------------------------------------------------------------------*/
@@ -79,16 +80,18 @@ VOID JpegDecTest (void)
     sysprintf("\tBit stream  size for Decode is %d\n", u32BitstreamSize);
 
     /* Allocate the Bitstream Data Buffer for Decode Operation */
-    g_pu8JpegBuffer = (PUINT8)malloc(sizeof(CHAR) * u32BitstreamSize);
+    g_pu8JpegBuffer = (PUINT8)malloc(sizeof(CHAR) * (u32BitstreamSize + 0x03));
+
+    g_u32JpegBuffer = (((UINT32)g_pu8JpegBuffer + 0x03) & ~0x03) | 0x80000000;
     
-    nStatus = fsReadFile(hFile, (UINT8 *)((UINT32)g_pu8JpegBuffer | 0x80000000), u32BitstreamSize, &nReadLen);
+    nStatus = fsReadFile(hFile, (UINT8 *)g_u32JpegBuffer, u32BitstreamSize, &nReadLen);
 
     if (nStatus < 0)
         sysprintf("\tRead error!!\n");
 
     fsCloseFile(hFile);
 
-    if(ParsingJPEG((UINT8 *)((UINT32)g_pu8JpegBuffer | 0x80000000), nReadLen, &u32Width, &u32Height, &u32Format, TRUE) == ERR_MODE)
+    if(ParsingJPEG((UINT8 *)(UINT32)g_u32JpegBuffer, nReadLen, &u32Width, &u32Height, &u32Format, TRUE) == ERR_MODE)
     {
         sysprintf("\tNot Support the JPEG sampling\n");	
         goto END_ERROR_FORMAT;
@@ -128,7 +131,7 @@ VOID JpegDecTest (void)
 
         /* Prepare the data for first decode operation (Fill Buffer 0 & 1) */
         /* Copy bitstream from the temp buffer (g_pu8JpegBuffer) to the buffer engine used (g_au8DecInputWaitBuffer) */
-        memcpy((char *)((UINT32)g_au8DecInputWaitBuffer | 0x80000000),(char *)( (UINT32)g_pu8JpegBuffer | 0x80000000), len);
+        memcpy((char *)((UINT32)g_au8DecInputWaitBuffer | 0x80000000),(char *)g_u32JpegBuffer, len);
 
         /* The bitstream size put to Bitstream Buffer */
         g_u32IpwUsedSize += len;
@@ -136,7 +139,7 @@ VOID JpegDecTest (void)
     else
     {
         /* Set Bit stream Address */   
-        jpegIoctl(JPEG_IOCTL_SET_BITSTREAM_ADDR,(UINT32) g_pu8JpegBuffer, 0);
+        jpegIoctl(JPEG_IOCTL_SET_BITSTREAM_ADDR,g_u32JpegBuffer, 0);
     }   
     
     
@@ -145,7 +148,7 @@ VOID JpegDecTest (void)
         UINT32 u32FrameBuffer;
         /* Allocate Raw Data Buffer for Decode Operation (Prepare 1MB for Planar output) */
         /* Or user needs to get image size to allocate buffer before Decode Trigger for Planar */
-        g_pu8DecFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * PLANAR_DEC_BUFFER_SIZE);
+        g_pu8DecFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * (PLANAR_DEC_BUFFER_SIZE + 0x03));
 
         if(g_pu8DecFrameBuffer == NULL)
         {
@@ -153,7 +156,7 @@ VOID JpegDecTest (void)
             return;
         }
 
-        u32FrameBuffer =  (UINT32) g_pu8DecFrameBuffer | 0x80000000;
+		u32FrameBuffer =  (((UINT32) g_pu8DecFrameBuffer + 0x03) & ~0x03) | 0x80000000;
 
         sysprintf("\tThe Buffer prepared for Planar format starts from 0x%X, Size is 0x%X\n", u32FrameBuffer, PLANAR_DEC_BUFFER_SIZE);
 
