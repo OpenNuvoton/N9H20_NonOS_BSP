@@ -782,7 +782,7 @@
               <MiscControls></MiscControls>
               <Define>__FreeRTOS__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Include</IncludePath>
+              <IncludePath>..\..\..\Include;..\..\..\..\ThirdParty\FreeRTOS\Source\include;..\.;..\..\..\..\SampleCode\FreeRTOS\ARM9_N9H20</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

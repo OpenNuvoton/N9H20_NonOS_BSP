@@ -659,18 +659,9 @@ FLOAT PWM_SetTimerClk(UINT8 u8Timer, PWM_TIME_DATA_T *sPt)
 {
 	FLOAT 	fFrequency;
 	UINT16	u16Duty;
-	UINT32 u32PllKHz, u32SysKHz, u32CpuKHz, u32HclkKHz, u32ApbKHz;
-	E_SYS_SRC_CLK eSrcClk;
+	UINT32 	u32ApbHz;
 	
-	sysGetSystemClock(&eSrcClk,
-				 	&u32PllKHz,	
-					&u32SysKHz,
-					&u32CpuKHz,
-					&u32HclkKHz,
-					&u32ApbKHz);	
-	
-	u32ApbKHz = u32ApbKHz* 1000;
-	
+	u32ApbHz = sysGetAPBClock() * 1000;
 						
 	if(u8Timer & 0x10)	
 	{
@@ -717,14 +708,14 @@ FLOAT PWM_SetTimerClk(UINT8 u8Timer, PWM_TIME_DATA_T *sPt)
 		outp32(CNR0 + (u8Timer & 0x07) * 12, (sPt->u32Duty - 1));
 		outp32(CMR0 + (u8Timer & 0x07) * 12, (sPt->u32Duty * sPt->u8HighPulseRatio / 100 - 1));			
 				
-		fFrequency = (FLOAT)u32ApbKHz / sPt->u8PreScale / sPt->u8ClockSelector / sPt->u32Duty;
+		fFrequency = (FLOAT)u32ApbHz / sPt->u8PreScale / sPt->u8ClockSelector / sPt->u32Duty;
 	}
 	else
 	{
 		UINT8	u8Divider;
 		UINT16	u16PreScale;
 		
-		fFrequency = (FLOAT)  u32ApbKHz / sPt->fFrequency;		
+		fFrequency = (FLOAT)  u32ApbHz / sPt->fFrequency;		
 		
 		if(fFrequency > 0x10000000)
 			return 0;
@@ -769,7 +760,7 @@ FLOAT PWM_SetTimerClk(UINT8 u8Timer, PWM_TIME_DATA_T *sPt)
 		}
 		u16Duty = (UINT16 )(fFrequency/u16PreScale/u8Divider);
 		
-		fFrequency = ((FLOAT) u32ApbKHz / u16PreScale / u8Divider) / u16Duty;	
+		fFrequency = ((FLOAT) u32ApbHz / u16PreScale / u8Divider) / u16Duty;	
 				
 		if(u8Timer & 0x02)	
 			outp32(PPR, (inp32(PPR) & ~CP1) | (((u16PreScale - 1) & 0xFF) << 8));

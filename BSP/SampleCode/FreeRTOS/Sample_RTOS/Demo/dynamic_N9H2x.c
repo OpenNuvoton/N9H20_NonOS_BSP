@@ -453,7 +453,6 @@ BaseType_t xGotValue;
 				vTaskSuspendAll();
 				{
 					xGotValue = xQueueReceive( xSuspendedTestQueue, ( void * ) &ulReceivedValue, priNO_BLOCK );
-					sysprintf("TaskName=%s queue receive value=%d\n", pcTaskGetTaskName( NULL ), xGotValue);
 				}
 				if( xTaskResumeAll() != pdFALSE )
 				{
@@ -461,6 +460,7 @@ BaseType_t xGotValue;
 				}
 			}
 			xTaskResumeAll();
+			sysprintf("TaskName=%s queue receive value=%d\n", pcTaskGetTaskName( NULL ), xGotValue);
 
 			#if configUSE_PREEMPTION == 0
 			{

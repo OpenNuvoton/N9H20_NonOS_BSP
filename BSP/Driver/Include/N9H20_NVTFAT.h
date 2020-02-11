@@ -517,6 +517,7 @@ typedef VOID (FS_UNMOUNT_CB_T)(LDISK_T *);
 /*===================================================== Exported Functions ==*/
 /* NVTFAT File System APIs */
 extern INT  fsInitFileSystem(VOID);
+extern INT  fsCloseFileSystem(VOID);
 extern INT  fsAssignDriveNumber(INT nDriveNo, INT disk_type, INT instance, INT partition);
 
 /* Disk operations */

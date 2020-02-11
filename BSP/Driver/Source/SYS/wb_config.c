@@ -1250,17 +1250,19 @@ UINT32 sysGetClock(E_SYS_SRC_CLK clk)
             {
                 case 0x0:
                     src = u32FinKHz;   /* HXT */
+				    divS = 1;
                     break;
                 case 0x10:
                     src = sysGetPLLOutputKhz(eSYS_APLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 case 0x18:
                     src = sysGetPLLOutputKhz(eSYS_UPLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 default:
                     return 0;
             }
-            divS = (reg & 0x7) + 1;
             divN = ((reg & 0xf00) >> 8) + 1;
             return (src / divS / divN / 2);
         }
@@ -1272,20 +1274,23 @@ UINT32 sysGetClock(E_SYS_SRC_CLK clk)
             {
                 case 0x0:
                     src = u32FinKHz;   /* HXT */
+				    divS = 1;
                     break;
                 case 0x10:
                     src = sysGetPLLOutputKhz(eSYS_APLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 case 0x18:
                     src = sysGetPLLOutputKhz(eSYS_UPLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 default:
                     return 0;
             }
             divS = (reg & 0x7) + 1;
             divN = ((reg & 0xf00) >> 8) + 1;
-            div = ((reg & 0xf00000) >> 20) + 1;
-            return (src / divS / divN / 2 / div);
+            //div = ((reg & 0xf00000) >> 20) + 1;
+            return (src / divS / divN / 2);
         }
 
         case eSYS_PCLK:
@@ -1295,20 +1300,25 @@ UINT32 sysGetClock(E_SYS_SRC_CLK clk)
             {
                 case 0x0:
                     src = u32FinKHz;   /* HXT */
+				    divS = 1;
                     break;
                 case 0x10:
                     src = sysGetPLLOutputKhz(eSYS_APLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 case 0x18:
                     src = sysGetPLLOutputKhz(eSYS_UPLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 default:
                     return 0;
             }
-            divS = (reg & 0x7) + 1;
             divN = ((reg & 0xf00) >> 8) + 1;
-            div = ((reg & 0xf000000) >> 24) + 1;
-            return (src / divS / divN / 2 / div);
+			if ( (inpw(REG_CLKDIV4) & 0xF) > 2)
+				div = (inpw(REG_CLKDIV4) & 0xF);
+			else
+				div = 2;
+            return (src / divS / divN / 2 /div);
         }
         case eSYS_CPU:
         {
@@ -1317,19 +1327,22 @@ UINT32 sysGetClock(E_SYS_SRC_CLK clk)
             {
                 case 0x0:
                     src = u32FinKHz;   /* HXT */
+				    divS = 1;
                     break;
                 case 0x10:
                     src = sysGetPLLOutputKhz(eSYS_APLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 case 0x18:
                     src = sysGetPLLOutputKhz(eSYS_UPLL, u32FinKHz);
+				    divS = (reg & 0x7) + 1;
                     break;
                 default:
                     return 0;
             }
-            divS = (reg & 0x7) + 1;
+            
             divN = ((reg & 0xf00) >> 8) + 1;
-            div = ((reg & 0xf0000) >> 16) + 1;
+            div = (inpw(REG_CLKDIV0) &0x0F) + 1;
             return (src / divS / divN / div);
         }
 

@@ -36,7 +36,12 @@
 //extern BOOL		sysGetCacheState(VOID);
 //extern INT32 	sysGetCacheMode(VOID);
 
-UINT8  _tmp_buf[PD_RAM_SIZE];
+#if defined(__GNUC__)
+UINT8  _tmp_buf[PD_RAM_SIZE] __attribute__ ((aligned (32)));
+#else
+__align(32) UINT8 _tmp_buf[PD_RAM_SIZE];
+#endif
+
 #define SRAM_VAR_ADDR  0xFF001FF0
  /**************************************************************************
  *	The function is used to power down PLL or not if system power down

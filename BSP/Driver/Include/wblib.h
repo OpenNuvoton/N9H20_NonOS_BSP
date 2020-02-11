@@ -262,6 +262,31 @@ typedef struct UART_INIT_STRUCT
 #define WB_PM_PD			2
 #define WB_PM_MIDLE	    	5
 
+
+#ifdef __FreeRTOS__
+#include <FreeRTOS.h>
+#include <semphr.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "wbtypes.h"
+#include "wbio.h"
+extern SemaphoreHandle_t 			_uart_mutex;
+extern int 							_uart_refcnt;
+#define UART_MUTEX_INIT()		_uart_mutex=xSemaphoreCreateRecursiveMutex()
+#define UART_MUTEX_FINI()		vSemaphoreDelete(_uart_mutex)
+#define UART_MUTEX_LOCK()       xSemaphoreTakeRecursive(_uart_mutex, portMAX_DELAY)
+#define UART_MUTEX_UNLOCK()     xSemaphoreGiveRecursive(_uart_mutex)
+//#define UART_MUTEX_LOCK()   { xSemaphoreTakeRecursive(_uart_mutex, portMAX_DELAY); _uart_refcnt++; sysprintf("[%s]%s lock - %d\n", pcTaskGetName(xTaskGetCurrentTaskHandle()), __func__, _uart_refcnt); }
+//#define UART_MUTEX_UNLOCK() {  _uart_refcnt--; sysprintf("[%s]%s unlock -%d\n", pcTaskGetName(xTaskGetCurrentTaskHandle()) ,__func__, _uart_refcnt); xSemaphoreGiveRecursive(_uart_mutex); }
+#else
+#define UART_MUTEX_INIT()	
+#define UART_MUTEX_FINI()	
+#define UART_MUTEX_LOCK()   
+#define UART_MUTEX_UNLOCK() 
+#endif /* __FreeRTOS__ */
+
+
 /* Define Wake up source */ 
 #define	WAKEUP_GPIO 	0
 #define	WAKEUP_RTC 		1

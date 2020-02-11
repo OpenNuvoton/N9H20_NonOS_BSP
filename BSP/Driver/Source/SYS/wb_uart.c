@@ -57,6 +57,10 @@ static UINT32 volatile _sys_uUartTxHead, _sys_uUartTxTail;
 //static PVOID  _sys_pvOldUartVect;
 static UINT32 u32UartPort =0x100; /* Default Normal Speed UART */
 
+#ifdef __FreeRTOS__
+SemaphoreHandle_t 	_uart_mutex;
+int _uart_refcnt = 0;
+#endif
 
 static INT32 i32UsedPort = 1;
 void sysUartPort(UINT32 u32Port)
@@ -250,35 +254,50 @@ INT32 sysInitializeUART(WB_UART_T *uart)
 	//outpw(REG_PINFUN, inpw(REG_PINFUN) | 0x80);
 	//outpw(REG_GPAFUN, inpw(REG_GPAFUN) | 0x00F00000);	//Normal UART pin function 
 	static BOOL bIsResetFIFO = FALSE;
+	INT32 i32Ret = 0;
+	
+	UART_MUTEX_INIT();
+	
 	/* Check the supplied parity */
 	if ((uart->uiParity != WB_PARITY_NONE) &&
 	    (uart->uiParity != WB_PARITY_EVEN) &&
 	    (uart->uiParity != WB_PARITY_ODD))
-
-	    	/* The supplied parity is not valid */
-	    	return WB_INVALID_PARITY;
-
+	{
+        i32Ret = (INT32)WB_INVALID_PARITY;
+		goto exit_sysInitializeUART;
+      
+	    /* The supplied parity is not valid */
+	    //return (INT32)WB_INVALID_PARITY;
+    }
 	/* Check the supplied number of data bits */
 	else if ((uart->uiDataBits != WB_DATA_BITS_5) &&
 	         (uart->uiDataBits != WB_DATA_BITS_6) &&
 	         (uart->uiDataBits != WB_DATA_BITS_7) &&
 	         (uart->uiDataBits != WB_DATA_BITS_8))
-
-	    	/* The supplied data bits value is not valid */
-	    	return WB_INVALID_DATA_BITS;
-
+	{
+        i32Ret = (INT32)WB_INVALID_DATA_BITS;
+		goto exit_sysInitializeUART;
+	    /* The supplied data bits value is not valid */
+	    //return (INT32)WB_INVALID_DATA_BITS;
+    }
 	/* Check the supplied number of stop bits */
 	else if ((uart->uiStopBits != WB_STOP_BITS_1) &&
 	         (uart->uiStopBits != WB_STOP_BITS_2))
-
-	    	/* The supplied stop bits value is not valid */
-	    	return WB_INVALID_STOP_BITS;
+    {
+        i32Ret = (INT32)WB_INVALID_STOP_BITS;
+		goto exit_sysInitializeUART;
+	    /* The supplied stop bits value is not valid */
+	    //return (INT32)WB_INVALID_STOP_BITS;
+    }
 
 	/* Verify the baud rate is within acceptable range */
 	else if (uart->uiBaudrate < 1200)
-	    	/* The baud rate is out of range */
-	    	return WB_INVALID_BAUD;
-
+	{
+	    i32Ret = (INT32)WB_INVALID_BAUD;
+		goto exit_sysInitializeUART;
+	    /* The baud rate is out of range */
+	    //return (INT32)WB_INVALID_BAUD;
+    }
 	/* Reset the TX/RX FIFOs */
 	if(bIsResetFIFO==FALSE)
 	{
@@ -316,11 +335,6 @@ INT32 sysInitializeUART(WB_UART_T *uart)
 	/* Timeout if more than ??? bits xfer time */
 	outpw(REG_UART_TOR+u32UartPort, 0x7F);
 
-
-
-	
-
-
 	// hook UART interrupt service routine
 	if (u32UartPort)
 	{//==1 NORMAL UART
@@ -337,8 +351,13 @@ INT32 sysInitializeUART(WB_UART_T *uart)
 		sysEnableInterrupt(IRQ_HUART);
 	}
 	_sys_bIsUARTInitial = TRUE;
-
-	return Successful;
+    
+	i32Ret = Successful;
+	
+exit_sysInitializeUART:	
+	//UART_MUTEX_UNLOCK();
+	
+	return i32Ret;
 }
 
 
@@ -606,6 +625,8 @@ VOID sysPrintf(PINT8 pcStr,...)
 		}
 	}else if(u32DbgMessage == 0)	/* Disable UART message from UART1 */
 		return;
+
+	UART_MUTEX_LOCK();
 	
   _sys_bIsUseUARTInt = TRUE;
 	if (!_sys_bIsUARTInitial)
@@ -629,6 +650,7 @@ VOID sysPrintf(PINT8 pcStr,...)
 	    	else
 	        	_PutChar_f(*pcStr++);
 	}
+	UART_MUTEX_UNLOCK();
 }
 
 
@@ -646,7 +668,9 @@ VOID sysprintf(PINT8 pcStr,...)
 		}
 	}else if(u32DbgMessage == 0)	/* Disable UART message from UART1 */
 		return;
-	
+
+	UART_MUTEX_LOCK();
+
 	_sys_bIsUseUARTInt = FALSE;
 	if (!_sys_bIsUARTInitial)
 	{//Default use external clock 12MHz as source clock. 
@@ -669,6 +693,7 @@ VOID sysprintf(PINT8 pcStr,...)
 		else
 		    	_PutChar_f(*pcStr++);
 	}
+	UART_MUTEX_UNLOCK();
 }
 
 
