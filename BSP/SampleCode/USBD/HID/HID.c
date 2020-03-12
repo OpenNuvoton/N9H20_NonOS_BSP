@@ -245,6 +245,7 @@ void hidClassOUT(void)
     {
         outp32(CEP_CTRL_STAT, ZEROLEN);
         sysprintf("Set IDLE\n");
+        outp32(CEP_IRQ_STAT, CEP_STACOM_IS);
     }
     else if(_usb_cmd_pkt.bRequest == HID_SET_REPORT)
     {
