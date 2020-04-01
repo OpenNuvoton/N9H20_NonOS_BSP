@@ -149,7 +149,9 @@ static void _SYS_Init(void)
     uart.uiRxTriggerLevel = LEVEL_1_BYTE;
     sysInitializeUART(&uart);
 
+    sysInvalidCache();
     sysEnableCache(CACHE_WRITE_BACK);
+    sysFlushCache(I_D_CACHE);
 
     /* start timer 0 */
     OS_TimeMS = 0;

@@ -149,7 +149,7 @@ extern "C" {     /* Make sure we have C-declarations in C++ programs */
   #define SHOW_GUIDEMO_RADIALMENU        (1)
 #endif
 #ifndef   SHOW_GUIDEMO_SKINNING
-  #define SHOW_GUIDEMO_SKINNING          (1)
+  #define SHOW_GUIDEMO_SKINNING          (0)
 #endif
 #ifndef   SHOW_GUIDEMO_SPEED
   #define SHOW_GUIDEMO_SPEED             (1)
