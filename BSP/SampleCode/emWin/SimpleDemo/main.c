@@ -184,7 +184,7 @@ static void _SYS_Init(void)
     u8FrameBufPtr  = (UINT8 *)((UINT32)u8FrameBuf | 0x80000000);
     /* If backlight control signal is different from nuvoton's demo board,
         please don't call this function and must implement another similar one to enable LCD backlight. */
-    vpostEnaBacklight();
+//    vpostEnaBacklight();
 }
 
 /*********************************************************************

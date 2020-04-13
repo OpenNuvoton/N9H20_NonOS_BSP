@@ -26,9 +26,9 @@ static uint8_t src_pat[] = {
 #define DISP_HEIGHT         240
 
 #define SIZE_SRCIMG         (SRCIMG_STRIDE * SRCIMG_HEIGHT)
-#define SIZE_SRCIMG_BUF     (SIZE_SRCIMG / 32 * 32)
+#define SIZE_SRCIMG_BUF     ((SIZE_SRCIMG + 31) / 32 * 32)
 #define SIZE_DISP           (DISP_STRIDE * DISP_HEIGHT)
-#define SIZE_DISP_BUF       (SIZE_DISP / 32 * 32)
+#define SIZE_DISP_BUF       ((SIZE_DISP + 31) / 32 * 32)
 
 #define SIZE_TXMEM          (SIZE_SRCIMG_BUF + SIZE_DISP_BUF)
 
@@ -50,7 +50,7 @@ __align (32) uint8_t txmem[SIZE_TXMEM];
 #define COLOR_BLUE          0xFF0000FF
 #define COLOR_GREEN         0xFF00FF00
 
-#define DELAY_INTER_FRAME   50  // 500 ms
+#define DELAY_INTER_FRAME   50
 
 void clr_disp_buf(uint32_t fill_color)
 {
@@ -283,10 +283,6 @@ void demo_rotate(float ox, float oy, float deg)
         dst_img.i16Height = DISP_HEIGHT;
         
         bltSetDestFrameBuf(dst_img);
-    }
-    
-    if (sysGetCacheState ()) {  // Flush source/destination buffers beflore Blit operation.
-        sysFlushCache(I_D_CACHE);
     }
 
     /* We assume txmem for CPU and BLT is non-cacheable, so we needn't do any cache-related
@@ -525,9 +521,7 @@ int blt_main()
 #endif
 
     sysSetLocalInterrupt (ENABLE_IRQ);  // Enable CPSR I bit
-    
-    sysprintf("\nBLT Demo\n");
-    
+
     do {
         
         memcpy((void *) ADDR_SRCIMG, src_pat, SIZE_SRCIMG);
