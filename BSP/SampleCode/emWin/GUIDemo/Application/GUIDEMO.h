@@ -131,7 +131,7 @@ extern "C" {     /* Make sure we have C-declarations in C++ programs */
   #define SHOW_GUIDEMO_CURSOR            (1)
 #endif
 #ifndef   SHOW_GUIDEMO_FADING
-  #define SHOW_GUIDEMO_FADING            (1)
+  #define SHOW_GUIDEMO_FADING            (0)
 #endif
 #ifndef   SHOW_GUIDEMO_GRAPH
   #define SHOW_GUIDEMO_GRAPH             (1)

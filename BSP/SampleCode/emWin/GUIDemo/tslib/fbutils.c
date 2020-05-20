@@ -15,6 +15,8 @@
 #include "LCDConf.h"
 #include "N9H20TouchPanel.h"
 
+#include "GUI.h"
+
 #undef DEBUG
 union multiptr
 {
@@ -126,13 +128,16 @@ void setcolor(unsigned colidx, unsigned value)
 #endif
         break;
     case 2:
-    case 4:
         red = (value >> 16) & 0xff;
         green = (value >> 8) & 0xff;
         blue = value & 0xff;
         res = ((red >> (8 - red_length)) << red_offset) |
               ((green >> (8 - green_length)) << green_offset) |
               ((blue >> (8 - blue_length)) << blue_offset);
+        break;
+    case 4:
+        res = value;
+        break;
     }
     colormap [colidx] = res;
 }
@@ -163,10 +168,38 @@ static void __setpixel (union multiptr loc, unsigned xormode, unsigned color)
     }
 }
 
+static void __setpixel2 (unsigned color1, unsigned xormode, unsigned color)
+{
+    switch(bytes_per_pixel)
+    {
+//    case 1:
+//    default:
+//        if (xormode)
+//            *loc.p8 ^= color;
+//        else
+//            *loc.p8 = color;
+//        break;
+    case 2:
+    case 4:
+        if (xormode)
+            color1 ^= color;
+        else
+            color1 = color;
+        break;
+//    case 4:
+//        if (xormode)
+//            *loc.p32 ^= color;
+//        else
+//            *loc.p32 = color;
+//        break;
+    }
+    GUI_SetColorIndex(color1);
+}
+
 void pixel (int x, int y, unsigned colidx)
 {
     unsigned xormode;
-    union multiptr loc;
+//    union multiptr loc;
 
     if ((x < 0) || (x >= LCD_XSIZE) ||
             (y < 0) || (y >= LCD_YSIZE))
@@ -186,8 +219,10 @@ void pixel (int x, int y, unsigned colidx)
 
 //  loc.p8 = line_addr [y] + x * bytes_per_pixel;
     line_addr = (unsigned char *)g_VAFrameBuf+ y*(LCD_XSIZE*bytes_per_pixel);
-    loc.p8 = line_addr + x*bytes_per_pixel;
-    __setpixel(loc, xormode, colormap [colidx]);
+//    loc.p8 = line_addr + x*bytes_per_pixel;
+//    __setpixel(loc, xormode, colormap [colidx]);
+    __setpixel2(GUI_GetPixelIndex(x, y), xormode, colormap [colidx]);
+    GUI_DrawPixel(x, y);
 }
 
 void line(int x1, int y1, int x2, int y2, unsigned colidx)
