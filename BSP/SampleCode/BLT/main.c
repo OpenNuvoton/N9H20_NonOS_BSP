@@ -176,30 +176,32 @@ void demo_scale(float ox, float oy, float sx, float sy, int is_tiling)
 
 #define PI_OVER_180 0.01745329252f
 /**
-  * @brief              Rotate source pattern with top-left point as center.
-  * @param[in]  ox,oy   coordinates of center in FB CS.
+  * @brief              Rotate source pattern around pivot
+  * @param[in]  ox,oy   coordinates of center in FB CS
+  * @param[in]  px,py   coordinates of pivot relative to top-left point of source pattern  
   * @param[in]  deg     Angle in degree
   * 
-  * Ma * Mt * Mr * Src = Dst, where
+  * Ma * Mt * Mr * Mp * Src = Dst, where
   * Ma: matrix for amendment to mapping point error
   * Mt: translation matrix
   * Mr: rotation matrix
+  * Mp: translation matrix to adjust pivot
   *
-  *      / 1 0 -0.5 \       / 1 0 tx \       / cos£c -sin£c 0 \
-  * Ma = | 0 0 -0.5 |  Mt = | 0 1 ty |  Mr = | sin£c con£c  0 |
-  *      \ 0 0 1    /       \ 0 0 1  /       \ 0    0     1 /
+  *      / 1 0 -0.5 \       / 1 0 tx \       / cos£c -sin£c 0 \       / 1 0 -px \
+  * Ma = | 0 0 -0.5 |  Mt = | 0 1 ty |  Mr = | sin£c con£c  0 |  Mp = | 0 1 -py |
+  *      \ 0 0 1    /       \ 0 0 1  /       \ 0    0     1 /       \ 0 0 1   /
   *
-  * Src = Inv(Mr) * Inv(Mt) * Inv(Ma) * DST
+  * Src = Inv(Mp) * Inv(Mr) * Inv(Mt) * Inv(Ma) * DST
   *
-  *           / cos£c  sin£c 0 \            / 1 0 -tx \            / 1 0 0.5 \
-  * Inv(Mr) = | -sin£c con£c 0 |  Inv(Mt) = | 0 1 -ty |  Inv(Ma) = | 0 1 0.5 |
-  *           \ 0     0    1 /            \ 0 0 1   /            \ 0 0 1   /
+  *           / 1 0 px \            / cos£c  sin£c 0 \            / 1 0 -tx \            / 1 0 0.5 \
+  * Inv(Mp) = | 0 1 py |  Inv(Mr) = | -sin£c con£c 0 |  Inv(Mt) = | 0 1 -ty |  Inv(Ma) = | 0 1 0.5 |
+  *           \ 0 0 1  /            \ 0     0    1 /            \ 0 0 1   /            \ 0 0 1   /
   *
-  *                               / con£c  sin£c -con£c*tx-sin£c*ty+0.5*(a+c) \   / a c src.xoffset \
-  * Inv(Mr) * Inv(Mt) * Inv(Ma) = | -sin£c con£c sin£c*tx-con£c*ty+0.5*(b+d)  | = | b d src.yoffset |
-  *                               \ 0     0    1                          /   \ 0 0 0           /
+  *                                         / con£c  sin£c px - con£c*tx-sin£c*ty+0.5*(a+c) \   / a c src.xoffset \
+  * Inv(Mp) * Inv(Mr) * Inv(Mt) * Inv(Ma) = | -sin£c con£c px + sin£c*tx-con£c*ty+0.5*(b+d) | = | b d src.yoffset |
+  *                                         \ 0     0    1                              /   \ 0 0 1           /
   */
-void demo_rotate(float ox, float oy, float deg)
+void demo_rotate(float ox, float oy, float px, float py, float deg)
 {
     bltSetFillOP((E_DRVBLT_FILLOP) FALSE);  // Blit operation.
     bltSetDisplayFormat(FMT_DST);           // Set destination format.
@@ -249,9 +251,14 @@ void demo_rotate(float ox, float oy, float deg)
         src_img.u32SrcImageAddr = ADDR_SRCIMG;
         {
             S_DRVBLT_MATRIX xform_mx;
-        
-            src_img.i32XOffset = -(cos(PI_OVER_180 * deg) * ox + sin(PI_OVER_180 * deg) * oy) * 0x10000;    // 16.16
-            src_img.i32YOffset = (sin(PI_OVER_180 * deg) * ox - cos(PI_OVER_180 * deg) * oy) * 0x10000;     // 16.16
+
+            // Pivot
+            src_img.i32XOffset = px * 0x10000;      // 16.16
+            src_img.i32YOffset = py * 0x10000;      // 16.16
+
+            // Translate after rotate
+            src_img.i32XOffset += -(cos(PI_OVER_180 * deg) * ox + sin(PI_OVER_180 * deg) * oy) * 0x10000;    // 16.16
+            src_img.i32YOffset += (sin(PI_OVER_180 * deg) * ox - cos(PI_OVER_180 * deg) * oy) * 0x10000;     // 16.16
             
             // Apply amendment to mapping point error.
             bltGetTransformMatrix(&xform_mx);
@@ -542,8 +549,8 @@ int main()
         clr_disp_buf(COLOR_BLACK);
         demo_scale(0.0f, 0.0f, 1.0f, 1.0f, 1);
         sysDelay(DELAY_INTER_FRAME);
-        
-        // Rotate.
+
+        // Rotate with pivot unchanged
         {
             float deg_arr[] = {0.0f, 30.0f, 60.0f, 90.0f, 120.0f, 150.0f, 180.0f, 210.0f, 240.0f, 270.0f, 300.0f, 330.0f, 360.0f};
             float *deg_ind = deg_arr;
@@ -551,13 +558,28 @@ int main()
             
             while (deg_ind != deg_end) {
                 clr_disp_buf(COLOR_BLACK);
-                demo_rotate(160.0f, 120.0f, *deg_ind);
+                demo_rotate(160.0f, 120.0f, 0.0f, 0.0f, *deg_ind);
                 sysDelay(DELAY_INTER_FRAME);
                 
                 deg_ind ++;
             }
         }
-        
+
+        // Rotate with pivot changed
+        {
+            float deg_arr[] = {0.0f, 30.0f, 60.0f, 90.0f, 120.0f, 150.0f, 180.0f, 210.0f, 240.0f, 270.0f, 300.0f, 330.0f, 360.0f};
+            float *deg_ind = deg_arr;
+            float *deg_end = deg_arr + sizeof (deg_arr) / sizeof (deg_arr[0]);
+            
+            while (deg_ind != deg_end) {
+                clr_disp_buf(COLOR_BLACK);
+                demo_rotate(160.0f, 120.0f, 40.0f, 30.0f, *deg_ind);
+                sysDelay(DELAY_INTER_FRAME);
+                
+                deg_ind ++;
+            }
+        }
+
         // Reflect
         // Reflect about x-axis
         clr_disp_buf(COLOR_BLACK);
