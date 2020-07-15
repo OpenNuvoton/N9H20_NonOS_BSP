@@ -169,8 +169,12 @@ INT fmiSDCmdAndRspDataIn(UINT8 ucCmd, UINT32 uArg)
             return -1;
     }
 
+    /* According to comment in Linux driver mmc_sd_init_card() in core/sd.c, 
+       "some SDHC cards are not able to provide valid CRCs for non-512-byte blocks",
+       SDLoader don't check CRC-16 to improve compatibility.
+     */
     if (inpw(REG_SDISR) & 0x04)     // check CRC7
-        ;   //return Successful;
+        return Successful;
     else
     {
 #ifdef DEBUG
@@ -179,14 +183,14 @@ INT fmiSDCmdAndRspDataIn(UINT8 ucCmd, UINT32 uArg)
         return -1;
     }
 
-    if (!(inpw(REG_SDISR) & 0x08))      // check CRC16
-    {
-#ifdef DEBUG
-        sysprintf("fmiSDCmdAndRspDataIn: read data error!\n");
-#endif
-        return -1;
-    }
-    return Successful;
+//    if (!(inpw(REG_SDISR) & 0x08))      // check CRC16
+//    {
+//#ifdef DEBUG
+//        sysprintf("fmiSDCmdAndRspDataIn: read data error!\n");
+//#endif
+//        return -1;
+//    }
+//    return Successful;
 }
 
 
