@@ -4,10 +4,20 @@
 #include <math.h>
 #include "N9H20.h"
 
+/* Color format
+ *
+ * RGB565           : 2-byte, no alpha
+ * RGB888(xRGB8888) : 4-byte with MSB byte ignored, no alpha
+ * ARGB8888         : 4-byte with MSB byte representing alpha
+ */
+
 static uint8_t src_pat[] = {
-#include "Pat_RGB888_size160x120.txt"
+//#include "Pat_RGB888_size160x120.txt"
+#include "Pat_ARGB888_size160x120.txt"
 };
 
+/* Source image spec. Must be consistent with source image data */
+#define SRCIMG_HASALPHA     1
 #define SRCIMG_WIDTH        160
 #define SRCIMG_STRIDE       (SRCIMG_WIDTH * 4)
 #define SRCIMG_HEIGHT       120
@@ -38,8 +48,12 @@ __align (32) uint8_t txmem[SIZE_TXMEM];
 
 #define COLOR_WHITE         0xFFFFFFFF
 #define COLOR_BLACK         0xFF000000
-#define COLOR_BLUE          0xFF0000FF
+#define COLOR_GRAY          0xFF808080
+#define COLOR_RED           0xFFFF0000
 #define COLOR_GREEN         0xFF00FF00
+#define COLOR_BLUE          0xFF0000FF
+
+
 
 #define DELAY_INTER_FRAME   50
 
@@ -132,7 +146,12 @@ void demo_scale(float ox, float oy, float sx, float sy, int is_tiling)
         bltSetColorOffset(color_offset);
     }   
     
-    bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM); // Source image has no alpha channel. Apply color transformation on all 4 channels.
+    // Apply color transformation on all 4 channels.
+    if (SRCIMG_HASALPHA) {
+        bltSetTransformFlag(eDRVBLT_HASTRANSPARENCY | eDRVBLT_HASCOLORTRANSFORM);
+    } else {
+        bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM);
+    }
     bltSetFillStyle((E_DRVBLT_FILL_STYLE) (eDRVBLT_NOTSMOOTH | (is_tiling ? 0 : eDRVBLT_NONE_FILL))); // No smoothing.
 
     {   // Set source image.
@@ -240,8 +259,13 @@ void demo_rotate(float ox, float oy, float px, float py, float deg)
         
         bltSetColorOffset(color_offset);
     }   
-    
-    bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM); // Source image has no alpha channel. Apply color transformation on all 4 channels.
+
+    // Apply color transformation on all 4 channels.
+    if (SRCIMG_HASALPHA) {
+        bltSetTransformFlag(eDRVBLT_HASTRANSPARENCY | eDRVBLT_HASCOLORTRANSFORM);
+    } else {
+        bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM);
+    }
     bltSetFillStyle((E_DRVBLT_FILL_STYLE) (eDRVBLT_NONE_FILL | eDRVBLT_NOTSMOOTH)); // No smoothing.
 
     {   // Set source image.
@@ -353,8 +377,13 @@ void demo_reflect(float ox, float oy, int mx, int my)
         
         bltSetColorOffset(color_offset);
     }   
-    
-    bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM); // Source image has no alpha channel. Apply color transformation on all 4 channels.
+
+    // Apply color transformation on all 4 channels.
+    if (SRCIMG_HASALPHA) {
+        bltSetTransformFlag(eDRVBLT_HASTRANSPARENCY | eDRVBLT_HASCOLORTRANSFORM);
+    } else {
+        bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM);
+    }
     bltSetFillStyle((E_DRVBLT_FILL_STYLE) (eDRVBLT_NONE_FILL | eDRVBLT_NOTSMOOTH)); // No smoothing.
 
     {   // Set source image.
@@ -436,8 +465,13 @@ void demo_alpha(float ox, float oy, float alpha)
         
         bltSetColorOffset(color_offset);
     }   
-    
-    bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM); // Source image has no alpha channel. Apply color transformation on all 4 channels.
+
+    // Apply color transformation on all 4 channels.
+    if (SRCIMG_HASALPHA) {
+        bltSetTransformFlag(eDRVBLT_HASTRANSPARENCY | eDRVBLT_HASCOLORTRANSFORM);
+    } else {
+        bltSetTransformFlag(eDRVBLT_HASCOLORTRANSFORM);
+    }
     bltSetFillStyle((E_DRVBLT_FILL_STYLE) (eDRVBLT_NONE_FILL | eDRVBLT_NOTSMOOTH)); // No smoothing.
 
     {   // Set source image.
@@ -521,32 +555,32 @@ int main()
         bltOpen();
             
         // Scale. No tiling.
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 0.5f, 0.5f, 0);
         sysDelay(DELAY_INTER_FRAME);
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 1.0f, 1.0f, 0);
         sysDelay(DELAY_INTER_FRAME);
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 1.5f, 1.5f, 0);
         sysDelay(DELAY_INTER_FRAME);
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 2.0f, 2.0f, 0);
         sysDelay(DELAY_INTER_FRAME);
         
         // Scale without aspect ratio kept. No tiling.
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 2.0f, 0.5f, 0);
         sysDelay(DELAY_INTER_FRAME);
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 0.5f, 2.0f, 0);
         sysDelay(DELAY_INTER_FRAME);
         
         // Scale. Tiling.
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 0.5f, 0.5f, 1);
         sysDelay(DELAY_INTER_FRAME);
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_scale(0.0f, 0.0f, 1.0f, 1.0f, 1);
         sysDelay(DELAY_INTER_FRAME);
 
@@ -557,7 +591,7 @@ int main()
             float *deg_end = deg_arr + sizeof (deg_arr) / sizeof (deg_arr[0]);
             
             while (deg_ind != deg_end) {
-                clr_disp_buf(COLOR_BLACK);
+                clr_disp_buf(COLOR_GRAY);
                 demo_rotate(160.0f, 120.0f, 0.0f, 0.0f, *deg_ind);
                 sysDelay(DELAY_INTER_FRAME);
                 
@@ -572,7 +606,7 @@ int main()
             float *deg_end = deg_arr + sizeof (deg_arr) / sizeof (deg_arr[0]);
             
             while (deg_ind != deg_end) {
-                clr_disp_buf(COLOR_BLACK);
+                clr_disp_buf(COLOR_GRAY);
                 demo_rotate(160.0f, 120.0f, 40.0f, 30.0f, *deg_ind);
                 sysDelay(DELAY_INTER_FRAME);
                 
@@ -582,15 +616,15 @@ int main()
 
         // Reflect
         // Reflect about x-axis
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_reflect(0.0f, 120.0f, 1, 0);
         sysDelay(DELAY_INTER_FRAME);
         // Reflect about y-axis
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_reflect(160.0f, 0.0f, 0, 1);
         sysDelay(DELAY_INTER_FRAME);
         // Reflect about both x-axis/y-axis (origin)
-        clr_disp_buf(COLOR_BLACK);
+        clr_disp_buf(COLOR_GRAY);
         demo_reflect(160.0f, 120.0f, 1, 1);
         sysDelay(DELAY_INTER_FRAME);
         
@@ -605,7 +639,7 @@ int main()
             float *alpha_end = alpha_arr + sizeof (alpha_arr) / sizeof (alpha_arr[0]);
             
             while (alpha_ind != alpha_end) {
-                clr_disp_buf(COLOR_BLACK);
+                clr_disp_buf(COLOR_GRAY);
                 demo_alpha(80.0f, 60.0f, *alpha_ind);
                 sysDelay(DELAY_INTER_FRAME);
                 
