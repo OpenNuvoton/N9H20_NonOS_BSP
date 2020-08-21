@@ -1,13 +1,14 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Electronics Corporation confidential                                      */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Electronics Corporation                             */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
+/**************************************************************************//**
+ * @file     N9H20_GNAND.h
+ * @version  V3.00
+ * @brief    N9H20 series GNAND driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 #ifndef _GNAND_H_
 #define _GNAND_H_
-
 
 #define GNAND_OK                    0
 #define GNERR_READ_L2P_MISS         1   /* read block not found in L2P        */

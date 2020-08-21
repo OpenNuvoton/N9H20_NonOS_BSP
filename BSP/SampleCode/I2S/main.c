@@ -1,3 +1,10 @@
+/**************************************************************************//**
+ * @file     main.c
+ * @brief    N9H20 series I2S demo code in NAU8822 codec
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ *****************************************************************************/
 
 #include <stdio.h>
 #include "wbio.h"

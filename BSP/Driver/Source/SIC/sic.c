@@ -1,34 +1,12 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                       */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Technology Corporation                              */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/****************************************************************************
+/**************************************************************************//**
+ * @file     sic.c
+ * @version  V3.00
+ * @brief    N9H20 series SIC driver source file
  *
- * FILENAME
- *     sic.c
- *
- * VERSION
- *     1.0
- *
- * DESCRIPTION
- *     This file contains SIC library APIs.
- *
- * DATA STRUCTURES
- *     None
- *
- * FUNCTIONS
- *     None
- *
- * HISTORY
-  *     10/11/07      Create Ver 1.0
- *
- * REMARK
- *     None
- **************************************************************************/
-/* Header files */
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 #include <stdio.h>
 #include <string.h>
 

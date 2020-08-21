@@ -1,20 +1,10 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Electronics Corporation confidential                                      */
-/*                                                                                   */
-/* Copyright (c) 2009 by Nuvoton Electronics Corporation                             */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/* File Contents:                                                                    */
-/*   SpiToUart.c                 		                                             */
-/*                                                                                   */
-/* This file contains:                                                               */
-/*                                                                                   */
-/* Project:                                                                          */
-/*                                                                                   */
-/* Remark:                                                                           */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
+/**************************************************************************//**
+ * @file     SpiToUart.c
+ * @brief    Demonstrate how to use SPI to UART transfer data.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ *****************************************************************************/
 
 #include <stdio.h>
 #include "N9H20.h"

@@ -1,14 +1,3 @@
-/****************************************************************************
- * @file     usb_keyboard.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    USBH sample source file
- *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
 /*
  * $Id: usbkbd.c,v 1.16 2000/08/14 21:05:26 vojtech Exp $
  *

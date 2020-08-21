@@ -1,18 +1,10 @@
-/****************************************************************************
+/**************************************************************************//**
  * @file     w99683.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
  * @brief    W99683 USB device driver header file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
-//
-// W99682/W99683 Registers
-//
-
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #define W99683_VENDOR_ID      0x0416
 #define W99683_PRODUCT_ID     0x9683
 //#define W99683_PRODUCT_ID     0x6830

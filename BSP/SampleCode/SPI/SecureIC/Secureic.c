@@ -1,13 +1,12 @@
- /****************************************************************************
+/**************************************************************************//**
  * @file     Secureic.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    Secureic sample file
+ * @brief    This code provide the Demo code for RPMC operation. Please do not copy the 	
+ *           rootkey generate method directly. Rootkey generate method should be keep in
+ *           secret and should not exposed. 
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #include <stdio.h>
 #include <string.h>

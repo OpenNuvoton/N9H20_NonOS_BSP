@@ -1,13 +1,10 @@
-;/******************************************************************************
+;/**************************************************************************//**
+; * @file     vectors.s
+; * @brief    SdLoader source code for exception vectors configuration.
 ; *
-; * Copyright (c) 2008 Nuvoton Tech. Corp.
-; * All rights reserved.
-; *
-; * $Workfile: vectors.s $
-; *
-; * 
-; ******************************************************************************/
-
+; * SPDX-License-Identifier: Apache-2.0
+; * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+; *****************************************************************************/
 
 	AREA Vect, CODE, READONLY
 
@@ -66,4 +63,3 @@ FIQ_Handler
         B       FIQ_Handler
         
         END
-

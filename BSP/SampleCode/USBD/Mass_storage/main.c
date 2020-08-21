@@ -1,13 +1,16 @@
-/****************************************************************************
+/**************************************************************************//**
  * @file     main.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    Mass Storage Class Device sample file
+ * @brief    Demo how to use USB Device & MSC driver to implement MSC Device with
+ *           - NAND
+ *           - NAND & SD
+ *           - SD Port 0 
+ *           - SD Port 0 & Port 1
+ *           - Ram Disk
+ *           - SPI
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>

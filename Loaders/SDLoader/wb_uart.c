@@ -1,25 +1,11 @@
-/***************************************************************************
- *                                                                         *
- * Copyright (c) 2008 Nuvoton Technolog. All rights reserved.              *
- *                                                                         *
- ***************************************************************************/
+/**************************************************************************//**
+ * @file     wb_uart.c
+ * @brief    The UART related function of Nuvoton ARM9 MCU
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
-/****************************************************************************
-* FILENAME
-*   wb_uart.c
-*
-* VERSION
-*   1.0
-*
-* DESCRIPTION
-*   The UART related function of Nuvoton ARM9 MCU
-*
-* HISTORY
-*   2008-06-25  Ver 1.0 draft by Min-Nan Cheng
-*
-* REMARK
-*   None
- **************************************************************************/
 #include <string.h>
 #include <stdio.h>
 #include "wblib.h"
@@ -533,4 +519,3 @@ VOID sysPutChar(UINT8 ucCh)
 	/* Transmit the character */
 		outpb(REG_UART_THR+u32UartPort, ucCh);
 }
-

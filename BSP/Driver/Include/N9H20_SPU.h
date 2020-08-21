@@ -1,8 +1,11 @@
-/****************************************************************
- *                                                              *
- * Copyright (c) Nuvoton Technology Corp. All rights reserved.  *
- *                                                              *
- ****************************************************************/
+/**************************************************************************//**
+ * @file     N9H20_SPU.h
+ * @version  V3.00
+ * @brief    N9H20 series SPU driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ *****************************************************************************/
  
 #ifndef _N9H20_SPU_H_
 #define _N9H20_SPU_H_

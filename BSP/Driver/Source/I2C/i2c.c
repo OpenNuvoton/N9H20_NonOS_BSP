@@ -1,19 +1,11 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                      */
-/*                                                                                   */
-/* Copyright (c) 2008 by  Nuvoton Technology Corporation                             */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/* File Contents:                                                                    */
-/*   i2c.c                                                                           */
-/*                                                                                   */
-/* This file contains:                                                               */
-/*                                                                                   */
-/* Project:                                                                          */
-/*   1. 2007.07.23 modify for multi-master arbitration lost case.                    */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/ 
+/**************************************************************************//**
+ * @file     i2c.c
+ * @version  V3.00
+ * @brief    N9H20 series I2C driver source file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
  
 #ifdef ECOS 
 #include "stdio.h"

@@ -1,29 +1,10 @@
-/****************************************************************************
-*                                                                           *
-* Copyright (c) 2009 Nuvoton Tech. Corp. All rights reserved.               *
-*                                                                           *
-*****************************************************************************/
-
-/****************************************************************************
-* FILENAME
-*   kpi.c
-*
-* VERSION
-*   1.0
-*
-* DESCRIPTION
-*   KPI sample application
-*
-* DATA STRUCTURES
-*   None
-*
-* FUNCTIONS
-*
-* HISTORY
-*
-* REMARK
-*   None
-****************************************************************************/
+/**************************************************************************//**
+ * @file     main.c
+ * @brief    N9H20 series keypad demo code
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ *****************************************************************************/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

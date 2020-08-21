@@ -1,4 +1,10 @@
-
+;/**************************************************************************//**
+; * @file     wb_init.s
+; * @brief    N9H20 series startup code
+; *
+; * SPDX-License-Identifier: Apache-2.0
+; * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+; *****************************************************************************/
 
     AREA WB_INIT, CODE, READONLY
 

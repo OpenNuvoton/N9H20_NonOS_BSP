@@ -1,14 +1,15 @@
-/****************************************************************************
- * @file     Secureic.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    SPI Securic driver source file
- *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
+/**
+  ******************************************************************************
+  * @file    SecureIC.c
+  * @author  Winbond FAE YY Huang, FAE Steam Lin
+  * @version V1.0.0
+  * @date    09-December-2015
+  * @brief   This code provide the Demo code for RPMC operation. Please do not copy the rootkey generate method directly.
+		     Rootkey generate method should be keep in secret and should not exposed.		 
+			 
+  *            
+  * COPYRIGHT 2015 Winbond Electronics Corporation.
+*/
 #include "SecureIC.h"
 #include "string.h"
 #include "stdio.h"

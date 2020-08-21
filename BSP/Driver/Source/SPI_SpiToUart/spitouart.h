@@ -1,3 +1,11 @@
+/**************************************************************************//**
+ * @file     spitouart.h
+ * @version  V3.00
+ * @brief    N9H20 series SPI to UART driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #ifndef __SPI0TUART_H__
 #define __SPI0TUART_H__
 

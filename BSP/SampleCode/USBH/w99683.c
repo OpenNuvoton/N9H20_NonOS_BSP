@@ -1,14 +1,10 @@
-/****************************************************************************
+/**************************************************************************//**
  * @file     W99683.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    USBH sample source file
+ * @brief    W99683 USB device driver source file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 /*-------------------------------------------------------------------------
 
 unhandled interfaces on deviceWarning! - USB device 2 (vend/prod 0x416/0x9683) is not claimed by any active driver.

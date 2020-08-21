@@ -1,3 +1,11 @@
+/**************************************************************************//**
+ * @file     SONG.h
+ * @version  V3.00
+ * @brief    N9H20 series SPU demo code header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 const char SPU_SOURCE[194540] = {
 0x26, 0x07, 0xfd, 0x05, 0x17, 0x07, 0xb2, 0x06, 0x7a, 0x07,

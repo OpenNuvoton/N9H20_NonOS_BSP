@@ -1,33 +1,11 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                       */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Technology Corporation                              */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/****************************************************************************
- * 
- * FILENAME
- *     spi.c
+/**************************************************************************//**
+ * @file     spi.c
+ * @version  V3.00
+ * @brief    N9H20 series SPI driver source file
  *
- * VERSION
- *     1.0
- *
- * DESCRIPTION
- *     This file contains SPI library APIs.
- *
- * DATA STRUCTURES
- *     None
- *
- * FUNCTIONS
- *     None
- *
- * HISTORY
-  *     10/12/07      Create Ver 1.0
- *
- * REMARK
- *     None
- **************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 /* Header files */
 #include <stdio.h>
 #include <stdlib.h>

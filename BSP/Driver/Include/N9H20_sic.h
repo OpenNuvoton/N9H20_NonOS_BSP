@@ -1,12 +1,14 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                       */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Technology Corporation                              */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-#ifndef _FMILIB_H_
-#define _FMILIB_H_
+/**************************************************************************//**
+ * @file     N9H20_SIC.h
+ * @version  V3.00
+ * @brief    N9H20 series SIC driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
+#ifndef _SIC_H_
+#define _SIC_H_
 
 //#define OPT_SW_WP
 #define OPT_N9H20
@@ -170,4 +172,4 @@ INT nand_chip_erase1(void);
     __weak void schedule(void);
 #endif
 
-#endif //_FMILIB_H_
+#endif /* _SIC_H_ */

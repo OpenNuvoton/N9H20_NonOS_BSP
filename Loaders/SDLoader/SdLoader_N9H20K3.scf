@@ -1,17 +1,11 @@
-;/******************************************************************************
+;/**************************************************************************//**
+; * @file     SdLoader_N9H20K3.scf
+; * @brief    SdLoader scf file for N9H20K3 series.
 ; *
-; * Copyright (c) 2009 Nuvoton Tech. Corp.
-; * All rights reserved.
-; *
-; * $Workfile: $
-; *
-; * $Author: $
-; ******************************************************************************/
+; * SPDX-License-Identifier: Apache-2.0
+; * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+; *****************************************************************************/
 
-
-
-
-;;ROM_LOAD 0x900000
 ROM_LOAD 0x700000
 {
     ROM +0
@@ -31,12 +25,10 @@ ROM_LOAD 0x700000
       
     
     HEAP 0x780000 UNINIT
-    ;HEAP 0x1000000 UNINIT
     {
         heap.o (+ZI)
     }
 
-	;STACK 0x1800000 UNINIT
 	STACK 0x790000 UNINIT
 	{
 		stack.o (+ZI)

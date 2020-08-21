@@ -1,14 +1,13 @@
-/****************************************************************************
+/**************************************************************************//**
  * @file     common.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    JPEG driver sample file
+ * @brief    Functions for JPEG Driver
+ *           - JPEG Driver Callback functions 
+ *           - JPEG Header Parser function
+ *           - JPEG Output file name function  
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
- 
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

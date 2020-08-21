@@ -1,8 +1,11 @@
-/****************************************************************
- *                                                              *
- * Copyright (c) Nuvoton Technology Corp. All rights reserved. *
- *                                                              *
- ****************************************************************/
+/**************************************************************************//**
+ * @file     DrvI2CH.c
+ * @version  V3.00
+ * @brief    N9H20 series I2C driver source file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #include <stdio.h>
 #include <string.h>

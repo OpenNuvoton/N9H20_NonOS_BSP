@@ -1,13 +1,10 @@
-/****************************************************************************
- * @file     SpiLoader.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    SpiLoader_gzip header file
+/**************************************************************************//**
+ * @file     spiloader.h
+ * @brief    Spiloader header file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #define IMAGE_TYPE_DATA    0
 #define IMAGE_TYPE_EXE     1

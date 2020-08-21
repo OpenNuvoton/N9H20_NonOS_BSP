@@ -1,15 +1,11 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                       */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Technology Corporation                              */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/*
- * Driver for FMI devices
- * SD layer glue code
+/**************************************************************************//**
+ * @file     sdGlue.c
+ * @version  V3.00
+ * @brief    N9H20 series SIC driver source file. Driver for FMI devices SD layer glue code.
  *
- */
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #ifdef ECOS
     #include "stdlib.h"

@@ -1,3 +1,10 @@
+/**************************************************************************//**
+ * @file     writer.h
+ * @brief    NandWriter header file.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #define MAJOR_VERSION_NUM   1
 #define MINOR_VERSION_NUM   10

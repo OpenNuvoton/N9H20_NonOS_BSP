@@ -1,8 +1,11 @@
-/****************************************************************
- *                                                              *
- * Copyright (c) Winbond Electronics Corp. All rights reserved. *
- *                                                              *
- ****************************************************************/
+/**************************************************************************//**
+ * @file     N9H20_I2S.h
+ * @version  V3.00
+ * @brief    N9H20 series I2S driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ *****************************************************************************/
  
 #ifndef __DRVI2S_H__
 #define __DRVI2S_H__

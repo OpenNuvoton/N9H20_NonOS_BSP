@@ -1,34 +1,11 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                       */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Technology Corporation                              */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/****************************************************************************
- * 
- * FILENAME
- *     spitouart.c
+/**************************************************************************//**
+ * @file     spitouart.c
+ * @version  V3.00
+ * @brief    N9H20 series SPI to UART driver source file
  *
- * VERSION
- *     1.0
- *
- * DESCRIPTION
- *    N9H20 expand two group of UART via Mini58 built-in UART 
- *
- * DATA STRUCTURES
- *     None
- *
- * FUNCTIONS
- *     None
- *
- * HISTORY
- *     05/03/18 SPI-TO-UART protocal     
- *    
- *
- * REMARK
- *     None
- **************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 /* Header files */
 #include <stdio.h>
 #include "wblib.h"

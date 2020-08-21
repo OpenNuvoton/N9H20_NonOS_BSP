@@ -1,8 +1,10 @@
-/*---------------------------------------------------------------------------------------------------------*/
-/*                                                                                                         */
-/* Copyright (c) Nuvoton Technology Corp. All rights reserved.                                             */
-/*                                                                                                         */
-/*---------------------------------------------------------------------------------------------------------*/
+/**************************************************************************//**
+ * @file     main.c
+ * @brief    Demonstrate how to use PWM counter output/capture waveform.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ *****************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

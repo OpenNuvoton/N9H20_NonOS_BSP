@@ -1,14 +1,10 @@
-/****************************************************************************
- * @file     writer.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
+/**************************************************************************//**
+ * @file     Writer.c
  * @brief    SpiWriter header file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #define	MAJOR_VERSION_NUM  1
 #define	MINOR_VERSION_NUM  4
 

@@ -1,14 +1,11 @@
-/****************************************************************
- *                                                             *
- * Copyright (c) Nuvoton Technology Corp. All rights reserved. *
- *                                                              *
- ****************************************************************/
- /****************************************************************
- Total:
- 	
- Revision History:
- 	05/26/2009, first creation
- ****************************************************************/
+/**************************************************************************//**
+ * @file     DrvEDMA.h
+ * @version  V3.00
+ * @brief    N9H20 series EDMA driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
  
 #ifndef __DRVEDMA_H__
 #define __DRVEDMA_H__

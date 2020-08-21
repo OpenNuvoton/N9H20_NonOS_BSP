@@ -1,13 +1,13 @@
-/****************************************************************************
- * @file     Secureic.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    SPI Securic driver source file
- *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
+/**
+  ******************************************************************************
+  * @file    SecureIC.h
+  * @author  Winbond FAE Steam Lin
+  * @version V1.1.0
+  * @date    09-December-2015
+  * @brief   This code provide the low level RPMC hardware operate function based on STM32F205.
+  *            
+  * COPYRIGHT 2015 Winbond Electronics Corporation.
+*/ 
 #ifndef __SPI_SECUREIC_H
 #define __SPI_SECUREIC_H
 

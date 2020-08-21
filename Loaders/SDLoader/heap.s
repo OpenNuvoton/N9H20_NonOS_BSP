@@ -1,13 +1,10 @@
-;/******************************************************************************
+;/**************************************************************************//**
+; * @file     heap.s
+; * @brief    SdLoader source code for heap configuration.
 ; *
-; * Copyright (c) 2008 Nuvoton Tech. Corp.
-; * All rights reserved.
-; *
-; * $Workfile: heap.s $
-; *
-; * 
-; ******************************************************************************/
-
+; * SPDX-License-Identifier: Apache-2.0
+; * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+; *****************************************************************************/
 
         AREA    Heap, DATA, NOINIT
 

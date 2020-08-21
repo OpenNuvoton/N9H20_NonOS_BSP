@@ -1,13 +1,11 @@
-/****************************************************************************
- * @file     usb.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    USB Host driver header file 
+/**************************************************************************//**
+ * @file     N9H20_USBH.h
+ * @version  V3.00
+ * @brief    N9H20 series USB Host driver header file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/ 
 #ifndef _USB_H_
 #define _USB_H_
 

@@ -1,29 +1,10 @@
-/****************************************************************************
-*                                                                           *
-* Copyright (c) 2009 Nuvoton Tech. Corp. All rights reserved.               *
-*                                                                           *
-*****************************************************************************/
-
-/****************************************************************************
-* FILENAME
-*   gpio.c
-*
-* VERSION
-*   1.0
-*
-* DESCRIPTION
-*   GPIO sample application using GPIO library. Pull up and low port B pins
-*
-* DATA STRUCTURES
-*   None
-*
-* FUNCTIONS
-*
-* HISTORY
-*
-* REMARK
-*   None
-****************************************************************************/
+/**************************************************************************//**
+ * @file     main.c
+ * @brief    Show how to set GPIO pin mode and output control.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+ *****************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

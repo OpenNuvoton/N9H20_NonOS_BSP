@@ -1,34 +1,11 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                       */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Technology Corporation                              */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/****************************************************************************
- * 
- * FILENAME
- *     spiflash.c
+/**************************************************************************//**
+ * @file     spiflash.c
+ * @version  V3.00
+ * @brief    N9H20 series SPI flash driver source file
  *
- * VERSION
- *     1.0
- *
- * DESCRIPTION
- *     This file contains SPI flash library APIs.
- *
- * DATA STRUCTURES
- *     None
- *
- * FUNCTIONS
- *     None
- *
- * HISTORY
- *     10/12/07      Create Ver 1.0
- *     06/12/09      Add SPI flash
- *
- * REMARK
- *     None
- **************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 /* Header files */
 #include <stdio.h>
 #include <stdlib.h>

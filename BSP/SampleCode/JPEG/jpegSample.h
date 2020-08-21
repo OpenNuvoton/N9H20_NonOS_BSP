@@ -1,14 +1,11 @@
-/****************************************************************************
+/**************************************************************************//**
  * @file     jpegSample.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    JPEG driver sample header file
+ * @brief    JPEG driver sample driver header file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
- 
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 #define DEC_IPW_BUFFERSIZE  8192   /* Buffer size for Decode Input Wait */
 
 /* ParsingJPEG Error Code */

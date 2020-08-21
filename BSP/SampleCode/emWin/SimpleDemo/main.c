@@ -1,3 +1,11 @@
+/**************************************************************************//**
+ * @file     main.c
+ * @brief    To utilize emWin library to demonstrate interactive feature.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 #include "N9H20.h"
 
 #include "GUI.h"

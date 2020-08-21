@@ -1,3 +1,11 @@
+/**************************************************************************//**
+ * @file     N9H20TouchPanel.h
+ * @brief    N9H20 series emWin touch header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 #ifndef __N9H20TOUCHPANEL_H__
 #define __N9H20TOUCHPANEL_H__
 

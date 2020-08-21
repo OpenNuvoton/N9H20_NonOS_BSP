@@ -1,34 +1,11 @@
-/*-----------------------------------------------------------------------------------*/
-/* Nuvoton Technology Corporation confidential                                       */
-/*                                                                                   */
-/* Copyright (c) 2008 by Nuvoton Technology Corporation                              */
-/* All rights reserved                                                               */
-/*                                                                                   */
-/*-----------------------------------------------------------------------------------*/
-/****************************************************************************
- * 
- * FILENAME
- *     virtualuart_api.c
+/**************************************************************************//**
+ * @file     virtualuart_api.c
+ * @version  V3.00
+ * @brief    N9H20 series virtual UART driver source file
  *
- * VERSION
- *     1.0
- *
- * DESCRIPTION
- *     This file contains Spi-To-Uart APIs.
- *
- * DATA STRUCTURES
- *     None
- *
- * FUNCTIONS
- *     None
- *
- * HISTORY
- *     05/03/18 Spi-To-Uart APIs
- *     
- *
- * REMARK
- *     None
- **************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 /* Header files */
 
 #include <stdio.h>

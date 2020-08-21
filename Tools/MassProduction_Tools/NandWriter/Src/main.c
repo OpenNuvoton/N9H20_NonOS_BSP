@@ -1,8 +1,10 @@
-/*----------------------------------------------------------------------------------*/
-/* Copyright (c) 2013 by Nuvoton Technology Corporation.  All rights reserved.      */
-/*                                                                                  */
-/* Description: The main program of NandWriter.                                       */
-/*----------------------------------------------------------------------------------*/
+/**************************************************************************//**
+ * @file     main.c
+ * @brief    NandWriter source code.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>

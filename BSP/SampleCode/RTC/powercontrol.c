@@ -1,14 +1,12 @@
-/****************************************************************************
+/**************************************************************************//**
  * @file     powercontrol.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    RTC driver sample file
+ * @brief    RTC Power Control Flow
+ *           - Power down wakeup 
+ *           - Power off 
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #include <stdio.h>
 #include <string.h>
 #include "wblib.h"

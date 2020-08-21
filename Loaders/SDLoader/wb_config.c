@@ -1,31 +1,11 @@
+/**************************************************************************//**
+ * @file     wb_config.c
+ * @brief    PLL control functions of Nuvoton ARM9 MCU
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
-/***************************************************************************
- *                                                                         *
- * Copyright (c) 2008 Nuvoton Technolog. All rights reserved.              *
- *                                                                         *
- ***************************************************************************/
-/****************************************************************************
- *
- * FILENAME : wb_config.c
- *
- * VERSION  : 1.1
- *
- * DESCRIPTION : 
- *               PLL control functions of Nuvoton ARM9 MCU
- *
- * HISTORY
- *
- *
- *		IBR set clocks default value	
- * 			UPLL= 240MHz
- *			SYS = 120MHz
- *			CPU = 60MHz
- *			HCLK = 60MHz
- *			
- *
- *
- *
- ****************************************************************************/
 #include <string.h>
 #include "wblib.h"
 #if 0
@@ -50,6 +30,7 @@ void InitDelay(void)
 {
 	
 }
+
 void sysInitDDR(void)
 {	
 	UINT32 u32Delay;	
@@ -89,7 +70,7 @@ void sysInitDDR(void)
 */
 	vram_base = PD_RAM_BASE;		
 	memcpy((char *)_tmp_buf, (char *)vram_base, PD_RAM_SIZE);					//Backup RAM content
-	memcpy((VOID *)vram_base,(VOID *)sysInitDDR, PD_RAM_SIZE);		//
+	memcpy((VOID *)vram_base,(VOID *)sysInitDDR, PD_RAM_SIZE);
 	
 	
 	// Entering clock switch function 	
@@ -103,6 +84,7 @@ void sysInitDDR(void)
 	outpw(REG_AIC_MDCR, 0xFFFFFFFF);    	// Disable all interrupt
 	outpw(REG_AIC_MECR, aic_status);    	// Restore AIC setting    
 }
+
 /*-----------------------------------------------------------------------------------------------------------
  *
  * Function : sysInitMemory
@@ -124,6 +106,7 @@ UINT32 sysInitMemory(void)
 	sysInitDDRStart();
 	return 0;
 }
+
 /*-----------------------------------------------------------------------------------------------------------
  *
  * Function : sysGetPLLOutputKhz
@@ -235,6 +218,7 @@ UINT32 sysGetPLLControlRegister(UINT32 u32FinKHz, UINT32 u32TargetKHz)
 		
 	return 0;
 }
+
 /*-----------------------------------------------------------------------------------------------------------
 * Function: sysSetPLLControlRegister                                                                
 *                                                                                                        
@@ -259,6 +243,7 @@ sysSetPLLControlRegister(
 	else if(eSysPll==eSYS_APLL)
 		outp32(REG_UPLLCON, u32PllValue);	
 }
+
 /*
 	1. Refresh rate base on the target 
 	Check the low freq bit in SDRAM controller whether need set ot not for DDR. ???????????	
@@ -275,6 +260,7 @@ void sysExternalClock(void)
 	outp32(REG_CLKDIV0, inp32(REG_CLKDIV0) & ~(SYSTEM_N1 | SYSTEM_S | SYSTEM_N0)); //System clock from external and divider as 0.
 	outp32(REG_CLKDIV4, inp32(REG_CLKDIV4) & ~(CPU_N) );
 }
+
 /*-----------------------------------------------------------------------------------------------------------
 * Function: sysSetSystemClock                                                               
 *                                                                                                        
@@ -295,11 +281,6 @@ void sysExternalClock(void)
 *		1. Switch to external clock		
 *			a. Change refresh base on PLL value. Although the value more power sumption  
 *		
-*
-*
-*
-*
-*	                                                                                                       
 -----------------------------------------------------------------------------------------------------------*/
 void sysClockSwitch(register E_SYS_SRC_CLK eSrcClk,
 						register UINT32 u32PllReg,
@@ -371,8 +352,6 @@ void sysClockSwitch(register E_SYS_SRC_CLK eSrcClk,
 	}
 	else if(eSrcClk==eSYS_UPLL)
 	{
-
-
 		//outp32(REG_UPLLCON, u32PllReg);
 		outp32(REG_CLKDIV0,  (inp32(REG_CLKDIV0) | 0x02));	//Safe consider
 		outp32(REG_UPLLCON, u32PllReg);
@@ -615,6 +594,7 @@ void sysClockSwitch(register E_SYS_SRC_CLK eSrcClk,
 	// enable interrupt (recovery origianl interrupt maask)
 	outp32(REG_AIC_MECR, u32IntTmp);	
 }
+
 void sysClockSwitchStart(E_SYS_SRC_CLK eSrcClk, 
 						UINT32 u32PllReg,
 						UINT32 u32Hclk,
@@ -641,7 +621,7 @@ void sysClockSwitchStart(E_SYS_SRC_CLK eSrcClk,
 	memcpy((VOID *)((UINT32)vram_base | 0x80000000),
 			//(VOID *)((UINT32)sysClockSwitch | 0x80000000), 
 			(VOID *)( ((UINT32)sysClockSwitch -(PD_RAM_START-PD_RAM_BASE)) | 0x80000000), 
-			PD_RAM_SIZE);					//
+			PD_RAM_SIZE);
 	vram_base = PD_RAM_START;	
 	wb_func = (void(*)(E_SYS_SRC_CLK, 
 					UINT32, 
@@ -687,6 +667,7 @@ UINT32 sysGetExternalClock(void)
 	}	
 	return g_u32ExtClk;
 }		
+
 /*-----------------------------------------------------------------------------------------------------------
 *	The Function set the relative system clock. PLL, SYS,CPU, HCLK, APB
 *	And if specified PLL not meet some costraint, the funtion will search the near frequency and not over the specified frequency
@@ -858,9 +839,7 @@ sysSetSystemClock(
 		//u32SysDiv = u32PllKHz / g_u32SysKHz-1;
 		//u32CpuDiv = g_u32SysKHz / g_u32CpuKHz-1; 	
 	}
-	/*
 	
-	*/	
 	if(eSrcClk==eSYS_UPLL)
 	{
 		u32RegPll = g_u32REG_UPLL;
@@ -883,7 +862,7 @@ sysSetSystemClock(
 }
 
 void sysGetSystemClock(E_SYS_SRC_CLK* peSrcClk,	// System clock frol UPLL or APLL or external clock
-					PUINT32 pu32PllKHz, 		// 
+					PUINT32 pu32PllKHz,
 					PUINT32 pu32SysKHz,
 					PUINT32 pu32CpuKHz,
 					PUINT32 pu32HclkKHz,
@@ -902,6 +881,7 @@ void sysGetSystemClock(E_SYS_SRC_CLK* peSrcClk,	// System clock frol UPLL or APL
 	*pu32HclkKHz = g_u32HclkKHz;
 	*pu32ApbKHz = g_u32ApbKHz;
 }
+
 /*-----------------------------------------------------------------------------------------------------------
 *	The Function is used to set the other PLL which is not the system clock source. 
 *	If system clock source come from eSYS_UPLL. The eSrcClk only can be eSYS_APLL	
@@ -1005,6 +985,7 @@ void sysClockDiv(register UINT32 u32HCLK, register UINT32 u32SysDiv)
 	u32IntTmp = 0x1000;
 	while(u32IntTmp--);
 }
+
 /* ================================================
 Copy function- sysClockDiv() to RAM, 
 then jump to SRAM to execute the code.
@@ -1145,6 +1126,7 @@ UINT32 sysGetCPUClock(VOID)
 
 	return (u32SysClock/((inp32(REG_CLKDIV4)&CPU_N)+1));
 }
+
 /*******************************************************************
  * HCLK1 will be same frequency under following conditions
  *	if CPU Divider = 0, or CPU divider =1.
@@ -1188,6 +1170,7 @@ UINT32 sysSetAPBClock(UINT32 u32APBlockKHz)
 	outp32(REG_CLKDIV4, (inp32(REG_CLKDIV4)&~APB_N)|(u32APBDiv<<8));
 	return sysGetAPBClock();
 }
+
 /*******************************************************************
  * Return value: APB clock unit: KHz
  ********************************************************************/
@@ -1228,9 +1211,6 @@ void sysFirstAdjustAPLL(UINT32 u32ApllClockKHz)
 	bIsAPLLInitialize = TRUE;					 
 }
 
-
-
-
 int sysSetPLLConfig(WB_PLL_T *sysClk)
 {
 	sysClk->pll0 = 0;
@@ -1259,4 +1239,3 @@ int sysGetClockFreq(WB_CLKFREQ_T *sysFreq)
 	return 0;
 }
 #endif
-

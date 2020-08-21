@@ -1,10 +1,12 @@
-/**
-  ******************************************************************************
-  * @file    	/Rootkey.c
-  * @brief   	This code provides sample to create the 256-bit rootkey by Unique ID & 256-bit Tag.
-  *		User can modiy the file to create his rootkey. 
-  *            
-*/ 
+/**************************************************************************//**
+ * @file     Rootkey.c
+ * @brief    This code provides sample to create the 256-bit rootkey by Unique ID & 256-bit Tag.
+ *           User can modiy the file to create his rootkey.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 unsigned int hmacsha256(unsigned char *key, unsigned int  key_len, unsigned char *text, unsigned int  text_len, unsigned char *digest);
 
 unsigned char ROOTKeyTag[32];	// Rootkey array

@@ -1,16 +1,10 @@
-/****************************************************************************
+/**************************************************************************//**
  * @file     w99683ini.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
  * @brief    W99683 USB device driver header file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
-// w9683ini.h
-//
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 UINT8  InitRegValue[] =
 {

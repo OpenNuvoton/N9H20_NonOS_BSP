@@ -1,13 +1,12 @@
-/****************************************************************************
- * @file     cmd_bootm.c
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    SpiLoader_gzip source file
+/*
+ * (C) Copyright 2000-2009
+ * Wolfgang Denk, DENX Software Engineering, wd@denx.de.
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
+ * SPDX-License-Identifier:	GPL-2.0+
+ */
+/*
+ * Boot support
+ */
 #include "./ziplib/bzlib.h"
 #include "./ziplib/zlib.h"
 #include "./ziplib/image.h"

@@ -1,14 +1,11 @@
-/****************************************************************************
- * @file     usbd.h
- * @version  V1.00
- * $Revision: 4 $
- * $Date: 18/04/25 11:43a $
- * @brief    USB Device driver header file
+/**************************************************************************//**
+ * @file     N9H20_USBD.h
+ * @version  V3.00
+ * @brief    N9H20 series USB Device driver header file
  *
- * @note
- * Copyright (C) 2018 Nuvoton Technology Corp. All rights reserved.
- *****************************************************************************/
-
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #ifndef _N9H20_USBD_H_
 #define _N9H20_USBD_H_
 
