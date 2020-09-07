@@ -1,3 +1,10 @@
+/**************************************************************************//**
+ * @file     RAMDiskDriver.c
+ * @brief    Demonstrate how to initialize and use a RAM disk
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

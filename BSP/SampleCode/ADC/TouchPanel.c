@@ -1,3 +1,10 @@
+/**************************************************************************//**
+ * @file     TouchPanel.c
+ * @brief    Demonstration wake up system by touching panel 
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #include <stdio.h>
 #include "N9H20.h"
 char u8Tmp[0x1000];

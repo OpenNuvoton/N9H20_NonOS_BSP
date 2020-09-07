@@ -1,13 +1,10 @@
-;/******************************************************************************
+;/**************************************************************************//**
+; * @file     stack.s
+; * @brief    N9H20 series stack code
 ; *
-; * Copyright (c) 2008 Nuvoton Tech. Corp.
-; * All rights reserved.
-; *
-; * $Workfile: stack.s $
-; *
-; * 
-; ******************************************************************************/
-
+; * SPDX-License-Identifier: Apache-2.0
+; * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+; *****************************************************************************/
 
         AREA    Stacks, DATA, NOINIT
 

@@ -1,3 +1,11 @@
+/**************************************************************************//**
+ * @file     N9H20_reg.h
+ * @version  V3.00
+ * @brief    N9H20 series register header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 /* linux/include/asm-arm/arch-N9H20/N9H20_reg.h
  *
  * Copyright (c) 2008 Nuvoton technology corporation

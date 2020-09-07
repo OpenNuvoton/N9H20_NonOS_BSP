@@ -1,3 +1,10 @@
+/**************************************************************************//**
+ * @file     big2uni.c
+ * @brief    Translate a BIG5 string into a unicode string
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #include "N9H20.h"
 
 const char _UnicodeTable[];

@@ -1,3 +1,10 @@
+/**************************************************************************//**
+ * @file     avi.c
+ * @brief    APIs support to play AVI file 
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 /****************************************************************************
 *                                                                           *
 * Copyright (c) 2009 Nuvoton Tech. Corp. All rights reserved.               *

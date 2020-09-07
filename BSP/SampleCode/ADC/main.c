@@ -1,29 +1,11 @@
-/****************************************************************************
-*                                                                           *
-* Copyright (c) 2009 Nuvoton Tech. Corp. All rights reserved.               *
-*                                                                           *
+/**************************************************************************//**
+ * @file     main.c
+ * @brief    ADC sample application using ADC library
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
 *****************************************************************************/
 
-/****************************************************************************
-* FILENAME
-*   adc.c
-*
-* VERSION
-*   1.0
-*
-* DESCRIPTION
-*   ADC sample application using ADC library
-*
-* DATA STRUCTURES
-*   None
-*
-* FUNCTIONS
-*
-* HISTORY
-*
-* REMARK
-*   None
-****************************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

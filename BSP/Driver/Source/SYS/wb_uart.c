@@ -1,12 +1,15 @@
-/***************************************************************************
- *                                                                         *
- * Copyright (c) 2008 Nuvoton Technolog. All rights reserved.              *
- *                                                                         *
- ***************************************************************************/
+/**************************************************************************//**
+ * @file     wb_uart.c
+ * @version  V3.00
+ * @brief    N9H20 series SYS driver source file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
  
 /****************************************************************************
 * FILENAME
-*   wb_uart.c
+*   wb_uart.c (normal speed uart)
 *
 * VERSION
 *   1.0

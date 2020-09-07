@@ -1,15 +1,11 @@
-/*************************************************************************
- * Nuvoton Electronics Corporation confidential
+/**************************************************************************//**
+ * @file     nvtfat_fat.h
+ * @version  V3.00
+ * @brief    N9H20 series NVTFAT driver header file
  *
- * Copyright (c) 2008 by Nuvoton Electronics Corporation
- * All rights reserved
- * 
- * FILENAME
- *     nvtfat_fat.h
- *
- * REMARK
- *     None
- **************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #ifndef	_NVTFAT_FAT_H_
 #define	_NVTFAT_FAT_H_

@@ -1,12 +1,15 @@
-/***************************************************************************
- *                                                                         *
- * Copyright (c) 2008 Nuvoton Technolog. All rights reserved.              *
- *                                                                         *
- ***************************************************************************/
+/**************************************************************************//**
+ * @file     wb_uart0.c
+ * @version  V3.00
+ * @brief    N9H20 series SYS driver source file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
  
 /****************************************************************************
 * FILENAME
-*   wb_uart.c
+*   wb_uart0.c (high speed uart)
 *
 * VERSION
 *   1.0
@@ -52,7 +55,7 @@ static UINT32 volatile rx_cnt = 0;
 static UINT8 _sys_ucUartTxBuf[UART_BUFFSIZE];
 static UINT32 volatile _sys_uUartTxHead, _sys_uUartTxTail;
 static volatile PVOID  _sys_pvOldUartVect;
-static UINT32 u32UartPort =0x0; /* Default Normal Speed UART */
+static UINT32 u32UartPort =0x0; /* Default High Speed UART */
 
 
 static INT32 i32UsedPort = 0;

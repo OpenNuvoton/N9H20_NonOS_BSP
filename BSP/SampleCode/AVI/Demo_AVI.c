@@ -1,3 +1,11 @@
+/**************************************************************************//**
+ * @file     Demo_AVI.c
+ * @brief    Demo how to play AVI file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

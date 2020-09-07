@@ -1,7 +1,8 @@
 ;/***************************************************************************
 ; * @file     Startup_GCC.S                                                 *
-; * @brief    N9H20 series vector table and startup code                          *
+; * @brief    N9H20 series vector table and startup code                    *
 ; *                                                                         *
+; * SPDX-License-Identifier: Apache-2.0                                     *
 ; * @copyright (C) 2019 Nuvoton Technology Corp. All rights reserved.       *                                                                       *
 ; ***************************************************************************/
 

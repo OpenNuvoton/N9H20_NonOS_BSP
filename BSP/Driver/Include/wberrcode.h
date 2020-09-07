@@ -1,8 +1,11 @@
-/****************************************************************************
- *                                                                          *
- * Copyright (c) 2009 Nuvoton Technology. All rights reserved.              *
- *                                                                          *
- ***************************************************************************/
+/**************************************************************************//**
+ * @file     wberrcode.h
+ * @version  V3.00
+ * @brief    N9H20 series SYS driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 /****************************************************************************
  *
@@ -10,7 +13,7 @@
  *     wberrcode.h
  *
  * VERSION
- *     1.0
+ *     3.0
  *
  * DESCRIPTION
  *	   The Error Codes returned by Nuvoton S/W library are defined as the following

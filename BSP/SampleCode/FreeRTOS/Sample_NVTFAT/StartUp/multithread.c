@@ -1,6 +1,10 @@
-/*
- * multithread.c - Make some functions of Keil C lib to support thread safety in FreeRTOS
- */
+/**************************************************************************//**
+ * @file     multithread.c
+ * @brief    Make some functions of Keil C lib to support thread safety in FreeRTOS
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 /* Scheduler include files. */
 #include "FreeRTOS.h"

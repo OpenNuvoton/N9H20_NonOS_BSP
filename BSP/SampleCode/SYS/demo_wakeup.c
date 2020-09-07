@@ -1,8 +1,10 @@
-/***************************************************************************
- *                                                                         									     *
- * Copyright (c) 2008 Nuvoton Technolog. All rights reserved.              					     *
- *                                                                         									     *
- ***************************************************************************/
+/**************************************************************************//**
+ * @file     demo_wakeup.c
+ * @brief    Sample code to demostrate the processes to enter wake up then wake up by GPIO
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
 #include "N9H20.h"

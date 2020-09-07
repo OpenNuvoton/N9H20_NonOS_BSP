@@ -1,24 +1,11 @@
-/*************************************************************************
- * Nuvoton Electronics Corporation confidential
+/**************************************************************************//**
+ * @file     Demo_CommandShell.c
+ * @brief    Demonstrate how to use the APIs of NVTFAT library 
+ *           and how to link different medias 
  *
- * Copyright (c) 2008 by Nuvoton Electronics Corporation
- * All rights reserved
- * 
- * FILENAME
- *     Demo_CommandShell.c
- *
- * VERSION
- *     1.0
- *
- * DESCRIPTION
- *     Command shell like demo program
- *
- * HISTORY
- *     2008.06.25		Created
- *
- * REMARK
- *     None
- **************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #ifdef ECOS 
 #include "stdio.h"

@@ -1,16 +1,19 @@
-/***************************************************************************
- *                                                                         *
- * Copyright (c) 2009 Nuvoton Technology. All rights reserved.             *
- *                                                                         *
- ***************************************************************************/
- 
+/**************************************************************************//**
+ * @file     wblib.h
+ * @version  V3.00
+ * @brief    N9H20 series SYS driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
+
 /****************************************************************************
  * 
  * FILENAME
  *     WBLIB.h
  *
  * VERSION
- *     1.1
+ *     3.0
  *
  * DESCRIPTION
  *     The header file of N9H20 system library.
@@ -415,7 +418,8 @@ UINT32  sysGetCPUClock(VOID);
 UINT32  sysSetAPBClock(UINT32 u32APBlockKHz);
 UINT32  sysGetAPBClock(VOID);
 VOID    sysGetSystemClock(E_SYS_SRC_CLK* eSrcClk, PUINT32 pu32PllKHz, PUINT32 pu32SysKHz, PUINT32 pu32CpuKHz, PUINT32 pu32HclkKHz, PUINT32 pu32ApbKHz);		
-					
+UINT32  sysGetClock(E_SYS_SRC_CLK clk);
+
 INT32   sysClockDivSwitchStart(UINT32 u32SysDiv);
 VOID    sysCheckPllConstraint(BOOL bIsCheck);
 INT32   sysPowerDownPLL(E_SYS_SRC_CLK eSrcClk, BOOL bIsPowerDown);

@@ -1,27 +1,10 @@
-/****************************************************************************
- * 
- * FILENAME
- *     NVTFAT_ERROR.c
+/**************************************************************************//**
+ * @file     NVTFAT_ERROR.c
+ * @brief    Get szDescription of the error nErrCode
  *
- * VERSION
- *     1.0
- *
- * DESCRIPTION
- *     Get szDescription of the error nErrCode
- *
- * DATA STRUCTURES
- *     None
- *
- * FUNCTIONS
- *     fsGetErrorDescription
- *
- *
- * HISTORY
- *     2004.01.12		Ver 0.9 Created by PC30 YCHuang
- *
- * REMARK
- *     None
- **************************************************************************/
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 #ifdef ECOS 
 #include "stdio.h"
 #include "string.h"

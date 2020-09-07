@@ -1,8 +1,11 @@
-/****************************************************************
- *                                                              *
- * Copyright (c) Nuvoton Technology Corp. All rights reserved. 	*
- *                                                              *
- ****************************************************************/
+/**************************************************************************//**
+ * @file     N9H20_Font.h
+ * @version  V3.00
+ * @brief    N9H20 series Font driver header file
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
+*****************************************************************************/
 
 #ifndef	__FONT_H__
 #define	__FONT_H__
