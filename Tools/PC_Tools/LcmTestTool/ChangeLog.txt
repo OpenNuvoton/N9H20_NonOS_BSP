@@ -1,0 +1,2 @@
+v1.00.001 : Create LCM Test tool for N9H20/N9H26,
+			The firmware version of N9H20 is 2019/04/26-V01
