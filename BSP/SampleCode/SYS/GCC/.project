@@ -55,6 +55,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/demo_Cache.c</locationURI>
 		</link>
 		<link>
+			<name>Src/demo_DualUart.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/demo_DualUart.c</locationURI>
+		</link>
+		<link>
 			<name>Src/demo_HUART.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/demo_HUART.c</locationURI>

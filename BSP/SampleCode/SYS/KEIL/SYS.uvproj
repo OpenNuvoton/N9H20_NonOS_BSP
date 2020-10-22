@@ -426,6 +426,11 @@
               <FilePath>..\demo_UART.c</FilePath>
             </File>
             <File>
+              <FileName>demo_DualUart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\demo_DualUart.c</FilePath>
+            </File>
+            <File>
               <FileName>demo_wakeup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\demo_wakeup.c</FilePath>
@@ -879,6 +884,11 @@
               <FilePath>..\demo_UART.c</FilePath>
             </File>
             <File>
+              <FileName>demo_DualUart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\demo_DualUart.c</FilePath>
+            </File>
+            <File>
               <FileName>demo_wakeup.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\demo_wakeup.c</FilePath>
@@ -1330,6 +1340,11 @@
               <FileName>demo_UART.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\demo_UART.c</FilePath>
+            </File>
+            <File>
+              <FileName>demo_DualUart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\demo_DualUart.c</FilePath>
             </File>
             <File>
               <FileName>demo_wakeup.c</FileName>

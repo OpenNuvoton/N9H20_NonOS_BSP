@@ -227,7 +227,7 @@ typedef enum
     eSYS_HCLK1  = 5,
     eSYS_HCLK234 = 6,
     eSYS_PCLK   = 7,
-    eSYS_CPU    = 8,
+    eSYS_CPU    = 8
 	
 }E_SYS_SRC_CLK;
 
@@ -344,8 +344,9 @@ INT32 sysSetWatchDogTimerInterval (INT32 nWdtInterval);
 
 
 /* Define system library UART functions */
-#define UART_INT_RDA		1
-#define UART_INT_RDTO		2
+#define UART_INT_RDA		0
+#define UART_INT_RDTO		1
+#define UART_INT_TRANEMPTY	2
 #define UART_INT_NONE		255
 
 typedef void (*PFN_SYS_UART_CALLBACK)(UINT8* u8Buf, UINT32 u32Len);
@@ -360,6 +361,8 @@ typedef struct
 	VOID (*UartTransfer)(char* pu8buf, UINT32 u32Len);
 	VOID (*UartPutChar)(UINT8 ucCh);
 	INT8 (*UartGetChar)(VOID);
+	INT32 (*UartTransferInt)(char* pu8buf, UINT32 u32Len);
+	INT8 (*UartGetChar_NoBlocking)(void);
 }UARTDEV_T;
 INT32   register_uart_device(UINT32 u32port, UARTDEV_T* pUartDev);
 
@@ -375,7 +378,7 @@ VOID    sysUartEnableDebugMessage(BOOL bIsDebugMessage);
 VOID    sysUartInstallcallback(UINT32 u32IntType,  PFN_SYS_UART_CALLBACK pfnCallback);
 VOID    sysUartEnableInt(INT32 eIntType);
 VOID    sysUartTransfer(char* pu8buf, UINT32 u32Len);
-
+INT8    sysGetChar_NoBlocking(void);
 
 
 
