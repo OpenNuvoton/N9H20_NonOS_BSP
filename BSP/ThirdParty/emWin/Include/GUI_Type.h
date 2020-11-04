@@ -195,18 +195,18 @@ typedef struct {
 } GUI_FONT_TRANSINFO;
 
 typedef struct {
-  U8 XSize;
-  U8 XDist;
-  U8 BytesPerLine;
+  U32 XSize;
+  U32 XDist;
+  U32 BytesPerLine;
   const unsigned char * pData;
 } GUI_CHARINFO;
 
 typedef struct {
-  U8 XSize;
-  U8 YSize;
-  I8 XPos;
-  I8 YPos;
-  U8 XDist;
+  U32 XSize;
+  U32 YSize;
+  I32 XPos;
+  I32 YPos;
+  U32 XDist;
   const unsigned char * pData;
 } GUI_CHARINFO_EXT;
 
@@ -230,9 +230,9 @@ typedef struct {
   const GUI_FONT_TRANSINFO * pTrans;
   U16P                       FirstChar;
   U16P                       LastChar;
-  U8                         XSize;
-  U8                         XDist;
-  U8                         BytesPerLine;
+  U32                         XSize;
+  U32                         XDist;
+  U32                         BytesPerLine;
 } GUI_FONT_MONO;
 
 /*********************************************************************
@@ -244,9 +244,9 @@ typedef struct {
 */
 typedef struct {
   U16 Flags;
-  U8 Baseline;
-  U8 LHeight;     /* height of a small lower case character (a,x) */
-  U8 CHeight;     /* height of a small upper case character (A,X) */
+  U32 Baseline;
+  U32 LHeight;     /* height of a small lower case character (a,x) */
+  U32 CHeight;     /* height of a small upper case character (A,X) */
 } GUI_FONTINFO;
 
 #define GUI_FONTINFO_FLAG_PROP    (1 << 0)    /* Is proportional */
@@ -441,19 +441,19 @@ struct GUI_FONT {
   GUI_ISINFONT     * pfIsInFont;
   GUI_GETCHARINFO  * pfGetCharInfo;
   const tGUI_ENC_APIList* pafEncode;
-  U8 YSize;
-  U8 YDist;
-  U8 XMag;
-  U8 YMag;
+  U32 YSize;
+  U32 YDist;
+  U32 XMag;
+  U32 YMag;
   union {
     const void              * pFontData;
     const GUI_FONT_MONO     * pMono;
     const GUI_FONT_PROP     * pProp;
     const GUI_FONT_PROP_EXT * pPropExt;
   } p;
-  U8 Baseline;
-  U8 LHeight;     /* Height of a small lower case character (a,x) */
-  U8 CHeight;     /* Height of a small upper case character (A,X) */
+  U32 Baseline;
+  U32 LHeight;     /* Height of a small lower case character (a,x) */
+  U32 CHeight;     /* Height of a small upper case character (A,X) */
 };
 
 /*********************************************************************
