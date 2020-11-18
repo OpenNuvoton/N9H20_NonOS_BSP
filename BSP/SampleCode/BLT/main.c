@@ -69,7 +69,7 @@ void clr_disp_buf(uint32_t fill_color)
 {
     S_FI_FILLOP clr_op;
     
-    bltSetRevealAlpha(eDRVBLT_NO_EFFECTIVE);    // Non-premultiplied alpha.
+    // Fill color is non-premultiplied alpha.
        
     clr_op.sRect.i16Xmin = 0;
     clr_op.sRect.i16Ymin = 0;  
@@ -119,7 +119,7 @@ void demo_scale(float ox, float oy, float sx, float sy, int is_tiling)
     bltSetFillOP((E_DRVBLT_FILLOP) FALSE);  // Blit operation.
     bltSetDisplayFormat(FMT_DST);           // Set destination format.
     bltSetSrcFormat(eDRVBLT_SRC_ARGB8888);  // Set source image format to RGB888/ARGB8888.
-    bltSetRevealAlpha(eDRVBLT_EFFECTIVE);   // Set source image format to premultiplied alpha.
+    bltSetRevealAlpha(eDRVBLT_NO_EFFECTIVE);    // Source image format is non-premultiplied alpha.
     
     {   // Set transform matrix a/b/c/d
         S_DRVBLT_MATRIX xform_mx;
@@ -233,7 +233,7 @@ void demo_rotate(float ox, float oy, float px, float py, float deg)
     bltSetFillOP((E_DRVBLT_FILLOP) FALSE);  // Blit operation.
     bltSetDisplayFormat(FMT_DST);           // Set destination format.
     bltSetSrcFormat(eDRVBLT_SRC_ARGB8888);  // Set source image format to RGB888/ARGB8888.
-    bltSetRevealAlpha(eDRVBLT_EFFECTIVE);   // Set source image format to premultiplied alpha.
+    bltSetRevealAlpha(eDRVBLT_NO_EFFECTIVE);    // Source image format is non-premultiplied alpha.
     
     {   // Set transform matrix a/b/c/d
         S_DRVBLT_MATRIX xform_mx;
@@ -351,7 +351,7 @@ void demo_reflect(float ox, float oy, int mx, int my)
     bltSetFillOP((E_DRVBLT_FILLOP) FALSE);  // Blit operation.
     bltSetDisplayFormat(FMT_DST);           // Set destination format.
     bltSetSrcFormat(eDRVBLT_SRC_ARGB8888);  // Set source image format to RGB888/ARGB8888.
-    bltSetRevealAlpha(eDRVBLT_EFFECTIVE);   // Set source image format to premultiplied alpha.
+    bltSetRevealAlpha(eDRVBLT_NO_EFFECTIVE);    // Source image format is non-premultiplied alpha.
     
     {   // Set transform matrix a/b/c/d
         S_DRVBLT_MATRIX xform_mx;
@@ -439,7 +439,7 @@ void demo_alpha(float ox, float oy, float alpha)
     bltSetFillOP((E_DRVBLT_FILLOP) FALSE);  // Blit operation.
     bltSetDisplayFormat(FMT_DST);           // Set destination format.
     bltSetSrcFormat(eDRVBLT_SRC_ARGB8888);  // Set source image format to RGB888/ARGB8888.
-    bltSetRevealAlpha(eDRVBLT_EFFECTIVE);   // Set source image format to premultiplied alpha.
+    bltSetRevealAlpha(eDRVBLT_NO_EFFECTIVE);    // Source image format is non-premultiplied alpha.
     
     {   // Set transform matrix to identify matrix. So no scaling, no rotation, no shearing, etc.
         S_DRVBLT_MATRIX xform_mx;
