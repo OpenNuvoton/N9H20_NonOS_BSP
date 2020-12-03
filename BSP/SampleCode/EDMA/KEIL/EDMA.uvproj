@@ -138,7 +138,7 @@
             <RestoreToolbox>1</RestoreToolbox>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
+          <TargetSelection>18</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -441,9 +441,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_SPI.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
+              <FileName>N9H20_VPOST_FW043TFT_480x272.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_FW043TFT_480x272.lib</FilePath>
             </File>
           </Files>
         </Group>
@@ -581,7 +581,7 @@
             <RestoreToolbox>1</RestoreToolbox>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
+          <TargetSelection>18</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -884,9 +884,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_SPI.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
+              <FileName>N9H20_VPOST_FW043TFT_480x272.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_FW043TFT_480x272.lib</FilePath>
             </File>
           </Files>
         </Group>
@@ -1024,7 +1024,7 @@
             <RestoreToolbox>1</RestoreToolbox>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>6</TargetSelection>
+          <TargetSelection>18</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -1327,9 +1327,9 @@
               <FilePath>..\..\..\Library\IPLib\N9H20_SPI.lib</FilePath>
             </File>
             <File>
-              <FileName>N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FileName>
+              <FileName>N9H20_VPOST_FW043TFT_480x272.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_GIANTPLUS_GPM1006D.lib</FilePath>
+              <FilePath>..\..\..\Library\IPLib\N9H20_VPOST_FW043TFT_480x272.lib</FilePath>
             </File>
           </Files>
         </Group>

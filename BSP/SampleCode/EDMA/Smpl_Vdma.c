@@ -12,9 +12,9 @@
 #include "N9H20.h"
 
 #if defined(__GNUC__)
-__attribute__((aligned(32))) UINT8 DestBuffer[320*240*2];
+__attribute__((aligned(32))) UINT8 DestBuffer[480*272*2];
 #else
-__align(32) UINT8 DestBuffer[320*240*2];
+__align(32) UINT8 DestBuffer[480*272*2];
 #endif
 #define	DEST_ADDR	((UINT32)DestBuffer | NON_CACHE_BIT)
 
@@ -50,7 +50,7 @@ void ColorSpaceTransformTest(void)
 	}
 	
 	EDMA_SetupCST(g_VdmaCh, eDRVEDMA_RGB565, eDRVEDMA_YCbCr422);
-	EDMA_SetupSingle(g_VdmaCh, src_addr, dest_addr, 320*240*2);
+	EDMA_SetupSingle(g_VdmaCh, src_addr, dest_addr, 480*272*2);
 	EDMA_SetupHandlers(g_VdmaCh, eDRVEDMA_BLKD_FLAG, EdmaIrqHandler, 0);
 	
 	EDMA_Trigger(g_VdmaCh);
@@ -85,7 +85,7 @@ void TransferLengthTest(void)
 	       return;
 	}
 
-	EDMA_SetupSingle(g_VdmaCh, src_addr, dest_addr, 320*240*2);
+	EDMA_SetupSingle(g_VdmaCh, src_addr, dest_addr, 480*272*2);
 	EDMA_SetupHandlers(g_VdmaCh, eDRVEDMA_BLKD_FLAG, EdmaIrqHandler, 0);
 
 	EDMA_Trigger(g_VdmaCh);
@@ -94,7 +94,7 @@ void TransferLengthTest(void)
 	
 	g_bVdmaInt = FALSE;
 
-	if(memcmp((UINT8*)src_addr, (UINT8*)dest_addr, 320*240*2) != 0)
+	if(memcmp((UINT8*)src_addr, (UINT8*)dest_addr, 480*272*2) != 0)
 	{
 		sysprintf("\nCompare error\n");
 		while(1);

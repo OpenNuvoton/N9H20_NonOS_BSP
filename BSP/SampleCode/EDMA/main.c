@@ -14,12 +14,12 @@
 #if defined(__GNUC__)
 __attribute__((aligned(32))) UINT8 LoadAddr[]=
 {
-	#include "../../VPOST/ASIC/roof_320x240_RGB565.dat"
+	#include "../../VPOST/ASIC/river_480x272_RGB565.dat"
 };
 #else
 __align(32) UINT8 LoadAddr[]=
 {
-	#include "../../VPOST/ASIC/roof_320x240_RGB565.dat"
+	#include "../../VPOST/ASIC/river_480x272_RGB565.dat"
 };
 #endif
 
