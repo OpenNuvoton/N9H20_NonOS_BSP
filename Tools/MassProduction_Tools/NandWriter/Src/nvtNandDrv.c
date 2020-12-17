@@ -91,7 +91,9 @@ INT nvtSM_ReadID(FMI_SM_INFO_T *pSM)
     tempID[3] = inpw(REG_SMDATA);
     tempID[4] = inpw(REG_SMDATA);
 
-    if (tempID[0] == 0xC2)
+    if (((tempID[0] == 0xC2) && (tempID[1] == 0x79)) ||
+        ((tempID[0] == 0xC2) && (tempID[1] == 0x76)))
+        // Don't support ECC for NAND Interface ROM
         pSM->bIsCheckECC = FALSE;
     else
         pSM->bIsCheckECC = TRUE;
@@ -193,9 +195,33 @@ INT nvtSM_ReadID(FMI_SM_INFO_T *pSM)
             pSM->uSectorPerFlash = 511488;
             pSM->bIsMulticycle = TRUE;
             pSM->nPageSize = NAND_PAGE_2KB;
+
+            // 2020/10/14, support MXIC MX30LF2G18AC NAND flash
+            if ((tempID[0]==0xC2)&&(tempID[1]==0xDA)&&(tempID[2]==0x90)&&(tempID[3]==0x95)&&(tempID[4]==0x06))
+            {
+                // The first ID of this NAND is 0xC2 BUT it is NOT NAND ROM (read only)
+                // So, we MUST change pSM->bIsCheckECC to TRUE to enable ECC feature.
+                pSM->bIsCheckECC = TRUE;
+            }
+
             break;
 
         case 0xdc:  // 512M
+            // 2020/10/08, support Micron MT29F4G08ABAEA 512MB NAND flash
+            if ((tempID[0]==0x2C)&&(tempID[2]==0x90)&&(tempID[3]==0xA6)&&(tempID[4]==0x54))
+            {
+                pSM->uBlockPerFlash  = 2047;        // block index with 0-base. = physical blocks - 1
+                pSM->uPagePerBlock   = 64;
+                pSM->nPageSize       = NAND_PAGE_4KB;
+                pSM->uSectorPerBlock = pSM->nPageSize / 512 * pSM->uPagePerBlock;
+                pSM->bIsMLCNand      = FALSE;
+                pSM->bIsMulticycle   = TRUE;
+                //pSM->bIsNandECC24    = TRUE;    // FA93 don't support ECC 24
+                pSM->bIsNandECC12    = TRUE;    // FA93 use ECC 12 with OOB 224 bytes
+                pSM->uSectorPerFlash = pSM->uSectorPerBlock * 2000 / 1000 * 999;
+                break;
+            }
+
             if ((tempID[3] & 0x33) == 0x11)
             {
                 pSM->uBlockPerFlash = 4095;
