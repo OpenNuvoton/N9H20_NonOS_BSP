@@ -898,6 +898,14 @@ U16  GUI_UC_GetCharCode   (const char * s);
 void GUI_UC_SetEncodeNone (void);
 void GUI_UC_SetEncodeSJIS (void);
 void GUI_UC_SetEncodeUTF8 (void);
+
+// Only available with GB2312 encoding
+// Start
+void NVT_GUI_GB_SetEncodeGB2312 (void);
+void NVT_GUI_SetASCIIOffset     (U32 u32GB2312FontDataAddress, U32 u32Offset);
+void NVT_GUI_SetGB2312Offset    (U32 u32GB2312FontDataAddress, U32 u32Offset);
+// End
+
 void GUI_UC_SetBaseDir    (int Dir);  // Only available with new version of BIDI algorithm (GUI_USE_BIDI2 == 1)
 int  GUI_UC_GetBaseDir    (void);     // Only available with new version of BIDI algorithm (GUI_USE_BIDI2 == 1)
 
