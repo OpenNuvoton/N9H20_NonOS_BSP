@@ -349,8 +349,8 @@ void DrvADC_GetTscData(
 	*pu16YData = inp32(REG_ADC_YDATA);					     				     											     											     											     				
 }
 #ifdef USING_INT
-static BOOL g_bIsADCInt =FALSE;
-static BOOL g_bIsWTInt =FALSE;
+static volatile BOOL g_bIsADCInt =FALSE;
+static volatile BOOL g_bIsWTInt =FALSE;
 #endif
 //static BOOL g_bIsAudioInt =FALSE;
 
@@ -526,19 +526,20 @@ UINT32 adc_normalread(UINT32 u32Channel, PUINT16 pu16Data)
 		return E_DRVADC_INVALID_TIMING;
 	
 	adc_disableInt(eADC_WT_INT);	
-	adc_setTouchScreen(eADC_TSCREEN_AUTO,			//E_DRVADC_TSC_MODE eTscMode,
+	adc_setTouchScreen(eADC_TSCREEN_NORMAL,			//E_DRVADC_TSC_MODE eTscMode,
 								0x150,
 								TRUE,					//BOOL bIsPullup,
 								TRUE);
 #ifdef USING_INT		
     adc_enableInt(eADC_ADC_INT);	
 #endif	
-	outp32( REG_ADC_CON,( ADC_CON_ADC_EN | ADC_CONV | ADC_INT 
-						| (u32Channel<<9)) );
+	
 #ifdef USING_INT	
 	g_bIsADCInt = FALSE;
 #endif	
-	DrvADC_Conversion();	
+     outp32( REG_ADC_CON, inp32(REG_ADC_CON) | (( ADC_CON_ADC_EN | ADC_INT 
+					| (u32Channel<<9))) );	
+	DrvADC_Conversion();/* Trigger ADC */
 #ifdef USING_INT	
 	while(g_bIsADCInt==FALSE);
 #else
