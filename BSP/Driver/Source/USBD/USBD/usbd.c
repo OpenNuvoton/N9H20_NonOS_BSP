@@ -14,7 +14,7 @@
 #include "wblib.h"
 #include "N9H20_USBD.h"
 
-#define DATA_CODE  "20200327"
+#define DATA_CODE  "20210922"
 
 volatile USBD_INFO_T usbdInfo  __attribute__((aligned(4))) = {0};
 volatile USBD_STATUS_T usbdStatus  __attribute__((aligned(4))) = {0};
@@ -91,10 +91,13 @@ VOID udcOpen(void)
     outp32(CEP_END_ADDR, 0x7F);
 
     while(inp32(CEP_END_ADDR) != 0x7F);
-    usbdInfo.u32UVC = 0;
-#ifdef __USBD_FULL_SPEED_MODE__
+
     outp32(OPER, 0x0);
     while(inp32(OPER) != 0x0);
+
+    usbdInfo.u32UVC = 0;
+#ifdef __USBD_FULL_SPEED_MODE__
+
 
     for(i=0;i<0x30000;i++)
     {
