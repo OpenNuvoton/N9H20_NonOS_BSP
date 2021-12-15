@@ -225,7 +225,7 @@ void demo_scale(float ox, float oy, float sx, float sy, int is_tiling)
   *           \ 0 0 1  /            \ 0     0    1 /            \ 0 0 1   /            \ 0 0 1   /
   *
   *                                         / con£c  sin£c px - con£c*tx-sin£c*ty+0.5*(a+c) \   / a c src.xoffset \
-  * Inv(Mp) * Inv(Mr) * Inv(Mt) * Inv(Ma) = | -sin£c con£c px + sin£c*tx-con£c*ty+0.5*(b+d) | = | b d src.yoffset |
+  * Inv(Mp) * Inv(Mr) * Inv(Mt) * Inv(Ma) = | -sin£c con£c py + sin£c*tx-con£c*ty+0.5*(b+d) | = | b d src.yoffset |
   *                                         \ 0     0    1                              /   \ 0 0 1           /
   */
 void demo_rotate(float ox, float oy, float px, float py, float deg)
