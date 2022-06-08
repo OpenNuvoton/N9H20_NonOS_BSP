@@ -101,7 +101,7 @@ void clr_disp_buf(uint32_t fill_color)
   * Mm: reflect matrix
   *
   *      / 1 0 -0.5 \       / 1 0 tx \       / sx 0  0 \
-  * Ma = | 0 0 -0.5 |  Mt = | 0 1 ty |  Ms = | 0  sy 0 |
+  * Ma = | 0 1 -0.5 |  Mt = | 0 1 ty |  Ms = | 0  sy 0 |
   *      \ 0 0 1    /       \ 0 0 1  /       \ 0  0  1 /
   *
   * Src = Inv(Ms) * Inv(Mt) * Inv(Ma) * DST
@@ -215,7 +215,7 @@ void demo_scale(float ox, float oy, float sx, float sy, int is_tiling)
   * Mp: translation matrix to adjust pivot
   *
   *      / 1 0 -0.5 \       / 1 0 tx \       / cos£c -sin£c 0 \       / 1 0 -px \
-  * Ma = | 0 0 -0.5 |  Mt = | 0 1 ty |  Mr = | sin£c con£c  0 |  Mp = | 0 1 -py |
+  * Ma = | 0 1 -0.5 |  Mt = | 0 1 ty |  Mr = | sin£c con£c  0 |  Mp = | 0 1 -py |
   *      \ 0 0 1    /       \ 0 0 1  /       \ 0    0     1 /       \ 0 0 1   /
   *
   * Src = Inv(Mp) * Inv(Mr) * Inv(Mt) * Inv(Ma) * DST
@@ -333,7 +333,7 @@ void demo_rotate(float ox, float oy, float px, float py, float deg)
   * Mm: reflect matrix
   *
   *      / 1 0 -0.5 \       / 1 0 tx \       / my?-1:1 0       0 \
-  * Ma = | 0 0 -0.5 |  Mt = | 0 1 ty |  Mm = | 0       mx?-1:1 0 |
+  * Ma = | 0 1 -0.5 |  Mt = | 0 1 ty |  Mm = | 0       mx?-1:1 0 |
   *      \ 0 0 1    /       \ 0 0 1  /       \ 0       0       1 /
   *
   * Src = Inv(Mm) * Inv(Mt) * Inv(Ma) * DST
