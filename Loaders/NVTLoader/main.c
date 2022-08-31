@@ -14,6 +14,7 @@
 #include "usb.h"
 #endif
 
+
 #ifdef __MASS_PARODUCT__	
 void	EMU_MassProduction(void);
 #endif
@@ -137,12 +138,12 @@ void init(void)
 	sysStartTimer(TIMER0, 
 					100, 
 					PERIODIC_MODE);
-    u32TimerChannel = sysSetTimerEvent(TIMER0, 
+  u32TimerChannel = sysSetTimerEvent(TIMER0, 
     									30,
     									(PVOID)Timer0_300msCallback);
     
-    /* enable UART */
-    sysUartPort(1);
+  /* enable UART */
+  sysUartPort(1);
 	uart.uiFreq = u32ExtFreq*1000;					/* Hz unit */	
 	uart.uiBaudrate = 115200;
 	uart.uiDataBits = WB_DATA_BITS_8;
@@ -598,7 +599,204 @@ halt:
 	while(1); // never return
 }
 
+extern DISK_DATA_T SPI_DiskInfo0;
 
+void delay(UINT32 u32Tick)
+{
+	UINT32 btime, etime; 
+	btime = sysGetTicks(TIMER0);
+	while (1)
+	{			
+		etime = sysGetTicks(TIMER0);
+		if ((etime - btime) >= u32Tick)
+		{
+			break; 
+		}
+	}
+}	
+
+UINT32 ParsingSPI_ReservedArea(void)
+{
+		UINT32 u32Buf[16];
+	  UINT32 i, addr; 
+	  UINT32* u32Ptr; 
+	
+	  if (spiFlashInit() < 0)
+			return 1024*1024;
+		for(i=0; i<128; i=i+1)
+		{
+			addr = i*512; 	
+			spiFlashRead(addr, 16, u32Buf);
+			u32Ptr = (UINT32*)u32Buf;
+			//sysprintf("u32Addr = 0x%x, Data = 0x%x\n", addr, *u32Ptr);
+			if((*u32Ptr == 0xAA554257))
+			{
+				 sysprintf("u32Addr = 0x%x, Data = 0x%x\n", addr, *u32Ptr);
+				 sysprintf("Data = 0x%x\n", *(u32Ptr+1));
+				 sysprintf("Data = 0x%x\n", *(u32Ptr+2));
+				 sysprintf("Data = 0x%x\n", *(u32Ptr+3));
+				 //addr = *(u32Ptr+2)*512;  /* ==> Sector offset to byte offset */
+			   //return addr;
+				 return *(u32Ptr+2); 
+			}
+		}
+}
+
+
+UINT32 NVT_LoadKernelFromSPI(void)
+{
+    /* For detect VBUS stable */ 
+	
+    UINT32 block_size, free_size, disk_size, reserved_size;
+    INT32 i32BootSDTotalSector;
+
+		INT found_kernel = 0;
+		INT found_avi = 0;
+		void	(*_jump)(void);
+		INT8 path[64];
+
+
+    fsInitFileSystem();
+		fsAssignDriveNumber('C', DISK_TYPE_SD_MMC, 0, 1);
+#if 1
+		reserved_size = ParsingSPI_ReservedArea();
+	  if( reserved_size == 0xFFFFFFFF )
+				reserved_size = 1024*1024;
+		else
+				reserved_size *= 512;
+#else	
+	  reserved_size = 1024*1024;        /* SPI reserved size before FAT = 1M */
+#endif		
+		i32BootSDTotalSector = SpiFlashOpen(reserved_size);
+		sysprintf("SPI Total SPI sector size = 0x%x\n", i32BootSDTotalSector);
+
+	/* In here for USB VBus stable. Otherwise, USB library can not judge VBus correct  */ 	
+#if 1
+	   udcOpen();	 
+#endif	  	
+
+	/* Get SPI disk information*/
+	if (fsDiskFreeSpace('C', &block_size, &free_size, &disk_size) < 0)  
+	{
+			UINT32 u32BlockSize, u32FreeSize, u32DiskSize;
+			PDISK_T  *pDiskList;
+
+			//printf("Total SPI size = %d KB\n", u32TotalSectorSize/2);
+
+			fsSetReservedArea(reserved_size/512);
+			pDiskList = fsGetFullDiskInfomation();
+			fsFormatFlashMemoryCard(pDiskList);
+
+	    fsSetVolumeLabel('C', "SPI1-1\n", strlen("SPI1-1"));
+		
+			fsReleaseDiskInformation(pDiskList);
+			fsDiskFreeSpace('C', &u32BlockSize, &u32FreeSize, &u32DiskSize);   
+			sysprintf("block_size = %d\n", u32BlockSize);
+			sysprintf("free_size = %d\n", u32FreeSize);
+			sysprintf("disk_size = %d\n", u32DiskSize);
+	}
+	sysprintf("block_size = %d\n", block_size);
+	sysprintf("free_size = %d\n", free_size);
+	sysprintf("disk_size = %d\n", disk_size);
+	
+	/* Detect USB */
+	delay(8); 
+	if(udcIsAttached())
+	{
+		sysprintf("USB plug in\n");		
+		mass(NULL, i32BootSDTotalSector);	
+		sysprintf("USB plug out\n");
+	}				
+	/* Read volume config file to same as linux kernel */ 
+	VolumeConfigFile(0);			/* Read volume config file from NAND */
+	
+#ifdef __WIFI_NO_LCM__	 /* Make sure ADO, VPOST and SPU clock has been turn off */	
+	outp32(REG_AHBCLK, inp32(REG_AHBCLK) & ~(ADO_CKE|VPOST_CKE|SPU_CKE));
+#else
+	/* Check if movie & Kernel exists */
+	sysprintf("%s\n",MOVIE_PATH);
+	fsAsciiToUnicode(MOVIE_PATH, path, TRUE);
+	kfd = fsOpenFile(path, 0, O_RDONLY);
+	if(kfd > 0) 
+	{
+		found_avi = 1;
+		fsCloseFile(kfd);
+		sysprintf("animation file found\n");
+	}
+#endif	
+	fsAsciiToUnicode(KERNEL_PATH, path, TRUE);
+	sysprintf("Find Kernel\n"); 
+	kfd = fsOpenFile(path, 0, O_RDONLY);
+	if(kfd > 0) 
+	{			
+		found_kernel = 1;
+		sysprintf("kernel found\n");
+	}	
+	
+	#if defined(__IXL_WINTEK__) || defined(__GWMT9360A__) || defined(__GWMT9615A__)
+	AudioChanelControl();
+	#endif	
+#ifdef __WIFI_NO_LCM__	
+
+#else	
+	/* Initial SPU in advance for linux set volume issue */ 	
+	spuOpen(eDRVSPU_FREQ_8000);
+	//spuDacOn(1);
+	spuIoctl(SPU_IOCTL_SET_VOLUME, u16Volume, u16Volume);	
+#endif		
+#ifdef __BAT_DET__
+	BatteryDetection(FALSE);
+#endif	
+	if(found_avi) 
+	{ 
+#ifdef __WIFI_NO_LCM__	
+
+#else	
+#if defined(N9H20K3) || defined(N9H20K5)
+		char ucSring[64]= MOVIE_PATH;				
+		playAni(kfd, ucSring);
+#endif		
+#endif	
+	} 
+	else 
+	{
+		if(found_kernel)				
+			loadKernelCont(kfd, 0);
+	}
+
+	if(found_kernel) 
+	{
+		unsigned int i = 0;
+		
+		/* Disable interrupt */
+		sysSetGlobalInterrupt(DISABLE_ALL_INTERRUPTS);
+		sysSetLocalInterrupt(DISABLE_FIQ_IRQ);		
+		/* Invalid and disable cache */
+		sysDisableCache();
+		sysInvalidCache();
+		
+		/* Reset IPs */	
+		sysprintf("Jump to kernel\n");
+		//outp32(REG_AHBIPRST, JPGRST | SICRST |UDCRST );		
+		outp32(REG_AHBIPRST, JPGRST | SICRST |UDCRST | EDMARST);
+		outp32(REG_AHBIPRST, 0);
+		outp32(REG_APBIPRST, UART1RST | UART0RST | TMR1RST | TMR0RST | SPI0RST | SPI1RST);
+		outp32(REG_APBIPRST, 0);				
+			
+		memcpy((unsigned char *)i, kbuf, CP_SIZE);
+    sysFlushCache(I_D_CACHE);	   
+     
+		_jump = (void(*)(void))(0x0); /* Jump to 0x0 and execute kernel */
+		_jump();	
+	} 
+	else 
+	{
+		sysprintf("Cannot find conprog.bin");
+	}	
+//halt:
+	sysprintf("systen exit\n");
+	while(1); // never return
+}
 
 int main(void)
 {
@@ -634,6 +832,11 @@ int main(void)
 	sysprintf("NVT Loader: g_ibr_boot_sd_port = %d\n", g_ibr_boot_sd_port);
 	NVT_LoadKernelFromSD();
 #endif
+#if defined(__SPI_ONLY__)
+	sysprintf("NVT Loader SPI");
+	NVT_LoadKernelFromSPI();
+#endif
+
 	sysprintf("Load code from NAND\n");
 	NVT_LoadKernelFromNAND();
 	

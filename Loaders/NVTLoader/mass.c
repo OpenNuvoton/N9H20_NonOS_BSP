@@ -51,6 +51,8 @@ void mass(NDISK_T *disk, INT32 i32TotalSector)
 #if defined(__ENABLE_SD_CARD_0__)||defined(__ENABLE_SD_CARD_1__)||defined(__ENABLE_SD_CARD_2__)		
 	mscdSdPortSelect(g_ibr_boot_sd_port);
 	mscdFlashInit(NULL, i32TotalSector);	
+#elif defined(__SPI_ONLY__)
+  mscdFlashInit(NULL, i32TotalSector);
 #else	
 	mscdFlashInit((NDISK_T *)disk, i32TotalSector);
 #endif			
