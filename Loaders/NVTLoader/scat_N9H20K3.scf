@@ -18,7 +18,7 @@ ROM_LOAD 0x600000
     {
         wb_init.o (WB_INIT, +First)
         anon$$obj.o
-        __main.o(!!!)
+        __main.o
         * (+RO)
         * (+RW, +ZI) 
         

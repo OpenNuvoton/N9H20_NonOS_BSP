@@ -617,9 +617,9 @@ void delay(UINT32 u32Tick)
 
 UINT32 ParsingSPI_ReservedArea(void)
 {
-		UINT32 u32Buf[16];
-	  UINT32 i, addr; 
-	  UINT32* u32Ptr; 
+      UINT32 u32Buf[16];
+      UINT32 i, addr; 
+      UINT32* u32Ptr; 
 	
 	  if (spiFlashInit() < 0)
 			return 1024*1024;
@@ -631,18 +631,18 @@ UINT32 ParsingSPI_ReservedArea(void)
 			//sysprintf("u32Addr = 0x%x, Data = 0x%x\n", addr, *u32Ptr);
 			if((*u32Ptr == 0xAA554257))
 			{
-				 sysprintf("u32Addr = 0x%x, Data = 0x%x\n", addr, *u32Ptr);
-				 sysprintf("Data = 0x%x\n", *(u32Ptr+1));
-				 sysprintf("Data = 0x%x\n", *(u32Ptr+2));
-				 sysprintf("Data = 0x%x\n", *(u32Ptr+3));
-				 //addr = *(u32Ptr+2)*512;  /* ==> Sector offset to byte offset */
-			   //return addr;
+//				 sysprintf("u32Addr = 0x%x, Data = 0x%x\n", addr, *u32Ptr);
+//				 sysprintf("Data = 0x%x\n", *(u32Ptr+1));
+//				 sysprintf("Data = 0x%x\n", *(u32Ptr+2));
+//				 sysprintf("Data = 0x%x\n", *(u32Ptr+3));
+//				 addr = *(u32Ptr+2)*512;  /* ==> Sector offset to byte offset */
 				 return *(u32Ptr+2); 
 			}
 		}
+		return 0xFFFFFFFF; 
 }
 
-
+extern UINT32 SpiFlashOpen(UINT32); 
 UINT32 NVT_LoadKernelFromSPI(void)
 {
     /* For detect VBUS stable */ 
