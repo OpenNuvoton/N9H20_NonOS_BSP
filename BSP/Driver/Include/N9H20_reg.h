@@ -595,7 +595,7 @@
 	#define TCON3_LPP				NVTBIT(15,0)		// Lines Per-Panel The LPP bit field specifies the number of active lines per screen.
 
 #define REG_LCM_TCON4 			(VPOST_BA+0x1c)		// R : Timing Control Register 4
-	#define TCON4_TAPN				NVTBIT(25,16)		// Horizontal Total Active Pixel Number
+	#define TCON4_TAPN				NVTBIT(26,16)		// Horizontal Total Active Pixel Number
 	#define TCON4_MVPW				NVTBIT(15,8)
 	#define TCON4_MPU_FMARKP		BIT5
 	#define TCON4_MPU_VSYNCP		BIT4
