@@ -35,7 +35,7 @@ extern int sysInitMMUTable(int);
 
 INT32 sysGetSdramSizebyMB()
 {
-	unsigned int volatile reg, totalsize=0;
+	unsigned int reg, totalsize=0;
 
 	reg = inpw(REG_SDSIZE0) & 0x07;
 	switch(reg)
@@ -109,12 +109,12 @@ INT32 sysEnableCache(UINT32 uCacheOpMode)
 	return 0;
 }
 
-#if defined (__GNUC__) && !(__CC_ARM)
+#if defined (__GNUC__) && !defined(__CC_ARM)
 #pragma GCC push_options
 #pragma GCC optimize ("O0")
 void sys_flush_and_clean_dcache(void)
 {
-	volatile register int reg2;
+	register int reg2;
 	asm volatile(
     " tci_loop100:                              \n"
     "     MRC p15, #0, r15, c7, c14, #3         \n"     /* test clean and invalidate */
@@ -134,10 +134,10 @@ tci_loop
 
 VOID sysDisableCache()
 {
-	volatile int temp;
+	int temp;
 
 	sys_flush_and_clean_dcache();
-#if defined (__GNUC__) && !(__CC_ARM)
+#if defined (__GNUC__) && !defined(__CC_ARM)
 	asm volatile
     (
         /*----- flush I, D cache & write buffer -----*/
@@ -175,13 +175,13 @@ VOID sysDisableCache()
 
 VOID sysFlushCache(INT32 nCacheType)
 {
-	volatile int temp;
+	int temp;
 
 	    switch (nCacheType)
 	    {
 	    case I_CACHE:
 
-	#if defined (__GNUC__) && !(__CC_ARM)
+	#if defined (__GNUC__) && !defined(__CC_ARM)
 	        asm volatile
 	        (
 	            /*----- flush I-cache -----*/
@@ -204,7 +204,7 @@ VOID sysFlushCache(INT32 nCacheType)
 	    case D_CACHE:
 	        sys_flush_and_clean_dcache();
 
-	#if defined (__GNUC__) && !(__CC_ARM)
+	#if defined (__GNUC__) && !defined(__CC_ARM)
 	        asm volatile
 	        (
 	            /*----- flush D-cache & write buffer -----*/
@@ -226,7 +226,7 @@ VOID sysFlushCache(INT32 nCacheType)
 
 	    case I_D_CACHE:
 	        sys_flush_and_clean_dcache();
-	#if defined (__GNUC__) && !(__CC_ARM)
+	#if defined(__GNUC__) && !defined(__CC_ARM)
 	        asm volatile
 	        (
 	            /*----- flush I, D cache & write buffer -----*/
@@ -255,9 +255,9 @@ VOID sysFlushCache(INT32 nCacheType)
 
 VOID sysInvalidCache()
 {
-	volatile int temp;
+	int temp;
 
-#if defined (__GNUC__) && !(__CC_ARM)
+#if defined (__GNUC__) && !defined(__CC_ARM)
     asm volatile
     (
         "MOV %0, #0x0 \n\t"
@@ -289,9 +289,9 @@ INT32 sysGetCacheMode()
 
 INT32 _sysLockCode(UINT32 addr, INT32 size)
 {
-    volatile int i, cnt, temp;
+    int i, cnt, temp;
 
-#if defined (__GNUC__) && !(__CC_ARM)
+#if defined (__GNUC__) && !defined(__CC_ARM)
     asm volatile
     (
         /* use way3 to lock instructions */
@@ -317,7 +317,7 @@ INT32 _sysLockCode(UINT32 addr, INT32 size)
 
     for (i=0; i<cnt; i++)
     {
-#if defined (__GNUC__) && !(__CC_ARM)
+#if defined (__GNUC__) && !defined(__CC_ARM)
         asm volatile
         (
             "MCR p15, #0, r0, c7, c13, #1 \n\t"
@@ -332,7 +332,7 @@ INT32 _sysLockCode(UINT32 addr, INT32 size)
         addr += 16;
     }
 
-#if defined (__GNUC__) && !(__CC_ARM)
+#if defined (__GNUC__) && !defined(__CC_ARM)
     asm volatile
     (
         /* use way3 to lock instructions */
@@ -362,10 +362,10 @@ INT32 _sysLockCode(UINT32 addr, INT32 size)
 
 INT32 _sysUnLockCode()
 {
-    volatile int temp;
+    int temp;
 
     /* unlock I-cache way 3 */
-#if defined (__GNUC__) && !(__CC_ARM)
+#if defined (__GNUC__) && !defined(__CC_ARM)
     asm volatile
     (
         "MRC p15, #0, %0, c9, c0, #1  \n"

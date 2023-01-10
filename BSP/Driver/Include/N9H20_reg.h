@@ -2336,7 +2336,7 @@
 
 #define INIR    (RTC_BA+0x000)	// R/W: RTC Initiation Register
 	#define INIR_INIR   NVTBIT(31,1)		// RTC Initiation
-	#define Active      BIT0			// RTC Active Status.
+	#define ACTIVE      BIT0			// RTC Active Status.
 
 #define AER     (RTC_BA+0x004)	// R/W: RTC Initiation Register
 	#define ENF         BIT16			// RTC Initiation
