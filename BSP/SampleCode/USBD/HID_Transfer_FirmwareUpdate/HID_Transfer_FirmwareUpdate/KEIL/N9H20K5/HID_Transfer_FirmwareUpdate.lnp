@@ -1,0 +1,18 @@
+--cpu ARM926EJ-S
+".\n9h20k5\standalone.o"
+".\n9h20k5\wb_init.o"
+".\n9h20k5\main.o"
+".\n9h20k5\jpegdec.o"
+"..\..\..\..\..\Library\IPLib\N9H20_VPOST_FW043TFT_480x272.lib"
+"..\..\..\..\..\Library\IPLib\N9H20_JPEG.lib"
+"..\..\..\..\..\Library\IPLib\N9H20_UDC.lib"
+"..\..\..\..\..\Library\IPLib\N9H20_SYS.lib"
+".\n9h20k5\hid.o"
+".\n9h20k5\spi.o"
+".\n9h20k5\spiflash.o"
+".\n9h20k5\spiread.o"
+--strict --scatter "..\..\..\..\..\Script\N9H20K5\N9H20K5.sct"
+
+--entry 0 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\N9H20K5\HID_Transfer_FirmwareUpdate.map" -o .\N9H20K5\HID_Transfer_FirmwareUpdate.axf

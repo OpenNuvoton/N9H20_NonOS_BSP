@@ -1,0 +1,12 @@
+.\n9h20k3\hid.o: ..\HID.c
+.\n9h20k3\hid.o: C:\Keil\ARM\ARMCC\INCLUDE\stdio.h
+.\n9h20k3\hid.o: C:\Keil\ARM\ARMCC\INCLUDE\stdlib.h
+.\n9h20k3\hid.o: C:\Keil\ARM\ARMCC\INCLUDE\string.h
+.\n9h20k3\hid.o: ..\..\..\..\..\Driver\Include\wblib.h
+.\n9h20k3\hid.o: ..\..\..\..\..\Driver\Include\N9H20_reg.h
+.\n9h20k3\hid.o: ..\..\..\..\..\Driver\Include\wberrcode.h
+.\n9h20k3\hid.o: ..\..\..\..\..\Driver\Include\wbio.h
+.\n9h20k3\hid.o: ..\..\..\..\..\Driver\Include\wbtypes.h
+.\n9h20k3\hid.o: ..\..\..\..\..\Driver\Include\N9H20_USBD.h
+.\n9h20k3\hid.o: ..\HID.h
+.\n9h20k3\hid.o: ..\Common.h

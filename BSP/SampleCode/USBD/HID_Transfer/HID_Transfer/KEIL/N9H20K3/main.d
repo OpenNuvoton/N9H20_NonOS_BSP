@@ -1,0 +1,13 @@
+.\n9h20k3\main.o: ..\main.c
+.\n9h20k3\main.o: C:\Keil\ARM\ARMCC\INCLUDE\stdio.h
+.\n9h20k3\main.o: C:\Keil\ARM\ARMCC\INCLUDE\stdlib.h
+.\n9h20k3\main.o: C:\Keil\ARM\ARMCC\INCLUDE\string.h
+.\n9h20k3\main.o: ..\..\..\..\..\Driver\Include\wblib.h
+.\n9h20k3\main.o: ..\..\..\..\..\Driver\Include\N9H20_reg.h
+.\n9h20k3\main.o: ..\..\..\..\..\Driver\Include\wberrcode.h
+.\n9h20k3\main.o: ..\..\..\..\..\Driver\Include\wbio.h
+.\n9h20k3\main.o: ..\..\..\..\..\Driver\Include\wbtypes.h
+.\n9h20k3\main.o: ..\HID.h
+.\n9h20k3\main.o: ..\Common.h
+.\n9h20k3\main.o: ..\..\..\..\..\Driver\Include\N9H20_VPOST.h
+.\n9h20k3\main.o: ..\..\..\..\..\Driver\Include\N9H20_JPEG.h

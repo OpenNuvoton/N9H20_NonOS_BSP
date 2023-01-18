@@ -1,0 +1,15 @@
+--cpu ARM926EJ-S
+".\n9h20k3\standalone.o"
+".\n9h20k3\wb_init.o"
+".\n9h20k3\main.o"
+".\n9h20k3\jpegdec.o"
+"..\..\..\..\..\Library\IPLib\N9H20_VPOST_FW043TFT_480x272.lib"
+"..\..\..\..\..\Library\IPLib\N9H20_JPEG.lib"
+"..\..\..\..\..\Library\IPLib\N9H20_UDC.lib"
+"..\..\..\..\..\Library\IPLib\N9H20_SYS.lib"
+".\n9h20k3\hid.o"
+--strict --scatter "..\..\..\..\..\Script\N9H20K3\N9H20K3.sct"
+
+--entry 0 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\N9H20K3\HID_Transfer.map" -o .\N9H20K3\HID_Transfer.axf

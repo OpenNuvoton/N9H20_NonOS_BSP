@@ -1,0 +1,10 @@
+.\n9h20k1\spiflash.o: ..\spiflash.c
+.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\INCLUDE\stdio.h
+.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\INCLUDE\stdlib.h
+.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\INCLUDE\string.h
+.\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\wblib.h
+.\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\N9H20_reg.h
+.\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\wberrcode.h
+.\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\wbio.h
+.\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\wbtypes.h
+.\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\N9H20_SPI.h

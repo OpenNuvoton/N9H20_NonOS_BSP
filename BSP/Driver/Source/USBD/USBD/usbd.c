@@ -14,12 +14,12 @@
 #include "wblib.h"
 #include "N9H20_USBD.h"
 
-#define DATA_CODE  "20220217"
+#define DATA_CODE  "20230109"
 
 volatile USBD_INFO_T usbdInfo  __attribute__((aligned(4))) = {0};
 volatile USBD_STATUS_T usbdStatus  __attribute__((aligned(4))) = {0};
 UINT32 g_u32Suspend_Flag = 0;
-PFN_USBD_CALLBACK pfnSuspend = NULL;
+PFN_USBD_CALLBACK pfnSuspend = NULL, pfnResume = NULL;
 
 USB_CMD_T _usb_cmd_pkt;
 INT32 volatile usb_halt_ep;
@@ -96,8 +96,8 @@ VOID udcOpen(void)
     while(inp32(OPER) != 0x0);
 
     usbdInfo.u32UVC = 0;
-#ifdef __USBD_FULL_SPEED_MODE__
 
+#ifdef __USBD_FULL_SPEED_MODE__
 
     for(i=0;i<0x30000;i++)
     {
@@ -342,7 +342,7 @@ VOID usbd_send_descriptor(void)
             else if (usbdInfo.GET_HID_Flag == 1)
                 ptr = (UINT32 *)usbdInfo.pu32HIDDescriptor;
             else if (usbdInfo.GET_HID_RPT_Flag == 1)
-                ptr = (UINT32 *)usbdInfo.pu32HIDRPTDescriptor;
+                ptr = (UINT32 *)usbdInfo.pu32HIDRPTDescriptor[_usb_cmd_pkt.wIndex & 0x7];								
             else if (usbdInfo.usbdGetConfig == 1)
             {
                 /* Send Configuration Selector Data (1 bytes) to Host */
@@ -399,9 +399,7 @@ VOID usbd_send_descriptor(void)
             }
         }
         else
-        {
             ptr = usbdInfo._usbd_ptr;
-        }
 
         if (_usb_cmd_pkt.wLength > 0x40)
         {
@@ -470,11 +468,10 @@ VOID usbd_control_packet(void)
     usbdClearAllFlags();
 
     usbdInfo.CLASS_CMD_Iflag = 0;
-    usbdInfo.CLASS_CMD_Oflag = 0;  
+    usbdInfo.CLASS_CMD_Oflag = 0;
 
     if ((_usb_cmd_pkt.bmRequestType &0xE0) == 0xa0)     /* 0xA1 or 0xA2 is Class Get Request */
     {
-        outp32(CEP_IRQ_STAT, CEP_STACOM_IS);    /* Add by SPCheng */
         if (_usb_cmd_pkt.wLength == 0)
         {
             /* Class Data Out without Data */
@@ -520,13 +517,14 @@ VOID usbd_control_packet(void)
             /* Class Data Out without Data */
             if(usbdInfo.pfnClassDataOUTCallBack != NULL)
                 usbdInfo.pfnClassDataOUTCallBack();
-
+            outp32(CEP_IRQ_STAT, CEP_STACOM_IS);
             outp32(CEP_CTRL_STAT, CEP_NAK_CLEAR);    /* clear nak so that sts stage is complete */
+            outp32(CEP_IRQ_ENB,  (CEP_STACOM_IE|CEP_PING_IE|CEP_SETUP_PK_IE));    /* suppkt int enb/sts completion int */
         }
         else
-            outp32(CEP_IRQ_ENB, /*CEP_OUT_TK_IE |*/ CEP_DATA_RxED_IE); /* OUT_TK_IE */
+            outp32(CEP_IRQ_ENB,  CEP_NAK_IE | CEP_DATA_RxED_IE); /* OUT_TK_IE */
 
-        return;     
+        return;
     }
     switch (_usb_cmd_pkt.bRequest)
     {
@@ -594,11 +592,10 @@ VOID usbd_control_packet(void)
                     break;
                 case USBD_DT_HID_RPT:
                     usbdClearAllFlags();
-                    //sysprintf("USB_DT_HID_RPT\n");
                     usbdInfo.GET_HID_RPT_Flag = 1;
                     usbdStatus.appConnected = 1;
-                    if (_usb_cmd_pkt.wLength > usbdInfo.u32HIDRPTDescriptorLen)
-                        _usb_cmd_pkt.wLength = usbdInfo.u32HIDRPTDescriptorLen;
+                    if (_usb_cmd_pkt.wLength > usbdInfo.u32HIDRPTDescriptorLen[_usb_cmd_pkt.wIndex & 0x7])
+                        _usb_cmd_pkt.wLength = usbdInfo.u32HIDRPTDescriptorLen[_usb_cmd_pkt.wIndex & 0x7];
                     break;
                 default:
                     ReqErr=1;
@@ -672,7 +669,7 @@ VOID usbd_control_packet(void)
             if ((_usb_cmd_pkt.wValue != 1) && (_usb_cmd_pkt.wValue != 0) )  /* Only configuration one is supported */
                 ReqErr=1;  /* Configuration choosed is invalid */
 
-            if(ReqErr==1) 
+            if(ReqErr==1)
                 break;
 
             if (_usb_cmd_pkt.wValue == 0)
@@ -742,7 +739,7 @@ VOID usbd_control_packet(void)
                         //sysprintf("Setup Interface 3, alter 1\n");
                     }
                     else
-                    {         
+                    {
                         usbdInfo.AlternateFlag_Audio=0;
                         usbdStatus.appConnected_Audio = 0;
                         //sysprintf("Setup Interface 3, alter 0\n");
@@ -1023,6 +1020,7 @@ VOID usbd_isr(void)
                 usbdStatus.appConnected_Audio = 0;
                 usbdClearAllFlags();
                 g_bHostAttached = FALSE;
+                g_u32Suspend_Flag = 0;
                 outp32(PHY_CTL, (0x20 | Phy_suspend));
             }
             outp32(USB_IRQ_STAT, VBUS_IS);
@@ -1126,6 +1124,8 @@ VOID usbd_isr(void)
             usbdInfo._usbd_resume = 1;
             outp32(USB_IRQ_STAT, RUM_IS);    /* Resume */
             g_bHostAttached = TRUE;
+            if(pfnResume != NULL)
+                pfnResume();
             outp32(USB_IRQ_ENB, (USB_RST_STS|USB_SUS_REQ|VBUS_IE));
         }
 
@@ -1137,8 +1137,10 @@ VOID usbd_isr(void)
             g_bHostAttached = TRUE;
             outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE));
 
+            outp32(USB_IRQ_STAT, SOF_IS);
+            outp32(CEP_IRQ_STAT, CEP_NAK_IS);
             test = inp32(PHY_CTL) & Vbus_status;
-            for(i=0;i<0x80000;i++)
+            for(i=0;i<0x40000;i++)
             {
                 if(test != (inp32(PHY_CTL) & Vbus_status))
                 {
@@ -1160,11 +1162,19 @@ VOID usbd_isr(void)
                         usbdStatus.appConnected_Audio = 0;
                         outp32(PHY_CTL, (0x20 | Phy_suspend));
                         g_u32Suspend_Flag = 0;
-                        sysprintf("Unplug(S)!!\n");
+                       // sysprintf("Unplug(S)!!\n");
                         outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE|USB_SUS_REQ));
                         outp32(USB_IRQ_STAT, SUS_IS);    /* Suspend */
                     }
                     outp32(USB_IRQ_STAT, VBUS_IS);
+                    return;
+                }
+                if((inp32(CEP_IRQ_STAT) & CEP_NAK_IS) ||(inp32(USB_IRQ_STAT) & SOF_IS))
+                {
+                    outp32(CEP_IRQ_STAT, CEP_NAK_IS);
+                    outp32(USB_IRQ_STAT, SOF_IS);
+                    outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE|USB_SUS_REQ));
+                    outp32(USB_IRQ_STAT, SUS_IS);    /* Suspend */
                     return;
                 }
             }
@@ -1253,7 +1263,7 @@ VOID usbd_isr(void)
             else
             {
                 outp32(CEP_IRQ_STAT, CEP_DATA_TxED_IS);
-               outp32(CEP_IRQ_ENB, (CEP_STACOM_IE | CEP_DATA_TxED_IE));
+                outp32(CEP_IRQ_ENB, (CEP_STACOM_IE | CEP_DATA_TxED_IE));
             }
             return;
         }
@@ -1266,8 +1276,7 @@ VOID usbd_isr(void)
 
         if (IrqSt & CEP_DATA_TXD & IrqEn)
         {
-            outp32(CEP_IRQ_STAT, CEP_STACOM_IS);   
-            outp32(CEP_CTRL_STAT, CEP_NAK_CLEAR);    /* clear nak so that sts stage is complete */
+            outp32(CEP_IRQ_STAT, CEP_DATA_TxED_IS); 
 
             if (usbdInfo._usbd_remlen_flag)
             {
@@ -1280,11 +1289,14 @@ VOID usbd_isr(void)
                 {
                     zeropacket_flag = 0;
                     outp32(CEP_CTRL_STAT, CEP_ZEROLEN);
+                    outp32(CEP_IRQ_STAT, CEP_IN_TK_IS);
+                    outp32(CEP_IRQ_ENB, CEP_IN_TK_IE);    /* suppkt int ,status and in token */
+                    return;
                 }
                 outp32(CEP_IRQ_STAT, CEP_STACOM_IS);
+                outp32(CEP_CTRL_STAT, CEP_NAK_CLEAR);    /* clear nak so that sts stage is complete */
                 outp32(CEP_IRQ_ENB, CEP_SETUP_PK_IE|CEP_STACOM_IE);     /* suppkt int ,status and in token */
             }         
-            outp32(CEP_IRQ_STAT, CEP_DATA_TxED_IS); 
             if(usbdStatus.appConnected == 1)
             {
                 if(usbdInfo.u32UVC)
@@ -1295,6 +1307,7 @@ VOID usbd_isr(void)
 
         if (IrqSt & CEP_DATA_RXD & IrqEn)
         {
+            outp32(CEP_IRQ_STAT, (CEP_DATA_RxED_IS | CEP_NAK_IS));
             /* Data Packet receive(OUT) */
             if (usbdInfo.CLASS_CMD_Oflag && usbdInfo.pfnClassDataOUTCallBack != NULL)
             {
@@ -1303,15 +1316,15 @@ VOID usbd_isr(void)
                 usbdInfo.pfnClassDataOUTCallBack();
                 usbdInfo.CLASS_CMD_Oflag = 0;
             }
-            outp32(CEP_IRQ_STAT, (CEP_DATA_RxED_IS));
-            outp32(CEP_CTRL_STAT, CEP_NAK_CLEAR);    /* clear nak so that sts stage is complete */
 
             if(class_out_len > 0)
             {
                 outp32(CEP_IRQ_ENB,  CEP_DATA_RxED_IE);    /* suppkt int/enb sts completion int */
             }
             else
-            {
+            {             
+                outp32(CEP_IRQ_STAT, CEP_STACOM_IS);
+                outp32(CEP_CTRL_STAT, CEP_NAK_CLEAR);    /* clear nak so that sts stage is complete */
                 outp32(CEP_IRQ_ENB,  (CEP_STACOM_IE|CEP_PING_IE|CEP_SETUP_PK_IE));    /* suppkt int enb/sts completion int */
             }
             if(usbdInfo.u32UVC == 1 && usbdStatus.appConnected == 1)
@@ -1325,7 +1338,30 @@ VOID usbd_isr(void)
         if (IrqSt & CEP_NAK_IS & IrqEn)
         {
             outp32(CEP_IRQ_STAT, CEP_NAK_IS);
-            return;
+            
+            if(inp32(OUT_TRNSFR_CNT) && usbdInfo.CLASS_CMD_Oflag && ((inp32(CEP_IRQ_STAT) & CEP_DATA_RxED_IS) == 0))
+            {
+                /* Data Packet receive(OUT) */
+                if (usbdInfo.pfnClassDataOUTCallBack != NULL)
+                {
+                    class_out_len = _usb_cmd_pkt.wLength;
+                    class_out_len -= inp32(OUT_TRNSFR_CNT);
+                    usbdInfo.pfnClassDataOUTCallBack();
+                    usbdInfo.CLASS_CMD_Oflag = 0;
+                }
+
+                if(class_out_len > 0)
+                {
+                    outp32(CEP_IRQ_ENB,  CEP_DATA_RxED_IE);    /* suppkt int/enb sts completion int */
+                }
+                else
+                {
+                    outp32(CEP_IRQ_STAT, CEP_STACOM_IS);
+                    outp32(CEP_CTRL_STAT, CEP_NAK_CLEAR);    /* clear nak so that sts stage is complete */
+                    outp32(CEP_IRQ_ENB,  (CEP_STACOM_IE|CEP_PING_IE|CEP_SETUP_PK_IE));    /* suppkt int enb/sts completion int */
+                }
+                return;
+            }
         }
 
         if (IrqSt & CEP_STALL_IS & IrqEn)
@@ -1342,10 +1378,10 @@ VOID usbd_isr(void)
 
         if (IrqSt & CEP_STACOM_IS & IrqEn)
         {
-            /* Update Device */
-				   	if (_usb_cmd_pkt.bmRequestType == 0)
-                usbd_update_device();
             outp32(CEP_IRQ_STAT, CEP_STACOM_IS);
+            /* Update Device */
+            if (_usb_cmd_pkt.bmRequestType == 0)
+                usbd_update_device();
 
             if (usbdInfo.CLASS_CMD_Iflag || usbdInfo._usbd_resume || usbdInfo.GET_DEV_Flag)
                 usbdInfo.USBModeFlag = 1;
@@ -1419,3 +1455,7 @@ VOID udcSetSupendCallBack(PFN_USBD_CALLBACK pfun)
     pfnSuspend = pfun;
 }
 
+VOID udcSetResumeCallBack(PFN_USBD_CALLBACK pfun)
+{
+    pfnResume = pfun;
+}

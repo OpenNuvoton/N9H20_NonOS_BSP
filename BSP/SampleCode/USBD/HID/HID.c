@@ -243,9 +243,7 @@ void hidClassOUT(void)
 {
     if(_usb_cmd_pkt.bRequest == HID_SET_IDLE)
     {
-        outp32(CEP_CTRL_STAT, ZEROLEN);
-        sysprintf("Set IDLE\n");
-        outp32(CEP_IRQ_STAT, CEP_STACOM_IS);
+//        sysprintf("Set IDLE\n");
     }
     else if(_usb_cmd_pkt.bRequest == HID_SET_REPORT)
     {
@@ -451,7 +449,7 @@ void HID_SetInReport(void)
                 outp8(EPA_DATA_BUF ,buf[i]);
             outp32(EPA_RSP_SC, PK_END); /* Set Packet End */
 
-            delay  = 2;
+            delay  = 20000;
             string_index++;
             if(string_index > sizeof(output_string))
             {
@@ -488,16 +486,16 @@ void hidInit(void)
 
 #ifdef HID_MOUSE
     /* Set the HID report descriptor */
-    usbdInfo.pu32HIDRPTDescriptor =  (PUINT32) &g_HID_au8MouseReportDescriptor;
-    usbdInfo.u32HIDRPTDescriptorLen = g_HID_u32MouseReportDescriptorSize;
+    usbdInfo.pu32HIDRPTDescriptor[0] =  (PUINT32) &g_HID_au8MouseReportDescriptor;
+    usbdInfo.u32HIDRPTDescriptorLen[0] = g_HID_u32MouseReportDescriptorSize;
     usbdInfo.pfnEPACallBack = EPA_Handler;
     g_u8EPAReady = 1;
 #endif
 
 #ifdef HID_KEYBOARD
     /* Set the HID report descriptor */
-    usbdInfo.pu32HIDRPTDescriptor = (PUINT32) &g_HID_au8KeyboardReportDescriptor;
-    usbdInfo.u32HIDRPTDescriptorLen = g_HID_u32KeyboardReportDescriptorSize;
+    usbdInfo.pu32HIDRPTDescriptor[0] = (PUINT32) &g_HID_au8KeyboardReportDescriptor;
+    usbdInfo.u32HIDRPTDescriptorLen[0] = g_HID_u32KeyboardReportDescriptorSize;
 #endif
 
     usbdInfo.pu32StringDescriptor[0] = (PUINT32) &HID_StringDescriptor0;

@@ -161,8 +161,8 @@ typedef struct  __attribute__((__packed__)) {
     PUINT32 pu32HOSConfDescriptor;
     PUINT32 pu32FOSConfDescriptor;
     PUINT32 pu32HIDDescriptor;
-    PUINT32 pu32HIDRPTDescriptor;
-    PUINT32 pu32StringDescriptor[5];
+	PUINT32 pu32HIDRPTDescriptor[8];		
+	PUINT32 pu32StringDescriptor[8];
 
 /* Descriptor length */
     UINT32  u32DevDescriptorLen;
@@ -172,8 +172,8 @@ typedef struct  __attribute__((__packed__)) {
     UINT32  u32HOSConfDescriptorLen;
     UINT32  u32FOSConfDescriptorLen;
     UINT32  u32HIDDescriptorLen;
-    UINT32  u32HIDRPTDescriptorLen;
-    UINT32  u32StringDescriptorLen[5];
+	UINT32	u32HIDRPTDescriptorLen[8];		
+	UINT32 	u32StringDescriptorLen[8];
 
 /* USBD Init */
     PFN_USBD_CALLBACK pfnHighSpeedInit;
