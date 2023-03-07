@@ -21,24 +21,24 @@
 
 #ifdef _S605_
     #ifdef __Security__
-        #define DATE_CODE   "20181206 with Security for S605"
+        #define DATE_CODE   "20230228 with Security for S605"
     #else
-        #define DATE_CODE   "20181206 for S605"
+        #define DATE_CODE   "20230228 for S605"
     #endif
 #else
     #ifdef __Security__
-        #define DATE_CODE   "20181206 with Security"
+        #define DATE_CODE   "20230228 with Security"
     #else
-        #define DATE_CODE   "20181206"
+        #define DATE_CODE   "20230228"
     #endif
 #endif
 
 #define __DAC_ON__
 
 #if defined (__GNUC__)
-UINT8  image_buffer[512] __attribute__((aligned(32)));
+UINT8  image_buffer[1024] __attribute__((aligned(32)));
 #else
-UINT8 __align(32) image_buffer[512];
+UINT8 __align(32) image_buffer[1024];
 #endif
 
 unsigned char *imagebuf;
@@ -422,7 +422,7 @@ int main(void)
     memset(imagebuf, 0, 32);
     sysprintf("Load Image ");
     /* read image information */
-    SPIReadFast(0, 63*1024, 512, (UINT32*)imagebuf);  /* offset, len, address */
+    SPIReadFast(0, 63*1024, 1024, (UINT32*)imagebuf);  /* offset, len, address */
 
     if (((*(pImageList+0)) == 0xAA554257) && ((*(pImageList+3)) == 0x63594257))
     {

@@ -30,14 +30,16 @@
 /*             Downscale to fit the Panel size, and display on Panel     */
 /*      Item 1 Enable/Disable Input Wait function                        */
 /*      Item 2 Set Decode Output format                                  */
-/*      Item 3 Start Docode operation                                    */
+/*	    Item 3 Enable/Disable Window Decode function						 */	
+
+/*	    Item 4 Start Docode operation									 */
 /*             Do decode operation after input Jpeg file name            */
 /*  After Decode operation complete, the decoded raw data file will      */
 /*  write to the input filea name with file name exetension ".dat" into   */
 /*  SD card root folder                                                  */ 
 /*-----------------------------------------------------------------------*/
 
-BOOL g_bDecPanelTest = FALSE, g_bDecIpwTest = FALSE, g_bEncUpTest = FALSE, g_bEncSwReserveTest = FALSE;
+BOOL g_bDecPanelTest = FALSE, g_bDecWindecTest = FALSE, g_bDecWindecStride = FALSE, g_bDecIpwTest = FALSE, g_bEncUpTest = FALSE, g_bEncSwReserveTest = FALSE;
 
 LCDFORMATEX lcdInfo;
 
@@ -106,12 +108,15 @@ INT32 main()
         sysprintf("\nPlease Select Test Item\n");
         sysprintf("[*]Decode Test\n");
         sysprintf(" 0 : Panel Test ");g_bDecPanelTest?sysprintf("Disable\n"):sysprintf("Enable\n");
+        if(g_bDecWindecTest == 0)
         sysprintf("     -> Decode Downscale to QVGA\n");
         sysprintf("     -> Decode Stride is %d\n",PANEL_WIDTH);
         sysprintf("     -> Output data size is %dx%d\n",PANEL_WIDTH,PANEL_HEIGHT);
         sysprintf(" 1 : Input Wait ");g_bDecIpwTest?sysprintf("Disable\n"):sysprintf("Enable\n");
-        sysprintf(" 2 : Set Decode output format\n");
-        sysprintf(" 3 : Start to Decode\n");
+    sysprintf(" 2 : ");g_bDecWindecTest?sysprintf("Disable Window Decode\n"):sysprintf("Enable Window Decode\n");			
+
+		sysprintf(" 3 : Set Deocode output format\n");	
+		sysprintf(" 4 : Start to Decode\n");
         sysprintf("     -> Decode output format is ");
         switch(g_u32DecFormat)
         {
@@ -132,12 +137,12 @@ INT32 main()
                 break;
         }
         sysprintf("[*]Encode Test\n");
-        sysprintf(" 4 : Upscale ");g_bEncUpTest?sysprintf("Disable\n"):sysprintf("Enable\n");
-        sysprintf(" 5 : Software Reserved ");g_bEncSwReserveTest?sysprintf("Disable\n"):sysprintf("Enable\n");
-        sysprintf(" 6 : Set Encode Width & Height\n");
-        sysprintf(" 7 : Start to Encode\n");
-        sysprintf("     ->  Encode Size %dx%d\n",g_u32EncWidth,g_u32EncHeight);
-        sysprintf(" 8 : Exit\n>");
+		sysprintf(" 5 : Upscale ");g_bEncUpTest?sysprintf("Disable\n"):sysprintf("Enable\n");
+		sysprintf(" 6 : Software Reserved ");g_bEncSwReserveTest?sysprintf("Disable\n"):sysprintf("Enable\n");
+		sysprintf(" 7 : Set Encode Width & Height\n");
+		sysprintf(" 8 : Start to Encode\n");
+		sysprintf("     ->  Encode Size %dx%d\n",g_u32EncWidth,g_u32EncHeight);
+		sysprintf(" 9 : Exit\n>");		
 
         u8Item = sysGetChar();
 
@@ -153,6 +158,9 @@ INT32 main()
                 g_bDecIpwTest ^= 1;
                 break;
             case '2':
+						g_bDecWindecTest ^= 1;
+						break;
+			case '3':
                 sysprintf("\nPlease select Decode Output format\n");
                 sysprintf(" 0: PACKET YUV422\n");
                 sysprintf(" 1: PACKET RGB555\n");
@@ -187,32 +195,32 @@ INT32 main()
                         break;
                 }
                 break;
-            case '3':
+			case '4':		
                 sysprintf("\n<Decode Test>\n");
                 sysprintf("   -> Panel Test ");g_bDecPanelTest?sysprintf("Enabled\n"):sysprintf("Disabled\n");
                 sysprintf("   -> Input Test ");g_bDecIpwTest?sysprintf("Enabled\n"):sysprintf("Disabled\n");
                 JpegDecTest();
                 break;
-            case '4':
+			case '5':		
                 g_bEncUpTest ^= 1;
                 break;
-            case '5':
+			case '6':		
                 g_bEncSwReserveTest ^= 1;
                 break;
-            case '6':
+			case '7':		
                 sysprintf("\nPlease input Encode Width\n");
                 g_u32EncWidth = GetData();
                 sysprintf("\nPlease input Encode Height\n");
                 g_u32EncHeight = GetData();
                 break;
-            case '7':
+			case '8':		
                 sysprintf("\n<Encode Test>\n");
                 sysprintf("   Upscale ");g_bEncUpTest?sysprintf("Enabled\n"):sysprintf("Disabled\n");
                 sysprintf("    -> Software Reserved ");g_bEncSwReserveTest?sysprintf("Enabled\n"):sysprintf("Disabled\n");
                 sysprintf("    -> Encode Size %dx%d\n",g_u32EncWidth,g_u32EncHeight);
                 JpegEncTest();
                 break;
-            case '8':
+			case '9':
                 bLoop = FALSE;
                 break;
             default:

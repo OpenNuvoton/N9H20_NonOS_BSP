@@ -114,6 +114,8 @@ typedef struct{
     UINT32  height;           /*for decode*/
     UINT32  jpeg_width;       /*for decode*/
     UINT32  jpeg_height;      /*for decode*/        
+	UINT32	jpeg_win_width;		/*for decode*/
+    UINT32	jpeg_win_height;	/*for decode*/   
     UINT32  stride;           /*for decode*/    
     /* encode information */
     UINT32  bufferend;

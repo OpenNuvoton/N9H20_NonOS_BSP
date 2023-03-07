@@ -18,7 +18,7 @@
 #define USB_VID    0x0416    /* Vendor ID */ 
 #define USB_PID    0x0093    /* Product ID */
 
-#define DATA_CODE  "20170606"
+#define DATA_CODE  "20230109"
 
 /* RAM Disk size define : RAMDISK_1M ~ RAMDISK_16M */
 #define RAMDISK_SIZE  RAMDISK_1M

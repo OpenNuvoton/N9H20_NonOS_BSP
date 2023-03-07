@@ -36,7 +36,7 @@ BOOL JpegDecHeaderComplete(VOID)
     if(jpegInfo.jpeg_width == 0 || jpegInfo.jpeg_height == 0)	
         return FALSE;
 
-    if(g_bDecPanelTest)
+	if(g_bDecPanelTest && !g_bDecWindecTest)
     {
         /* Allocate the Raw Data Buffer for Decode Operation */
         if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_RGB888)
@@ -192,7 +192,31 @@ BOOL JpegDecHeaderComplete(VOID)
             }
                 u32FrameBuffer =  (((UINT32) g_pu8DecFrameBuffer + 0x03) & ~0x03) | 0x80000000;
             sysprintf("\tThe allocated buffer for decoded data starts from 0x%X, Size is 0x%X\n", u32FrameBuffer,u32BufferSize);
-
+        if(g_bDecWindecStride && g_bDecWindecTest)
+	 	  	{
+	        if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_RGB888)
+	      	{
+		      	memset((UINT32*)u32FrameBuffer,fill, u16Width * u16Height * 4);
+    	  	}
+	      	else
+	    	  {
+		    	  if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_YUV422)
+		      	{
+			    	  UINT32 i;
+			      	for(i = 0;i<u16Width * u16Height * 2;i++)
+			      	{
+				    	  if(i%2)
+				    	  	*((PUINT8)(u32FrameBuffer + i)) = 0x80;	
+				    	  else
+						      *((PUINT8)(u32FrameBuffer + i)) = 0xFF;
+				      }   
+		    	  }
+		      	else
+				      memset((UINT32*)u32FrameBuffer,fill, u16Width * u16Height * 2);		
+						
+			      u32OutputOffset *= 2; 
+		      }
+		  	}				
             /* Set Decoded Image Address (Can be set before Decode Trigger for Packet/Planar format)*/
             jpegIoctl(JPEG_IOCTL_SET_YADDR, u32FrameBuffer, 0);
         }

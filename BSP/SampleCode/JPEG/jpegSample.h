@@ -21,7 +21,7 @@
 extern CHAR	decodePath[];
 
 /* Test Control Flag */
-extern BOOL g_bDecPanelTest, g_bDecIpwTest, g_bDecOpwTest, g_bEncUpTest, g_bEncSwReserveTest;
+extern BOOL g_bDecPanelTest, g_bDecWindecTest, g_bDecWindecStride, g_bDecIpwTest, g_bDecOpwTest, g_bEncUpTest, g_bEncSwReserveTest;
 
 extern UINT32 g_u32EncWidth, g_u32EncHeight;  
 
