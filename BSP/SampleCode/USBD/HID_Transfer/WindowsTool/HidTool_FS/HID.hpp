@@ -61,14 +61,10 @@ public:
 		}
 	}
 
-	HIDP_CAPS	Capabilities;
-
 	BOOL OpenDevice(USHORT usVID, USHORT usPID)
-	{				
-        DWORD                               DeviceUsage; 
+	{
+		//CString MyDevPathName="";
 		TCHAR MyDevPathName[MAX_PATH];
-		//Get the Capabilities structure for the device.   	   
-		PHIDP_PREPARSED_DATA    PreparsedData;   
 
 		//定義一個GUID的結構體HidGuid來保存HID設備的接口類GUID。
 		GUID HidGuid;
@@ -199,7 +195,7 @@ public:
 					&DevAttributes);
 				
 				//關閉剛剛打開的設備
-				//CloseHandle(hDevHandle);
+				CloseHandle(hDevHandle);
 				
 				//獲取失敗，查找下一個
 				if(Result==FALSE) continue;
@@ -208,18 +204,6 @@ public:
 				//進行比較，如果都一致的話，則說明它就是我們要找的設備。
 				if(DevAttributes.VendorID == usVID
 					&& DevAttributes.ProductID == usPID){
-						
-	                        // 利用HID Report Descriptor來辨識HID Transfer裝置 
-							HidD_GetPreparsedData(hDevHandle, &PreparsedData);   
-			   
-							HidP_GetCaps(PreparsedData, &Capabilities);   
-		
-							HidD_FreePreparsedData(PreparsedData);  
-							 DeviceUsage = (Capabilities.UsagePage * 256) + Capabilities.Usage;   
-   
-							if (DeviceUsage != 0xFF0001)   // Report Descriptor
-								continue;
-
 							MyDevFound=TRUE; //設置設備已經找到
 							//AddToInfOut("設備已經找到");
 							
@@ -266,11 +250,7 @@ public:
 						}
 			}
 			//如果打開失敗，則查找下一個設備
-			else //continue;
-			{
-				CloseHandle(hDevHandle);
-				continue;
-			}
+			else continue;
 		}
 		
 		//調用SetupDiDestroyDeviceInfoList函數銷毀設備信息集合
@@ -328,23 +308,29 @@ public:
 			*pdwLength = 0;
 
 		DWORD dwStart2 = GetTickCount();
-
 		if(!::WriteFile(m_hWriteHandle, pcBuffer, szLen, NULL, &overlapped))
+		{
+				
+			printf("WriteFile fail 0\n");	
 			return FALSE;
-
+		}
 		DWORD dwIndex = WaitForMultipleObjects(2, events, FALSE, dwMilliseconds);
 		
 		if(dwIndex == WAIT_OBJECT_0
 			|| dwIndex == WAIT_OBJECT_0 + 1)
-		{
+		{			
 			ResetEvent(events[dwIndex - WAIT_OBJECT_0]);
 
 			if(dwIndex == WAIT_OBJECT_0)
+			{
+				printf("WriteFile fail 1\n");
 				return FALSE;	//Abort event
+			}
 			else
 			{
 				DWORD dwLength = 0;
 				//Write OK
+				
 				GetOverlappedResult(m_hWriteHandle, &overlapped, &dwLength, TRUE);
 				if(pdwLength != NULL)
 					*pdwLength = dwLength;
@@ -352,7 +338,11 @@ public:
 			}				
 		}
 		else
+		{
+			
+			printf("WriteFile fail 2\n");
 			return FALSE;
+		}
 	}
 };
 
@@ -399,10 +389,12 @@ public:
 		DWORD dwCmdLength = dwLen;
 		if(dwCmdLength > sizeof(m_acBuffer) - 1)
 			dwCmdLength = sizeof(m_acBuffer) - 1;
-        
-        memset(m_acBuffer, 0xCC, sizeof(m_acBuffer));
+     
+        memset(m_acBuffer, 0xFF, sizeof(m_acBuffer));
 		m_acBuffer[0] = 0x00;	//Always 0x00
+
         memcpy(m_acBuffer+1  , pcBuffer, dwCmdLength);
+		
 		BOOL bRet = m_hidIO.WriteFile(m_acBuffer, 65, pdwLength, dwMilliseconds);
         if(bRet)
         {

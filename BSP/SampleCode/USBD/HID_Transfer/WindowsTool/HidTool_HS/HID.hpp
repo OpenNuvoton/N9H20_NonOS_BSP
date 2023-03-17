@@ -390,7 +390,7 @@ public:
 		if(dwCmdLength > sizeof(m_acBuffer) - 1)
 			dwCmdLength = sizeof(m_acBuffer) - 1;
      
-        memset(m_acBuffer, 0xCC, sizeof(m_acBuffer));
+        memset(m_acBuffer, 0xFF, sizeof(m_acBuffer));
 		m_acBuffer[0] = 0x00;	//Always 0x00
 
         memcpy(m_acBuffer+1  , pcBuffer, dwCmdLength);
