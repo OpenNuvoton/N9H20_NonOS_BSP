@@ -103,6 +103,7 @@
 #define JPEG_IOCTL_SET_ENCODE_PRIMARY_ROTATE_RIGHT           33
 #define JPEG_IOCTL_SET_ENCODE_PRIMARY_ROTATE_LEFT            34
 #define JPEG_IOCTL_SET_ENCODE_PRIMARY_ROTATE_NORMAL          35
+#define JPEG_IOCTL_GET_WINDOW_DECODE_SIZE                    36
 
 typedef BOOL (*PFN_JPEG_HEADERDECODE_CALLBACK)(VOID);
 typedef BOOL (*PFN_JPEG_DECINPUTWAIT_CALLBACK)(UINT32 u32Address,UINT32 u32Size);
@@ -114,8 +115,6 @@ typedef struct{
     UINT32  height;           /*for decode*/
     UINT32  jpeg_width;       /*for decode*/
     UINT32  jpeg_height;      /*for decode*/        
-	UINT32	jpeg_win_width;		/*for decode*/
-    UINT32	jpeg_win_height;	/*for decode*/   
     UINT32  stride;           /*for decode*/    
     /* encode information */
     UINT32  bufferend;
