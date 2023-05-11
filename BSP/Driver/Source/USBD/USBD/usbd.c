@@ -7,17 +7,22 @@
  * @copyright (C) 2020 Nuvoton Technology Corp. All rights reserved.
 *****************************************************************************/
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "wblib.h"
 #include "N9H20_USBD.h"
 
-#define DATA_CODE  "20230109"
+#define DATA_CODE  "20230508"
 
+#if defined (__GNUC__)
 volatile USBD_INFO_T usbdInfo  __attribute__((aligned(4))) = {0};
 volatile USBD_STATUS_T usbdStatus  __attribute__((aligned(4))) = {0};
+#else
+__align(4) volatile USBD_INFO_T usbdInfo = {0};
+__align(4) volatile USBD_STATUS_T usbdStatus = {0};
+#endif
+
 UINT32 g_u32Suspend_Flag = 0;
 PFN_USBD_CALLBACK pfnSuspend = NULL, pfnResume = NULL;
 
@@ -96,7 +101,6 @@ VOID udcOpen(void)
     while(inp32(OPER) != 0x0);
 
     usbdInfo.u32UVC = 0;
-
 #ifdef __USBD_FULL_SPEED_MODE__
 
     for(i=0;i<0x30000;i++)
@@ -293,7 +297,7 @@ VOID usbd_update_device(void)
                 usb_halt_ep = usb_halt_ep & ~0x08;
                 outp32(EPD_RSP_SC, EP_TOGGLE);
                 usbdInfo._usbd_haltep = -1; /* just for changing the haltep value */
-            }
+			}			
             else if(usbdInfo.disableremotewakeup == 1)
             {
                 usbdInfo.disableremotewakeup=0;
@@ -592,6 +596,7 @@ VOID usbd_control_packet(void)
                     break;
                 case USBD_DT_HID_RPT:
                     usbdClearAllFlags();
+					//sysprintf("USB_DT_HID_RPT\n");
                     usbdInfo.GET_HID_RPT_Flag = 1;
                     usbdStatus.appConnected = 1;
                     if (_usb_cmd_pkt.wLength > usbdInfo.u32HIDRPTDescriptorLen[_usb_cmd_pkt.wIndex & 0x7])
@@ -1120,28 +1125,29 @@ VOID usbd_isr(void)
         }
 
         if (IrqSt & RUM_IS & IrqEn)
-        {
+        {                     
             usbdInfo._usbd_resume = 1;
             outp32(USB_IRQ_STAT, RUM_IS);    /* Resume */
             g_bHostAttached = TRUE;
             if(pfnResume != NULL)
-                pfnResume();
+                pfnResume();          
+            g_u32Suspend_Flag = 1;
             outp32(USB_IRQ_ENB, (USB_RST_STS|USB_SUS_REQ|VBUS_IE));
         }
 
         if (IrqSt & SUS_IS & IrqEn)
         {
             int volatile i;
-            int volatile test;
+            int volatile test;      
             usbdInfo._usbd_resume = 0;
             g_bHostAttached = TRUE;
             outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE));
 
-            outp32(USB_IRQ_STAT, SOF_IS);
-            outp32(CEP_IRQ_STAT, CEP_NAK_IS);
             test = inp32(PHY_CTL) & Vbus_status;
             for(i=0;i<0x40000;i++)
             {
+                outp32(USB_IRQ_STAT, SOF_IS);
+                outp32(CEP_IRQ_STAT, CEP_NAK_IS);
                 if(test != (inp32(PHY_CTL) & Vbus_status))
                 {
                     if(inp32(PHY_CTL) & Vbus_status)
@@ -1165,15 +1171,14 @@ VOID usbd_isr(void)
                        // sysprintf("Unplug(S)!!\n");
                         outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE|USB_SUS_REQ));
                         outp32(USB_IRQ_STAT, SUS_IS);    /* Suspend */
+                        outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE));
                     }
                     outp32(USB_IRQ_STAT, VBUS_IS);
                     return;
                 }
                 if((inp32(CEP_IRQ_STAT) & CEP_NAK_IS) ||(inp32(USB_IRQ_STAT) & SOF_IS))
                 {
-                    outp32(CEP_IRQ_STAT, CEP_NAK_IS);
-                    outp32(USB_IRQ_STAT, SOF_IS);
-                    outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE|USB_SUS_REQ));
+                    outp32(USB_IRQ_ENB, (USB_RST_STS|USB_RESUME|VBUS_IE));
                     outp32(USB_IRQ_STAT, SUS_IS);    /* Suspend */
                     return;
                 }
