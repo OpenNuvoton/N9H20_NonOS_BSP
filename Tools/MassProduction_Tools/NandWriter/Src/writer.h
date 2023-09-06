@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 #define MAJOR_VERSION_NUM   1
-#define MINOR_VERSION_NUM   11
+#define MINOR_VERSION_NUM   12
 
 extern UINT g_Font_Height, g_Font_Width, g_Font_Step;
 

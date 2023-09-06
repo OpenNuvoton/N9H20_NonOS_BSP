@@ -76,6 +76,30 @@ void parsePair(IBR_BOOT_OPTIONAL_STRUCT_T *ptr_Ini_Config, char *Cmd)
         ptr_Ini_Config->Pairs[ptr_Ini_Config->Counter].value = transfer_hex_string_to_int(token);
 }
 
+/*-----------------------------------------------------------------------------
+ * To strip whitespace from the end of a string.
+ * Return:
+ *      The pointer of string with whitespace stripped from the end of string.
+ *---------------------------------------------------------------------------*/
+char *rtrim(char *str)
+{
+    int len;
+    char *p;
+
+    if ((str == NULL) || (*str == '\0'))
+    {
+        return str;
+    }
+
+    len = strlen(str);
+    p = str + len - 1;
+    while ((p >= str) && (isspace(*p)))
+    {
+        *p = '\0';
+        p--;
+    }
+    return str;
+}
 
 /*-----------------------------------------------------------------------------
  * To read one string line from file FileHandle and save it to Cmd.
@@ -106,6 +130,7 @@ static int readLine(int FileHandle, char *Cmd)
             {
                 Cmd[i_cmd] = 0;     // end of string
                 buffer_current2++;
+                rtrim(Cmd);
                 return Successful;
             }
             else
@@ -125,11 +150,13 @@ static int readLine(int FileHandle, char *Cmd)
             {
                 // return last line of INI file that without end of line
                 Cmd[i_cmd] = 0;     // end of string
+                rtrim(Cmd);
                 return Successful;
             }
             else
             {
                 Cmd[i_cmd] = 0;     // end of string to clear Cmd
+                rtrim(Cmd);
                 return ERR_FILE_EOF;
             }
         }
@@ -139,6 +166,7 @@ static int readLine(int FileHandle, char *Cmd)
             if (status < 0)
             {
                 Cmd[i_cmd] = 0;     // end of string to clear Cmd
+                rtrim(Cmd);
                 return status;      // error or end of file
             }
             buffer_current2 = 0;

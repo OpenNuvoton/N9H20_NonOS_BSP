@@ -32,6 +32,8 @@
 #define FMI_SD_CRC16_ERROR      (FMI_ERR_ID|0x17)
 #define FMI_SD_CRC_ERROR        (FMI_ERR_ID|0x18)
 #define FMI_SD_CMD8_ERROR       (FMI_ERR_ID|0x19)
+#define FMI_SD_DITO_ERROR       (FMI_ERR_ID|0x1A)
+#define FMI_SD_RITO_ERROR       (FMI_ERR_ID|0x1B)
 
 /* NAND error */
 #define FMI_SM_INIT_ERROR       (FMI_ERR_ID|0x20)
