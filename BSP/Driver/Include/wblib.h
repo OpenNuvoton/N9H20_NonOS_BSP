@@ -310,6 +310,8 @@ extern int 							_uart_refcnt;
 #define PD_RAM_START		0xFF001000
 #define PD_RAM_SIZE		0x2000
 
+#define DEF_CACHE_LINE_SIZE     32
+
 /* Define system library Timer functions */
 UINT32 sysGetTicks (INT32 nTimeNo);
 INT32 sysResetTicks (INT32 nTimeNo);
@@ -427,6 +429,11 @@ INT32   sysClockDivSwitchStart(UINT32 u32SysDiv);
 VOID    sysCheckPllConstraint(BOOL bIsCheck);
 INT32   sysPowerDownPLL(E_SYS_SRC_CLK eSrcClk, BOOL bIsPowerDown);
 VOID    sysPowerDownPLLDuringSysPowerDown(BOOL bIsPowerDownPLL);
+
+VOID sysCleanInvalidatedDcache(UINT32 buffer, UINT32 size);
+VOID sysCleanDcache(UINT32 buffer, UINT32 size);
+VOID sysInvalidateDcache(UINT32 buffer, UINT32 size);
+VOID sysInvalidateDcacheAll(VOID);
 
 #if defined (__GNUC__)
 unsigned char * _sbrk ( int incr );

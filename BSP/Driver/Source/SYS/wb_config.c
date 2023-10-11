@@ -1345,7 +1345,7 @@ UINT32 sysGetClock(E_SYS_SRC_CLK clk)
             }
             
             divN = ((reg & 0xf00) >> 8) + 1;
-            div = (inpw(REG_CLKDIV0) &0x0F) + 1;
+            div = (inpw(REG_CLKDIV0) &0x07) + 1;
             return (src / divS / divN / div);
         }
 

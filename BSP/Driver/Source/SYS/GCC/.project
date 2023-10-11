@@ -40,6 +40,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/wb_cache.c</locationURI>
 		</link>
 		<link>
+			<name>Src/wb_cache_ex.c</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/wb_cache_ex.c</locationURI>
+		</link>
+		<link>
 			<name>Src/wb_config.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/wb_config.c</locationURI>
