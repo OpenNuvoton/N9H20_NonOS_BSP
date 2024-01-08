@@ -100,7 +100,24 @@ INT fmiSDCmdAndRsp(FMI_SD_INFO_T *pSD, UINT8 ucCmd, UINT32 uArg, INT ntickCount)
         while(inpw(REG_SDCR) & SDCR_RI_EN)
         {
             if(ntickCount-- == 0) {
-                outpw(REG_SDCR, inpw(REG_SDCR)|SDCR_SWRST); // reset SD engine
+                //--- 2023/10/6, Reset SD controller and DMAC to keep clean status for next access.
+                // Reset DMAC engine and interrupt satus
+                outpw(REG_DMACCSR, inpw(REG_DMACCSR) | DMAC_SWRST | DMAC_EN);
+                while(inpw(REG_DMACCSR) & DMAC_SWRST);
+                outpw(REG_DMACCSR, inpw(REG_DMACCSR) | DMAC_EN);
+                outpw(REG_DMACISR, WEOT_IF | TABORT_IF);    // clear all interrupt flag
+            
+                // Reset FMI engine and interrupt status
+                outpw(REG_FMICR, FMI_SWRST);
+                while(inpw(REG_FMICR) & FMI_SWRST);
+                outpw(REG_FMIISR, FMI_DAT_IF);              // clear all interrupt flag
+            
+                // Reset SD engine and interrupt status
+                outpw(REG_FMICR, FMI_SD_EN);
+                outpw(REG_SDCR, inpw(REG_SDCR) | SDCR_SWRST);
+                while(inpw(REG_SDCR) & SDCR_SWRST);
+                outpw(REG_SDISR, 0xFFFFFFFF);               // clear all interrupt flag
+
                 return FMI_SD_INIT_TIMEOUT;
             }
             if (pSD == pSD0)
