@@ -1,7 +1,7 @@
 .\n9h20k5\jpegdec.o: ..\jpegDec.c
-.\n9h20k5\jpegdec.o: C:\Keil\ARM\ARMCC\INCLUDE\stdio.h
-.\n9h20k5\jpegdec.o: C:\Keil\ARM\ARMCC\INCLUDE\stdlib.h
-.\n9h20k5\jpegdec.o: C:\Keil\ARM\ARMCC\INCLUDE\string.h
+.\n9h20k5\jpegdec.o: C:\Keil\ARM\ARMCC\include\stdio.h
+.\n9h20k5\jpegdec.o: C:\Keil\ARM\ARMCC\include\stdlib.h
+.\n9h20k5\jpegdec.o: C:\Keil\ARM\ARMCC\include\string.h
 .\n9h20k5\jpegdec.o: ..\..\..\..\..\Driver\Include\wbtypes.h
 .\n9h20k5\jpegdec.o: ..\..\..\..\..\Driver\Include\wblib.h
 .\n9h20k5\jpegdec.o: ..\..\..\..\..\Driver\Include\N9H20_reg.h

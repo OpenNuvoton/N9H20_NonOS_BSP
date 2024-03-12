@@ -1,7 +1,7 @@
 .\n9h20k1\spiflash.o: ..\spiflash.c
-.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\INCLUDE\stdio.h
-.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\INCLUDE\stdlib.h
-.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\INCLUDE\string.h
+.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\include\stdio.h
+.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\include\stdlib.h
+.\n9h20k1\spiflash.o: C:\Keil\ARM\ARMCC\include\string.h
 .\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\wblib.h
 .\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\N9H20_reg.h
 .\n9h20k1\spiflash.o: ..\..\..\..\..\Driver\Include\wberrcode.h
