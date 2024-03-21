@@ -39,20 +39,32 @@
 #define SW_WP_DELAY_LOOP        3000
 #endif
 
+/* Return value of bad block checking */
+#define NAND_GOOD_BLOCK     (0)
+#define NAND_BAD_BLOCK      (1)
+
+/* Return value of dirty page checking */
+#define NAND_CLEAN_PAGE     (0)
+#define NAND_DIRTY_PAGE     (1)
+
 BOOL volatile _fmi_bIsNandFirstAccess = TRUE;
 #ifdef _SIC_USE_INT_
     extern BOOL volatile _fmi_bIsSMDataReady;
 #endif
 INT fmiSMCheckBootHeader(INT chipSel, FMI_SM_INFO_T *pSM);
+INT sicSMpread(INT chipSel, INT PBA, INT page, UINT8 *buff);
 static int _nand_init0 = 0, _nand_init1 = 0;
 
 #if defined (__GNUC__)
     UCHAR _fmi_ucSMBuffer[4096] __attribute__((aligned (4096)));
+    UCHAR _fmi_ucSMBuffer2[4096] __attribute__((aligned (4096)));
 #else
     __align(4096) UCHAR _fmi_ucSMBuffer[4096];
+    __align(4096) UCHAR _fmi_ucSMBuffer2[4096];
 #endif
 
 UINT8 *_fmi_pSMBuffer;
+UINT8 *_fmi_pSMBuffer2;
 
 /* functions */
 INT fmiSMCheckRB(FMI_SM_INFO_T *pSM)
@@ -1008,8 +1020,9 @@ static VOID fmiSM_CorrectData_BCH(UINT8 ucFieidIndex, UINT8 ucErrorCnt, UINT8* p
 
     for(ii=0; ii<jj; ii++)
     {
-        uaAddr[ii*2+0] = inpw(REG_BCH_ECC_ADDR0 + ii*4) & 0x1fff;
-        uaAddr[ii*2+1] = (inpw(REG_BCH_ECC_ADDR0 + ii*4)>>16) & 0x1fff;
+        //printf("WARNING: ECC T8 bit error address ECC_ADDR%d = 0x%08X\n", ii, inpw(REG_BCH_ECC_ADDR0 + ii*4));
+        uaAddr[ii*2+0] = inpw(REG_BCH_ECC_ADDR0 + ii*4) & 0x3ff;
+        uaAddr[ii*2+1] = (inpw(REG_BCH_ECC_ADDR0 + ii*4)>>16) & 0x3ff;
     }
 
     pDAddr += (ucFieidIndex-1)*0x200;
@@ -1194,13 +1207,19 @@ static VOID fmiSM_CorrectData_BCH(UINT8 ucFieidIndex, UINT8 ucErrorCnt, UINT8* p
 
                 case BCH_T8:
                     if (uaAddr[ii] < 512)
+                    {
+                        //printf("WARNING: ECC T8 bit error at field %d address %d. 0x%02X with error bit 0x%02X.\n", 
+                        //    ucFieidIndex, uaAddr[ii], *(pDAddr+uaAddr[ii]), uaData[ii]);
                         *(pDAddr+uaAddr[ii]) ^=  uaData[ii];
+                    }
                     else
                     {
                         if (uaAddr[ii] < 515)
                         {
                             uaAddr[ii] -= 512;
                             uaAddr[ii] += 15*(ucFieidIndex-1);  // field offset
+                            //printf("WARNING: ECC T8 bit error at field %d RA First 3 Byte address %d. 0x%02X with error bit 0x%02X.\n", 
+                            //    ucFieidIndex, uaAddr[ii], *((UINT8*)REG_SMRA_0+uaAddr[ii]), uaData[ii]);
                             *((UINT8*)REG_SMRA_0+uaAddr[ii]) ^=  uaData[ii];
                         }
                         else
@@ -1208,6 +1227,8 @@ static VOID fmiSM_CorrectData_BCH(UINT8 ucFieidIndex, UINT8 ucErrorCnt, UINT8* p
                             uaAddr[ii] = 543 - uaAddr[ii];
                             uaAddr[ii] = 14 - uaAddr[ii];
                             uaAddr[ii] += 15*(ucFieidIndex-1);  // field offset
+                            //printf("WARNING: ECC T8 bit error at field %d RA Parity Code address %d. 0x%02X with error bit 0x%02X.\n", 
+                            //    ucFieidIndex, uaAddr[ii], *((UINT8*)REG_SMRA_1+uaAddr[ii]), uaData[ii]);
                             *((UINT8*)REG_SMRA_1+uaAddr[ii]) ^=  uaData[ii];
                         }
                     }
@@ -1289,9 +1310,7 @@ INT fmiSM_Read_512(FMI_SM_INFO_T *pSM, UINT32 uSector, UINT32 uDAddr)
                     else if (((uStatus & 0x03)==0x02)
                           ||((uStatus & 0x03)==0x03))   // uncorrectable error or ECC error
                     {
-                #ifdef DEBUG
-                        printf("SM uncorrectable error is encountered, %4x !!\n", uStatus);
-                #endif
+                        printf("ERROR: NAND page %d encountered uncorrectable BCH error !! Status = 0x%X !!\n", uSector, uStatus);
                         uError = 1;
                     }
                 }
@@ -1480,9 +1499,7 @@ INT fmiSM_Read_2K(FMI_SM_INFO_T *pSM, UINT32 uPage, UINT32 uDAddr)
                     else if (((uStatus & 0x03)==0x02)
                           ||((uStatus & 0x03)==0x03)) // uncorrectable error or ECC error in 1st field
                     {
-                #ifdef DEBUG
-                        printf("SM uncorrectable error is encountered, %4x !!\n", uStatus);
-                #endif
+                        printf("ERROR: NAND page %d field %d encountered uncorrectable BCH error !! Status = 0x%X !!\n", uPage, ii, uStatus);
                         uError = 1;
                         break;
                     }
@@ -1567,33 +1584,7 @@ INT fmiSM_Read_RA(FMI_SM_INFO_T *pSM, UINT32 uPage, UINT32 ucColAddr)
 
 INT fmiSM_Read_RA_512(FMI_SM_INFO_T *pSM, UINT32 uPage, UINT32 uColumm)
 {
-    /* clear R/B flag */
-    if (pSM == pSM0)
-    {
-        while(!(inpw(REG_SMISR) & SMISR_RB0));
-        outpw(REG_SMISR, SMISR_RB0_IF);
-    }
-    else
-    {
-        while(!(inpw(REG_SMISR) & SMISR_RB1));
-        outpw(REG_SMISR, SMISR_RB1_IF);
-    }
-
-    outpw(REG_SMCMD, 0x50);     // read command
-    outpw(REG_SMADDR, uColumm);
-    outpw(REG_SMADDR, uPage & 0xff);    // PA0 - PA7
-    if (!pSM->bIsMulticycle)
-        outpw(REG_SMADDR, ((uPage >> 8) & 0xff)|EOA_SM);        // PA8 - PA15
-    else
-    {
-        outpw(REG_SMADDR, (uPage >> 8) & 0xff);                 // PA8 - PA15
-        outpw(REG_SMADDR, ((uPage >> 16) & 0xff)|EOA_SM);       // PA16 - PA17
-    }
-
-    if (!fmiSMCheckRB(pSM))
-        return FMI_SM_RB_ERR;
-
-    return 0;
+    return fmiSM2BufferM_RA(pSM, uPage, uColumm);
 }
 
 
@@ -1840,9 +1831,7 @@ INT fmiSM_Read_4K(FMI_SM_INFO_T *pSM, UINT32 uPage, UINT32 uDAddr)
                         else if (((uStatus & 0x03)==0x02)
                               ||((uStatus & 0x03)==0x03)) // uncorrectable error or ECC error in 1st field
                         {
-                    #ifdef _DEBUG
-                            printf("SM uncorrectable BCH error is encountered !!\n");
-                    #endif
+                            printf("ERROR: NAND page %d field %d encountered uncorrectable BCH error !! Status = 0x%X !!\n", uPage, ii, uStatus);
                             uError = 1;
                             break;
                         }
@@ -2036,106 +2025,77 @@ INT fmiSM_Write_4K_ALC(FMI_SM_INFO_T *pSM, UINT32 uSector, UINT32 ucColAddr, UIN
     return 0;
 }
 
-// mhkuo
 INT fmiCheckInvalidBlock(FMI_SM_INFO_T *pSM, UINT32 BlockNo)
 {
-    int volatile status=0;
-    unsigned int volatile sector;
-    unsigned char volatile data512=0xff, data517=0xff, blockStatus=0xff;
+    INT chipSel;
+    unsigned int volatile logical_block, physical_block;
+    unsigned char volatile byte0=0xFF, byte5=0xFF;
 
-    if (BlockNo == 0)
-        return 0;
+    physical_block = BlockNo;
+    logical_block = physical_block - pSM->uLibStartBlock;
 
-    sector = BlockNo * pSM->uPagePerBlock;
-
-    if (pSM->nPageSize == NAND_PAGE_512B)
-        status = fmiSM2BufferM_RA(pSM, sector, 0);
+    if (pSM == pSM0)
+        chipSel = 0;
     else
-        status = fmiSM_Read_RA(pSM, sector, pSM->nPageSize);
-
-    if (status < 0)
-    {
-#ifdef DEBUG
-        printf("fmiCheckInvalidBlock 0x%x\n", status);
-#endif
-        return 1;
-    }
-
+        chipSel = 1;
+    
+    // NAND flash guarantee block 0 is good block.
+    if (physical_block == 0)
+        return NAND_GOOD_BLOCK;
+    
+    _fmi_pSMBuffer2 = (UINT8 *)((UINT32)_fmi_ucSMBuffer2 | 0x80000000);
+    // read page 0 with ECC
+    sicSMpread(chipSel, logical_block, 0, _fmi_pSMBuffer2);
+    byte0 = (inpw(REG_SMRA_0) & 0x000000FF);
+    byte5 = (inpw(REG_SMRA_1) & 0x0000FF00) >> 8;
+    
     if (pSM->nPageSize == NAND_PAGE_512B)
     {
-        data512 = inpw(REG_SMDATA) & 0xff;
-        data517 = inpw(REG_SMDATA);
-        data517 = inpw(REG_SMDATA);
-        data517 = inpw(REG_SMDATA);
-        data517 = inpw(REG_SMDATA);
-        data517 = inpw(REG_SMDATA) & 0xff;
-//      if ((data512 != 0xFF) || (data517 != 0xFF))
-        if ((data512 == 0xFF) && (data517 == 0xFF))
+        if ((byte0 == 0xFF) && (byte5 == 0xFF))
         {
             fmiSM_Reset(pSM);
-            status = fmiSM2BufferM_RA(pSM, sector+1, 0);
-            if (status < 0)
-            {
-    #ifdef DEBUG
-                    printf("fmiCheckInvalidBlock 0x%x\n", status);
-    #endif
-                    return 1;
-            }
-            data512 = inpw(REG_SMDATA) & 0xff;
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA) & 0xff;
-            if ((data512 != 0xFF) || (data517 != 0xFF))
+            sicSMpread(chipSel, logical_block, 1, _fmi_pSMBuffer2);
+            byte0 = inpw(REG_SMRA_0) & 0x000000FF;
+            byte5 = (inpw(REG_SMRA_1) & 0x0000FF00) >> 8;
+            if ((byte0 != 0xFF) || (byte5 != 0xFF))
             {
                 fmiSM_Reset(pSM);
-                return 1;   // invalid block
+                return NAND_BAD_BLOCK;
             }
         }
         else
         {
             fmiSM_Reset(pSM);
-            return 1;   // invalid block
+            return NAND_BAD_BLOCK;
         }
     }
     else
     {
-        blockStatus = inpw(REG_SMDATA) & 0xff;
-        if (blockStatus == 0xFF)
+        if (byte0 == 0xFF)
         {
             fmiSM_Reset(pSM);
-
             if (pSM->bIsMLCNand == TRUE)
-                sector = (BlockNo+1) * pSM->uPagePerBlock - 1;
+                // read last page with ECC for MLC NAND flash
+                sicSMpread(chipSel, logical_block, pSM->uPagePerBlock - 1, _fmi_pSMBuffer2);
             else
-                sector++;
-
-            status = fmiSM_Read_RA(pSM, sector, pSM->nPageSize);
-
-            if (status < 0)
-            {
-    #ifdef DEBUG
-                    printf("fmiCheckInvalidBlock 0x%x\n", status);
-    #endif
-                    return 1;
-            }
-            blockStatus = inpw(REG_SMDATA) & 0xff;
-            if (blockStatus != 0xFF)
+                // read page 1 with ECC for SLC NAND flash
+                sicSMpread(chipSel, logical_block, 1, _fmi_pSMBuffer2);
+            byte0 = inpw(REG_SMRA_0) & 0x000000FF;
+            if (byte0 != 0xFF)
             {
                 fmiSM_Reset(pSM);
-                return 1;   // invalid block
+                return NAND_BAD_BLOCK;
             }
         }
         else
         {
             fmiSM_Reset(pSM);
-            return 1;   // invalid block
+            return NAND_BAD_BLOCK;
         }
     }
 
     fmiSM_Reset(pSM);
-    return 0;
+    return NAND_GOOD_BLOCK;
 }
 
 static void sicSMselect(INT chipSel)
@@ -2176,188 +2136,7 @@ static void sicSMselect(INT chipSel)
 
 static INT fmiNormalCheckBlock(FMI_SM_INFO_T *pSM, UINT32 BlockNo)
 {
-    int volatile status=0;
-    unsigned int volatile sector;
-    unsigned char data, data517;
-
-    _fmi_pSMBuffer = (UINT8 *)((UINT32)_fmi_ucSMBuffer | 0x80000000);
-
-    /* MLC check the 2048 byte of last page per block */
-    if (pSM->bIsMLCNand == TRUE)
-    {
-        if (pSM->nPageSize == NAND_PAGE_2KB)
-        {
-            sector = (BlockNo+1) * pSM->uPagePerBlock - 1;
-            /* Read 2048 byte */
-
-            status = fmiSM_Read_RA(pSM, sector, 2048);
-            if (status < 0)
-            {
-#ifdef DEBUG
-                printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                return 1;
-            }
-            data = inpw(REG_SMDATA) & 0xff;
-            if (data != 0xFF)
-                return 1;   // invalid block
-        }
-        else if (pSM->nPageSize == NAND_PAGE_4KB)
-        {
-            sector = (BlockNo+1) * pSM->uPagePerBlock - 1;
-
-            /* Read 4096 byte */
-            status = fmiSM_Read_RA(pSM, sector, 4096);
-            if (status < 0)
-            {
-#ifdef DEBUG
-                printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                return 1;
-            }
-            data = inpw(REG_SMDATA) & 0xff;
-            if (data != 0xFF)
-                return 1;   // invalid block
-        }
-    }
-    /* SLC check the 2048 byte of 1st or 2nd page per block */
-    else    // SLC
-    {
-        sector = BlockNo * pSM->uPagePerBlock;
-        if (pSM->nPageSize == NAND_PAGE_4KB)
-        {
-            status = fmiSM_Read_RA(pSM, sector, 4096);
-            if (status < 0)
-            {
-#ifdef DEBUG
-                printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                return 1;
-            }
-            data = inpw(REG_SMDATA) & 0xff;
-            if (data == 0xFF)
-            {
-#ifdef DEBUG
-//              printf("find bad block, check next page to confirm it.\n");
-#endif
-                status = fmiSM_Read_RA(pSM, sector+1, 4096);
-                if (status < 0)
-                {
-#ifdef DEBUG
-                    printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                    return 1;
-                }
-                data = inpw(REG_SMDATA) & 0xff;
-                if (data != 0xFF)
-                {
-#ifdef DEBUG
-                    printf("find bad block is conformed.\n");
-#endif
-                    return 1;   // invalid block
-                }
-            }
-            else
-            {
-#ifdef DEBUG
-                printf("find bad block is conformed.\n");
-#endif
-                return 1;   // invalid block
-            }
-        }
-        else if (pSM->nPageSize == NAND_PAGE_2KB)
-        {
-            status = fmiSM_Read_RA(pSM, sector, 2048);
-            if (status < 0)
-            {
-#ifdef DEBUG
-                printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                return 1;
-            }
-            data = inpw(REG_SMDATA) & 0xff;
-            if (data == 0xFF)
-            {
-#ifdef DEBUG
-//              printf("find bad block, check next page to confirm it.\n");
-#endif
-                status = fmiSM_Read_RA(pSM, sector+1, 2048);
-                if (status < 0)
-                {
-#ifdef DEBUG
-                    printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                    return 1;
-                }
-                data = inpw(REG_SMDATA) & 0xff;
-                if (data != 0xFF)
-                {
-#ifdef DEBUG
-                    printf("find bad block is conformed.\n");
-#endif
-                    return 1;   // invalid block
-                }
-            }
-            else
-            {
-#ifdef DEBUG
-                    printf("find bad block is conformed.\n");
-#endif
-                    return 1;   // invalid block
-            }
-        }
-        else    /* page size 512B */
-        {
-            status = fmiSM2BufferM_RA(pSM, sector, 0);
-            if (status < 0)
-            {
-#ifdef DEBUG
-                printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                return 1;
-            }
-            data = inpw(REG_SMDATA) & 0xff;
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA);
-            data517 = inpw(REG_SMDATA) & 0xff;
-    //      if ((data != 0xFF) || (data517 != 0xFF))
-            if ((data == 0xFF) && (data517 == 0xFF))
-            {
-                fmiSM_Reset(pSM);
-                status = fmiSM2BufferM_RA(pSM, sector+1, 0);
-                if (status < 0)
-                {
-#ifdef DEBUG
-                    printf("fmiNormalCheckBlock 0x%x\n", status);
-#endif
-                    return 1;
-                }
-                data = inpw(REG_SMDATA) & 0xff;
-                data517 = inpw(REG_SMDATA);
-                data517 = inpw(REG_SMDATA);
-                data517 = inpw(REG_SMDATA);
-                data517 = inpw(REG_SMDATA);
-                data517 = inpw(REG_SMDATA) & 0xff;
-                if ((data != 0xFF) || (data517 != 0xFF))
-                {
-                    fmiSM_Reset(pSM);
-                    return 1;   // invalid block
-                }
-            }
-            else
-            {
-#ifdef DEBUG
-                    printf("find bad block is conformed.\n");
-#endif
-                    fmiSM_Reset(pSM);
-                    return 1;   // invalid block
-            }
-            fmiSM_Reset(pSM);
-        }
-    }
-    return 0;
+    return fmiCheckInvalidBlock(pSM, BlockNo);
 }
 
 
@@ -2812,50 +2591,35 @@ INT sicSMpwrite(INT chipSel, INT PBA, INT page, UINT8 *buff)
     return status;
 }
 
+/* Return the number of bit 1 within integer n */
+static int countBit1(int n)
+{
+    int count = 0;
+    while(n)
+    {
+        count += (n & 1);
+        n >>= 1;
+    }
+    return count;
+}
+
 static INT sicSM_is_page_dirty(INT chipSel, INT PBA, INT page)
 {
-    FMI_SM_INFO_T *pSM;
-    int pageNo;
-    UINT8 data0, data1;
+    unsigned char volatile byte2=0xFF, byte3=0xFF;
 
-    sicSMselect(chipSel);
-    if (chipSel == 0)
-        pSM = pSM0;
+    _fmi_pSMBuffer2 = (UINT8 *)((UINT32)_fmi_ucSMBuffer2 | 0x80000000);
+    /* read page with ECC */
+    sicSMpread(chipSel, PBA, page, _fmi_pSMBuffer2);
+    byte2 = (inpw(REG_SMRA_0) & 0x00FF0000) >> 16;
+    byte3 = (inpw(REG_SMRA_0) & 0xFF000000) >> 24;
+    
+    /* If bit 1 count value of byte 2 and byte 3 is greater than 8, 
+       NAND controller will treat this page as none used page (clean page); 
+       otherwise, it¡¦s used (dirty page). */
+    if (countBit1(byte2) + countBit1(byte3) > 8)
+        return NAND_CLEAN_PAGE;
     else
-        pSM = pSM1;
-
-    // enable SM
-    outpw(REG_FMICR, FMI_SM_EN);
-    fmiSM_Initial(pSM);     //removed by mhuko
-
-    PBA += pSM->uLibStartBlock;
-    pageNo = PBA * pSM->uPagePerBlock + page;
-
-    if (pSM->nPageSize == NAND_PAGE_2KB)
-        fmiSM_Read_RA(pSM, pageNo, 2050);
-    else if (pSM->nPageSize == NAND_PAGE_4KB)
-        fmiSM_Read_RA(pSM, pageNo, 4098);
-    else if (pSM->nPageSize == NAND_PAGE_8KB)
-        fmiSM_Read_RA(pSM, pageNo, 8194);
-    else    /* 512B */
-        fmiSM_Read_RA_512(pSM, pageNo, 2);
-
-    data0 = inpw(REG_SMDATA);
-    data1 = inpw(REG_SMDATA);
-#if defined (__GNUC__)
-#else
-    data1 = data1;      // avoid compile warning message
-#endif
-
-    if (pSM->nPageSize == NAND_PAGE_512B)
-        fmiSM_Reset(pSM);
-
-    if (data0 == 0x00)
-        return 1;   // used page
-    else if (data0 != 0xff)
-        return 1;   // used page
-
-    return 0;   // un-used page
+        return NAND_DIRTY_PAGE;
 }
 
 

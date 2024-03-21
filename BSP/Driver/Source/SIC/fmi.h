@@ -14,7 +14,7 @@
 #include "wbio.h"
 
 // define DATE FMI_DATE_CODE and show it when running to make maintaining easy.
-#define FMI_DATE_CODE   "20231229"
+#define FMI_DATE_CODE   "20240320"
 
 //#define _SIC_USE_INT_
 //#define DEBUG
