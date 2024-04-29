@@ -39,6 +39,243 @@ UINT32 g_u32OpwUsedSize;     /* JPEG Bitstream Size for Decode Input Wait */
 UINT32 u32MCU_Line;          /* One MCU Line data size */
 UINT32 u32TotalSize;         /* Total size for JPEG Decode Ouput */
 UINT32 g_u32OpwBufferIndex = 0;    /* Decode output Buffer index */
+
+int setOutputBuffer(UINT32 u32Width, UINT32 u32Height, UINT32 u32Format)
+{
+	UINT32 u32FrameBuffer;		
+	JPEG_INFO_T jpegInfo;
+	UINT32 u32BufferSize, u32YBuffer, u32UBuffer,u32VBuffer;
+	INT8	fill = 0xFF;
+	UINT32 u32OutputOffset;
+	UINT32 u32TargetWidth,u32TargetHeight;
+	UINT16 u16Width,u16Height;	
+		
+	if(g_bDecPanelTest && !g_bDecWindecTest)
+	{
+		/* Allocate the Raw Data Buffer for Decode Operation */	
+		if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_RGB888)
+			u32BufferSize = PANEL_WIDTH * PANEL_HEIGHT * 4;
+		else
+			u32BufferSize = PANEL_WIDTH * PANEL_HEIGHT * 2;
+			
+		/* Allocate Raw Data Buffer for Decode Operation */	
+		g_pu8DecFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * (u32BufferSize + 0x03));		
+		
+		if(g_pu8DecFrameBuffer == NULL)
+		{
+			sysprintf("\tCan't allocate the buffer for decode (size 0x%X)\n",u32BufferSize);
+			return FALSE;
+		}
+			
+		u32FrameBuffer =  (((UINT32) g_pu8DecFrameBuffer + 0x03) & ~0x03) | 0x80000000;
+		
+		sysprintf("\tThe decoded data starts from 0x%X, Size is 0x%X\n", u32FrameBuffer,u32BufferSize);	
+		
+		/* DownScale size control */	 
+		if(u32Width > u32Height)
+		{
+			if((u32Width > PANEL_WIDTH || u32Height > PANEL_HEIGHT))	
+			{
+				/* Set Downscale to QVGA */
+				jpegIoctl(JPEG_IOCTL_SET_DECODE_DOWNSCALE, TARGET_HEIGHT, TARGET_WIDTH);
+				u32TargetHeight = TARGET_HEIGHT;
+				u32TargetWidth = TARGET_WIDTH;	
+			}
+			else
+			{
+				u32TargetHeight = u32Height;
+				u32TargetWidth = u32Width;			
+			}			 
+		}
+		else
+		{
+			if((u32Width > PANEL_WIDTH || u32Height > PANEL_HEIGHT))	
+			{
+				UINT32 ratio;
+				
+				ratio = u32Height / PANEL_HEIGHT + 1;
+				
+				/* Set Downscale to QVGA */
+				sysprintf("\tJpeg width is smaller than height -> Can't downscale to QVGA -> downscale to %dx%d\n",jpegInfo.jpeg_width / ratio,jpegInfo.jpeg_height / ratio);
+				jpegIoctl(JPEG_IOCTL_SET_DECODE_DOWNSCALE, u32Height / ratio, u32Width / ratio);
+				u32TargetHeight = u32Height / ratio;
+				u32TargetWidth = u32Width / ratio;	
+			}
+			else
+			{
+				u32TargetHeight = u32Height;
+				u32TargetWidth = u32Width;			
+			}	
+		}
+				
+		/* Set Decode Stride to Panel width */	
+		jpegIoctl(JPEG_IOCTL_SET_DECODE_STRIDE, PANEL_WIDTH, 0);		
+		
+		/* The pixel offset for putting the image at the center of Frame Buffer */			
+		u32OutputOffset = (UINT32)((PANEL_WIDTH * ((UINT32)(PANEL_HEIGHT - u32TargetHeight) / 2))) + (UINT32)((PANEL_WIDTH - u32TargetWidth) / 2);	
+		
+		/* Data for Clear Buffer (Just for test) */
+		if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_YUV422)
+			fill = 0x7F;
+	
+		if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_RGB888)
+		{
+			memset((UINT32*)u32FrameBuffer,fill, PANEL_WIDTH * PANEL_HEIGHT * 4);
+			u32OutputOffset *= 4; 
+		}
+		else
+		{
+			if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_YUV422)
+			{
+				UINT32 i;
+				for(i = 0;i<PANEL_WIDTH * PANEL_HEIGHT * 2;i++)
+				{
+					if(i%2)
+						*((PUINT8)(u32FrameBuffer + i)) = 0x80;	
+					else
+						*((PUINT8)(u32FrameBuffer + i)) = 0xFF;
+				}
+			}
+			else
+				memset((UINT32*)u32FrameBuffer,fill, PANEL_WIDTH * PANEL_HEIGHT * 2);		
+						
+			u32OutputOffset *= 2; 
+		}
+		
+		/* Change Raw data Output address (Let JPEG engine output data to the center of Panel Buffer) */	
+		jpegIoctl(JPEG_IOCTL_SET_YADDR, (UINT32) u32FrameBuffer + u32OutputOffset, 0);
+	}
+	else
+	{
+		/* For Normal Decode buffer allocation */
+    if(u32Format == JPEG_DEC_YUV422)   
+    {
+		    /* alignment for YUV422 raw data */
+		    if(u32Width % 16)
+		        u32Width = (u32Width & 0xFFFFFFF0) + 16;     
+		        
+		    if(u32Height  % 8)
+		        u32Height  = (u32Height  & 0xFFFFFFF8) + 8; 		          
+    }
+    else if(u32Format == JPEG_DEC_YUV444)
+		{
+		    /* alignment for YUV444 raw data */
+		    if(u32Width % 8)
+		        u32Width = (u32Width & 0xFFFFFFF8) + 8; 
+		        
+		    if(u32Height  % 8)
+		        u32Height  = (u32Height  & 0xFFFFFFF8) + 8; 		        
+		}
+		else
+		{	/* alignment for YUV420 raw data */		    
+		    if(u32Width % 16)
+		        u32Width = (u32Width & 0xFFFFFFF0) + 16;
+		    if(u32Height % 16)
+		        u32Height = (u32Height & 0xFFFFFFF0) + 16;		        
+		} 
+
+		/* Raw Data Buffer for Decode Operation */	
+		if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_RGB888)
+			u32BufferSize = u32Width * u32Height * 4;
+		else if (g_u32DecFormat == JPEG_DEC_PRIMARY_PLANAR_YUV)
+		{
+			if(u32Format == JPEG_DEC_YUV422)   
+				u32BufferSize = u32Width * u32Height * 2;
+			else if (u32Format == JPEG_DEC_YUV444)  
+				u32BufferSize = u32Width * u32Height * 3;
+			else
+				u32BufferSize = u32Width * u32Height * 1.5;	
+		}
+		else
+			u32BufferSize = u32Width * u32Height * 2;			
+	
+		if(g_u32DecFormat == JPEG_DEC_PRIMARY_PLANAR_YUV)
+		{
+		  UINT32 u32FrameBuffer; 			   	
+	   	/* Allocate Raw Data Buffer for Decode Operation (Prepare 1MB for Planar output) */	
+	  	/* Or user needs to get image size to allocate buffer before Decode Trigger for Planar */
+	  	g_pu8DecFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * (u32BufferSize + 0x03));			
+		
+		  if(g_pu8DecFrameBuffer == NULL)
+		  {
+			  sysprintf("\tCan't allocate the buffer for decode (size 0x%X)\n",PLANAR_DEC_BUFFER_SIZE);
+			  return FALSE;
+		  }
+			
+		  u32YBuffer =  (((UINT32) g_pu8DecFrameBuffer + 0x03) & ~0x03) | 0x80000000;
+
+
+    	/* For Normal Decode buffer allocation */
+      if(u32Format == JPEG_DEC_YUV422)   
+      {	       
+			  u32UBuffer = u32YBuffer + u32Width * u32Height;
+			  u32VBuffer = u32UBuffer + u32Width * u32Height / 2;
+      }
+      else if(u32Format == JPEG_DEC_YUV444)
+		  {
+			  u32UBuffer = u32YBuffer + u32Width * u32Height;
+			  u32VBuffer = u32UBuffer + u32Width * u32Height;
+	  	}
+		  else
+		  {
+			  u32UBuffer = u32YBuffer + u32Width * u32Height;
+			  u32VBuffer = u32UBuffer + u32Width * u32Height / 4;
+		  } 			
+			
+		  /* Set Decoded Image Address (Only Can be set before Decode Trigger for Planar;The address can set any time before existing Header Decode Complete Callback function) */
+		  jpegIoctl(JPEG_IOCTL_SET_YADDR, u32YBuffer, 0);		
+		  jpegIoctl(JPEG_IOCTL_SET_UADDR, u32UBuffer, 0);		
+		  jpegIoctl(JPEG_IOCTL_SET_VADDR, u32VBuffer, 0);			
+		  sysprintf("\tThe Y/U/V Buffer prepared for Planar format starts from 0x%X,0x%X,0x%X\n", u32YBuffer, u32UBuffer, u32VBuffer);
+		}
+		else
+		{
+			/* Allocate Raw Data Buffer for Decode Operation (Final destination address for Decode Ouptut Wait) */	
+			g_pu8DecFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * (u32BufferSize + 0x03));			
+		
+			if(g_pu8DecFrameBuffer == NULL)
+			{
+				sysprintf("\tCan't allocate the buffer for decode (size 0x%X)\n",u32BufferSize);
+				return FALSE;
+			}
+
+			u32FrameBuffer =  (((UINT32) g_pu8DecFrameBuffer + 0x03) & ~0x03) | 0x80000000;
+				
+			sysprintf("\tThe allocated buffer for decoded data starts from 0x%X, Size is 0x%X\n", u32FrameBuffer,u32BufferSize);			
+				
+			if(g_bDecWindecStride && g_bDecWindecTest)
+			{
+				if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_RGB888)
+				{
+				  memset((UINT32*)u32FrameBuffer,fill, u32Width * u32Height * 4);
+				}
+				else
+				{
+				  if(g_u32DecFormat == JPEG_DEC_PRIMARY_PACKET_YUV422)
+				  {
+				    UINT32 i;
+				    for(i = 0;i<u32Width * u32Height * 2;i++)
+				    {
+				      if(i%2)
+				        *((PUINT8)(u32FrameBuffer + i)) = 0x80;	
+				      else
+				        *((PUINT8)(u32FrameBuffer + i)) = 0xFF;
+				    }   
+				  }
+				  else
+				    memset((UINT32*)u32FrameBuffer,fill, u32Width * u32Height * 2);		
+						
+				  u32OutputOffset *= 2; 
+				}
+			}				
+			/* Set Decoded Image Address (Can be set before Decode Trigger for Packet/Planar format)*/
+			jpegIoctl(JPEG_IOCTL_SET_YADDR, u32FrameBuffer, 0);	
+			sysprintf("\tThe Buffer prepared for packet format starts from 0x%X\n", u32FrameBuffer);
+		}
+	}	
+  return TRUE;
+}
+
 /*-----------------------------------------------------------------------*/
 /*  Decode Function                                                      */
 /*-----------------------------------------------------------------------*/
@@ -205,28 +442,9 @@ set_again:
         jpegIoctl(JPEG_IOCTL_SET_BITSTREAM_ADDR,g_u32JpegBuffer, 0);
     }   
     
-    
-    if(g_u32DecFormat == JPEG_DEC_PRIMARY_PLANAR_YUV)
-    {
-        UINT32 u32FrameBuffer;
-        /* Allocate Raw Data Buffer for Decode Operation (Prepare 1MB for Planar output) */
-        /* Or user needs to get image size to allocate buffer before Decode Trigger for Planar */
-        g_pu8DecFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * (PLANAR_DEC_BUFFER_SIZE + 0x03));
-
-        if(g_pu8DecFrameBuffer == NULL)
-        {
-            sysprintf("\tCan't allocate the buffer for decode (size 0x%X)\n",PLANAR_DEC_BUFFER_SIZE);
-            return;
-        }
-
-        u32FrameBuffer =  (((UINT32) g_pu8DecFrameBuffer + 0x03) & ~0x03) | 0x80000000;
-
-        sysprintf("\tThe Buffer prepared for Planar format starts from 0x%X, Size is 0x%X\n", u32FrameBuffer, PLANAR_DEC_BUFFER_SIZE);
-
-        /* Set Decoded Image Address (Only Can be set before Decode Trigger for Planar;The address can set any time before existing Header Decode Complete Callback function) */
-        jpegIoctl(JPEG_IOCTL_SET_YADDR, u32FrameBuffer, 0);
-    }
-
+	if(setOutputBuffer(u32Width, u32Height, u32Format) == FALSE)
+		goto END_ERROR_FORMAT;
+          
     /* Decode mode */	
     jpegIoctl(JPEG_IOCTL_SET_DECODE_MODE, g_u32DecFormat, 0);
 
