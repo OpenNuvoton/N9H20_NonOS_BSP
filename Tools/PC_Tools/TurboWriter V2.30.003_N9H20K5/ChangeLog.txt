@@ -10,6 +10,7 @@ v2.30.003 :	Fix Booting fail issue without USER DEFINE SETTING
 2019/04/18-v05: Modify NAND Bad Block check rule for UBIFS
 2019/10/15-v05: Fix unstable issue
 2020/12/17-v05: Support N9H20-G & N9H20-H
+2026/05/12-v05: Fix Verify Enable fail issue
 
 Notice: If you want to fix the USB transfer speed in FullSpeed mode, please rename the file 
 	N9H20_musb_FullSpeed.bin to N9H20_musb.bin and replace the origrinal one.
