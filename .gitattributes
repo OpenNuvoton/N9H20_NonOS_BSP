@@ -3,4 +3,13 @@
 *.dat binary
 *.xls binary
 *.uvproj text
-*.uvopt text
+*.uvopt text2
+ 
+# Preserve generated SBOM artifacts byte-for-byte.
+n9h20bsp_Product_SBOM_cdx.json -text
+n9h20bsp_TestSample_SBOM_cdx.json -text
+n9h20bsp_SBOM_Manifest.json -text
+# Keep SBOM source and governance text files consistent.
+Documents/SBOM/**/*.json text eol=lf
+Documents/SBOM/**/*.yaml text eol=lf
+Documents/SBOM/**/*.md text eol=lf
