@@ -1,0 +1,74 @@
+{
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/freertos-kernel@10.1.1?source=vendored&path=BSP/ThirdParty/FreeRTOS",
+      "name": "FreeRTOS-Kernel",
+      "version": "10.1.1",
+      "scope": "required",
+      "author": "Amazon.com, Inc. (FreeRTOS project)",
+      "supplier": {
+        "name": "Amazon Web Services"
+      },
+      "purl": "pkg:generic/freertos-kernel@10.1.1",
+      "description": "FreeRTOS Kernel V10.1.1 vendored in the N9H20 BSP for RTOS sample and integration projects.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "BSP/ThirdParty/FreeRTOS"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "freertos_kernel_version",
+          "value": "10.1.1"
+        },
+        {
+          "name": "freertos_included_top_level_paths",
+          "value": "Demo; License; Source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "FreeRTOS Kernel"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "vendored"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "BSP/ThirdParty/FreeRTOS"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "BSP/ThirdParty/FreeRTOS/Source/include/FreeRTOS.h; BSP/ThirdParty/FreeRTOS/Source/tasks.c"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "BSP/ThirdParty/FreeRTOS/License/license.txt"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "TestSampleView"
+        },
+        {
+          "name": "bsp:usage",
+          "value": "RTOS kernel for N9H20 sample and demonstration projects"
+        }
+      ]
+    }
+  ]
+}

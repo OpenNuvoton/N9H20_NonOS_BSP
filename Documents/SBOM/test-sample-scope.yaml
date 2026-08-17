@@ -1,0 +1,14 @@
+﻿# N9H20 Test Sample SBOM scope definition
+
+include:
+  - path: BSP/SampleCode
+  - path: BSP/ThirdParty
+  - path: Tools
+
+exclude:
+  - path: BSP/Driver
+  - path: BSP/Library
+  - path: BSP/Library_GCC
+  - path: BSP/Script
+  - path: Loaders
+  - path: Documents

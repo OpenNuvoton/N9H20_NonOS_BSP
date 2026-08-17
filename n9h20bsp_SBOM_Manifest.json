@@ -1,0 +1,234 @@
+{
+  "manifestFormat": "MCU-BSP-SBOM-Manifest",
+  "manifestVersion": "1.0",
+  "serialNumber": "urn:uuid:879caa15-f062-467d-8910-ebe6ff073541",
+  "createdAt": "2026-08-17T09:53:05.943397Z",
+  "bsp": {
+    "name": "n9h20bsp",
+    "version": "V1.03.000",
+    "releaseIdentifierSource": "SBOM file name",
+    "gitDescribe": "V1.03.000"
+  },
+  "sbomPackage": {
+    "name": "MCU BSP SBOM Package",
+    "format": "CycloneDX",
+    "formatVersion": "1.6",
+    "contains": [
+      "Product SBOM",
+      "Test Sample SBOM"
+    ]
+  },
+  "sboms": [
+    {
+      "fileName": "n9h20bsp_Product_SBOM_cdx.json",
+      "sbomType": "Product SBOM",
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "serialNumber": "urn:uuid:af1ed098-f070-401c-876b-2dc033ea45ae",
+      "sbomVersion": 1,
+      "generatedTimestamp": "2026-08-17T17:13:44+08:00",
+      "metadataComponent": {
+        "bomRef": "7de646f1b1d5ca20",
+        "type": "library",
+        "name": "MCU Driver",
+        "version": "V1.03.000",
+        "properties": [
+          {
+            "name": "bsp:sbom-category",
+            "value": "product"
+          },
+          {
+            "name": "bsp:scope",
+            "value": "Components included in, linked with, deployed to, or reasonably expected to be integrated into final product firmware/software."
+          },
+          {
+            "name": "bsp:scope-policy-file",
+            "value": "product-scope.yaml"
+          },
+          {
+            "name": "bsp:runtime-scope",
+            "value": "true"
+          },
+          {
+            "name": "bsp:included-in-product-firmware",
+            "value": "true"
+          },
+          {
+            "name": "bsp:third-party-components",
+            "value": "none identified in product scope based on the defined Product SBOM scope policy"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Driver"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Library"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Library_GCC"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Script"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "Loaders"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "BSP/SampleCode"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "BSP/ThirdParty"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "Tools"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "Documents"
+          }
+        ]
+      },
+      "scope": "Components included in, linked with, deployed to, or reasonably expected to be integrated into final product firmware/software.",
+      "isProductRuntimeScope": true,
+      "componentSummary": {
+        "componentCount": 8,
+        "componentCountByType": {
+          "library": 8
+        },
+        "applicationNames": [],
+        "fileComponentCount": 0,
+        "fileComponentWithHashCount": 0
+      },
+      "hash": {
+        "algorithm": "SHA-256",
+        "value": "a24a1cd57e5115bce4cea12cd2ba110822655fae061ad8a3865fb879cc7a606e"
+      }
+    },
+    {
+      "fileName": "n9h20bsp_TestSample_SBOM_cdx.json",
+      "sbomType": "Test Sample SBOM",
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "serialNumber": "urn:uuid:2729bc30-2dd5-4d36-8993-7eefbb9f6d56",
+      "sbomVersion": 1,
+      "generatedTimestamp": "2026-08-17T17:13:51+08:00",
+      "metadataComponent": {
+        "bomRef": "6ef15e6a6c88f4bf",
+        "type": "application",
+        "name": "MCU Test Sample",
+        "version": "V1.03.000",
+        "properties": [
+          {
+            "name": "bsp:sbom-category",
+            "value": "test-sample"
+          },
+          {
+            "name": "bsp:scope",
+            "value": "Components used only for examples, demonstrations, validation, host-side utilities, or testing; not included in product runtime unless explicitly integrated by the user."
+          },
+          {
+            "name": "bsp:scope-policy-file",
+            "value": "test-sample-scope.yaml"
+          },
+          {
+            "name": "bsp:runtime-scope",
+            "value": "false"
+          },
+          {
+            "name": "bsp:included-in-product-firmware",
+            "value": "false"
+          },
+          {
+            "name": "bsp:test-sample-scope-include-path",
+            "value": "BSP/SampleCode"
+          },
+          {
+            "name": "bsp:test-sample-scope-include-path",
+            "value": "BSP/ThirdParty"
+          },
+          {
+            "name": "bsp:test-sample-scope-include-path",
+            "value": "Tools"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Driver"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Library"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Library_GCC"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Script"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "Loaders"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "Documents"
+          }
+        ]
+      },
+      "scope": "Components used only for examples, demonstrations, validation, host-side utilities, or testing; not included in product runtime unless explicitly integrated by the user.",
+      "isProductRuntimeScope": false,
+      "componentSummary": {
+        "componentCount": 16,
+        "componentCountByType": {
+          "application": 15,
+          "library": 1
+        },
+        "applicationNames": [
+          " SampleCode",
+          " ThirdParty",
+          " Tools",
+          "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS",
+          "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS",
+          "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS",
+          "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS",
+          "AutoWriter Application",
+          "NROM Maker",
+          "nuvoTon ARM9-based MCU LCM Test",
+          "nuvoTon ARM9-based MCU Turbo Writer"
+        ],
+        "fileComponentCount": 0,
+        "fileComponentWithHashCount": 0
+      },
+      "hash": {
+        "algorithm": "SHA-256",
+        "value": "e683ec5c8a0d92a1cc387bb8d83ee350c6f396b663b193319b29049c88be7894"
+      },
+      "relationshipToProductSbom": {
+        "usesProductComponents": true,
+        "productSbomFile": "n9h20bsp_Product_SBOM_cdx.json",
+        "description": "Test sample firmware may be built using MCU Driver components described in the Product SBOM. These product components are not duplicated in the Test Sample SBOM."
+      }
+    }
+  ],
+  "scopeRule": {
+    "productSbom": "Use as the primary SBOM for product vulnerability assessment and CRA product component transparency.",
+    "testSampleSbom": "Use only when sample, demo, validation, or test-only components are reused, executed, distributed, or integrated by the customer.",
+    "separationRationale": "Product and Test Sample SBOMs are kept separate to avoid treating test/sample utilities as product runtime dependencies."
+  },
+  "customerGuidance": [
+    "Use the Product SBOM as the primary input for product vulnerability assessment.",
+    "Review the Test Sample SBOM only when the corresponding sample/demo/test components are used or redistributed.",
+    "Components in the Test Sample SBOM are not considered product firmware/runtime dependencies unless explicitly integrated by the user."
+  ],
+  "notes": [
+    "This manifest is an index for the SBOM package; it is not a merged CycloneDX BOM."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/bzip2@1.0.2?source=vendored&path=Loaders/SpiLoader_gzip/ziplib",
+      "name": "bzip2",
+      "version": "1.0.2",
+      "scope": "required",
+      "author": "Julian Seward",
+      "supplier": {
+        "name": "Julian Seward"
+      },
+      "purl": "pkg:generic/bzip2@1.0.2",
+      "cpe": "cpe:2.3:a:bzip:bzip2:1.0.2:*:*:*:*:*:*:*",
+      "description": "Modified bzip2/libbzip2 1.0.2 source vendored for decompression support in the N9H20 SpiLoader_gzip implementation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "bzip2-1.0.6"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://sourceware.org/bzip2/"
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "bzip2/libbzip2"
+        },
+        {
+          "name": "bsp:upstream-distribution",
+          "value": "bzip2-1.0.2"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "modified"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/bzlib.h; Loaders/SpiLoader_gzip/ziplib/bzlib.c"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/bzlib.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "ProductView"
+        }
+      ]
+    }
+  ]
+}

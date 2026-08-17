@@ -1,0 +1,33 @@
+# N9H20 BSP SBOM exclusion review
+#
+# This file documents components that were reviewed and determined
+# not to be third-party open-source components.
+
+excluded_components:
+  - name: JPEG Driver
+    path: BSP/Driver/Source/JPEG
+    classification: first-party
+    reason: Nuvoton JPEG hardware codec driver
+    evidence:
+      - BSP/Driver/Source/JPEG/jpeg.h
+      - BSP/Driver/Source/JPEG/jpegcodec.c
+
+  - name: AutoWriter
+    path: Tools/PC_Tools
+    classification: first-party
+    reason: Nuvoton proprietary PC programming tool
+
+  - name: TurboWriter
+    path: Tools/PC_Tools
+    classification: first-party
+    reason: Nuvoton proprietary PC programming tool
+
+  - name: NRomMaker
+    path: Tools/MassProduction_Tools/NRomMaker
+    classification: first-party
+    reason: Nuvoton proprietary ROM generation tool
+
+  - name: LCMTestTool
+    path: Tools/PC_Tools/LcmTestTool
+    classification: first-party
+    reason: Nuvoton proprietary display test tool

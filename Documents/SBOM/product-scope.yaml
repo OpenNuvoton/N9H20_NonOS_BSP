@@ -1,0 +1,14 @@
+﻿# N9H20 Product SBOM scope definition
+
+include:
+  - path: BSP/Driver
+  - path: BSP/Library
+  - path: BSP/Library_GCC
+  - path: BSP/Script
+  - path: Loaders
+
+exclude:
+  - path: BSP/SampleCode
+  - path: BSP/ThirdParty
+  - path: Tools
+  - path: Documents

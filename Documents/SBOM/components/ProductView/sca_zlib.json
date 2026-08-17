@@ -1,0 +1,70 @@
+{
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/zlib@0.95P?source=vendored&path=Loaders/SpiLoader_gzip/ziplib",
+      "name": "zlib",
+      "version": "0.95P",
+      "scope": "required",
+      "author": "Jean-loup Gailly; Mark Adler; Paul Mackerras",
+      "supplier": {
+        "name": "Jean-loup Gailly and Mark Adler"
+      },
+      "purl": "pkg:generic/zlib@0.95P",
+      "description": "Modified zlib 0.95-derived source identified as ZLIB_VERSION 0.95P and vendored in the N9H20 SpiLoader_gzip implementation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Zlib"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "zlib"
+        },
+        {
+          "name": "bsp:upstream-distribution",
+          "value": "zlib-0.95"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "modified"
+        },
+        {
+          "name": "bsp:additional-contributor",
+          "value": "Paul Mackerras"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/zlib.h"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/zlib.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "ProductView"
+        }
+      ]
+    }
+  ]
+}

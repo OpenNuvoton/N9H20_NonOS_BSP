@@ -1,0 +1,66 @@
+{
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/u-boot-legacy-image-support@unknown?source=vendored&path=Loaders/SpiLoader_gzip",
+      "name": "U-Boot Legacy Image Support",
+      "version": "Unknown",
+      "scope": "required",
+      "author": "Wolfgang Denk",
+      "supplier": {
+        "name": "DENX Software Engineering"
+      },
+      "purl": "pkg:generic/u-boot-legacy-image-support@unknown",
+      "description": "Modified U-Boot legacy image header and boot support code vendored in the N9H20 SpiLoader_gzip implementation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "Loaders/SpiLoader_gzip"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "U-Boot legacy image and boot support"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "modified"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "Loaders/SpiLoader_gzip/cmd_bootm.c; Loaders/SpiLoader_gzip/ziplib/image.h"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "No explicit upstream release version identified in the vendored source files"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Loaders/SpiLoader_gzip/cmd_bootm.c; Loaders/SpiLoader_gzip/ziplib/image.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "ProductView"
+        },
+        {
+          "name": "bsp:usage",
+          "value": "Legacy image header parsing and compressed-image boot support in SpiLoader_gzip"
+        }
+      ]
+    }
+  ]
+}

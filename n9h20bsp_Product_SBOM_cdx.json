@@ -1,0 +1,531 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:af1ed098-f070-401c-876b-2dc033ea45ae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-08-17T17:13:44+08:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "author": "anchore",
+          "name": "syft",
+          "version": "1.50.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "7de646f1b1d5ca20",
+      "type": "library",
+      "name": "MCU Driver",
+      "version": "V1.03.000",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "product"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "Components included in, linked with, deployed to, or reasonably expected to be integrated into final product firmware/software."
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "product-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "true"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "true"
+        },
+        {
+          "name": "bsp:third-party-components",
+          "value": "none identified in product scope based on the defined Product SBOM scope policy"
+        },
+        {
+          "name": "bsp:product-scope-include-path",
+          "value": "BSP/Driver"
+        },
+        {
+          "name": "bsp:product-scope-include-path",
+          "value": "BSP/Library"
+        },
+        {
+          "name": "bsp:product-scope-include-path",
+          "value": "BSP/Library_GCC"
+        },
+        {
+          "name": "bsp:product-scope-include-path",
+          "value": "BSP/Script"
+        },
+        {
+          "name": "bsp:product-scope-include-path",
+          "value": "Loaders"
+        },
+        {
+          "name": "bsp:product-scope-exclude-path",
+          "value": "BSP/SampleCode"
+        },
+        {
+          "name": "bsp:product-scope-exclude-path",
+          "value": "BSP/ThirdParty"
+        },
+        {
+          "name": "bsp:product-scope-exclude-path",
+          "value": "Tools"
+        },
+        {
+          "name": "bsp:product-scope-exclude-path",
+          "value": "Documents"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "bsp:product-component:bsp-driver",
+      "name": " Driver",
+      "version": "V1.03.000",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP product component included from product scope path BSP/Driver",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "product"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/Driver"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "product-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "true"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "bsp:product-component:bsp-library",
+      "name": " Library",
+      "version": "V1.03.000",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP product component included from product scope path BSP/Library",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "product"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/Library"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "product-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "true"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "bsp:product-component:bsp-library_gcc",
+      "name": " Library_GCC",
+      "version": "V1.03.000",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP product component included from product scope path BSP/Library_GCC",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "product"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/Library_GCC"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "product-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "true"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "bsp:product-component:bsp-script",
+      "name": " Script",
+      "version": "V1.03.000",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP product component included from product scope path BSP/Script",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "product"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/Script"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "product-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "true"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "bsp:product-component:loaders",
+      "name": " Loaders",
+      "version": "V1.03.000",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP product component included from product scope path Loaders",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "product"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Loaders"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "product-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "true"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/bzip2@1.0.2?source=vendored&path=Loaders/SpiLoader_gzip/ziplib",
+      "name": "bzip2",
+      "version": "1.0.2",
+      "scope": "required",
+      "author": "Julian Seward",
+      "supplier": {
+        "name": "Julian Seward"
+      },
+      "purl": "pkg:generic/bzip2@1.0.2",
+      "cpe": "cpe:2.3:a:bzip:bzip2:1.0.2:*:*:*:*:*:*:*",
+      "description": "Modified bzip2/libbzip2 1.0.2 source vendored for decompression support in the N9H20 SpiLoader_gzip implementation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "bzip2-1.0.6"
+          }
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://sourceware.org/bzip2/"
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "bzip2/libbzip2"
+        },
+        {
+          "name": "bsp:upstream-distribution",
+          "value": "bzip2-1.0.2"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "modified"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/bzlib.h; Loaders/SpiLoader_gzip/ziplib/bzlib.c"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/bzlib.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "ProductView"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/u-boot-legacy-image-support@unknown?source=vendored&path=Loaders/SpiLoader_gzip",
+      "name": "U-Boot Legacy Image Support",
+      "version": "Unknown",
+      "scope": "required",
+      "author": "Wolfgang Denk",
+      "supplier": {
+        "name": "DENX Software Engineering"
+      },
+      "purl": "pkg:generic/u-boot-legacy-image-support@unknown",
+      "description": "Modified U-Boot legacy image header and boot support code vendored in the N9H20 SpiLoader_gzip implementation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "Loaders/SpiLoader_gzip"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "U-Boot legacy image and boot support"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "modified"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "Loaders/SpiLoader_gzip/cmd_bootm.c; Loaders/SpiLoader_gzip/ziplib/image.h"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "No explicit upstream release version identified in the vendored source files"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Loaders/SpiLoader_gzip/cmd_bootm.c; Loaders/SpiLoader_gzip/ziplib/image.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "ProductView"
+        },
+        {
+          "name": "bsp:usage",
+          "value": "Legacy image header parsing and compressed-image boot support in SpiLoader_gzip"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/zlib@0.95P?source=vendored&path=Loaders/SpiLoader_gzip/ziplib",
+      "name": "zlib",
+      "version": "0.95P",
+      "scope": "required",
+      "author": "Jean-loup Gailly; Mark Adler; Paul Mackerras",
+      "supplier": {
+        "name": "Jean-loup Gailly and Mark Adler"
+      },
+      "purl": "pkg:generic/zlib@0.95P",
+      "description": "Modified zlib 0.95-derived source identified as ZLIB_VERSION 0.95P and vendored in the N9H20 SpiLoader_gzip implementation.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Zlib"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "zlib"
+        },
+        {
+          "name": "bsp:upstream-distribution",
+          "value": "zlib-0.95"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "modified"
+        },
+        {
+          "name": "bsp:additional-contributor",
+          "value": "Paul Mackerras"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "Loaders/SpiLoader_gzip/ziplib"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/zlib.h"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Loaders/SpiLoader_gzip/ziplib/zlib.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "ProductView"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "7de646f1b1d5ca20",
+      "dependsOn": [
+        "bsp:product-component:bsp-driver",
+        "bsp:product-component:bsp-library",
+        "bsp:product-component:bsp-library_gcc",
+        "bsp:product-component:bsp-script",
+        "bsp:product-component:loaders"
+      ]
+    }
+  ]
+}
