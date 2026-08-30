@@ -64,6 +64,12 @@
           "name": "bsp:scope",
           "value": "ProductView"
         }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5ac4b675e12e930a8500d3ef0942217848f8a7cea4972435cd59ad9559ab67ee"
+        }
       ]
     }
   ]

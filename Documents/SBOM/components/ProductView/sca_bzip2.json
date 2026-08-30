@@ -16,7 +16,7 @@
       "licenses": [
         {
           "license": {
-            "id": "bzip2-1.0.6"
+            "id": "LicenseRef-bzip2-1.0.2"
           }
         }
       ],
@@ -66,6 +66,12 @@
         {
           "name": "bsp:scope",
           "value": "ProductView"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "faee3239c5e950f7b788e76ac095c0012d5488373eede7efbe65518cd0bdabba"
         }
       ]
     }

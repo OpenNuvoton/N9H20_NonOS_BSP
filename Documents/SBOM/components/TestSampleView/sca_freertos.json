@@ -68,6 +68,12 @@
           "name": "bsp:usage",
           "value": "RTOS kernel for N9H20 sample and demonstration projects"
         }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "03fa2dd35ec7327670d49c9f62fa04c088c884dc17c0029e9cf6ac3368d45d51"
+        }
       ]
     }
   ]

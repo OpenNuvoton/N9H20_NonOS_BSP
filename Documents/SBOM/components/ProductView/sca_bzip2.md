@@ -9,7 +9,7 @@
 - Scope: ProductView
 - Integration: Vendored source
 - Modification Status: Modified
-- License: bzip2-1.0.6
+- License: LicenseRef-bzip2-1.0.2
 - Author and Supplier: Julian Seward
 
 ## Source Location
@@ -56,7 +56,7 @@ with or without modification, subject to the stated conditions.
 
 The SPDX license identifier used by the SBOM is:
 
-- `bzip2-1.0.6`
+- `LicenseRef-bzip2-1.0.2`
 
 The SPDX identifier is the license identifier and does not represent
 the component version.
@@ -81,3 +81,10 @@ implementation.
 
 - Classification: Third-Party OSS
 - Status: Approved
+
+## Canonical Source Closure Hash
+
+- Algorithm: SHA-256
+- Value: `faee3239c5e950f7b788e76ac095c0012d5488373eede7efbe65518cd0bdabba`
+- Hash Method: Sorted UTF-8 normalized relative paths followed by exact file bytes
+- Coverage: Seven bzip2 source and header files listed in this evidence

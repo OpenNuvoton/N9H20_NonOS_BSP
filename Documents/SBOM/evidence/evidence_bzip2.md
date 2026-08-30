@@ -9,7 +9,7 @@
 - Classification: Third-Party OSS
 - Integration: Vendored source
 - Modification Status: Modified
-- License: bzip2-1.0.6
+- License: LicenseRef-bzip2-1.0.2
 
 ## Evidence Location
 
@@ -47,7 +47,7 @@ The bzip2 license notice is contained in:
 - `Loaders/SpiLoader_gzip/ziplib/bzlib.h`
 - `Loaders/SpiLoader_gzip/ziplib/bzlib.c`
 
-The SPDX license identifier used in the SBOM is `bzip2-1.0.6`. This is
+The SPDX license identifier used in the SBOM is `LicenseRef-bzip2-1.0.2`. This is
 the SPDX license identifier and does not represent the component version.
 
 ## Usage Evidence
@@ -74,3 +74,10 @@ support.
 ## Review Result
 
 - Status: Approved
+
+## Canonical Source Closure Hash
+
+- Algorithm: SHA-256
+- Value: `faee3239c5e950f7b788e76ac095c0012d5488373eede7efbe65518cd0bdabba`
+- Hash Method: Sorted UTF-8 normalized relative paths followed by exact file bytes
+- Coverage: Seven bzip2 source and header files listed in this evidence

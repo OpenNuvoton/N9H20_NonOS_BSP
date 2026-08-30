@@ -60,6 +60,12 @@
           "name": "bsp:usage",
           "value": "Legacy image header parsing and compressed-image boot support in SpiLoader_gzip"
         }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "27961ab543adcddfd3b87d67df69fed6203820db085a7c660e9487cdc747e798"
+        }
       ]
     }
   ]
