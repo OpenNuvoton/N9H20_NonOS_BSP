@@ -62,6 +62,18 @@
           "value": "Loaders/SpiLoader_gzip/ziplib/bzlib.h"
         },
         {
+          "name": "bsp:security-remediation",
+          "value": "CVE-2019-12900 selector-count upper-bound validation backported in Loaders/SpiLoader_gzip/ziplib/bzlib_decompress.c"
+        },
+        {
+          "name": "bsp:vulnerability-disposition",
+          "value": "source_backport_applied_verification_pending"
+        },
+        {
+          "name": "bsp:runtime-linkage-assessment",
+          "value": "Default bzip2 runtime linkage was not demonstrated in the inspected GCC and KEIL project metadata; vendored source remains distributed with the BSP."
+        },
+        {
           "name": "bsp:scope",
           "value": "ProductView"
         }
@@ -69,7 +81,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "faee3239c5e950f7b788e76ac095c0012d5488373eede7efbe65518cd0bdabba"
+          "content": "04c0dfd07929844a7155b382a202903c5e538e0e0e43fb259c554015b78654bd"
         }
       ]
     }

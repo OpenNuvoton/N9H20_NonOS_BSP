@@ -71,13 +71,25 @@ support.
 - Component Declaration: `Documents/SBOM/components/ProductView/sca_bzip2.md`
 - Package URL: `pkg:generic/bzip2@1.0.2`
 
+## Security Remediation
+
+- CVE: CVE-2019-12900
+- Status: Source backport applied; build, SAST, and negative-test verification pending
+- Modified File: `Loaders/SpiLoader_gzip/ziplib/bzlib_decompress.c`
+- Remediation: Reject `nSelectors` values greater than `BZ_MAX_SELECTORS` before accessing the fixed-size `selectorMtf[]` and `selector[]` arrays.
+- Component Version: The upstream component identity remains bzip2 1.0.2.
+- Default Runtime Linkage: Not demonstrated in the inspected GCC and KEIL project metadata.
+- Distribution Assessment: The vendored source remains distributed with the BSP, so the source-level remediation is retained for future or customer integration.
+- Verification Completed: Guard uniqueness, guard ordering, array-bound consistency, LF/no-BOM preservation, raw/filtered Git byte consistency, and canonical hash reproduction.
+- Verification Pending: Target compilation, SAST, malformed-selector negative testing, and normal decompression regression testing.
+
 ## Review Result
 
-- Status: Approved
+- Status: Conditional; security verification pending
 
 ## Canonical Source Closure Hash
 
 - Algorithm: SHA-256
-- Value: `faee3239c5e950f7b788e76ac095c0012d5488373eede7efbe65518cd0bdabba`
+- Value: `04c0dfd07929844a7155b382a202903c5e538e0e0e43fb259c554015b78654bd`
 - Hash Method: Sorted UTF-8 normalized relative paths followed by exact file bytes
 - Coverage: Seven bzip2 source and header files listed in this evidence
