@@ -15,9 +15,7 @@
       "description": "Modified bzip2/libbzip2 1.0.2 source vendored for decompression support in the N9H20 SpiLoader_gzip implementation.",
       "licenses": [
         {
-          "license": {
-            "id": "LicenseRef-bzip2-1.0.2"
-          }
+          "expression": "LicenseRef-bzip2-1.0.2"
         }
       ],
       "externalReferences": [
