@@ -41,11 +41,11 @@ Scope definition:
 
 ### ProductView
 
-| Component                   | Version | License          | Review Result                          |
-|-----------------------------|---------|------------------|----------------------------------------|
-| zlib                        | 0.95P   | Zlib             | Approved                               |
-| bzip2                       | 1.0.2   | bzip2-1.0.6      | Approved                               |
-| U-Boot Legacy Image Support | Unknown | GPL-2.0-or-later | Approved with unknown upstream version |
+| Component                   | Version | License          | Review Result                                    |
+|-----------------------------|---------|------------------|--------------------------------------------------|
+| zlib                        | 0.95P   | Zlib             | Approved                                         |
+| bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Conditional; security verification pending |
+| U-Boot Legacy Image Support | Unknown | GPL-2.0-or-later | Approved with unknown upstream version           |
 
 ### TestSampleView
 
@@ -91,12 +91,12 @@ Scope definition:
 
 ## License Review
 
-| Component                   | SPDX License     | License Evidence                                                              |
-|-----------------------------|------------------|-------------------------------------------------------------------------------|
-| zlib                        | Zlib             | `Loaders/SpiLoader_gzip/ziplib/zlib.h`                                        |
-| bzip2                       | bzip2-1.0.6      | `Loaders/SpiLoader_gzip/ziplib/bzlib.h`                                       |
-| U-Boot Legacy Image Support | GPL-2.0-or-later | `Loaders/SpiLoader_gzip/cmd_bootm.c`; `Loaders/SpiLoader_gzip/ziplib/image.h` |
-| FreeRTOS-Kernel             | MIT              | `BSP/ThirdParty/FreeRTOS/License/license.txt`                                 |
+| Component                   | SPDX License           | License Evidence                                                              |
+|-----------------------------|------------------------|-------------------------------------------------------------------------------|
+| zlib                        | Zlib                   | `Loaders/SpiLoader_gzip/ziplib/zlib.h`                                        |
+| bzip2                       | LicenseRef-bzip2-1.0.2 | `Loaders/SpiLoader_gzip/ziplib/bzlib.h`                                       |
+| U-Boot Legacy Image Support | GPL-2.0-or-later       | `Loaders/SpiLoader_gzip/cmd_bootm.c`; `Loaders/SpiLoader_gzip/ziplib/image.h` |
+| FreeRTOS-Kernel             | MIT                    | `BSP/ThirdParty/FreeRTOS/License/license.txt`                                 |
 
 ## Evidence Review
 
