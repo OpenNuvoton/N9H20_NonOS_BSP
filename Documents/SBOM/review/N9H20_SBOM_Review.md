@@ -4,8 +4,8 @@
 - BSP: N9H20 Non-OS BSP
 - SBOM Baseline Version: 1.1
 - SBOM Format: CycloneDX JSON 1.6
-- Source Baseline: To be recorded from the clean Git commit after this SBOM documentation change set is committed
-- Review Status: Git SBOM documentation prepared; regeneration and formal release pending
+- Source Baseline: The clean Git commit and Git-derived version recorded in each generated release manifest
+- Review Status: Technical review complete; Product Security approval remains pending for bzip2 dispositions
 
 ## Scope Review
 
@@ -36,6 +36,8 @@ Scope definition:
 
 Known third-party component:
 - FreeRTOS-Kernel 10.1.1
+- Linux USB HIDBP Keyboard Support, version Unknown
+- USB Video Class Header Support, version Unknown
 
 ## Component Review
 
@@ -45,6 +47,8 @@ Known third-party component:
 | ProductView    | bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Technical review complete; Product Security approval pending |
 | ProductView    | U-Boot Legacy Image Support | Unknown | GPL-2.0-or-later       | Approved with documented unknown version                     |
 | TestSampleView | FreeRTOS-Kernel             | 10.1.1  | MIT                    | Approved                                                     |
+| TestSampleView | Linux USB HIDBP Keyboard Support | Unknown | GPL-2.0-or-later | Identified from source evidence |
+| TestSampleView | USB Video Class Header Support | Unknown | GPL-2.0-or-later | Supplier and upstream version require manual confirmation |
 
 ## bzip2 Build-Scope Review
 - The modified bzip2 source is distributed under `Loaders/SpiLoader_gzip/ziplib` and remains in ProductView.
@@ -74,13 +78,14 @@ Reviewed evidence documents:
 - Documents/SBOM/evidence/evidence_bzip2.md
 - Documents/SBOM/evidence/evidence_uboot_image.md
 - Documents/SBOM/evidence/evidence_freertos.md
+- Documents/SBOM/evidence/evidence_usb_host_legacy.md
 
 Evidence status:
 - Component identification: Complete
 - Version evidence: Complete, except documented unknown U-Boot version
 - License evidence: Complete for current declarations
 - bzip2 technical evidence: Complete
-- Evidence source hashes: Must be revalidated after this Git change set is committed
+- Evidence source hashes: Maintained in the evidence and SCA declarations and verified against the selected clean release commit
 
 ## Exclusion Review
 The following items are classified as Nuvoton first-party components or tools:
@@ -94,26 +99,26 @@ The following items are classified as Nuvoton first-party components or tools:
 - HID Firmware Update FS
 - HID Firmware Update HS
 
-Detailed records are maintained in `Documents/SBOM/exclusions.yaml`. Exact tool paths must match the distributed Git tree before commit.
+Detailed records are maintained in `Documents/SBOM/exclusions.yaml`. Exact tool paths must match the distributed Git tree during release generation.
 
-## Git Pre-Commit Review
-- Scope definitions: Prepared
-- ProductView SCA declarations: Prepared
+## Durable Input Review
+- Scope definitions: Complete
+- ProductView SCA declarations: Complete
 - TestSampleView SCA declarations: Complete
-- Component declarations: Prepared
-- Evidence documents: Prepared
-- Exclusion review: Prepared
-- Component inventory: Prepared
-- Baseline document: Prepared
-- Maintenance policy: Prepared
+- Component declarations: Complete
+- Evidence documents: Complete
+- Exclusion review: Complete
+- Component inventory: Complete
+- Baseline document: Complete
+- Maintenance policy: Complete
 - `.gitattributes` rule `Documents/SBOM/** -text`: Present
 
-## Post-Commit Required Activities
-After committing the Git SBOM documentation:
+## Release Workflow
+For each release:
 1. Confirm the Git working tree is clean.
-2. Record the new full Git commit and Git-derived version.
+2. Record the full Git commit and Git-derived version.
 3. Revalidate all evidence-source hashes and component closure hashes.
-4. Regenerate ProductView and TestSampleView SBOMs from the new commit.
+4. Generate ProductView and TestSampleView SBOMs from the selected commit.
 5. Generate the SBOM manifest.
 6. Run ProductView and TestSampleView vulnerability scans.
 7. Validate all CycloneDX documents.
@@ -125,4 +130,4 @@ After committing the Git SBOM documentation:
 13. Update `latest-release.txt` only after verification.
 
 ## Review Conclusion
-The Git SBOM documentation is prepared for maintainer review and commit. The previously generated package tied to an earlier Git commit must not be published as the formal output of the new commit. Formal SBOM regeneration, Product Security approval, checksum generation, and SVN release publication remain pending.
+The durable Git SBOM inputs are technically reviewed. Release-specific generation and validation records are maintained in the SVN release package. Product Security approval of the documented bzip2 dispositions is required before formal publication.

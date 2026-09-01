@@ -1,0 +1,56 @@
+{
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/usb-video-class-header-support@unknown?source=vendored&path=BSP/SampleCode/USBH",
+      "name": "USB Video Class Header Support",
+      "version": "Unknown",
+      "scope": "required",
+      "purl": "pkg:generic/usb-video-class-header-support@unknown",
+      "description": "Vendored GPL-licensed USB video class header used by the N9H20 USB host sample. Upstream supplier and release version are not identified in the distributed source.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "BSP/SampleCode/USBH/usbvideo.h"
+        },
+        {
+          "name": "integration",
+          "value": "modified_vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:supplier-status",
+          "value": "not-determined-from-distributed-source"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "No explicit upstream release version is present in the distributed source."
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "BSP/SampleCode/USBH/usbvideo.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "TestSampleView"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c285684c598985751ee40aa40046ebad7994e5c2e5f02e530b8525e70b4b4d1a"
+        }
+      ]
+    }
+  ]
+}

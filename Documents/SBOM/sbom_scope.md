@@ -50,6 +50,8 @@ Excluded paths:
 
 Known third-party components:
 - FreeRTOS-Kernel 10.1.1
+- Linux USB HIDBP Keyboard Support, upstream version unknown
+- USB Video Class Header Support, supplier and upstream version unknown
 
 ## Scope Exclusions
 Generated output, SBOM governance files, and content outside the corresponding view are excluded from each scan view. First-party classifications are recorded in `exclusions.yaml`. An exclusion must not suppress an unresolved third-party component, license issue, or vulnerability finding.

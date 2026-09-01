@@ -39,9 +39,13 @@ The distributed source contains bzip2 decompression capability intended for comp
 Completed verification covers source presence, guard ordering, array-bound consistency, default-build scope, evidence integrity, and technical disposition review. Target compilation, SAST, malformed-input negative testing, and normal decompression regression testing remain pending unless supported by separate evidence.
 
 ## SHA-256 Evidence
-- bzlib.c: 816207EF420EBA950AE4BB36A05B52DDF45BC0E1F2B406E85DE6026C175A06BB
-- bzlib.h: EACBCBFD2D544A431CD2E31C943F47931CE6A95A2892277DAFEE3296A8A586DF
-- bzlib_private.h: FA2AD087DEF6DE1A1DFF41B39ED01034369011996BCCF84D473103243AC683B9
+- bzlib.c: 9A007D35527A6663C0DBD343027FFF0AA3674610412C5FB5501345C7BF896422
+- bzlib.h: DF3875C706B51A9A4E920CF3CCD11CDDDD21C2FE8FDB7C7C699FB4374194084F
+- bzlib_private.h: AEBE7F7B21682E230B932E7F0153F58E83C186EEF599C1291560B7D4C5847840
+- bzlib_decompress.c: 52278F95DEA365839A7D5ECB2E4C48F276351AC21694E1CEED4743B34A9F66AB
+- bzlib_huffman.c: C082F6FDAC11C40E9FF666D420B9E7FCA0D5D697E32FDB76E3EAA1A6E0150006
+- bzlib_crctable.c: 98D9E2A621E6137F0F6C9B5CC16A2A4960094B4337958EDD4525DC8415B1B6AF
+- bzlib_randtable.c: C49A46731E4A350D2A34C995CBF9C3344E3A3A2915AE3AB5E9DD119453F8B9DA
 
 ## SBOM Mapping
 - SCA Definition: Documents/SBOM/components/ProductView/sca_bzip2.json

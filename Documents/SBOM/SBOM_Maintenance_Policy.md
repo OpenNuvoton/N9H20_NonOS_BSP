@@ -22,6 +22,8 @@ Git stores durable SBOM generation inputs and governance records under `Document
 
 Generated release SBOMs, scan outputs, VEX documents, validation reports, release README files, and release checksum files are not committed to Git as release outputs.
 
+The legacy repository-root generated files `n9h20bsp_Product_SBOM_cdx.json`, `n9h20bsp_TestSample_SBOM_cdx.json`, and `n9h20bsp_SBOM_Manifest.json` are not durable inputs. They must remain untracked and are explicitly excluded by the repository-root `.gitignore` so regenerating a release cannot create a circular dirty-source identity.
+
 ## SVN
 SVN stores immutable, versioned SBOM release outputs under `bsp/<bsp-name>/<release-id>`. The outer `latest-release.txt` points to the verified latest release and is updated only after the versioned release directory is committed and verified.
 

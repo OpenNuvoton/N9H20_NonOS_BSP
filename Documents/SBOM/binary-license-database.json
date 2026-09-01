@@ -1,0 +1,453 @@
+{
+  "schemaVersion": "1.0",
+  "databaseName": "N9H20 BSP Binary License Mapping Database",
+  "description": "Exact-hash metadata for N9H20 first-party PE tools. Entries do not infer metadata from filenames and are applied only on SHA-256 match.",
+  "matchingPolicy": {
+    "primaryMatch": "sha256",
+    "allowMetadataFallback": false,
+    "metadataFallbackRequiresReview": true,
+    "doNotMatchByFilenameOnly": true,
+    "autoApplyLicenseRequires": [
+      "sha256"
+    ],
+    "metadataFallbackAction": "mark-review-required",
+    "filenameOnlyMatchAction": "do-not-apply-license"
+  },
+  "licenseStatusValues": [
+    "identified",
+    "proprietary",
+    "vendor-license",
+    "review-required",
+    "not-determined",
+    "not-applicable"
+  ],
+  "entries": [
+    {
+      "id": "n9h20-autowriter-exe-sha256-3b65ff42",
+      "componentName": "AutoWriter Application",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side N9H20 programming utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696",
+        "fileName": "AutoWriter.exe",
+        "pathHint": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K*/AutoWriter.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {
+          "ProductName": "AutoWriter Application",
+          "FileVersion": "3, 1, 0, 2",
+          "ProductVersion": "3, 1, 0, 2",
+          "OriginalFilename": "AutoWriter.EXE"
+        }
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "high"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-metadata-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-version-resource-and-first-party-classification-reviewed",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01",
+        "notes": "Apply only on exact SHA-256 match. License terms are maintained as Nuvoton Software License Agreement.md in the SBOM tools repository."
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "purl": "pkg:generic/nuvoton/autowriter@3.1.0.2",
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n9h20-nrom-maker-exe-sha256-abed38c9",
+      "componentName": "NROM Maker",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side N9H20 ROM generation utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "abed38c9d021263341ef8ed6197a6687b187b29ef77e339129f3f97a4f7ac1e0",
+        "fileName": "NRomMaker.exe",
+        "pathHint": "Tools/MassProduction_Tools/NRomMaker/NRomMaker.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {
+          "FileVersion": "2.0.0.3",
+          "ProductVersion": "2.0.0.3",
+          "OriginalFilename": "NROM Maker.exe",
+          "CompanyName": "Nuvoton Technology Corp."
+        }
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "high"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-metadata-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-version-resource-and-first-party-classification-reviewed",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01"
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "purl": "pkg:generic/nuvoton/nrom-maker@2.0.0.3",
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n9h20-lcm-test-exe-sha256-894ce30b",
+      "componentName": "N9H20 LCM Test",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side N9H20 display test utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "894ce30b5bf7c6f25165ff5de1ee873bde454379069c6eb336d111da0522a576",
+        "fileName": "LCMTest.exe",
+        "pathHint": "Tools/PC_Tools/LcmTestTool/LCMTest.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {
+          "ProductName": "nuvoTon ARM9-based MCU LCM Test",
+          "FileVersion": "1.0.1.1",
+          "ProductVersion": "1.0.1.1",
+          "OriginalFilename": "LCDTest.exe",
+          "CompanyName": "nuvoTon"
+        }
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "high"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-metadata-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-version-resource-and-first-party-classification-reviewed",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01"
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "purl": "pkg:generic/nuvoton/n9h20-lcm-test@1.0.1.1",
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n9h20-turbo-writer-exe-sha256-5eaf80be",
+      "componentName": "N9H20 Turbo Writer",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side N9H20 programming utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b",
+        "fileName": "TurboWriter.exe",
+        "pathHint": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K*/TurboWriter.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {
+          "ProductName": "nuvoTon ARM9-based MCU Turbo Writer",
+          "FileVersion": "2, 3, 0, 3",
+          "ProductVersion": "2, 3, 0, 3",
+          "OriginalFilename": "TurboWriter.exe",
+          "CompanyName": "nuvoTon"
+        }
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "high"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-metadata-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-version-resource-and-first-party-classification-reviewed",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01"
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "purl": "pkg:generic/nuvoton/turbo-writer@2.3.0.3",
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n9h20-hid-transfer-fs-exe-sha256-5f598001",
+      "componentName": "N9H20 HID Transfer FS",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side full-speed HID transfer sample utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "5f5980010092aa94f7ec256f56d1f2d1f27e8ff038fa8eec1ae2ca30c1751a4d",
+        "fileName": "HID_HidTool_FS.exe",
+        "pathHint": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {}
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "medium"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-hash-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-and-first-party-classification-reviewed-version-not-asserted",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01"
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n9h20-hid-transfer-hs-exe-sha256-726531f4",
+      "componentName": "N9H20 HID Transfer HS",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side high-speed HID transfer sample utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "726531f442d2f2a8cb8ffa95975af59bd067901e624dc0b8fa49867825cfc6ae",
+        "fileName": "HID_HidTool_HS.exe",
+        "pathHint": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {}
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "medium"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-hash-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-and-first-party-classification-reviewed-version-not-asserted",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01"
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n9h20-hid-firmware-update-fs-exe-sha256-d50f6b75",
+      "componentName": "N9H20 HID Firmware Update FS",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side full-speed HID firmware update sample utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "d50f6b75be1a997be67ea9462aefd9376ae9feda07125e4e02f961efd55e4d61",
+        "fileName": "HID_HidTool_FS.exe",
+        "pathHint": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {}
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "medium"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-hash-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-and-first-party-classification-reviewed-version-not-asserted",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01"
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "id": "n9h20-hid-firmware-update-hs-exe-sha256-1a999a65",
+      "componentName": "N9H20 HID Firmware Update HS",
+      "componentType": "application",
+      "origin": "first-party",
+      "supplier": "Nuvoton Technology Corp.",
+      "usage": "host-side high-speed HID firmware update sample utility",
+      "sbomScope": "Test Sample SBOM",
+      "match": {
+        "sha256": "1a999a65c9d789891c04d8e2c0185c21cdff5997af2dd956d1ec9a791d94027b",
+        "fileName": "HID_HidTool_HS.exe",
+        "pathHint": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS.exe",
+        "fileFormat": "Windows PE EXE",
+        "peVersionResource": {}
+      },
+      "license": {
+        "status": "proprietary",
+        "expression": "LicenseRef-Nuvoton-Proprietary",
+        "type": "custom",
+        "confidence": "medium"
+      },
+      "evidence": {
+        "source": "repository-exclusion-and-binary-hash-review",
+        "evidenceFile": "Documents/SBOM/exclusions.yaml",
+        "evidenceCompleteness": "binary-hash-and-first-party-classification-reviewed-version-not-asserted",
+        "reviewedBy": "SBOM technical review",
+        "reviewDate": "2026-09-01"
+      },
+      "cyclonedx": {
+        "licenses": [
+          {
+            "expression": "LicenseRef-Nuvoton-Proprietary"
+          }
+        ],
+        "properties": [
+          {
+            "name": "bsp:component-origin",
+            "value": "first-party"
+          },
+          {
+            "name": "bsp:license-status",
+            "value": "proprietary"
+          },
+          {
+            "name": "bsp:license-match-method",
+            "value": "sha256"
+          }
+        ]
+      }
+    }
+  ]
+}

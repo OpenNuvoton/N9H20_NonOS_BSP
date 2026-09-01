@@ -23,6 +23,8 @@ This document defines the durable SBOM input baseline. Release-specific Git comm
 
 ## TestSampleView
 - FreeRTOS-Kernel 10.1.1, license `MIT`
+- Linux USB HIDBP Keyboard Support, version `Unknown`, license `GPL-2.0-or-later`
+- USB Video Class Header Support, version `Unknown`, license `GPL-2.0-or-later`
 
 ## Component Definitions
 
@@ -33,12 +35,15 @@ This document defines the durable SBOM input baseline. Release-specific Git comm
 
 ## TestSampleView
 - components/TestSampleView/sca_freertos.json
+- components/TestSampleView/sca_usb_hidbp_keyboard.json
+- components/TestSampleView/sca_usb_video_header.json
 
 ## Evidence Documents
 - evidence/evidence_zlib.md
 - evidence/evidence_bzip2.md
 - evidence/evidence_uboot_image.md
 - evidence/evidence_freertos.md
+- evidence/evidence_usb_host_legacy.md
 
 ## bzip2 Security Baseline
 - CVE-2019-12900: `patched-by-source-backport`; source remediation verified.
@@ -98,14 +103,13 @@ Before release:
 - Verify every release artifact against the final checksum manifest.
 - Update `latest-release.txt` only after the release directory is committed and verified in SVN.
 
-## Current Review Status
+## Durable Input Review Status
 - Scope definitions: Complete
 - ProductView component declarations: Complete
 - TestSampleView component declarations: Complete
-- Component evidence: Complete, subject to source-hash revalidation after commit
+- Component evidence: Source and closure hashes are maintained in the evidence and SCA declarations and must be verified against the selected clean release commit
 - Exclusion review: Complete
-- Component inventory: Update required in the same Git change set
+- Component inventory: Complete
 - bzip2 technical review: Complete
 - Product Security approval: Pending
-- SBOM regeneration from the new Git commit: Pending
-- Formal SVN release package: Pending
+- Release-specific generation, validation, and publication status: Recorded in the SVN release package

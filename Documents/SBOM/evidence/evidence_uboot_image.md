@@ -29,8 +29,8 @@ The component provides U-Boot legacy-image header parsing and compressed-image b
 Source-level compatibility with zlib and bzip2 decompression is present in the vendored source set. Inclusion of the bzip2 runtime in the inspected default GCC and KEIL project configurations was not demonstrated. The observed default runtime decompression path uses zlib. Source capability is therefore recorded separately from default-build inclusion.
 
 ## SHA-256 Evidence
-- cmd_bootm.c: C8E57121DF274114E8D739539CB0779889209103C86D32BF0C1B301257939605
-- image.h: 21DED2C41FBBAA11767B7D0122C88EE7BC00A733970126C9ADB615B1C94E2BE1
+- cmd_bootm.c: E1022289B538E54312E1AE40A0CF62B39A43EEB15DF0055F91BFE4613210F1AC
+- image.h: 136D319651BBEABBE0BA1C9ED52105EF5E09ED1F4CB3A24774A8A29C71EDE980
 
 ## SBOM Mapping
 - SCA Definition: Documents/SBOM/components/ProductView/sca_uboot_image.json
@@ -41,5 +41,5 @@ Source-level compatibility with zlib and bzip2 decompression is present in the v
 - Component Identification: Approved
 - License Review: Approved
 - Upstream Version: Unknown with documented justification
-- Evidence Hash Revalidation: Required after the Git SBOM update is committed
+- Evidence Hash Revalidation: Required against the selected clean release commit
 - Product Security Approval: Pending for associated bzip2 vulnerability dispositions

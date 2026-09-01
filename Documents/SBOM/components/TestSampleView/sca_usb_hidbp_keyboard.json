@@ -1,0 +1,56 @@
+{
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/linux-usb-hidbp-keyboard@unknown?source=vendored&path=BSP/SampleCode/USBH",
+      "name": "Linux USB HIDBP Keyboard Support",
+      "version": "Unknown",
+      "scope": "required",
+      "author": "Vojtech Pavlik",
+      "supplier": {
+        "name": "Vojtech Pavlik"
+      },
+      "purl": "pkg:generic/linux-usb-hidbp-keyboard@unknown",
+      "description": "Vendored Linux-origin USB HID boot-protocol keyboard support used by the N9H20 USB host sample.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "BSP/SampleCode/USBH/usb_keyboard.c"
+        },
+        {
+          "name": "integration",
+          "value": "modified_vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "No upstream release version is asserted; the source contains only a CVS file revision."
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "BSP/SampleCode/USBH/usb_keyboard.c"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "TestSampleView"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "baf3c34fa9299f616633efcdfb4b003f53ad043feb3e1277bdaba5f61b739fc9"
+        }
+      ]
+    }
+  ]
+}

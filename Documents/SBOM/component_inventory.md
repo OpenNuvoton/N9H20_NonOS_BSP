@@ -16,6 +16,8 @@ This document defines the durable third-party component inventory used to genera
 | Component       | Version | License | Integration     | SCA Definition                              | Review Status |
 |-----------------|---------|---------|-----------------|---------------------------------------------|---------------|
 | FreeRTOS-Kernel | 10.1.1  | MIT     | Vendored source | components/TestSampleView/sca_freertos.json | Approved      |
+| Linux USB HIDBP Keyboard Support | Unknown | GPL-2.0-or-later | Modified vendored source | components/TestSampleView/sca_usb_hidbp_keyboard.json | Identified from source evidence |
+| USB Video Class Header Support | Unknown | GPL-2.0-or-later | Modified vendored source | components/TestSampleView/sca_usb_video_header.json | Supplier and upstream version require manual confirmation |
 
 ## Evidence Mapping
 
@@ -25,6 +27,8 @@ This document defines the durable third-party component inventory used to genera
 | bzip2                       | evidence/evidence_bzip2.md       |
 | U-Boot Legacy Image Support | evidence/evidence_uboot_image.md |
 | FreeRTOS-Kernel             | evidence/evidence_freertos.md    |
+| Linux USB HIDBP Keyboard Support | evidence/evidence_usb_host_legacy.md |
+| USB Video Class Header Support | evidence/evidence_usb_host_legacy.md |
 
 ## ProductView Build-Scope Notes
 - The ProductView inventory includes distributed vendored source even when inclusion in an inspected default build is not demonstrated.
@@ -62,15 +66,15 @@ Detailed paths and exclusion reasons are maintained in `exclusions.yaml`.
 
 ## Component Summary
 - ProductView third-party components: 3
-- TestSampleView third-party components: 1
-- Total third-party components: 4
+- TestSampleView third-party components: 3
+- Total third-party components: 6
 - Reviewed first-party exclusions: 9
 
 ## Review Status
 - Component identification: Complete
 - Version evidence: Complete, except the documented unknown U-Boot upstream release version
 - License evidence: Complete for the current declarations
-- Evidence hashes: Must be revalidated against the clean Git source baseline after this change set is committed
+- Evidence hashes: Maintained in the evidence and SCA declarations and verified against the selected clean release commit
 - bzip2 technical review: Complete
 - Product Security approval: Pending
-- SBOM regeneration from the new Git commit: Pending
+- Release-specific generation and validation status: Recorded in the SVN release package
