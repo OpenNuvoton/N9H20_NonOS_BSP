@@ -1,33 +1,47 @@
-# N9H20 BSP SBOM exclusion review
-#
-# This file documents components that were reviewed and determined
-# not to be third-party open-source components.
+## N9H20 BSP SBOM exclusion review
+
+## This file documents items that were manually reviewed and determined
+## not to be third-party open-source components.
+## Tool paths identify the reviewed Nuvoton tool area. Exact distributed
+## file names remain subject to the ProductView and TestSampleView scope rules.
 
 excluded_components:
-  - name: JPEG Driver
-    path: BSP/Driver/Source/JPEG
-    classification: first-party
-    reason: Nuvoton JPEG hardware codec driver
-    evidence:
-      - BSP/Driver/Source/JPEG/jpeg.h
-      - BSP/Driver/Source/JPEG/jpegcodec.c
-
-  - name: AutoWriter
-    path: Tools/PC_Tools
-    classification: first-party
-    reason: Nuvoton proprietary PC programming tool
-
-  - name: TurboWriter
-    path: Tools/PC_Tools
-    classification: first-party
-    reason: Nuvoton proprietary PC programming tool
-
-  - name: NRomMaker
-    path: Tools/MassProduction_Tools/NRomMaker
-    classification: first-party
-    reason: Nuvoton proprietary ROM generation tool
-
-  - name: LCMTestTool
-    path: Tools/PC_Tools/LcmTestTool
-    classification: first-party
-    reason: Nuvoton proprietary display test tool
+- name: JPEG Driver
+  path: BSP/Driver/Source/JPEG
+  classification: first-party
+  reason: Nuvoton JPEG hardware codec driver
+  evidence:
+  - BSP/Driver/Source/JPEG/jpeg.h
+  - BSP/Driver/Source/JPEG/jpegcodec.c
+- name: AutoWriter
+  path: Tools/PC_Tools
+  classification: first-party
+  reason: Nuvoton proprietary PC programming tool
+- name: TurboWriter
+  path: Tools/PC_Tools
+  classification: first-party
+  reason: Nuvoton proprietary PC programming tool
+- name: NRomMaker
+  path: Tools/MassProduction_Tools/NRomMaker
+  classification: first-party
+  reason: Nuvoton proprietary ROM generation tool
+- name: LCMTest
+  path: Tools/PC_Tools/LcmTestTool
+  classification: first-party
+  reason: Nuvoton proprietary display test tool
+- name: HID Transfer FS
+  path: Tools/PC_Tools
+  classification: first-party
+  reason: Nuvoton proprietary HID transfer tool for full-speed operation
+- name: HID Transfer HS
+  path: Tools/PC_Tools
+  classification: first-party
+  reason: Nuvoton proprietary HID transfer tool for high-speed operation
+- name: HID Firmware Update FS
+  path: Tools/PC_Tools
+  classification: first-party
+  reason: Nuvoton proprietary HID firmware update tool for full-speed operation
+- name: HID Firmware Update HS
+  path: Tools/PC_Tools
+  classification: first-party
+  reason: Nuvoton proprietary HID firmware update tool for high-speed operation

@@ -1,4 +1,4 @@
-﻿# N9H20 Product SBOM scope definition
+## N9H20 Product SBOM scope definition
 
 include:
   - path: BSP/Driver

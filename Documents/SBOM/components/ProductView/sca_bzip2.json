@@ -1,89 +1,121 @@
 {
-  "components": [
-    {
-      "type": "library",
-      "bom-ref": "pkg:generic/bzip2@1.0.2?source=vendored&path=Loaders/SpiLoader_gzip/ziplib",
-      "name": "bzip2",
-      "version": "1.0.2",
-      "scope": "required",
-      "author": "Julian Seward",
-      "supplier": {
-        "name": "Julian Seward"
-      },
-      "purl": "pkg:generic/bzip2@1.0.2",
-      "cpe": "cpe:2.3:a:bzip:bzip2:1.0.2:*:*:*:*:*:*:*",
-      "description": "Modified bzip2/libbzip2 1.0.2 source vendored for decompression support in the N9H20 SpiLoader_gzip implementation.",
-      "licenses": [
-        {
-          "expression": "LicenseRef-bzip2-1.0.2"
-        }
-      ],
-      "externalReferences": [
-        {
-          "type": "website",
-          "url": "https://sourceware.org/bzip2/"
-        }
-      ],
-      "properties": [
-        {
-          "name": "src_path",
-          "value": "Loaders/SpiLoader_gzip/ziplib"
-        },
-        {
-          "name": "integration",
-          "value": "vendored_source"
-        },
-        {
-          "name": "bsp:component-origin",
-          "value": "third-party"
-        },
-        {
-          "name": "bsp:component-source",
-          "value": "bzip2/libbzip2"
-        },
-        {
-          "name": "bsp:upstream-distribution",
-          "value": "bzip2-1.0.2"
-        },
-        {
-          "name": "bsp:modification-status",
-          "value": "modified"
-        },
-        {
-          "name": "bsp:evidence-path",
-          "value": "Loaders/SpiLoader_gzip/ziplib"
-        },
-        {
-          "name": "bsp:version-evidence",
-          "value": "Loaders/SpiLoader_gzip/ziplib/bzlib.h; Loaders/SpiLoader_gzip/ziplib/bzlib.c"
-        },
-        {
-          "name": "bsp:license-evidence",
-          "value": "Loaders/SpiLoader_gzip/ziplib/bzlib.h"
-        },
-        {
-          "name": "bsp:security-remediation",
-          "value": "CVE-2019-12900 selector-count upper-bound validation backported in Loaders/SpiLoader_gzip/ziplib/bzlib_decompress.c"
-        },
-        {
-          "name": "bsp:vulnerability-disposition",
-          "value": "source_backport_applied_verification_pending"
-        },
-        {
-          "name": "bsp:runtime-linkage-assessment",
-          "value": "Default bzip2 runtime linkage was not demonstrated in the inspected GCC and KEIL project metadata; vendored source remains distributed with the BSP."
-        },
-        {
-          "name": "bsp:scope",
-          "value": "ProductView"
-        }
-      ],
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "04c0dfd07929844a7155b382a202903c5e538e0e0e43fb259c554015b78654bd"
-        }
-      ]
-    }
-  ]
+    "components":  [
+                       {
+                           "type":  "library",
+                           "bom-ref":  "pkg:generic/bzip2@1.0.2?source=vendored\u0026path=Loaders/SpiLoader_gzip/ziplib",
+                           "name":  "bzip2",
+                           "version":  "1.0.2",
+                           "scope":  "required",
+                           "author":  "Julian Seward",
+                           "supplier":  {
+                                            "name":  "Julian Seward"
+                                        },
+                           "purl":  "pkg:generic/bzip2@1.0.2",
+                           "cpe":  "cpe:2.3:a:bzip:bzip2:1.0.2:*:*:*:*:*:*:*",
+                           "description":  "Modified bzip2/libbzip2 1.0.2 source distributed with N9H20BSP. The source provides embedded decompression capability; inclusion in the inspected default GCC and KEIL builds was not demonstrated.",
+                           "licenses":  [
+                                            {
+                                                "expression":  "LicenseRef-bzip2-1.0.2"
+                                            }
+                                        ],
+                           "externalReferences":  [
+                                                      {
+                                                          "type":  "website",
+                                                          "url":  "https://sourceware.org/bzip2/"
+                                                      }
+                                                  ],
+                           "properties":  [
+                                              {
+                                                  "name":  "src_path",
+                                                  "value":  "Loaders/SpiLoader_gzip/ziplib"
+                                              },
+                                              {
+                                                  "name":  "integration",
+                                                  "value":  "vendored_source"
+                                              },
+                                              {
+                                                  "name":  "bsp:component-origin",
+                                                  "value":  "third-party"
+                                              },
+                                              {
+                                                  "name":  "bsp:component-source",
+                                                  "value":  "bzip2/libbzip2"
+                                              },
+                                              {
+                                                  "name":  "bsp:upstream-distribution",
+                                                  "value":  "bzip2-1.0.2"
+                                              },
+                                              {
+                                                  "name":  "bsp:modification-status",
+                                                  "value":  "modified"
+                                              },
+                                              {
+                                                  "name":  "bsp:evidence-path",
+                                                  "value":  "Loaders/SpiLoader_gzip/ziplib"
+                                              },
+                                              {
+                                                  "name":  "bsp:version-evidence",
+                                                  "value":  "Loaders/SpiLoader_gzip/ziplib/bzlib.h; Loaders/SpiLoader_gzip/ziplib/bzlib.c"
+                                              },
+                                              {
+                                                  "name":  "bsp:license-evidence",
+                                                  "value":  "Loaders/SpiLoader_gzip/ziplib/bzlib.h; Loaders/SpiLoader_gzip/ziplib/bzlib.c"
+                                              },
+                                              {
+                                                  "name":  "bsp:scope",
+                                                  "value":  "ProductView"
+                                              },
+                                              {
+                                                  "name":  "bsp:default-build-inclusion",
+                                                  "value":  "not-demonstrated"
+                                              },
+                                              {
+                                                  "name":  "bsp:observed-default-runtime-decompression",
+                                                  "value":  "zlib"
+                                              },
+                                              {
+                                                  "name":  "bsp:security-remediation:CVE-2019-12900",
+                                                  "value":  "patched-by-source-backport"
+                                              },
+                                              {
+                                                  "name":  "bsp:source-remediation:CVE-2019-12900",
+                                                  "value":  "verified"
+                                              },
+                                              {
+                                                  "name":  "bsp:vulnerability-disposition:CVE-2005-0953",
+                                                  "value":  "vulnerable-code-not-present"
+                                              },
+                                              {
+                                                  "name":  "bsp:vulnerability-disposition:CVE-2005-1260",
+                                                  "value":  "not-in-default-build"
+                                              },
+                                              {
+                                                  "name":  "bsp:vulnerability-disposition:CVE-2008-1372",
+                                                  "value":  "not-in-default-build"
+                                              },
+                                              {
+                                                  "name":  "bsp:vulnerability-disposition:CVE-2010-0405",
+                                                  "value":  "not-in-default-build"
+                                              },
+                                              {
+                                                  "name":  "bsp:source-remediation:CVE-2010-0405",
+                                                  "value":  "unverified"
+                                              },
+                                              {
+                                                  "name":  "bsp:vulnerability-disposition:CVE-2011-4089",
+                                                  "value":  "vulnerable-code-not-present"
+                                              },
+                                              {
+                                                  "name":  "bsp:future-enablement-requirement",
+                                                  "value":  "Re-review source remediation and build inclusion before enabling bzlib sources."
+                                              }
+                                          ],
+                           "hashes":  [
+                                          {
+                                              "alg":  "SHA-256",
+                                              "content":  "04c0dfd07929844a7155b382a202903c5e538e0e0e43fb259c554015b78654bd"
+                                          }
+                                      ]
+                       }
+                   ]
 }

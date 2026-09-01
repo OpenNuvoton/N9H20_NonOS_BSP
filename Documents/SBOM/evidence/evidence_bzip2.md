@@ -1,95 +1,60 @@
 # bzip2 Evidence
 
 ## Component Identification
-
 - Component: bzip2
 - SBOM Version: 1.0.2
 - Upstream Distribution: bzip2-1.0.2
 - Scope: ProductView
 - Classification: Third-Party OSS
-- Integration: Vendored source
-- Modification Status: Modified
+- Integration: Modified vendored source
 - License: LicenseRef-bzip2-1.0.2
 
 ## Evidence Location
-
-- `Loaders/SpiLoader_gzip/ziplib/bzlib.c`
-- `Loaders/SpiLoader_gzip/ziplib/bzlib.h`
-- `Loaders/SpiLoader_gzip/ziplib/bzlib_private.h`
-- `Loaders/SpiLoader_gzip/ziplib/bzlib_decompress.c`
-- `Loaders/SpiLoader_gzip/ziplib/bzlib_huffman.c`
-- `Loaders/SpiLoader_gzip/ziplib/bzlib_crctable.c`
-- `Loaders/SpiLoader_gzip/ziplib/bzlib_randtable.c`
+- Loaders/SpiLoader_gzip/ziplib/bzlib.c
+- Loaders/SpiLoader_gzip/ziplib/bzlib.h
+- Loaders/SpiLoader_gzip/ziplib/bzlib_private.h
+- Loaders/SpiLoader_gzip/ziplib/bzlib_decompress.c
+- Loaders/SpiLoader_gzip/ziplib/bzlib_huffman.c
+- Loaders/SpiLoader_gzip/ziplib/bzlib_crctable.c
+- Loaders/SpiLoader_gzip/ziplib/bzlib_randtable.c
 
 ## Version Evidence
+The vendored `bzlib.h` and `bzlib.c` identify modified files from the bzip2-1.0.2 distribution. Historical 0.9.0 change-history entries are not used as the component version.
 
-The vendored `bzlib.h` and `bzlib.c` explicitly state that the files
-are modified versions from the bzip2-1.0.2 distribution.
+## Modification and License Evidence
+The source is modified for embedded integration and defines `BZ_NO_STDIO` and `BZ_NO_COMPRESS`. The bzip2 license notice is contained in `bzlib.h` and `bzlib.c`. The SBOM license expression is `LicenseRef-bzip2-1.0.2`.
 
-The historical 0.9.0 entries in `bzlib.c` are source change-history
-entries and are not used as the component version.
+## Usage and Build-Scope Evidence
+The distributed source contains bzip2 decompression capability intended for compressed-image boot integration. No external bzip2 API usage, exact default-project inclusion, or bzip2 build-metadata inclusion was demonstrated in the inspected GCC and KEIL configurations. The observed default runtime caller uses zlib APIs. Accordingly, source capability and distribution are recorded separately from default-build inclusion.
 
-## Modification Evidence
+## Security Review
+- CVE-2019-12900: `patched-by-source-backport`. The selector-count upper-bound guard is present before fixed-size selector array access. Source remediation is verified.
+- CVE-2005-0953: `vulnerable-code-not-present`. The affected command-line permission-restoration path is absent.
+- CVE-2005-1260: `not-in-default-build`. bzip2 runtime inclusion was not demonstrated in the inspected default project configurations.
+- CVE-2008-1372: `not-in-default-build`. The affected bzip2 source path is not included in the inspected default project configurations.
+- CVE-2010-0405: `not-in-default-build`. Source remediation remains unverified; future bzlib enablement requires renewed review.
+- CVE-2011-4089: `vulnerable-code-not-present`. The affected `bzexe` tool and temporary-directory extraction path are absent.
 
-The source files explicitly identify themselves as modified.
-
-The embedded integration also defines:
-
-- `BZ_NO_STDIO`
-- `BZ_NO_COMPRESS`
-
-These settings configure the component for embedded decompression use.
-
-## License Evidence
-
-The bzip2 license notice is contained in:
-
-- `Loaders/SpiLoader_gzip/ziplib/bzlib.h`
-- `Loaders/SpiLoader_gzip/ziplib/bzlib.c`
-
-The SPDX license identifier used in the SBOM is `LicenseRef-bzip2-1.0.2`. This is
-the SPDX license identifier and does not represent the component version.
-
-## Usage Evidence
-
-The component is integrated into:
-
-- `Loaders/SpiLoader_gzip`
-
-The component provides bzip2 decompression for compressed-image boot
-support.
+## Verification Boundaries
+Completed verification covers source presence, guard ordering, array-bound consistency, default-build scope, evidence integrity, and technical disposition review. Target compilation, SAST, malformed-input negative testing, and normal decompression regression testing remain pending unless supported by separate evidence.
 
 ## SHA-256 Evidence
-
-- `bzlib.c`: `816207EF420EBA950AE4BB36A05B52DDF45BC0E1F2B406E85DE6026C175A06BB`
-- `bzlib.h`: `EACBCBFD2D544A431CD2E31C943F47931CE6A95A2892277DAFEE3296A8A586DF`
-- `bzlib_private.h`: `FA2AD087DEF6DE1A1DFF41B39ED01034369011996BCCF84D473103243AC683B9`
+- bzlib.c: 816207EF420EBA950AE4BB36A05B52DDF45BC0E1F2B406E85DE6026C175A06BB
+- bzlib.h: EACBCBFD2D544A431CD2E31C943F47931CE6A95A2892277DAFEE3296A8A586DF
+- bzlib_private.h: FA2AD087DEF6DE1A1DFF41B39ED01034369011996BCCF84D473103243AC683B9
 
 ## SBOM Mapping
-
-- SCA Definition: `Documents/SBOM/components/ProductView/sca_bzip2.json`
-- Component Declaration: `Documents/SBOM/components/ProductView/sca_bzip2.md`
-- Package URL: `pkg:generic/bzip2@1.0.2`
-
-## Security Remediation
-
-- CVE: CVE-2019-12900
-- Status: Source backport applied; build, SAST, and negative-test verification pending
-- Modified File: `Loaders/SpiLoader_gzip/ziplib/bzlib_decompress.c`
-- Remediation: Reject `nSelectors` values greater than `BZ_MAX_SELECTORS` before accessing the fixed-size `selectorMtf[]` and `selector[]` arrays.
-- Component Version: The upstream component identity remains bzip2 1.0.2.
-- Default Runtime Linkage: Not demonstrated in the inspected GCC and KEIL project metadata.
-- Distribution Assessment: The vendored source remains distributed with the BSP, so the source-level remediation is retained for future or customer integration.
-- Verification Completed: Guard uniqueness, guard ordering, array-bound consistency, LF/no-BOM preservation, raw/filtered Git byte consistency, and canonical hash reproduction.
-- Verification Pending: Target compilation, SAST, malformed-selector negative testing, and normal decompression regression testing.
-
-## Review Result
-
-- Status: Conditional; security verification pending
+- SCA Definition: Documents/SBOM/components/ProductView/sca_bzip2.json
+- Component Declaration: Documents/SBOM/components/ProductView/sca_bzip2.md
+- Package URL: pkg:generic/bzip2@1.0.2
 
 ## Canonical Source Closure Hash
-
 - Algorithm: SHA-256
-- Value: `04c0dfd07929844a7155b382a202903c5e538e0e0e43fb259c554015b78654bd`
+- Value: 04c0dfd07929844a7155b382a202903c5e538e0e0e43fb259c554015b78654bd
 - Hash Method: Sorted UTF-8 normalized relative paths followed by exact file bytes
 - Coverage: Seven bzip2 source and header files listed in this evidence
+
+## Review Result
+- Technical Review Status: Complete
+- Product Security Approval: Pending
+- Release Publication: Blocked pending approval

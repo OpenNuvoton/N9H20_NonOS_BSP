@@ -1,27 +1,32 @@
 # BSP SBOM Maintenance Policy
 
 ## Purpose
-
-This policy defines the maintenance, review, validation, and release
-requirements for N9H20 BSP Software Bill of Materials deliverables.
+This policy defines maintenance, review, validation, security review, and release requirements for N9H20 BSP Software Bill of Materials deliverables.
 
 ## Scope
-
 This policy applies to:
-
 - N9H20 ProductView SBOM
 - N9H20 TestSampleView SBOM
 - Manual SCA component declarations
 - Component evidence documents
 - Exclusion records
 - Vulnerability-scan results
-- SBOM release packages
+- CycloneDX VEX documents
+- SBOM checker evidence
+- Versioned SVN SBOM release packages
+
+## Repository Responsibilities
+
+## Git
+Git stores durable SBOM generation inputs and governance records under `Documents/SBOM`, including scope definitions, manual SCA declarations, evidence, exclusions, inventory, baseline, policy, and review records.
+
+Generated release SBOMs, scan outputs, VEX documents, validation reports, release README files, and release checksum files are not committed to Git as release outputs.
+
+## SVN
+SVN stores immutable, versioned SBOM release outputs under `bsp/<bsp-name>/<release-id>`. The outer `latest-release.txt` points to the verified latest release and is updated only after the versioned release directory is committed and verified.
 
 ## Maintenance Triggers
-
-The SBOM baseline must be reviewed and regenerated when any of the
-following conditions occurs:
-
+The SBOM baseline must be reviewed and regenerated when any of the following occurs:
 - A BSP release tag or Git commit changes
 - A third-party component is added or removed
 - A third-party component version changes
@@ -29,167 +34,116 @@ following conditions occurs:
 - Component license information changes
 - ProductView or TestSampleView scope changes
 - Binary libraries or executable files change
-- The SBOM generation toolchain changes
-- A vulnerability finding requires metadata correction
+- The SBOM generation, validation, or vulnerability-scanning toolchain changes
+- A vulnerability finding requires metadata correction or technical disposition
 - Evidence files or exclusion decisions change
 
 ## Required Activities for Every BSP Release
-
-1. Confirm the BSP Git tag and full Git commit.
-2. Confirm that the Git working tree used for scanning is appropriate.
-3. Review ProductView and TestSampleView scope definitions.
-4. Regenerate ProductView and TestSampleView SBOM files.
-5. Merge all approved manual SCA component declarations.
-6. Apply binary hash and license enrichment.
-7. Apply license enrichment matching.
-8. Validate the final CycloneDX SBOM files.
-9. Generate the SBOM manifest.
-10. Run vulnerability scans for both SBOM views.
-11. Review newly introduced or changed vulnerabilities.
-12. Update component evidence and SHA-256 values.
-13. Update exclusions when first-party classification changes.
-14. Update the component inventory and review record.
-15. Generate release-package SHA-256 checksums.
-16. Update the latest-release pointer after approval.
+- Confirm the clean BSP Git commit and Git-derived release identifier.
+- Review ProductView and TestSampleView scope definitions.
+- Validate manual SCA JSON and corresponding Markdown declarations.
+- Revalidate source evidence and canonical component hashes.
+- Regenerate ProductView and TestSampleView SBOM files.
+- Merge all approved manual SCA component declarations.
+- Apply required binary and license enrichment.
+- Validate final CycloneDX documents with an approved validator.
+- Generate the SBOM manifest.
+- Run vulnerability scans for both SBOM views.
+- Review newly introduced or changed findings.
+- Preserve original scanner findings without deletion or permanent suppression unless formally approved.
+- Prepare VEX when contextual exploitability analysis is required.
+- Generate `sbom-checker-product.json` and `sbom-checker-test-sample.json`.
+- Prepare README and release checksum manifest.
+- Verify all release artifacts byte-for-byte.
+- Obtain Product Security approval when required.
+- Commit and verify the versioned SVN release directory.
+- Update `latest-release.txt` only after the release directory is verified.
 
 ## Manual SCA Maintenance
-
 Each manually declared component must include:
-
-- Component name
-- Component version, or `Unknown` with justification
-- Component type
-- Scope
+- Component name and version, or `Unknown` with justification
+- Component type and scope
 - Supplier or author
-- Package URL
+- Stable BOM reference and package URL
 - License identifier
 - Source location
-- Version evidence
-- License evidence
-- Modification status
-- Component origin
-- Stable BOM reference
+- Version and license evidence
+- Modification status and component origin
+- Usage or integration context
 
-Each SCA JSON file must have a corresponding Markdown declaration and
-an approved evidence document.
+Each SCA JSON file must have a corresponding Markdown declaration and approved evidence document.
 
 ## Evidence Requirements
-
 Evidence documents must identify:
-
 - Source files used for component identification
-- Version determination method
-- License determination method
+- Version and license determination methods
 - Integration and usage location
 - Modification status
 - SHA-256 values for primary evidence files
 - SCA definition mapping
-- Review status
+- Review status and unresolved verification boundaries
 
-Evidence SHA-256 values must be regenerated when an evidence source
-file changes.
+Evidence hashes must be regenerated whenever a covered source file changes.
 
 ## Exclusion Requirements
-
-An exclusion may be recorded only after manual review confirms that the
-item is first-party, proprietary, generated, or otherwise outside the
-third-party component inventory.
-
-Each exclusion must document:
-
-- Component or tool name
-- Source path
-- Classification
-- Exclusion reason
-- Evidence path when available
-
-An exclusion must not be used to suppress an unresolved third-party or
-license finding.
+An exclusion may be recorded only after manual review confirms that the item is first-party, proprietary, generated, or outside the relevant third-party inventory. Each exclusion must document the item name, source path, classification, reason, and evidence when available. An exclusion must not suppress an unresolved third-party, license, or vulnerability finding.
 
 ## Vulnerability Management
+Vulnerability scans must run against both ProductView and TestSampleView SBOMs. SBOM generation and vulnerability scanning are separate DevSecOps stages. Scanner database or network failure does not invalidate an already generated and validated SBOM, but the release package must record the incomplete scan state.
 
-Vulnerability scans must be executed against both:
-
-- ProductView SBOM
-- TestSampleView SBOM
-
-Release criteria:
-
-- Vulnerability scanning completes successfully
+Release criteria include:
+- Scanner execution completes successfully or an incomplete status is explicitly recorded
 - Critical findings are reviewed before release
-- Accepted findings have an approved disposition
-- Suppressions include justification and review ownership
-- Vulnerability database failure is reported separately from SBOM
-  generation failure
-
-SBOM generation and vulnerability scanning are separate DevSecOps
-stages. A vulnerability database network failure must not invalidate a
-successfully generated and validated SBOM, but the release package must
-record the incomplete scan status.
+- Accepted findings have documented technical dispositions
+- Product Security approval is recorded when required
+- Suppressions have documented justification, ownership, and approval
+- Original scanner evidence is preserved
+- VEX states are not finalized before approval
 
 ## Validation Requirements
-
 Before release:
-
-- CycloneDX validation must pass
-- Manual SCA merge results must be confirmed
-- ProductView and TestSampleView components must match the inventory
-- Required licenses must be present
-- Developer-specific absolute paths must not appear in final SBOM files
-- Manifest file references must resolve
-- Release checksums must be generated and verified
+- CycloneDX schema validation must pass
+- Manual SCA merge results must match the component inventory
+- BOM references and dependency references must resolve
+- Required license declarations must be present
+- Developer-specific absolute paths must not appear in final deliverables
+- Manifest references must resolve
+- Product and Test Sample checker evidence must report success
+- Release checksums must be generated and independently verified
 
 ## Release Package Requirements
-
-Each SBOM release package must contain:
-
+Each versioned SVN release package must contain:
 - ProductView CycloneDX SBOM
 - TestSampleView CycloneDX SBOM
 - SBOM manifest
 - README
-- SHA256SUMS file
+- `sbom-checker-product.json`
+- `sbom-checker-test-sample.json`
+- SHA-256 checksum manifest
 - ProductView vulnerability-scan result
 - TestSampleView vulnerability-scan result
 - Vulnerability-scan summary
+- Approved VEX and Product Security review evidence when required
 
-The release directory name must use the Git-derived BSP version.
+The release directory name must use the Git-derived BSP version. Checksum entries use `<hash> *relative-path` format.
 
 ## Roles and Responsibilities
 
-### BSP Maintainer
-
+## BSP Maintainer
 - Maintains source and release information
-- Confirms BSP tag and commit
+- Confirms the clean BSP Git baseline
 - Reviews scope changes
 - Supports component-source identification
 
-### SBOM Maintainer
-
+## SBOM Maintainer
+- Maintains SCA definitions, evidence, inventory, exclusions, and governance records
 - Generates and validates SBOM files
-- Maintains SCA definitions and evidence
-- Maintains inventory and exclusions
-- Prepares the SBOM release package
+- Prepares the SVN release package and checksums
 
-### Security Reviewer
-
-- Reviews vulnerability results
+## Security Reviewer
+- Reviews vulnerability results and contextual dispositions
 - Reviews license and component-classification exceptions
-- Approves security dispositions when required
+- Approves security dispositions and VEX final states when required
 
 ## Review Frequency
-
-The SBOM must be reviewed:
-
-- For every BSP release
-- When a third-party component changes
-- When a security advisory affects an included component
-- When the SBOM generation pipeline changes
-- At least once during each maintained release cycle
-
-## Current N9H20 Baseline
-
-- BSP Release Tag: V1.03.000
-- BSP Git Commit: 49b4adaba4c2e1e5cf556ab055217be5c4049342
-- ProductView third-party components: 3
-- TestSampleView third-party components: 1
-- Reviewed first-party exclusions: 5
+The SBOM must be reviewed for every BSP release, when a third-party component or relevant advisory changes, when the pipeline changes, and at least once during each maintained release cycle.

@@ -1,174 +1,128 @@
 # N9H20 BSP SBOM Review
 
 ## Review Information
-
 - BSP: N9H20 Non-OS BSP
-- BSP Release Tag: V1.03.000
-- BSP Git Commit: 49b4adaba4c2e1e5cf556ab055217be5c4049342
-- SBOM Baseline Version: 1.0
-- SBOM Format: CycloneDX JSON
-- Review Status: Generation and vulnerability-scan review complete
+- SBOM Baseline Version: 1.1
+- SBOM Format: CycloneDX JSON 1.6
+- Source Baseline: To be recorded from the clean Git commit after this SBOM documentation change set is committed
+- Review Status: Git SBOM documentation prepared; regeneration and formal release pending
 
 ## Scope Review
 
-### ProductView
-
+## ProductView
 Included paths:
-
-- `BSP/Driver`
-- `BSP/Library`
-- `BSP/Library_GCC`
-- `BSP/Script`
-- `Loaders`
+- BSP/Driver
+- BSP/Library
+- BSP/Library_GCC
+- BSP/Script
+- Loaders
 
 Scope definition:
+- Documents/SBOM/product-scope.yaml
 
-- `Documents/SBOM/product-scope.yaml`
+Known third-party components:
+- zlib 0.95P
+- bzip2 1.0.2
+- U-Boot Legacy Image Support, version Unknown
 
-### TestSampleView
-
+## TestSampleView
 Included paths:
-
-- `BSP/SampleCode`
-- `BSP/ThirdParty`
-- `Tools`
+- BSP/SampleCode
+- BSP/ThirdParty
+- Tools
 
 Scope definition:
+- Documents/SBOM/test-sample-scope.yaml
 
-- `Documents/SBOM/test-sample-scope.yaml`
+Known third-party component:
+- FreeRTOS-Kernel 10.1.1
 
-## Included Third-Party Components
+## Component Review
 
-### ProductView
+| View           | Component                   | Version | License                | Review Result                                                |
+|----------------|-----------------------------|---------|------------------------|--------------------------------------------------------------|
+| ProductView    | zlib                        | 0.95P   | Zlib                   | Approved                                                     |
+| ProductView    | bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Technical review complete; Product Security approval pending |
+| ProductView    | U-Boot Legacy Image Support | Unknown | GPL-2.0-or-later       | Approved with documented unknown version                     |
+| TestSampleView | FreeRTOS-Kernel             | 10.1.1  | MIT                    | Approved                                                     |
 
-| Component                   | Version | License          | Review Result                                    |
-|-----------------------------|---------|------------------|--------------------------------------------------|
-| zlib                        | 0.95P   | Zlib             | Approved                                         |
-| bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Conditional; security verification pending |
-| U-Boot Legacy Image Support | Unknown | GPL-2.0-or-later | Approved with unknown upstream version           |
+## bzip2 Build-Scope Review
+- The modified bzip2 source is distributed under `Loaders/SpiLoader_gzip/ziplib` and remains in ProductView.
+- Inclusion of the bzip2 runtime in inspected default GCC and KEIL project configurations was not demonstrated.
+- The observed default runtime decompression path uses zlib.
+- Distributed source capability is not treated as proof of default-build linkage.
 
-### TestSampleView
+## bzip2 Vulnerability Review
 
-| Component       | Version | License | Review Result |
-|-----------------|---------|---------|---------------|
-| FreeRTOS-Kernel | 10.1.1  | MIT     | Approved      |
+| Vulnerability  | Technical Disposition       | Source Remediation | Technical Review | Approval |
+|----------------|-----------------------------|--------------------|------------------|----------|
+| CVE-2019-12900 | patched-by-source-backport  | verified           | complete         | pending  |
+| CVE-2005-0953  | vulnerable-code-not-present | not applicable     | complete         | pending  |
+| CVE-2005-1260 | not-in-default-build | not assessed | complete | pending |
+| CVE-2008-1372 | not-in-default-build | not assessed | complete | pending |
+| CVE-2010-0405 | not-in-default-build | unverified | complete | pending |
+| CVE-2011-4089  | vulnerable-code-not-present | not applicable     | complete         | pending  |
 
-## Version Review
-
-### zlib
-
-- Runtime/library version: `0.95P`
-- Upstream distribution: `zlib-0.95`
-- Modification status: Modified
-- Version evidence: `Loaders/SpiLoader_gzip/ziplib/zlib.h`
-
-### bzip2
-
-- Component version: `1.0.2`
-- Upstream distribution: `bzip2-1.0.2`
-- Modification status: Modified
-- Version evidence:
-  - `Loaders/SpiLoader_gzip/ziplib/bzlib.h`
-  - `Loaders/SpiLoader_gzip/ziplib/bzlib.c`
-
-### U-Boot Legacy Image Support
-
-- Component version: `Unknown`
-- Modification status: Modified
-- Unknown-version justification: No explicit upstream U-Boot release
-  version was identified in the vendored source files.
-- Evidence:
-  - `Loaders/SpiLoader_gzip/cmd_bootm.c`
-  - `Loaders/SpiLoader_gzip/ziplib/image.h`
-
-### FreeRTOS-Kernel
-
-- Component version: `10.1.1`
-- Modification status: Vendored
-- Version evidence:
-  - `BSP/ThirdParty/FreeRTOS/Source/include/FreeRTOS.h`
-  - `BSP/ThirdParty/FreeRTOS/Source/tasks.c`
-
-## License Review
-
-| Component                   | SPDX License           | License Evidence                                                              |
-|-----------------------------|------------------------|-------------------------------------------------------------------------------|
-| zlib                        | Zlib                   | `Loaders/SpiLoader_gzip/ziplib/zlib.h`                                        |
-| bzip2                       | LicenseRef-bzip2-1.0.2 | `Loaders/SpiLoader_gzip/ziplib/bzlib.h`                                       |
-| U-Boot Legacy Image Support | GPL-2.0-or-later       | `Loaders/SpiLoader_gzip/cmd_bootm.c`; `Loaders/SpiLoader_gzip/ziplib/image.h` |
-| FreeRTOS-Kernel             | MIT                    | `BSP/ThirdParty/FreeRTOS/License/license.txt`                                 |
+Verification boundaries:
+- Source presence, guard ordering, array-bound consistency, inspected build scope, evidence integrity, and technical dispositions were reviewed.
+- Target compilation, SAST, malformed-input negative testing, and normal decompression regression testing remain pending unless separate evidence is provided.
+- Any future bzlib enablement requires renewed source-remediation, build-inclusion, SAST, and regression review.
 
 ## Evidence Review
-
-The following evidence documents were reviewed:
-
-- `Documents/SBOM/evidence/evidence_zlib.md`
-- `Documents/SBOM/evidence/evidence_bzip2.md`
-- `Documents/SBOM/evidence/evidence_uboot_image.md`
-- `Documents/SBOM/evidence/evidence_freertos.md`
+Reviewed evidence documents:
+- Documents/SBOM/evidence/evidence_zlib.md
+- Documents/SBOM/evidence/evidence_bzip2.md
+- Documents/SBOM/evidence/evidence_uboot_image.md
+- Documents/SBOM/evidence/evidence_freertos.md
 
 Evidence status:
-
-- Component identification evidence: Complete
-- Version evidence: Complete, except identified U-Boot release version
-- License evidence: Complete
-- SHA-256 evidence: Complete
-- Evidence review status: Approved
+- Component identification: Complete
+- Version evidence: Complete, except documented unknown U-Boot version
+- License evidence: Complete for current declarations
+- bzip2 technical evidence: Complete
+- Evidence source hashes: Must be revalidated after this Git change set is committed
 
 ## Exclusion Review
+The following items are classified as Nuvoton first-party components or tools:
+- JPEG Driver
+- AutoWriter
+- TurboWriter
+- NRomMaker
+- LCMTest
+- HID Transfer FS
+- HID Transfer HS
+- HID Firmware Update FS
+- HID Firmware Update HS
 
-The following items were reviewed and classified as Nuvoton
-first-party components:
+Detailed records are maintained in `Documents/SBOM/exclusions.yaml`. Exact tool paths must match the distributed Git tree before commit.
 
-| Component   | Classification | Review Result                       |
-|-------------|----------------|-------------------------------------|
-| JPEG Driver | First-party    | Excluded from third-party inventory |
-| AutoWriter  | First-party    | Excluded from third-party inventory |
-| TurboWriter | First-party    | Excluded from third-party inventory |
-| NRomMaker   | First-party    | Excluded from third-party inventory |
-| LCMTestTool | First-party    | Excluded from third-party inventory |
+## Git Pre-Commit Review
+- Scope definitions: Prepared
+- ProductView SCA declarations: Prepared
+- TestSampleView SCA declarations: Complete
+- Component declarations: Prepared
+- Evidence documents: Prepared
+- Exclusion review: Prepared
+- Component inventory: Prepared
+- Baseline document: Prepared
+- Maintenance policy: Prepared
+- `.gitattributes` rule `Documents/SBOM/** -text`: Present
 
-Detailed exclusion information is maintained in:
-
-- `Documents/SBOM/exclusions.yaml`
-
-## Pre-Generation Review Result
-
-- Scope definitions: PASS
-- ProductView SCA declarations: PASS
-- TestSampleView SCA declarations: PASS
-- JSON syntax validation: PASS
-- Component declarations: PASS
-- Evidence documents: PASS
-- Evidence SHA-256 values: PASS
-- Exclusion review: PASS
-- Component inventory: PASS
-- Baseline document: PASS
-- Maintenance policy: PASS
-
-## Pending Execution Results
-
-The following results must be updated after running the SBOM generation
-pipeline:
-
-- ProductView SBOM generation: PASS
-- TestSampleView SBOM generation: PASS
-- Manual SCA merge verification: PASS
-- Binary metadata enrichment: PASS (no database matches)
-- License enrichment: PASS (no database matches)
-- CycloneDX validation: PASS
-- Manifest generation: PASS
-- ProductView vulnerability scan: PASS (0 detected)
-- TestSampleView vulnerability scan: PASS (0 detected)
-- Release checksum validation: PENDING
-- Release package publication: PENDING
+## Post-Commit Required Activities
+After committing the Git SBOM documentation:
+1. Confirm the Git working tree is clean.
+2. Record the new full Git commit and Git-derived version.
+3. Revalidate all evidence-source hashes and component closure hashes.
+4. Regenerate ProductView and TestSampleView SBOMs from the new commit.
+5. Generate the SBOM manifest.
+6. Run ProductView and TestSampleView vulnerability scans.
+7. Validate all CycloneDX documents.
+8. Regenerate VEX and Product Security evidence against the new release identity.
+9. Generate both SBOM checker JSON files.
+10. Build and verify the versioned SVN release directory and checksum manifest.
+11. Obtain Product Security approval.
+12. Commit and verify the SVN release directory.
+13. Update `latest-release.txt` only after verification.
 
 ## Review Conclusion
-
-The N9H20 manual SCA definitions, evidence, scope definitions, component
-inventory, exclusions, and governance documents are ready for SBOM
-generation.
-
-Final release approval remains pending until generation, validation,
-manifest, vulnerability scan, checksum, and release-package checks are
-completed.
+The Git SBOM documentation is prepared for maintainer review and commit. The previously generated package tied to an earlier Git commit must not be published as the formal output of the new commit. Formal SBOM regeneration, Product Security approval, checksum generation, and SVN release publication remain pending.
