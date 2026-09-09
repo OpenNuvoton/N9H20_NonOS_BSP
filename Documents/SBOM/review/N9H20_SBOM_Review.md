@@ -5,7 +5,7 @@
 - SBOM Baseline Version: 1.1
 - SBOM Format: CycloneDX JSON 1.6
 - Source Baseline: The clean Git commit and Git-derived version recorded in each generated release manifest
-- Review Status: Technical review complete; Product Security approval remains pending for bzip2 dispositions
+- Review Status: Technical review complete; bzip2 known issues accepted/deferred for release follow-up
 
 ## Scope Review
 
@@ -44,7 +44,7 @@ Known third-party component:
 | View           | Component                   | Version | License                | Review Result                                                |
 |----------------|-----------------------------|---------|------------------------|--------------------------------------------------------------|
 | ProductView    | zlib                        | 0.95P   | Zlib                   | Approved                                                     |
-| ProductView    | bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Technical review complete; Product Security approval pending |
+| ProductView    | bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Technical review complete; known issues accepted/deferred for release follow-up |
 | ProductView    | U-Boot Legacy Image Support | Unknown | GPL-2.0-or-later       | Approved with documented unknown version                     |
 | TestSampleView | FreeRTOS-Kernel             | 10.1.1  | MIT                    | Approved                                                     |
 | TestSampleView | Linux USB HIDBP Keyboard Support | Unknown | GPL-2.0-or-later | Identified from source evidence |
@@ -58,19 +58,37 @@ Known third-party component:
 
 ## bzip2 Vulnerability Review
 
-| Vulnerability  | Technical Disposition       | Source Remediation | Technical Review | Approval |
-|----------------|-----------------------------|--------------------|------------------|----------|
-| CVE-2019-12900 | patched-by-source-backport  | verified           | complete         | pending  |
-| CVE-2005-0953  | vulnerable-code-not-present | not applicable     | complete         | pending  |
-| CVE-2005-1260 | not-in-default-build | not assessed | complete | pending |
-| CVE-2008-1372 | not-in-default-build | not assessed | complete | pending |
-| CVE-2010-0405 | not-in-default-build | unverified | complete | pending |
-| CVE-2011-4089  | vulnerable-code-not-present | not applicable     | complete         | pending  |
+| Vulnerability  | Technical Disposition       | Source Remediation | Technical Review | Release Disposition |
+|----------------|-----------------------------|--------------------|------------------|---------------------|
+| CVE-2019-12900 | patched-by-source-backport  | verified           | complete         | accepted/deferred follow-up |
+| CVE-2005-0953  | vulnerable-code-not-present | not applicable     | complete         | accepted/deferred follow-up |
+| CVE-2005-1260 | not-in-default-build | not assessed | complete | accepted/deferred follow-up |
+| CVE-2008-1372 | not-in-default-build | not assessed | complete | accepted/deferred follow-up |
+| CVE-2010-0405 | not-in-default-build | unverified | complete | accepted/deferred follow-up |
+| CVE-2011-4089  | vulnerable-code-not-present | not applicable     | complete         | accepted/deferred follow-up |
 
 Verification boundaries:
 - Source presence, guard ordering, array-bound consistency, inspected build scope, evidence integrity, and technical dispositions were reviewed.
 - Target compilation, SAST, malformed-input negative testing, and normal decompression regression testing remain pending unless separate evidence is provided.
 - Any future bzlib enablement requires renewed source-remediation, build-inclusion, SAST, and regression review.
+
+## bzip2 Known-Issue Release Decision
+- Decision: Release is permitted with all six bzip2 technical dispositions and
+  verification boundaries fully disclosed.
+- Decision Owner Role: N9H20 BSP Release Owner.
+- Decision Date: 2026-09-09.
+- Follow-Up Owner: N9H20 BSP Maintainer.
+- Product Security Approval: Not recorded.
+- Approved VEX: Not issued.
+- Follow-Up Actions: Complete target compilation, SAST, malformed-input
+  negative testing, normal decompression regression testing, and reassess the
+  unverified CVE-2010-0405 source remediation before any bzlib enablement.
+- Reassessment Triggers: bzlib build enablement or linkage, bzip2 source
+  changes, a new or changed bzip2 advisory, a scanner match, or a customer,
+  regulatory, or internal requirement for an approved VEX.
+- Scope of Decision: This accepted/deferred decision permits publication under
+  the applicable MS00 known-issue process. It does not assert Product Security
+  approval, an approved VEX, or elimination of risk.
 
 ## Evidence Review
 Reviewed evidence documents:
@@ -122,12 +140,18 @@ For each release:
 5. Generate the SBOM manifest.
 6. Run ProductView and TestSampleView vulnerability scans.
 7. Validate all CycloneDX documents.
-8. Regenerate VEX and Product Security evidence against the new release identity.
+8. Record the known-issue release decision and follow-up evidence; generate a
+   VEX only when an approved VEX is actually issued or required.
 9. Generate both SBOM checker JSON files.
 10. Build and verify the versioned SVN release directory and checksum manifest.
-11. Obtain Product Security approval.
+11. Verify required approvals or the applicable release-owner known-issue
+    decision record.
 12. Commit and verify the SVN release directory.
 13. Update `latest-release.txt` only after verification.
 
 ## Review Conclusion
-The durable Git SBOM inputs are technically reviewed. Release-specific generation and validation records are maintained in the SVN release package. Product Security approval of the documented bzip2 dispositions is required before formal publication.
+The durable Git SBOM inputs are technically reviewed. Release-specific
+generation and validation records are maintained in the SVN release package.
+The documented bzip2 issues are accepted/deferred by the N9H20 BSP Release
+Owner for publication with full disclosure and assigned follow-up. Product
+Security approval is not recorded and an approved VEX has not been issued.

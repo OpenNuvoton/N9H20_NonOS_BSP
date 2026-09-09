@@ -60,5 +60,18 @@ Completed verification covers source presence, guard ordering, array-bound consi
 
 ## Review Result
 - Technical Review Status: Complete
-- Product Security Approval: Pending
-- Release Publication: Blocked pending approval
+- Release Disposition: Accepted/deferred follow-up with full disclosure
+- Decision Owner Role: N9H20 BSP Release Owner
+- Decision Date: 2026-09-09
+- Product Security Approval: Not recorded
+- Approved VEX: Not issued
+- Follow-Up Owner: N9H20 BSP Maintainer
+- Follow-Up Actions: Complete target compilation, SAST, malformed-input
+  negative testing, normal decompression regression testing, and reassess the
+  unverified CVE-2010-0405 source remediation before any bzlib enablement.
+- Reassessment Triggers: bzlib build enablement or linkage, bzip2 source
+  changes, a new or changed bzip2 advisory, a scanner match, or a customer,
+  regulatory, or internal requirement for an approved VEX.
+- Release Meaning: This accepted/deferred decision permits publication of the
+  fully disclosed SBOM evidence under the applicable MS00 process. It does not
+  assert Product Security approval, an approved VEX, or elimination of risk.

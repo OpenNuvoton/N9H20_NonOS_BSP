@@ -42,4 +42,6 @@ Source-level compatibility with zlib and bzip2 decompression is present in the v
 - License Review: Approved
 - Upstream Version: Unknown with documented justification
 - Evidence Hash Revalidation: Required against the selected clean release commit
-- Product Security Approval: Pending for associated bzip2 vulnerability dispositions
+- Associated bzip2 Status: Known issues accepted/deferred for release follow-up;
+  Product Security approval is not recorded and an approved VEX has not been
+  issued

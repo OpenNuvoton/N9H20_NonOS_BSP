@@ -35,7 +35,10 @@ The vendored source contains embedded bzip2 decompression capability for compres
 
 ## Verification Status
 - Technical review: Complete.
-- Product Security approval: Pending.
+- Release disposition: Accepted/deferred follow-up with full disclosure by the
+  N9H20 BSP Release Owner.
+- Product Security approval: Not recorded.
+- Approved VEX: Not issued.
 - Target compilation: Pending unless supported by separate build evidence.
 - SAST verification: Pending unless supported by a separate SAST report.
 - Malformed-input negative testing: Pending unless supported by a separate test report.
@@ -60,4 +63,6 @@ Any future enablement of the vendored bzlib sources requires renewed source-reme
 ## Review Result
 - Classification: Third-Party OSS
 - Technical Review Status: Complete
-- Product Security Approval: Pending
+- Release Disposition: Accepted/deferred follow-up
+- Product Security Approval: Not recorded
+- Approved VEX: Not issued

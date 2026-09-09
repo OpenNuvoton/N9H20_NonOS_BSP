@@ -47,4 +47,6 @@ The component provides legacy image-header parsing and compressed-image boot sup
 - Classification: Third-Party OSS
 - Component Identification: Approved
 - Upstream Version: Unknown with documented justification
-- Product Security Approval: Pending for the associated bzip2 vulnerability dispositions
+- Associated bzip2 Status: Known issues accepted/deferred for release follow-up;
+  Product Security approval is not recorded and an approved VEX has not been
+  issued

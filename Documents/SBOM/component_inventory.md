@@ -8,7 +8,7 @@ This document defines the durable third-party component inventory used to genera
 | Component                   | Version | License                | Integration              | SCA Definition                              | Review Status                                                |
 |-----------------------------|---------|------------------------|--------------------------|---------------------------------------------|--------------------------------------------------------------|
 | zlib                        | 0.95P   | Zlib                   | Modified vendored source | components/ProductView/sca_zlib.json        | Approved                                                     |
-| bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Modified vendored source | components/ProductView/sca_bzip2.json       | Technical review complete; Product Security approval pending |
+| bzip2                       | 1.0.2   | LicenseRef-bzip2-1.0.2 | Modified vendored source | components/ProductView/sca_bzip2.json       | Technical review complete; known issues accepted/deferred for release follow-up |
 | U-Boot Legacy Image Support | Unknown | GPL-2.0-or-later       | Modified vendored source | components/ProductView/sca_uboot_image.json | Approved with documented unknown upstream version            |
 
 ## TestSampleView Components
@@ -39,14 +39,14 @@ This document defines the durable third-party component inventory used to genera
 
 ## bzip2 Vulnerability Dispositions
 
-| Vulnerability  | Technical Disposition       | Source Remediation | Approval Status                   |
-|----------------|-----------------------------|--------------------|-----------------------------------|
-| CVE-2019-12900 | patched-by-source-backport  | verified           | pending Product Security approval |
-| CVE-2005-0953  | vulnerable-code-not-present | not applicable     | pending Product Security approval |
-| CVE-2005-1260 | not-in-default-build | not assessed | pending Product Security approval |
-| CVE-2008-1372 | not-in-default-build | not assessed | pending Product Security approval |
-| CVE-2010-0405 | not-in-default-build | unverified | pending Product Security approval |
-| CVE-2011-4089  | vulnerable-code-not-present | not applicable     | pending Product Security approval |
+| Vulnerability  | Technical Disposition       | Source Remediation | Release Disposition |
+|----------------|-----------------------------|--------------------|---------------------|
+| CVE-2019-12900 | patched-by-source-backport  | verified           | accepted/deferred follow-up |
+| CVE-2005-0953  | vulnerable-code-not-present | not applicable     | accepted/deferred follow-up |
+| CVE-2005-1260 | not-in-default-build | not assessed | accepted/deferred follow-up |
+| CVE-2008-1372 | not-in-default-build | not assessed | accepted/deferred follow-up |
+| CVE-2010-0405 | not-in-default-build | unverified | accepted/deferred follow-up |
+| CVE-2011-4089  | vulnerable-code-not-present | not applicable     | accepted/deferred follow-up |
 
 ## Reviewed First-Party Exclusions
 
@@ -76,5 +76,7 @@ Detailed paths and exclusion reasons are maintained in `exclusions.yaml`.
 - License evidence: Complete for the current declarations
 - Evidence hashes: Maintained in the evidence and SCA declarations and verified against the selected clean release commit
 - bzip2 technical review: Complete
-- Product Security approval: Pending
+- bzip2 release disposition: Accepted/deferred by the N9H20 BSP release owner
+- Product Security approval: Not recorded
+- Approved VEX: Not issued
 - Release-specific generation and validation status: Recorded in the SVN release package

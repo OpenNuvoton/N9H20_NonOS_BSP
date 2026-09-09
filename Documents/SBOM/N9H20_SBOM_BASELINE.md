@@ -4,7 +4,7 @@
 - BSP: N9H20 Non-OS BSP
 - SBOM Baseline Version: 1.1
 - SBOM Format: CycloneDX JSON 1.6
-- Baseline Status: Under review
+- Baseline Status: Technically reviewed; bzip2 known issues accepted/deferred for release follow-up
 
 ## Baseline Rule
 This document defines the durable SBOM input baseline. Release-specific Git commit IDs, generated SBOM serial numbers, scanner database information, and output hashes are recorded in the generated manifest and SVN release package rather than hard-coded here.
@@ -55,7 +55,10 @@ This document defines the durable SBOM input baseline. Release-specific Git comm
 - Inspected default GCC and KEIL build inclusion of bzip2 was not demonstrated.
 - The observed default runtime decompression path uses zlib.
 - Any future bzlib enablement requires renewed source, build, SAST, and regression review.
-- Product Security approval remains required before formal release publication.
+- The N9H20 BSP release owner permits release with these known issues fully
+  disclosed and tracked as accepted/deferred follow-up.
+- Product Security approval is not recorded and an approved VEX has not been
+  issued; this release decision does not imply either.
 
 ## Exclusion Review
 The following reviewed items are classified as Nuvoton first-party components or tools:
@@ -87,7 +90,8 @@ Detailed exclusion records are maintained in `exclusions.yaml`.
 - `sbom-checker-test-sample.json`
 - README
 - SHA-256 checksum list
-- Approved VEX and Product Security evidence when required
+- Approved VEX and Product Security evidence when issued or required
+- Otherwise, known-issue release-decision and follow-up evidence
 
 ## Validation Requirements
 Before release:
@@ -111,5 +115,7 @@ Before release:
 - Exclusion review: Complete
 - Component inventory: Complete
 - bzip2 technical review: Complete
-- Product Security approval: Pending
+- bzip2 release disposition: Accepted/deferred by the N9H20 BSP release owner
+- Product Security approval: Not recorded
+- Approved VEX: Not issued
 - Release-specific generation, validation, and publication status: Recorded in the SVN release package

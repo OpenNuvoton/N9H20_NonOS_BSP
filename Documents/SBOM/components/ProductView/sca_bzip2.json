@@ -86,12 +86,24 @@
                                                   "value":  "vulnerable-code-not-present"
                                               },
                                               {
+                                                  "name":  "bsp:source-remediation:CVE-2005-0953",
+                                                  "value":  "not-applicable"
+                                              },
+                                              {
                                                   "name":  "bsp:vulnerability-disposition:CVE-2005-1260",
                                                   "value":  "not-in-default-build"
                                               },
                                               {
+                                                  "name":  "bsp:source-remediation:CVE-2005-1260",
+                                                  "value":  "not-assessed"
+                                              },
+                                              {
                                                   "name":  "bsp:vulnerability-disposition:CVE-2008-1372",
                                                   "value":  "not-in-default-build"
+                                              },
+                                              {
+                                                  "name":  "bsp:source-remediation:CVE-2008-1372",
+                                                  "value":  "not-assessed"
                                               },
                                               {
                                                   "name":  "bsp:vulnerability-disposition:CVE-2010-0405",
@@ -104,6 +116,34 @@
                                               {
                                                   "name":  "bsp:vulnerability-disposition:CVE-2011-4089",
                                                   "value":  "vulnerable-code-not-present"
+                                              },
+                                              {
+                                                  "name":  "bsp:source-remediation:CVE-2011-4089",
+                                                  "value":  "not-applicable"
+                                              },
+                                              {
+                                                  "name":  "bsp:known-issue-release-disposition",
+                                                  "value":  "accepted-deferred-follow-up"
+                                              },
+                                              {
+                                                  "name":  "bsp:release-decision-owner-role",
+                                                  "value":  "N9H20 BSP Release Owner"
+                                              },
+                                              {
+                                                  "name":  "bsp:product-security-approval-status",
+                                                  "value":  "not-recorded"
+                                              },
+                                              {
+                                                  "name":  "bsp:approved-vex-status",
+                                                  "value":  "not-issued"
+                                              },
+                                              {
+                                                  "name":  "bsp:deferred-follow-up-owner",
+                                                  "value":  "N9H20 BSP Maintainer"
+                                              },
+                                              {
+                                                  "name":  "bsp:reassessment-triggers",
+                                                  "value":  "bzlib build enablement or linkage; bzip2 source changes; new or changed advisory; scanner match; customer, regulatory, or internal approved-VEX requirement"
                                               },
                                               {
                                                   "name":  "bsp:future-enablement-requirement",

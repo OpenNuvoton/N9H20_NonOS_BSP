@@ -54,6 +54,7 @@ The SBOM baseline must be reviewed and regenerated when any of the following occ
 - Review newly introduced or changed findings.
 - Preserve original scanner findings without deletion or permanent suppression unless formally approved.
 - Prepare VEX when contextual exploitability analysis is required.
+- Classify unresolved findings as release-blocking or accepted/deferred with a documented release-owner decision.
 - Generate `sbom-checker-product.json` and `sbom-checker-test-sample.json`.
 - Prepare README and release checksum manifest.
 - Verify all release artifacts byte-for-byte.
@@ -97,10 +98,27 @@ Release criteria include:
 - Scanner execution completes successfully or an incomplete status is explicitly recorded
 - Critical findings are reviewed before release
 - Accepted findings have documented technical dispositions
-- Product Security approval is recorded when required
+- Product Security approval is recorded when required by the disposition, customer commitment, or internal procedure
 - Suppressions have documented justification, ownership, and approval
 - Original scanner evidence is preserved
 - VEX states are not finalized before approval
+
+## Known-Issue Release Decisions
+An unresolved vulnerability or verification gap does not automatically block an
+SBOM release when the applicable MS00 release process permits publication with
+known issues. In that case, the release owner must record:
+- The exact affected component and release identity
+- The original scanner result and all technical dispositions without weakening
+  or omitting unresolved states
+- Whether an approved VEX exists
+- The release decision and decision-owner role
+- Follow-up owner and required actions
+- Reassessment triggers
+
+An accepted/deferred decision permits release evidence publication; it does not
+mean that Product Security approved the disposition, that a VEX was issued, or
+that the underlying risk was eliminated. The release package must state those
+limitations explicitly.
 
 ## Validation Requirements
 Before release:
@@ -125,7 +143,9 @@ Each versioned SVN release package must contain:
 - ProductView vulnerability-scan result
 - TestSampleView vulnerability-scan result
 - Vulnerability-scan summary
-- Approved VEX and Product Security review evidence when required
+- Approved VEX and Product Security review evidence when issued or required
+- Otherwise, known-issue release-decision and follow-up evidence that explicitly
+  states that no approved VEX was issued
 
 The release directory name must use the Git-derived BSP version. Checksum entries use `<hash> *relative-path` format.
 
@@ -141,6 +161,13 @@ The release directory name must use the Git-derived BSP version. Checksum entrie
 - Maintains SCA definitions, evidence, inventory, exclusions, and governance records
 - Generates and validates SBOM files
 - Prepares the SVN release package and checksums
+
+## Release Owner
+- Decides whether fully disclosed known issues are release-blocking or
+  accepted/deferred under the applicable MS00 release process
+- Assigns follow-up ownership and defines reassessment triggers
+- Does not represent an accepted/deferred decision as Product Security approval
+  or an approved VEX
 
 ## Security Reviewer
 - Reviews vulnerability results and contextual dispositions
