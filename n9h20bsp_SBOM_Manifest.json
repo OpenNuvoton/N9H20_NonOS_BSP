@@ -1,0 +1,294 @@
+{
+  "manifestFormat": "MCU-BSP-SBOM-Manifest",
+  "manifestVersion": "1.0",
+  "serialNumber": "urn:uuid:42a68b07-092e-4d14-9240-5da7bd12df2c",
+  "createdAt": "2026-09-09T00:48:30.043076Z",
+  "bsp": {
+    "name": "n9h20bsp",
+    "version": "V1.03.000-10-g2ae21690",
+    "releaseIdentifierSource": "git describe --tags --always --long --abbrev=8 --dirty",
+    "gitDescribe": "V1.03.000-10-g2ae21690",
+    "gitCommit": "2ae216907a7053d50f9b986d959a7f7f2107c8f0",
+    "sourceTreeState": "clean",
+    "scanSourceCommit": "2ae216907a7053d50f9b986d959a7f7f2107c8f0",
+    "generationCommit": "2ae216907a7053d50f9b986d959a7f7f2107c8f0",
+    "releaseCommit": "2ae216907a7053d50f9b986d959a7f7f2107c8f0",
+    "distributionCommit": "2ae216907a7053d50f9b986d959a7f7f2107c8f0"
+  },
+  "generationTools": [
+    {
+      "name": "SBOM Generator",
+      "version": "0.2.0"
+    },
+    {
+      "name": "Syft",
+      "version": "1.45.1"
+    },
+    {
+      "name": "CycloneDX CLI",
+      "version": "0.32.0+0ed788d25c13cef9e9a3029603f6b708e3279390"
+    },
+    {
+      "name": "trivy",
+      "version": "0.71.1"
+    },
+    {
+      "name": "sbom-checker",
+      "version": "1.0.0"
+    }
+  ],
+  "sbomPackage": {
+    "name": "MCU BSP SBOM Package",
+    "format": "CycloneDX",
+    "formatVersion": "1.6",
+    "contains": [
+      "Product SBOM",
+      "Test Sample SBOM"
+    ]
+  },
+  "sboms": [
+    {
+      "fileName": "n9h20bsp_Product_SBOM_cdx.json",
+      "sbomType": "Product SBOM",
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "serialNumber": "urn:uuid:6e4807a1-a0cf-4b06-a2c9-27a243ebcef0",
+      "sbomVersion": 1,
+      "generatedTimestamp": "2026-09-09T08:43:52+08:00",
+      "metadataComponent": {
+        "bomRef": "a60b3483c1e9d8a6",
+        "type": "library",
+        "name": "MCU Driver",
+        "version": "V1.03.000-10-g2ae21690",
+        "properties": [
+          {
+            "name": "bsp:sbom-category",
+            "value": "product"
+          },
+          {
+            "name": "bsp:scope",
+            "value": "Components included in, linked with, deployed to, or reasonably expected to be integrated into final product firmware/software."
+          },
+          {
+            "name": "bsp:scope-policy-file",
+            "value": "product-scope.yaml"
+          },
+          {
+            "name": "bsp:runtime-scope",
+            "value": "true"
+          },
+          {
+            "name": "bsp:included-in-product-firmware",
+            "value": "true"
+          },
+          {
+            "name": "bsp:third-party-components",
+            "value": "Third-party component status is represented by component-level bsp:component-origin properties and manual SCA evidence."
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Driver"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Library"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Library_GCC"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "BSP/Script"
+          },
+          {
+            "name": "bsp:product-scope-include-path",
+            "value": "Loaders"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "BSP/SampleCode"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "BSP/ThirdParty"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "Tools"
+          },
+          {
+            "name": "bsp:product-scope-exclude-path",
+            "value": "Documents"
+          }
+        ]
+      },
+      "scope": "Components included in, linked with, deployed to, or reasonably expected to be integrated into final product firmware/software.",
+      "isProductRuntimeScope": true,
+      "componentSummary": {
+        "componentCount": 171,
+        "componentCountByType": {
+          "file": 163,
+          "library": 8
+        },
+        "applicationNames": [],
+        "fileComponentCount": 163,
+        "fileComponentWithHashCount": 163
+      },
+      "hash": {
+        "algorithm": "SHA-256",
+        "value": "4c3f2b9a27c46ca3e1d7375bd3e620d18969b1de0fad7d96e764b6125e313164"
+      }
+    },
+    {
+      "fileName": "n9h20bsp_TestSample_SBOM_cdx.json",
+      "sbomType": "Test Sample SBOM",
+      "bomFormat": "CycloneDX",
+      "specVersion": "1.6",
+      "serialNumber": "urn:uuid:eab46f35-3310-4f44-bbe0-445d56230b11",
+      "sbomVersion": 1,
+      "generatedTimestamp": "2026-09-09T08:43:56+08:00",
+      "metadataComponent": {
+        "bomRef": "536ca006c77d936d",
+        "type": "application",
+        "name": "MCU Test Sample",
+        "version": "V1.03.000-10-g2ae21690",
+        "properties": [
+          {
+            "name": "bsp:sbom-category",
+            "value": "test-sample"
+          },
+          {
+            "name": "bsp:scope",
+            "value": "Components used only for examples, demonstrations, validation, host-side utilities, or testing; not included in product runtime unless explicitly integrated by the user."
+          },
+          {
+            "name": "bsp:scope-policy-file",
+            "value": "test-sample-scope.yaml"
+          },
+          {
+            "name": "bsp:runtime-scope",
+            "value": "false"
+          },
+          {
+            "name": "bsp:included-in-product-firmware",
+            "value": "false"
+          },
+          {
+            "name": "bsp:test-sample-scope-include-path",
+            "value": "BSP/SampleCode"
+          },
+          {
+            "name": "bsp:test-sample-scope-include-path",
+            "value": "BSP/ThirdParty"
+          },
+          {
+            "name": "bsp:test-sample-scope-include-path",
+            "value": "Tools"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Driver"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Library"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Library_GCC"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "BSP/Script"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "Loaders"
+          },
+          {
+            "name": "bsp:test-sample-scope-exclude-path",
+            "value": "Documents"
+          }
+        ]
+      },
+      "scope": "Components used only for examples, demonstrations, validation, host-side utilities, or testing; not included in product runtime unless explicitly integrated by the user.",
+      "isProductRuntimeScope": false,
+      "componentSummary": {
+        "componentCount": 78,
+        "componentCountByType": {
+          "application": 15,
+          "file": 60,
+          "library": 3
+        },
+        "applicationNames": [
+          "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS",
+          "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS",
+          "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS",
+          "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS",
+          "AutoWriter Application",
+          "NROM Maker",
+          "n9h20 SampleCode",
+          "n9h20 ThirdParty",
+          "n9h20 Tools",
+          "nuvoTon ARM9-based MCU LCM Test",
+          "nuvoTon ARM9-based MCU Turbo Writer"
+        ],
+        "fileComponentCount": 60,
+        "fileComponentWithHashCount": 60
+      },
+      "hash": {
+        "algorithm": "SHA-256",
+        "value": "d8fb2df21554fd104be55af69c859f837f37813a30d29d795971696a0034340c"
+      },
+      "relationshipToProductSbom": {
+        "usesProductComponents": true,
+        "productSbomFile": "n9h20bsp_Product_SBOM_cdx.json",
+        "description": "Test sample firmware may be built using MCU Driver components described in the Product SBOM. These product components are not duplicated in the Test Sample SBOM."
+      }
+    }
+  ],
+  "scopeRule": {
+    "productSbom": "Use as the primary SBOM for product vulnerability assessment and CRA product component transparency.",
+    "testSampleSbom": "Use only when sample, demo, validation, or test-only components are reused, executed, distributed, or integrated by the customer.",
+    "separationRationale": "Product and Test Sample SBOMs are kept separate to avoid treating test/sample utilities as product runtime dependencies."
+  },
+  "customerGuidance": [
+    "Use the Product SBOM as the primary input for product vulnerability assessment.",
+    "Review the Test Sample SBOM only when the corresponding sample/demo/test components are used or redistributed.",
+    "Components in the Test Sample SBOM are not considered product firmware/runtime dependencies unless explicitly integrated by the user."
+  ],
+  "notes": [
+    "This manifest is an index for the SBOM package; it is not a merged CycloneDX BOM."
+  ],
+  "artifactPublication": {
+    "role": "Git current artifact projection",
+    "releaseAuthority": {
+      "type": "SVN",
+      "revision": 54,
+      "releaseId": "V1.03.000-10-g2ae21690",
+      "releaseLocator": "http://nthcrdvss01.nuvoton.com:9443/svn/SBOM/bsp/n9h20/V1.03.000-10-g2ae21690",
+      "formalArtifacts": [
+        {
+          "fileName": "n9h20bsp_Product_SBOM_V1.03.000-10-g2ae21690.cdx.json",
+          "sha256": "4c3f2b9a27c46ca3e1d7375bd3e620d18969b1de0fad7d96e764b6125e313164"
+        },
+        {
+          "fileName": "n9h20bsp_TestSample_SBOM_V1.03.000-10-g2ae21690.cdx.json",
+          "sha256": "d8fb2df21554fd104be55af69c859f837f37813a30d29d795971696a0034340c"
+        },
+        {
+          "fileName": "n9h20bsp_SBOM_Manifest_V1.03.000-10-g2ae21690.json",
+          "sha256": "f135403e7396001b18fb20ab184a97e235f30aaa0be4b2766565cfabeab96dd0"
+        }
+      ]
+    },
+    "currentFileNameProjection": {
+      "n9h20bsp_Product_SBOM_V1.03.000-10-g2ae21690.cdx.json": "n9h20bsp_Product_SBOM_cdx.json",
+      "n9h20bsp_TestSample_SBOM_V1.03.000-10-g2ae21690.cdx.json": "n9h20bsp_TestSample_SBOM_cdx.json",
+      "n9h20bsp_SBOM_Manifest_V1.03.000-10-g2ae21690.json": "n9h20bsp_SBOM_Manifest.json"
+    },
+    "sourceCommit": "2ae216907a7053d50f9b986d959a7f7f2107c8f0",
+    "publicationCommitSemantics": "The Git commit containing this projection publishes current artifacts and is not the release source commit."
+  }
+}

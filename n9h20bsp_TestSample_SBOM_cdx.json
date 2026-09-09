@@ -1,0 +1,5126 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:eab46f35-3310-4f44-bbe0-445d56230b11",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-09T08:43:56+08:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "author": "anchore",
+          "name": "syft",
+          "version": "1.45.1"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "536ca006c77d936d",
+      "type": "application",
+      "name": "MCU Test Sample",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/mcu-test-sample@V1.03.000-10-g2ae21690",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "Components used only for examples, demonstrations, validation, host-side utilities, or testing; not included in product runtime unless explicitly integrated by the user."
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "test-sample-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "false"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "false"
+        },
+        {
+          "name": "bsp:test-sample-scope-include-path",
+          "value": "BSP/SampleCode"
+        },
+        {
+          "name": "bsp:test-sample-scope-include-path",
+          "value": "BSP/ThirdParty"
+        },
+        {
+          "name": "bsp:test-sample-scope-include-path",
+          "value": "Tools"
+        },
+        {
+          "name": "bsp:test-sample-scope-exclude-path",
+          "value": "BSP/Driver"
+        },
+        {
+          "name": "bsp:test-sample-scope-exclude-path",
+          "value": "BSP/Library"
+        },
+        {
+          "name": "bsp:test-sample-scope-exclude-path",
+          "value": "BSP/Library_GCC"
+        },
+        {
+          "name": "bsp:test-sample-scope-exclude-path",
+          "value": "BSP/Script"
+        },
+        {
+          "name": "bsp:test-sample-scope-exclude-path",
+          "value": "Loaders"
+        },
+        {
+          "name": "bsp:test-sample-scope-exclude-path",
+          "value": "Documents"
+        }
+      ]
+    },
+    "supplier": {
+      "name": "Nuvoton Technology Corp.",
+      "url": [
+        "https://www.nuvoton.com"
+      ]
+    },
+    "authors": [
+      {
+        "name": "Nuvoton Technology Corp."
+      }
+    ]
+  },
+  "components": [
+    {
+      "bom-ref": "d0e5cc681b90ac6d",
+      "type": "application",
+      "name": "AutoWriter Application",
+      "version": "3, 1, 0, 2",
+      "cpe": "cpe:2.3:a:AutoWriter_Application:AutoWriter_Application:3\\,_1\\,_0\\,_2:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/autowriter@3.1.0.2",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "bom-ref": "a8084e31d69d809c",
+      "type": "application",
+      "name": "AutoWriter Application",
+      "version": "3, 1, 0, 2",
+      "cpe": "cpe:2.3:a:AutoWriter_Application:AutoWriter_Application:3\\,_1\\,_0\\,_2:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/autowriter@3.1.0.2",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "bom-ref": "ae2f86b58d348fa3",
+      "type": "application",
+      "name": "AutoWriter Application",
+      "version": "3, 1, 0, 2",
+      "cpe": "cpe:2.3:a:AutoWriter_Application:AutoWriter_Application:3\\,_1\\,_0\\,_2:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/autowriter@3.1.0.2",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "bom-ref": "884c28603df9ddd5",
+      "type": "application",
+      "name": "NROM Maker",
+      "version": "2.0.0.3",
+      "cpe": "cpe:2.3:a:NROM_Maker:NROM_Maker:2.0.0.3:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/MassProduction_Tools/NRomMaker/NRomMaker.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/MassProduction_Tools/NRomMaker/NRomMaker.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "abed38c9d021263341ef8ed6197a6687b187b29ef77e339129f3f97a4f7ac1e0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/nrom-maker@2.0.0.3",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "bom-ref": "5c535d52579ecea3",
+      "type": "application",
+      "name": "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS",
+      "version": "V1.03.000-10-g2ae21690",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5f5980010092aa94f7ec256f56d1f2d1f27e8ff038fa8eec1ae2ca30c1751a4d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FWindowsTool%2FHID_HidTool_FS.exe"
+    },
+    {
+      "bom-ref": "718227a0860db49c",
+      "type": "application",
+      "name": "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS",
+      "version": "V1.03.000-10-g2ae21690",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "726531f442d2f2a8cb8ffa95975af59bd067901e624dc0b8fa49867825cfc6ae"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FWindowsTool%2FHID_HidTool_HS.exe"
+    },
+    {
+      "bom-ref": "d00db1e5c968178f",
+      "type": "application",
+      "name": "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS",
+      "version": "V1.03.000-10-g2ae21690",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d50f6b75be1a997be67ea9462aefd9376ae9feda07125e4e02f961efd55e4d61"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FWindowsTool%2FHID_HidTool_FS.exe"
+    },
+    {
+      "bom-ref": "65a6662adb050450",
+      "type": "application",
+      "name": "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS",
+      "version": "V1.03.000-10-g2ae21690",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1a999a65c9d789891c04d8e2c0185c21cdff5997af2dd956d1ec9a791d94027b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FWindowsTool%2FHID_HidTool_HS.exe"
+    },
+    {
+      "bom-ref": "c40c365cc6c2d197",
+      "type": "application",
+      "name": "nuvoTon ARM9-based MCU LCM Test",
+      "version": "1.0.1.1",
+      "cpe": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_LCM_Test:nuvoTon_ARM9-based_MCU_LCM_Test:1.0.1.1:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_LCM_Test:nuvoTon_ARM9_based_MCU_LCM_Test:1.0.1.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_LCM_Test:nuvoTon_ARM9-based_MCU_LCM_Test:1.0.1.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_LCM_Test:nuvoTon_ARM9_based_MCU_LCM_Test:1.0.1.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9-based_MCU_LCM_Test:1.0.1.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9_based_MCU_LCM_Test:1.0.1.1:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/PC_Tools/LcmTestTool/LCMTest.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/PC_Tools/LcmTestTool/LCMTest.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "894ce30b5bf7c6f25165ff5de1ee873bde454379069c6eb336d111da0522a576"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/n9h20-lcm-test@1.0.1.1",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "bom-ref": "36f94d271ff2750d",
+      "type": "application",
+      "name": "nuvoTon ARM9-based MCU Turbo Writer",
+      "version": "2, 3, 0, 3",
+      "cpe": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_Turbo_Writer:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_Turbo_Writer:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_Turbo_Writer:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_Turbo_Writer:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/turbo-writer@2.3.0.3",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "bom-ref": "657445c24ed55737",
+      "type": "application",
+      "name": "nuvoTon ARM9-based MCU Turbo Writer",
+      "version": "2, 3, 0, 3",
+      "cpe": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_Turbo_Writer:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_Turbo_Writer:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_Turbo_Writer:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_Turbo_Writer:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/turbo-writer@2.3.0.3",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "bom-ref": "c42ee91de9c58b41",
+      "type": "application",
+      "name": "nuvoTon ARM9-based MCU Turbo Writer",
+      "version": "2, 3, 0, 3",
+      "cpe": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_Turbo_Writer:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*",
+      "properties": [
+        {
+          "name": "syft:package:foundBy",
+          "value": "pe-binary-package-cataloger"
+        },
+        {
+          "name": "syft:package:type",
+          "value": "binary"
+        },
+        {
+          "name": "syft:package:metadataType",
+          "value": "pe-binary"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9-based_MCU_Turbo_Writer:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_Turbo_Writer:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9_based_MCU_Turbo_Writer:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9-based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:cpe23",
+          "value": "cpe:2.3:a:nuvoTon_ARM9:nuvoTon_ARM9_based_MCU_Turbo_Writer:2\\,_3\\,_0\\,_3:*:*:*:*:*:*:*"
+        },
+        {
+          "name": "syft:location:0:path",
+          "value": "/Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-match-method",
+          "value": "sha256"
+        },
+        {
+          "name": "bsp:file-path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:version-basis",
+          "value": "BSP release identity when no PE version is available"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "purl": "pkg:generic/nuvoton/turbo-writer@2.3.0.3",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      }
+    },
+    {
+      "type": "application",
+      "bom-ref": "n9h20bsp:test-sample-component:bsp-samplecode",
+      "name": "n9h20 SampleCode",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/bsp-samplecode@V1.03.000-10-g2ae21690",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6ad489c5aedbc52535fb05f7459b5e4dbc2f697cc9f63a728aa6a687028f1fee"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP test-sample component included from test-sample scope path BSP/SampleCode",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:component-hash-algorithm",
+          "value": "sha256-path-nul-content-nul-v1"
+        },
+        {
+          "name": "bsp:component-hash-file-count",
+          "value": "653"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "test-sample-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "false"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "bom-ref": "n9h20bsp:test-sample-component:bsp-thirdparty",
+      "name": "n9h20 ThirdParty",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/bsp-thirdparty@V1.03.000-10-g2ae21690",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "690f973f32034fded054869c03b237946508b947bc4b39c0a70d24f065c2e041"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP test-sample component included from test-sample scope path BSP/ThirdParty",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/ThirdParty"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:component-hash-algorithm",
+          "value": "sha256-path-nul-content-nul-v1"
+        },
+        {
+          "name": "bsp:component-hash-file-count",
+          "value": "121"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "test-sample-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "false"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "bom-ref": "n9h20bsp:test-sample-component:tools",
+      "name": "n9h20 Tools",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/tools@V1.03.000-10-g2ae21690",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "161748be2afc30379a165c53b67de7a886f2e16f38270906c08e8bef948213b4"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "scope": "required",
+      "description": "Directory-level first-party BSP test-sample component included from test-sample scope path Tools",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "directory"
+        },
+        {
+          "name": "bsp:component-hash-algorithm",
+          "value": "sha256-path-nul-content-nul-v1"
+        },
+        {
+          "name": "bsp:component-hash-file-count",
+          "value": "152"
+        },
+        {
+          "name": "bsp:scope-policy-file",
+          "value": "test-sample-scope.yaml"
+        },
+        {
+          "name": "bsp:runtime-scope",
+          "value": "false"
+        },
+        {
+          "name": "bsp:included-in-product-firmware",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/freertos-kernel@10.1.1?source=vendored&path=BSP/ThirdParty/FreeRTOS",
+      "name": "FreeRTOS-Kernel",
+      "version": "10.1.1",
+      "scope": "required",
+      "author": "Amazon.com, Inc. (FreeRTOS project)",
+      "supplier": {
+        "name": "Amazon Web Services"
+      },
+      "purl": "pkg:generic/freertos-kernel@10.1.1",
+      "description": "FreeRTOS Kernel V10.1.1 vendored in the N9H20 BSP for RTOS sample and integration projects.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "BSP/ThirdParty/FreeRTOS"
+        },
+        {
+          "name": "integration",
+          "value": "vendored_source"
+        },
+        {
+          "name": "freertos_kernel_version",
+          "value": "10.1.1"
+        },
+        {
+          "name": "freertos_included_top_level_paths",
+          "value": "Demo; License; Source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:component-source",
+          "value": "FreeRTOS Kernel"
+        },
+        {
+          "name": "bsp:modification-status",
+          "value": "vendored"
+        },
+        {
+          "name": "bsp:evidence-path",
+          "value": "BSP/ThirdParty/FreeRTOS"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "BSP/ThirdParty/FreeRTOS/Source/include/FreeRTOS.h; BSP/ThirdParty/FreeRTOS/Source/tasks.c"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "BSP/ThirdParty/FreeRTOS/License/license.txt"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "TestSampleView"
+        },
+        {
+          "name": "bsp:usage",
+          "value": "RTOS kernel for N9H20 sample and demonstration projects"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "719b5aa3603aa829187466b3c0159ca298a7727933caf079fc7549607cc16c92"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/linux-usb-hidbp-keyboard@unknown?source=vendored&path=BSP/SampleCode/USBH",
+      "name": "Linux USB HIDBP Keyboard Support",
+      "version": "Unknown",
+      "scope": "required",
+      "author": "Vojtech Pavlik",
+      "supplier": {
+        "name": "Vojtech Pavlik"
+      },
+      "purl": "pkg:generic/linux-usb-hidbp-keyboard@unknown",
+      "description": "Vendored Linux-origin USB HID boot-protocol keyboard support used by the N9H20 USB host sample.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "BSP/SampleCode/USBH/usb_keyboard.c"
+        },
+        {
+          "name": "integration",
+          "value": "modified_vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "No upstream release version is asserted; the source contains only a CVS file revision."
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "BSP/SampleCode/USBH/usb_keyboard.c"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "TestSampleView"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "baf3c34fa9299f616633efcdfb4b003f53ad043feb3e1277bdaba5f61b739fc9"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/usb-video-class-header-support@unknown?source=vendored&path=BSP/SampleCode/USBH",
+      "name": "USB Video Class Header Support",
+      "version": "Unknown",
+      "scope": "required",
+      "purl": "pkg:generic/usb-video-class-header-support@unknown",
+      "description": "Vendored GPL-licensed USB video class header used by the N9H20 USB host sample. Upstream supplier and release version are not identified in the distributed source.",
+      "licenses": [
+        {
+          "license": {
+            "id": "GPL-2.0-or-later"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "src_path",
+          "value": "BSP/SampleCode/USBH/usbvideo.h"
+        },
+        {
+          "name": "integration",
+          "value": "modified_vendored_source"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "third-party"
+        },
+        {
+          "name": "bsp:supplier-status",
+          "value": "not-determined-from-distributed-source"
+        },
+        {
+          "name": "bsp:version-evidence",
+          "value": "No explicit upstream release version is present in the distributed source."
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "BSP/SampleCode/USBH/usbvideo.h"
+        },
+        {
+          "name": "bsp:scope",
+          "value": "TestSampleView"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c285684c598985751ee40aa40046ebad7994e5c2e5f02e530b8525e70b4b4d1a"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:53dd55ec1eab0043b901f09ae190d3eef67d4028fdf66bf4b9b3de29dadf8431:60f094558ae0bd2a",
+      "name": "BSP/SampleCode/SPI/SpiToUart/Mini58/SPI_UART/bin/Mini58_SpiToUart.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FSPI%2FSpiToUart%2FMini58%2FSPI_UART%2Fbin%2FMini58_SpiToUart.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "53dd55ec1eab0043b901f09ae190d3eef67d4028fdf66bf4b9b3de29dadf8431"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/SPI/SpiToUart/Mini58/SPI_UART/bin/Mini58_SpiToUart.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:05509dd337392748a636e2f14bdfc0da9d3ce930a6c6fb68e6397d0c20ba9e78:03cd1ed7152c0c2b",
+      "name": "BSP/SampleCode/USBD/HID_Transfer/HID_Transfer/KEIL/N9H20K1/HID_Transfer.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FHID_Transfer%2FKEIL%2FN9H20K1%2FHID_Transfer.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "05509dd337392748a636e2f14bdfc0da9d3ce930a6c6fb68e6397d0c20ba9e78"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/HID_Transfer/KEIL/N9H20K1/HID_Transfer.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:89dd47150352014d537e49d418a10dceb1250d27436461ea23cb89a57071e1bf:0d2ba0d1150199e2",
+      "name": "BSP/SampleCode/USBD/HID_Transfer/HID_Transfer/KEIL/N9H20K3/HID_Transfer.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FHID_Transfer%2FKEIL%2FN9H20K3%2FHID_Transfer.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "89dd47150352014d537e49d418a10dceb1250d27436461ea23cb89a57071e1bf"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/HID_Transfer/KEIL/N9H20K3/HID_Transfer.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:1d2fbea7ce9fcda16a84ffd7d420624aa5d0cdc054e50aced20f71f996cfd796:d99a17370bc718fa",
+      "name": "BSP/SampleCode/USBD/HID_Transfer/HID_Transfer/KEIL/N9H20K5/HID_Transfer.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FHID_Transfer%2FKEIL%2FN9H20K5%2FHID_Transfer.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1d2fbea7ce9fcda16a84ffd7d420624aa5d0cdc054e50aced20f71f996cfd796"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/HID_Transfer/KEIL/N9H20K5/HID_Transfer.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:5f5980010092aa94f7ec256f56d1f2d1f27e8ff038fa8eec1ae2ca30c1751a4d:b9b20fb9ec353870",
+      "name": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FWindowsTool%2FHID_HidTool_FS.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5f5980010092aa94f7ec256f56d1f2d1f27e8ff038fa8eec1ae2ca30c1751a4d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_FS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:726531f442d2f2a8cb8ffa95975af59bd067901e624dc0b8fa49867825cfc6ae:995f18423eaf9fbe",
+      "name": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FWindowsTool%2FHID_HidTool_HS.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "726531f442d2f2a8cb8ffa95975af59bd067901e624dc0b8fa49867825cfc6ae"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HID_HidTool_HS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:7ea7066f0ab5eac5",
+      "name": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HidTool_FS/hid.lib",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FWindowsTool%2FHidTool_FS%2Fhid.lib",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HidTool_FS/hid.lib"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:a8ae0663d5b72645",
+      "name": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HidTool_HS/hid.lib",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer%2FWindowsTool%2FHidTool_HS%2Fhid.lib",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer/WindowsTool/HidTool_HS/hid.lib"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:326ddbfb52b755d89a4bc9569db0315b97c53a185832bc5037b8012838f2f6f3:1e47da305b82ec75",
+      "name": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/HID_Transfer_FirmwareUpdate/KEIL/N9H20K1/HID_Transfer_FirmwareUpdate.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FHID_Transfer_FirmwareUpdate%2FKEIL%2FN9H20K1%2FHID_Transfer_FirmwareUpdate.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "326ddbfb52b755d89a4bc9569db0315b97c53a185832bc5037b8012838f2f6f3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/HID_Transfer_FirmwareUpdate/KEIL/N9H20K1/HID_Transfer_FirmwareUpdate.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:6ae92c242eff6c7b4bfb73162bc65af31d5f528040e4d399f8147d49bc277ee0:138533c904c094b3",
+      "name": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/HID_Transfer_FirmwareUpdate/KEIL/N9H20K3/HID_Transfer_FirmwareUpdate.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FHID_Transfer_FirmwareUpdate%2FKEIL%2FN9H20K3%2FHID_Transfer_FirmwareUpdate.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6ae92c242eff6c7b4bfb73162bc65af31d5f528040e4d399f8147d49bc277ee0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/HID_Transfer_FirmwareUpdate/KEIL/N9H20K3/HID_Transfer_FirmwareUpdate.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:538432d95a0025281359c767dc06a282faeefbcab757aadf13f44b25aa29e00d:a806023505c7d401",
+      "name": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/HID_Transfer_FirmwareUpdate/KEIL/N9H20K5/HID_Transfer_FirmwareUpdate.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FHID_Transfer_FirmwareUpdate%2FKEIL%2FN9H20K5%2FHID_Transfer_FirmwareUpdate.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "538432d95a0025281359c767dc06a282faeefbcab757aadf13f44b25aa29e00d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/HID_Transfer_FirmwareUpdate/KEIL/N9H20K5/HID_Transfer_FirmwareUpdate.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:d50f6b75be1a997be67ea9462aefd9376ae9feda07125e4e02f961efd55e4d61:c7c7d7700c432180",
+      "name": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FWindowsTool%2FHID_HidTool_FS.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d50f6b75be1a997be67ea9462aefd9376ae9feda07125e4e02f961efd55e4d61"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_FS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:1a999a65c9d789891c04d8e2c0185c21cdff5997af2dd956d1ec9a791d94027b:d042a2d781ac620a",
+      "name": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FWindowsTool%2FHID_HidTool_HS.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1a999a65c9d789891c04d8e2c0185c21cdff5997af2dd956d1ec9a791d94027b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HID_HidTool_HS.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:0535af035597f361",
+      "name": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HidTool_FS/hid.lib",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FWindowsTool%2FHidTool_FS%2Fhid.lib",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HidTool_FS/hid.lib"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:f391dd0ec67e8c97",
+      "name": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HidTool_HS/hid.lib",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FHID_Transfer_FirmwareUpdate%2FWindowsTool%2FHidTool_HS%2Fhid.lib",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/HID_Transfer_FirmwareUpdate/WindowsTool/HidTool_HS/hid.lib"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:1e1e15e36d4d6c842bdeb3f71388e909822aac0350aae64fdcd446d0818664dc:682d931354ace42b",
+      "name": "BSP/SampleCode/USBD/VirtualCom/WindowsDriver/NuvotonCDC.inf",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=BSP%2FSampleCode%2FUSBD%2FVirtualCom%2FWindowsDriver%2FNuvotonCDC.inf",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1e1e15e36d4d6c842bdeb3f71388e909822aac0350aae64fdcd446d0818664dc"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "BSP/SampleCode/USBD/VirtualCom/WindowsDriver/NuvotonCDC.inf"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:abed38c9d021263341ef8ed6197a6687b187b29ef77e339129f3f97a4f7ac1e0:b07babbffb0f0a0b",
+      "name": "Tools/MassProduction_Tools/NRomMaker/NRomMaker.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FMassProduction_Tools%2FNRomMaker%2FNRomMaker.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "abed38c9d021263341ef8ed6197a6687b187b29ef77e339129f3f97a4f7ac1e0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/MassProduction_Tools/NRomMaker/NRomMaker.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:82243a54d56b226aa05e59f4338f7238a05059beed8cb68fc1ef2612948b840b:305e83eecae5e91f",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/AudioRecord_N32901.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FAudioRecord_N32901.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "82243a54d56b226aa05e59f4338f7238a05059beed8cb68fc1ef2612948b840b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/AudioRecord_N32901.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:ab88356e23982642",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/AutoWriter.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FAutoWriter.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960:c1426b3ca28ca279",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/N9H20_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FN9H20_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/N9H20_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2:852ac65cc68538e8",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/N9H20_musb_FullSpeed.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FN9H20_musb_FullSpeed.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/N9H20_musb_FullSpeed.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:c4219f3de344397c13f97ae8e1953f099d18027623c4772b3dca940d035837e8:74892a95391a1cc7",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/NANDLoader_192MHz.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FNANDLoader_192MHz.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c4219f3de344397c13f97ae8e1953f099d18027623c4772b3dca940d035837e8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/NANDLoader_192MHz.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:829a624cc44fabdc",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/NuvotonLogo_320x240.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FNuvotonLogo_320x240.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/NuvotonLogo_320x240.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:032c6700da1da203",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/ResetByWDT.BIN",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FResetByWDT.BIN",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/ResetByWDT.BIN"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:7e0936ffcb89c211384b62647ebf6dc54fa800713497839cb0c6155ee8f6ef45:29571651692a7b38",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/SDLoader_192MHz.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FSDLoader_192MHz.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7e0936ffcb89c211384b62647ebf6dc54fa800713497839cb0c6155ee8f6ef45"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/SDLoader_192MHz.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:c26680e633a697c7c5dfa7e13b7a83a288b85468269b398ddcbab7a828479b0c:63998782831614dd",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/SpiLoader_GPM1006D0.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K1%2FSpiLoader_GPM1006D0.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c26680e633a697c7c5dfa7e13b7a83a288b85468269b398ddcbab7a828479b0c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K1/SpiLoader_GPM1006D0.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:af8a26dad6b98aefde035576eae5182cd470e513a81ef9988b01839d9381f7bd:415536f707d932cb",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/AudioRecord.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FAudioRecord.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "af8a26dad6b98aefde035576eae5182cd470e513a81ef9988b01839d9381f7bd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/AudioRecord.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:6b9a0b6ab83c2950",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/AutoWriter.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FAutoWriter.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235:73957e2eaaa553ee",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FN9H20_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109:c107f24d0c34045e",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20_musb_FullSpeed.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FN9H20_musb_FullSpeed.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20_musb_FullSpeed.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:cda42cf66de0674f38d7f3961f59d78b69fccbab26a99912f9bdfa53b61deeaa:9f637a5db365f3f6",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_NANDLoader_192MHz.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FN9H20K3_NANDLoader_192MHz.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cda42cf66de0674f38d7f3961f59d78b69fccbab26a99912f9bdfa53b61deeaa"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_NANDLoader_192MHz.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:9c0e956eb127b492be3e63f480665841a65f3402ca67ce1dbf126236c7cadf18:d027fac26a70be9f",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_NVT_NAND_GPM1006D0.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FN9H20K3_NVT_NAND_GPM1006D0.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9c0e956eb127b492be3e63f480665841a65f3402ca67ce1dbf126236c7cadf18"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_NVT_NAND_GPM1006D0.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:691ed887011ecbd802129895d4a95ebc454399ee4aed26c23840023db7785dbb:3d2ec17c5d67c81f",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_NVT_SDU0_GPM1006D0.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FN9H20K3_NVT_SDU0_GPM1006D0.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "691ed887011ecbd802129895d4a95ebc454399ee4aed26c23840023db7785dbb"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_NVT_SDU0_GPM1006D0.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:0601df02691b6a91d013e1dca3d27acc8a59f8ff7e7d5f399180f28c1fdc413c:4df134122c5a2e4c",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_SDLoader_192MHz.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FN9H20K3_SDLoader_192MHz.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0601df02691b6a91d013e1dca3d27acc8a59f8ff7e7d5f399180f28c1fdc413c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_SDLoader_192MHz.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:e83cec5d075d509c9fe6f8817b49a6778cc98ccb49054c93d9c3cb5891e32bba:54e47d30fdb58495",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_SpiLoader_GPM1006D0.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FN9H20K3_SpiLoader_GPM1006D0.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e83cec5d075d509c9fe6f8817b49a6778cc98ccb49054c93d9c3cb5891e32bba"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/N9H20K3_SpiLoader_GPM1006D0.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:cfbda9a05a7fe0f9",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/NuvotonLogo_320x240.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FNuvotonLogo_320x240.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/NuvotonLogo_320x240.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:a04e38b4db382272",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/ResetByWDT.BIN",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K3%2FResetByWDT.BIN",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K3/ResetByWDT.BIN"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:70ae3835989f40fdff14c6a3e55fe53e9b98abcae95ec36200bd69589442c9f4:a2f4fe92c77feb28",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/AudioRecord.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FAudioRecord.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "70ae3835989f40fdff14c6a3e55fe53e9b98abcae95ec36200bd69589442c9f4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/AudioRecord.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:abc10454952fe13f",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/AutoWriter.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FAutoWriter.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/AutoWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392:082e1c9f943f7ee5",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/N9H20_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FN9H20_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/N9H20_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79:4b44e24318f28830",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/N9H20_musb_FullSpeed.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FN9H20_musb_FullSpeed.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/N9H20_musb_FullSpeed.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197:0a6e88daa28c3454",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NANDLoader.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FNANDLoader.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NANDLoader.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197:1b2a25ec00b857dd",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NANDLoader_192MHz.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FNANDLoader_192MHz.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NANDLoader_192MHz.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:ced32511af6b5daa",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NuvotonLogo_320x240.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FNuvotonLogo_320x240.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NuvotonLogo_320x240.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:ac1c5afc81d3f63501d382518c60d316c534f49e261705d6a6bea0106c5632a1:4ecae06ecc2d82fb",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NVT_NAND_GIANTPLUS_QVGA.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FNVT_NAND_GIANTPLUS_QVGA.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ac1c5afc81d3f63501d382518c60d316c534f49e261705d6a6bea0106c5632a1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/NVT_NAND_GIANTPLUS_QVGA.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:532bb0c2a3cd01ca",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/ResetByWDT.BIN",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FResetByWDT.BIN",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/ResetByWDT.BIN"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:c779025d914e95385dc1c1d17027c3b6d55bfc14338b55563bca0806114e8fa3:5376f5d2015243e6",
+      "name": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/SDLoader_192MHz.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FAutoWriter%20V3.01.002_N9H20K5%2FSDLoader_192MHz.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c779025d914e95385dc1c1d17027c3b6d55bfc14338b55563bca0806114e8fa3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/AutoWriter V3.01.002_N9H20K5/SDLoader_192MHz.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:894ce30b5bf7c6f25165ff5de1ee873bde454379069c6eb336d111da0522a576:44242a63357e8b56",
+      "name": "Tools/PC_Tools/LcmTestTool/LCMTest.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FLcmTestTool%2FLCMTest.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "894ce30b5bf7c6f25165ff5de1ee873bde454379069c6eb336d111da0522a576"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/LcmTestTool/LCMTest.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:aedaae966b611a365490d6170879d640820715ba9fca7b9f480ce46bfab85895:7e2a31b1ea37eabd",
+      "name": "Tools/PC_Tools/LcmTestTool/N9H20_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FLcmTestTool%2FN9H20_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "aedaae966b611a365490d6170879d640820715ba9fca7b9f480ce46bfab85895"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/LcmTestTool/N9H20_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:ca6ba46ae10d61853e264313040c1eb3c193a13e4c25249ab400366db0960ce4:91608541075913b5",
+      "name": "Tools/PC_Tools/LcmTestTool/N9H26_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FLcmTestTool%2FN9H26_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ca6ba46ae10d61853e264313040c1eb3c193a13e4c25249ab400366db0960ce4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/LcmTestTool/N9H26_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960:60fc386ea9970e57",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/N9H20_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K1%2FN9H20_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/N9H20_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2:a04f1a48e50a020b",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/N9H20_musb_FullSpeed.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K1%2FN9H20_musb_FullSpeed.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/N9H20_musb_FullSpeed.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:5bad97bc14a7d889",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/TurboWriter.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K1%2FTurboWriter.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K1/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235:dca4be3b700dec3e",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/N9H20_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K3%2FN9H20_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/N9H20_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109:10db5878c1dde3b4",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/N9H20_musb_FullSpeed.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K3%2FN9H20_musb_FullSpeed.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/N9H20_musb_FullSpeed.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:eb744b85e53d9394",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/TurboWriter.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K3%2FTurboWriter.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K3/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:9ee815760ffc2057c2e220b60c4fe3b7f5b59178c59a6d33601cfb97a7140be6:c9e9d36f87c21902",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K5%2Fmusb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9ee815760ffc2057c2e220b60c4fe3b7f5b59178c59a6d33601cfb97a7140be6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392:4bded142b914874c",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/N9H20_musb.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K5%2FN9H20_musb.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/N9H20_musb.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79:d6c1b18dfe9cc99f",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/N9H20_musb_FullSpeed.bin",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K5%2FN9H20_musb_FullSpeed.bin",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/N9H20_musb_FullSpeed.bin"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "bom-ref": "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:3318c9f473af29fd",
+      "name": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/TurboWriter.exe",
+      "version": "V1.03.000-10-g2ae21690",
+      "supplier": {
+        "name": "Nuvoton Technology Corp.",
+        "url": [
+          "https://www.nuvoton.com"
+        ]
+      },
+      "purl": "pkg:generic/nuvoton/n9h20bsp-binary@V1.03.000-10-g2ae21690?file_path=Tools%2FPC_Tools%2FTurboWriter%20V2.30.003_N9H20K5%2FTurboWriter.exe",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "LicenseRef-Nuvoton-Proprietary"
+        }
+      ],
+      "scope": "required",
+      "description": "Binary artifact distributed in the n9h20bsp test-sample scope.",
+      "properties": [
+        {
+          "name": "bsp:sbom-category",
+          "value": "test-sample"
+        },
+        {
+          "name": "bsp:path",
+          "value": "Tools/PC_Tools/TurboWriter V2.30.003_N9H20K5/TurboWriter.exe"
+        },
+        {
+          "name": "bsp:component-origin",
+          "value": "first-party"
+        },
+        {
+          "name": "bsp:component-granularity",
+          "value": "file"
+        },
+        {
+          "name": "bsp:license-status",
+          "value": "proprietary"
+        },
+        {
+          "name": "bsp:license-evidence",
+          "value": "Nuvoton Software License Agreement.md"
+        },
+        {
+          "name": "bsp:identity-basis",
+          "value": "exact distributed file path, SHA-256, and BSP release"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "536ca006c77d936d",
+      "dependsOn": [
+        "36f94d271ff2750d",
+        "5c535d52579ecea3",
+        "657445c24ed55737",
+        "65a6662adb050450",
+        "718227a0860db49c",
+        "884c28603df9ddd5",
+        "a8084e31d69d809c",
+        "ae2f86b58d348fa3",
+        "binary-file:05509dd337392748a636e2f14bdfc0da9d3ce930a6c6fb68e6397d0c20ba9e78:03cd1ed7152c0c2b",
+        "binary-file:0601df02691b6a91d013e1dca3d27acc8a59f8ff7e7d5f399180f28c1fdc413c:4df134122c5a2e4c",
+        "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:829a624cc44fabdc",
+        "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:ced32511af6b5daa",
+        "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:cfbda9a05a7fe0f9",
+        "binary-file:1a999a65c9d789891c04d8e2c0185c21cdff5997af2dd956d1ec9a791d94027b:d042a2d781ac620a",
+        "binary-file:1d2fbea7ce9fcda16a84ffd7d420624aa5d0cdc054e50aced20f71f996cfd796:d99a17370bc718fa",
+        "binary-file:1e1e15e36d4d6c842bdeb3f71388e909822aac0350aae64fdcd446d0818664dc:682d931354ace42b",
+        "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:0535af035597f361",
+        "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:7ea7066f0ab5eac5",
+        "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:a8ae0663d5b72645",
+        "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:f391dd0ec67e8c97",
+        "binary-file:326ddbfb52b755d89a4bc9569db0315b97c53a185832bc5037b8012838f2f6f3:1e47da305b82ec75",
+        "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:6b9a0b6ab83c2950",
+        "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:ab88356e23982642",
+        "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:abc10454952fe13f",
+        "binary-file:538432d95a0025281359c767dc06a282faeefbcab757aadf13f44b25aa29e00d:a806023505c7d401",
+        "binary-file:53dd55ec1eab0043b901f09ae190d3eef67d4028fdf66bf4b9b3de29dadf8431:60f094558ae0bd2a",
+        "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:3318c9f473af29fd",
+        "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:5bad97bc14a7d889",
+        "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:eb744b85e53d9394",
+        "binary-file:5f5980010092aa94f7ec256f56d1f2d1f27e8ff038fa8eec1ae2ca30c1751a4d:b9b20fb9ec353870",
+        "binary-file:6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2:852ac65cc68538e8",
+        "binary-file:6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2:a04f1a48e50a020b",
+        "binary-file:691ed887011ecbd802129895d4a95ebc454399ee4aed26c23840023db7785dbb:3d2ec17c5d67c81f",
+        "binary-file:6ae92c242eff6c7b4bfb73162bc65af31d5f528040e4d399f8147d49bc277ee0:138533c904c094b3",
+        "binary-file:70ae3835989f40fdff14c6a3e55fe53e9b98abcae95ec36200bd69589442c9f4:a2f4fe92c77feb28",
+        "binary-file:726531f442d2f2a8cb8ffa95975af59bd067901e624dc0b8fa49867825cfc6ae:995f18423eaf9fbe",
+        "binary-file:7e0936ffcb89c211384b62647ebf6dc54fa800713497839cb0c6155ee8f6ef45:29571651692a7b38",
+        "binary-file:82243a54d56b226aa05e59f4338f7238a05059beed8cb68fc1ef2612948b840b:305e83eecae5e91f",
+        "binary-file:86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960:60fc386ea9970e57",
+        "binary-file:86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960:c1426b3ca28ca279",
+        "binary-file:894ce30b5bf7c6f25165ff5de1ee873bde454379069c6eb336d111da0522a576:44242a63357e8b56",
+        "binary-file:89dd47150352014d537e49d418a10dceb1250d27436461ea23cb89a57071e1bf:0d2ba0d1150199e2",
+        "binary-file:9c0e956eb127b492be3e63f480665841a65f3402ca67ce1dbf126236c7cadf18:d027fac26a70be9f",
+        "binary-file:9ee815760ffc2057c2e220b60c4fe3b7f5b59178c59a6d33601cfb97a7140be6:c9e9d36f87c21902",
+        "binary-file:a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392:082e1c9f943f7ee5",
+        "binary-file:a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392:4bded142b914874c",
+        "binary-file:abed38c9d021263341ef8ed6197a6687b187b29ef77e339129f3f97a4f7ac1e0:b07babbffb0f0a0b",
+        "binary-file:ac1c5afc81d3f63501d382518c60d316c534f49e261705d6a6bea0106c5632a1:4ecae06ecc2d82fb",
+        "binary-file:aedaae966b611a365490d6170879d640820715ba9fca7b9f480ce46bfab85895:7e2a31b1ea37eabd",
+        "binary-file:af8a26dad6b98aefde035576eae5182cd470e513a81ef9988b01839d9381f7bd:415536f707d932cb",
+        "binary-file:b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197:0a6e88daa28c3454",
+        "binary-file:b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197:1b2a25ec00b857dd",
+        "binary-file:c26680e633a697c7c5dfa7e13b7a83a288b85468269b398ddcbab7a828479b0c:63998782831614dd",
+        "binary-file:c4219f3de344397c13f97ae8e1953f099d18027623c4772b3dca940d035837e8:74892a95391a1cc7",
+        "binary-file:c779025d914e95385dc1c1d17027c3b6d55bfc14338b55563bca0806114e8fa3:5376f5d2015243e6",
+        "binary-file:ca6ba46ae10d61853e264313040c1eb3c193a13e4c25249ab400366db0960ce4:91608541075913b5",
+        "binary-file:cda42cf66de0674f38d7f3961f59d78b69fccbab26a99912f9bdfa53b61deeaa:9f637a5db365f3f6",
+        "binary-file:d50f6b75be1a997be67ea9462aefd9376ae9feda07125e4e02f961efd55e4d61:c7c7d7700c432180",
+        "binary-file:d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109:10db5878c1dde3b4",
+        "binary-file:d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109:c107f24d0c34045e",
+        "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:032c6700da1da203",
+        "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:532bb0c2a3cd01ca",
+        "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:a04e38b4db382272",
+        "binary-file:e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235:73957e2eaaa553ee",
+        "binary-file:e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235:dca4be3b700dec3e",
+        "binary-file:e83cec5d075d509c9fe6f8817b49a6778cc98ccb49054c93d9c3cb5891e32bba:54e47d30fdb58495",
+        "binary-file:f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79:4b44e24318f28830",
+        "binary-file:f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79:d6c1b18dfe9cc99f",
+        "c40c365cc6c2d197",
+        "c42ee91de9c58b41",
+        "d00db1e5c968178f",
+        "d0e5cc681b90ac6d",
+        "n9h20bsp:test-sample-component:bsp-samplecode",
+        "n9h20bsp:test-sample-component:bsp-thirdparty",
+        "n9h20bsp:test-sample-component:tools",
+        "pkg:generic/freertos-kernel@10.1.1?source=vendored&path=BSP/ThirdParty/FreeRTOS",
+        "pkg:generic/linux-usb-hidbp-keyboard@unknown?source=vendored&path=BSP/SampleCode/USBH",
+        "pkg:generic/usb-video-class-header-support@unknown?source=vendored&path=BSP/SampleCode/USBH"
+      ]
+    },
+    {
+      "ref": "d0e5cc681b90ac6d",
+      "dependsOn": []
+    },
+    {
+      "ref": "a8084e31d69d809c",
+      "dependsOn": []
+    },
+    {
+      "ref": "ae2f86b58d348fa3",
+      "dependsOn": []
+    },
+    {
+      "ref": "884c28603df9ddd5",
+      "dependsOn": []
+    },
+    {
+      "ref": "5c535d52579ecea3",
+      "dependsOn": []
+    },
+    {
+      "ref": "718227a0860db49c",
+      "dependsOn": []
+    },
+    {
+      "ref": "d00db1e5c968178f",
+      "dependsOn": []
+    },
+    {
+      "ref": "65a6662adb050450",
+      "dependsOn": []
+    },
+    {
+      "ref": "c40c365cc6c2d197",
+      "dependsOn": []
+    },
+    {
+      "ref": "36f94d271ff2750d",
+      "dependsOn": []
+    },
+    {
+      "ref": "657445c24ed55737",
+      "dependsOn": []
+    },
+    {
+      "ref": "c42ee91de9c58b41",
+      "dependsOn": []
+    },
+    {
+      "ref": "n9h20bsp:test-sample-component:bsp-samplecode",
+      "dependsOn": []
+    },
+    {
+      "ref": "n9h20bsp:test-sample-component:bsp-thirdparty",
+      "dependsOn": []
+    },
+    {
+      "ref": "n9h20bsp:test-sample-component:tools",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:generic/freertos-kernel@10.1.1?source=vendored&path=BSP/ThirdParty/FreeRTOS",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:generic/linux-usb-hidbp-keyboard@unknown?source=vendored&path=BSP/SampleCode/USBH",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:generic/usb-video-class-header-support@unknown?source=vendored&path=BSP/SampleCode/USBH",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:53dd55ec1eab0043b901f09ae190d3eef67d4028fdf66bf4b9b3de29dadf8431:60f094558ae0bd2a",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:05509dd337392748a636e2f14bdfc0da9d3ce930a6c6fb68e6397d0c20ba9e78:03cd1ed7152c0c2b",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:89dd47150352014d537e49d418a10dceb1250d27436461ea23cb89a57071e1bf:0d2ba0d1150199e2",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:1d2fbea7ce9fcda16a84ffd7d420624aa5d0cdc054e50aced20f71f996cfd796:d99a17370bc718fa",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:5f5980010092aa94f7ec256f56d1f2d1f27e8ff038fa8eec1ae2ca30c1751a4d:b9b20fb9ec353870",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:726531f442d2f2a8cb8ffa95975af59bd067901e624dc0b8fa49867825cfc6ae:995f18423eaf9fbe",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:7ea7066f0ab5eac5",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:a8ae0663d5b72645",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:326ddbfb52b755d89a4bc9569db0315b97c53a185832bc5037b8012838f2f6f3:1e47da305b82ec75",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:6ae92c242eff6c7b4bfb73162bc65af31d5f528040e4d399f8147d49bc277ee0:138533c904c094b3",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:538432d95a0025281359c767dc06a282faeefbcab757aadf13f44b25aa29e00d:a806023505c7d401",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:d50f6b75be1a997be67ea9462aefd9376ae9feda07125e4e02f961efd55e4d61:c7c7d7700c432180",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:1a999a65c9d789891c04d8e2c0185c21cdff5997af2dd956d1ec9a791d94027b:d042a2d781ac620a",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:0535af035597f361",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:22bcccaed9b092f4ab2aa12e1471959ed1847296f350bb6d7390b0718fdb5ca4:f391dd0ec67e8c97",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:1e1e15e36d4d6c842bdeb3f71388e909822aac0350aae64fdcd446d0818664dc:682d931354ace42b",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:abed38c9d021263341ef8ed6197a6687b187b29ef77e339129f3f97a4f7ac1e0:b07babbffb0f0a0b",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:82243a54d56b226aa05e59f4338f7238a05059beed8cb68fc1ef2612948b840b:305e83eecae5e91f",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:ab88356e23982642",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960:c1426b3ca28ca279",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2:852ac65cc68538e8",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:c4219f3de344397c13f97ae8e1953f099d18027623c4772b3dca940d035837e8:74892a95391a1cc7",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:829a624cc44fabdc",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:032c6700da1da203",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:7e0936ffcb89c211384b62647ebf6dc54fa800713497839cb0c6155ee8f6ef45:29571651692a7b38",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:c26680e633a697c7c5dfa7e13b7a83a288b85468269b398ddcbab7a828479b0c:63998782831614dd",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:af8a26dad6b98aefde035576eae5182cd470e513a81ef9988b01839d9381f7bd:415536f707d932cb",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:6b9a0b6ab83c2950",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235:73957e2eaaa553ee",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109:c107f24d0c34045e",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:cda42cf66de0674f38d7f3961f59d78b69fccbab26a99912f9bdfa53b61deeaa:9f637a5db365f3f6",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:9c0e956eb127b492be3e63f480665841a65f3402ca67ce1dbf126236c7cadf18:d027fac26a70be9f",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:691ed887011ecbd802129895d4a95ebc454399ee4aed26c23840023db7785dbb:3d2ec17c5d67c81f",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:0601df02691b6a91d013e1dca3d27acc8a59f8ff7e7d5f399180f28c1fdc413c:4df134122c5a2e4c",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:e83cec5d075d509c9fe6f8817b49a6778cc98ccb49054c93d9c3cb5891e32bba:54e47d30fdb58495",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:cfbda9a05a7fe0f9",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:a04e38b4db382272",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:70ae3835989f40fdff14c6a3e55fe53e9b98abcae95ec36200bd69589442c9f4:a2f4fe92c77feb28",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:3b65ff42ce0c510388e4cd93bd6bb522950b93ad809ec898f58217a55a424696:abc10454952fe13f",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392:082e1c9f943f7ee5",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79:4b44e24318f28830",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197:0a6e88daa28c3454",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:b1a4d1c060924d379add90eb0b49d189f169b4f588295a74a56984aad6aaf197:1b2a25ec00b857dd",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:0d5d5f4271086a3301f3961a01bd8567cf98bd274fa954ec8a4a805a0b467336:ced32511af6b5daa",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:ac1c5afc81d3f63501d382518c60d316c534f49e261705d6a6bea0106c5632a1:4ecae06ecc2d82fb",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:e222a64e41710dc2c605c6dba42a02766eba7066a927d6dedc085dbfe1c16f7a:532bb0c2a3cd01ca",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:c779025d914e95385dc1c1d17027c3b6d55bfc14338b55563bca0806114e8fa3:5376f5d2015243e6",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:894ce30b5bf7c6f25165ff5de1ee873bde454379069c6eb336d111da0522a576:44242a63357e8b56",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:aedaae966b611a365490d6170879d640820715ba9fca7b9f480ce46bfab85895:7e2a31b1ea37eabd",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:ca6ba46ae10d61853e264313040c1eb3c193a13e4c25249ab400366db0960ce4:91608541075913b5",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:86db45297be00e5100cdf0c2962910012eee5cbe858ddcc7b862ebf14fb0b960:60fc386ea9970e57",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:6797fc424f3f53f3f85fa35963e7e1ee86217fe7572f8b5d08cb2f97e19ed8b2:a04f1a48e50a020b",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:5bad97bc14a7d889",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:e6918acd9c76392f3d41e9e698233faec6c09b0bec0a381295d61ef509da5235:dca4be3b700dec3e",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:d5a23482bcef8d42c23fd7750c3734f8b33472c448ef5841dc1e1ad9cc6eb109:10db5878c1dde3b4",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:eb744b85e53d9394",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:9ee815760ffc2057c2e220b60c4fe3b7f5b59178c59a6d33601cfb97a7140be6:c9e9d36f87c21902",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:a449b27190f2cf1b6919d1214ee6b411a61da2d090cdf4bba816207f8212a392:4bded142b914874c",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:f590fb64a198cb5f1379c75f18aab8f0d4fd3ce6103fd3d1205ae285a00f1d79:d6c1b18dfe9cc99f",
+      "dependsOn": []
+    },
+    {
+      "ref": "binary-file:5eaf80be86aeb8cd442aa1c63ed997f00d3648d0a209bea589c98e92d9595e4b:3318c9f473af29fd",
+      "dependsOn": []
+    }
+  ]
+}

@@ -18,11 +18,39 @@ This policy applies to:
 ## Repository Responsibilities
 
 ## Git
-Git stores durable SBOM generation inputs and governance records under `Documents/SBOM`, including scope definitions, manual SCA declarations, evidence, exclusions, inventory, baseline, policy, and review records.
+Git stores durable SBOM generation inputs and governance records under
+`Documents/SBOM`, including scope definitions, manual SCA declarations,
+evidence, exclusions, inventory, baseline, policy, and review records.
 
-Generated release SBOMs, scan outputs, VEX documents, validation reports, release README files, and release checksum files are not committed to Git as release outputs.
+Git also stores the current published Product SBOM, Test Sample SBOM, and
+manifest at the repository root using the established fixed names
+`n9h20bsp_Product_SBOM_cdx.json`,
+`n9h20bsp_TestSample_SBOM_cdx.json`, and
+`n9h20bsp_SBOM_Manifest.json`. Product and Test Sample are copied byte-for-byte
+from the verified immutable SVN release. The current manifest retains the
+formal release identity, hashes, and provenance while projecting its file
+references to the fixed Git current names.
+`Documents/SBOM/N9H20_CURRENT_SBOM.md` records the authoritative SVN revision,
+release locator, source commit, formal artifact hashes, and current-copy
+consistency.
 
-The legacy repository-root generated files `n9h20bsp_Product_SBOM_cdx.json`, `n9h20bsp_TestSample_SBOM_cdx.json`, and `n9h20bsp_SBOM_Manifest.json` are not durable inputs. They must remain untracked and are explicitly excluded by the repository-root `.gitignore` so regenerating a release cannot create a circular dirty-source identity.
+The current published copies are a discoverability and publication index, not
+generation inputs or a replacement release authority. Their back-sync Git
+commit is an artifact-publication commit; the source, scan, generation,
+release, and distribution commits recorded in the manifest remain the clean
+source commit used to build the immutable SVN release. Product and Test Sample
+generation views are populated only from the paths listed in their scope files,
+so repository-root current copies are not scanned into the next SBOM.
+
+Versioned release packages, scan outputs, VEX documents, validation reports,
+release README files, checker reports, and release checksum files are not
+committed to Git. They remain under the authoritative SVN release directory.
+
+The fixed-name current copies are updated only by back-sync after the
+corresponding versioned SVN release is committed and verified. Release
+generation must not write these files, use them as inventory inputs, or update
+them before the immutable SVN release exists. This ordering prevents the
+artifact-publication commit from creating a circular source identity.
 
 ## SVN
 SVN stores immutable, versioned SBOM release outputs under `bsp/<bsp-name>/<release-id>`. The outer `latest-release.txt` points to the verified latest release and is updated only after the versioned release directory is committed and verified.
