@@ -23,7 +23,7 @@ static void zfree(void *, void *, unsigned);
 #define ulong unsigned long
 #define uchar unsigned char
 
-#ifdef _N9H20K5_
+#if defined(_N9H20K5_) || defined(_N9H20K6_)
 #define CFG_MALLOC_LEN 8192 * 1024 /* 192*1024 */
 
 

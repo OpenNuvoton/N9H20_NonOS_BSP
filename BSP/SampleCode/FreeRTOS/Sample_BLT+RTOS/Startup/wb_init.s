@@ -37,6 +37,10 @@ RAM_Limit       EQU     0x800000          	; For unexpanded hardware board
 RAM_Limit       EQU     0x2000000          	; For unexpanded hardware board
  ENDIF
 
+ IF :DEF:N9H20K6
+RAM_Limit       EQU     0x4000000
+ ENDIF
+
 
 UND_Stack		EQU		RAM_Limit
 Abort_Stack		EQU		RAM_Limit-256
@@ -104,22 +108,22 @@ Reset_Go
 ; Initial Stack Pointer register
 ;--------------------------------
 ;INIT_STACK 
- MSR	CPSR_c, #UDF_MODE | I_BIT | F_BIT
+ MSR	CPSR_c, #UDF_MODE :OR: I_BIT :OR: F_BIT
  LDR     SP, =UND_Stack
 
- MSR	CPSR_c, #ABT_MODE | I_BIT | F_BIT
+ MSR	CPSR_c, #ABT_MODE :OR: I_BIT :OR: F_BIT
  LDR     SP, =Abort_Stack
 
- MSR	CPSR_c, #IRQ_MODE | I_BIT | F_BIT
+ MSR	CPSR_c, #IRQ_MODE :OR: I_BIT :OR: F_BIT
  LDR     SP, =IRQ_Stack
 
- MSR	CPSR_c, #FIQ_MODE | I_BIT | F_BIT
+ MSR	CPSR_c, #FIQ_MODE :OR: I_BIT :OR: F_BIT
  LDR     SP, =FIQ_Stack
 
- MSR	CPSR_c, #SYS_MODE | I_BIT | F_BIT
+ MSR	CPSR_c, #SYS_MODE :OR: I_BIT :OR: F_BIT
  LDR     SP, =USR_Stack
 
- MSR	CPSR_c, #SVC_MODE | I_BIT | F_BIT
+ MSR	CPSR_c, #SVC_MODE :OR: I_BIT :OR: F_BIT
  LDR     SP, =SVC_Stack
 
 ;------------------------------------------------------

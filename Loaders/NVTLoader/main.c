@@ -362,7 +362,7 @@ UINT32 NVT_LoadKernelFromSD(void)
 
 #else	
 	/* Initial SPU in advance for linux set volume issue */ 
-#if defined(N9H20K3) || defined(N9H20K5)		
+#if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 	spuOpen(eDRVSPU_FREQ_8000);
 	//spuDacOn(1);
 	spuIoctl(SPU_IOCTL_SET_VOLUME, u16Volume, u16Volume);
@@ -377,7 +377,7 @@ UINT32 NVT_LoadKernelFromSD(void)
 #ifdef __WIFI_NO_LCM__	
 
 #else						
-  #if defined(N9H20K3) || defined(N9H20K5)	
+  #if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 		char ucSring[64]= MOVIE_PATH_SD;
 		playAni(kfd, ucSring);
   #endif	
@@ -545,7 +545,7 @@ UINT32 NVT_LoadKernelFromNAND(void)
 #ifdef __WIFI_NO_LCM__	
 
 #else	
-#if defined(N9H20K3) || defined(N9H20K5)
+#if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 		char ucSring[64]= MOVIE_PATH;				
 		playAni(kfd, ucSring);
 #endif		
@@ -752,7 +752,7 @@ UINT32 NVT_LoadKernelFromSPI(void)
 #ifdef __WIFI_NO_LCM__	
 
 #else	
-#if defined(N9H20K3) || defined(N9H20K5)
+#if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 		char ucSring[64]= MOVIE_PATH;				
 		playAni(kfd, ucSring);
 #endif		
@@ -820,7 +820,7 @@ int main(void)
 #ifdef __WIFI_NO_LCM__
 
 #else	
-#if defined(N9H20K3) || defined(N9H20K5)
+#if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 	initVPostShowLogo();
 #endif	
 #endif

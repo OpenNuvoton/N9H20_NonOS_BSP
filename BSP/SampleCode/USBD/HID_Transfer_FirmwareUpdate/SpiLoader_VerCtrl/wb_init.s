@@ -30,6 +30,10 @@ RAM_Limit       EQU     0x800000            ; For unexpanded hardware board
  IF :DEF:N9H20K5
 RAM_Limit       EQU     0x2000000           ; For unexpanded hardware board
  ENDIF 
+
+ IF :DEF:N9H20K6
+RAM_Limit       EQU     0x4000000           ; For unexpanded hardware board
+ ENDIF
  
 USR_Stack       EQU     RAM_Limit
 SVC_Stack       EQU     (USR_Stack-1024)      ; SVC stack at top of memory

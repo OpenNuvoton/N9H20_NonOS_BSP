@@ -84,8 +84,8 @@ void initTimer(void)
 #endif
 
 #define E_CLKSKEW   0x00888800
-#ifdef N9H20K5
-    #define __DDR2__	// N9H20K5 use DDR2
+#if defined(N9H20K5) || defined(N9H20K6)
+    #define __DDR2__
 #else
     #define __DDR_6__
 #endif

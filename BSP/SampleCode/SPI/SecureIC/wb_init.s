@@ -37,6 +37,10 @@ RAM_Limit       EQU     0x800000              ; For unexpanded hardware board
 RAM_Limit       EQU     0x2000000              ; For unexpanded hardware board
  ENDIF
 
+ IF :DEF:N9H20K6
+RAM_Limit       EQU     0x4000000
+ ENDIF
+
 
 UND_Stack       EQU     RAM_Limit
 Abort_Stack     EQU     RAM_Limit-256

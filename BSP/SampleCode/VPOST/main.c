@@ -95,7 +95,7 @@ void SmplVpost_OSD_Display(void);
 //extern void vpostEnaBacklight(void);
 
 #ifdef OPT_LCMTESTTOOL
-extern int main_forLcmTestTool(void);
+extern void main_forLcmTestTool(void);
 #endif
 
 
@@ -131,8 +131,10 @@ void initTimer(void)
 
 int main(void)
 {
+#ifdef OPT_OSD_DEMO
 	int tick;
 	int osd_color_key, osd_pattern;
+#endif
 	
     initUART();
 	initTimer();
@@ -154,7 +156,7 @@ int main(void)
 #ifndef OPT_OSD_DEMO
 	/* Since the limitation of bandwidth, N9H20 does not provide OSD overlay feature. */
 	while(1);
-#endif
+#else
 	
     /* OSD display */
     sysprintf("Begin OSD position control !!!\n");	
@@ -205,6 +207,7 @@ int main(void)
 		osd_pattern %= 6;
         vpostSetOSD_Transparent(eDRVVPOST_OSD_TRANSPARENT_RGB888, osd_color_key);
     }
+#endif
 }
 
 #ifdef OPT_OSD_DEMO

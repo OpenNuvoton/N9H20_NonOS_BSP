@@ -11,6 +11,7 @@
 
 #include "wblib.h"
 #include "N9H20_reg.h"
+#include "N9H20_SPI.h"
 
 #define  SPICMD_DUMMY         0x00
 #define  SPICMD_READ_DATA     0x03

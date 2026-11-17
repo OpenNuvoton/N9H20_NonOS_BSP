@@ -40,7 +40,7 @@ __align(32) UINT8 Lcm_InitData[]=
 
 extern UINT8 Vpost_Frame[];
 
-int main_forLcmTestTool(void)
+void main_forLcmTestTool(void)
 {
 	N9HxxLCMInit((UINT32*)Vpost_Frame, (UINT8*)Lcm_InitData);
 }

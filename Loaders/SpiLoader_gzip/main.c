@@ -37,7 +37,9 @@
 
 #define LOAD_IMAGE          0
 #define CHECK_HEADER_ONLY   1
-#ifdef _N9H20K5_
+#ifdef _N9H20K6_
+#define IMAGE_BUFFER        0x1000000
+#elif defined _N9H20K5_
 #define IMAGE_BUFFER        0xA00000
 #elif defined _N9H20K3_
 #define IMAGE_BUFFER        0x500000

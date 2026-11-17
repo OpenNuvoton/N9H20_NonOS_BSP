@@ -27,9 +27,9 @@
     #endif
 #else
     #ifdef __Security__
-        #define DATE_CODE   "20230228 with Security"
+        #define DATE_CODE   "20261117 with Security"
     #else
-        #define DATE_CODE   "20230228"
+        #define DATE_CODE   "20261117"
     #endif
 #endif
 

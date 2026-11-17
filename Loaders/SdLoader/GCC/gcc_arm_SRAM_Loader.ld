@@ -4,6 +4,10 @@
 ; *
 ; * @copyright (C) 2019 Nuvoton Technology Corp. All rights reserved.
 ; *****************************************************************************/
+#if defined(N9H20K6_64MB)
+    #define MEMSIZE 0x4000000
+    #define EXEADDR 0xF00000
+#endif
 #if defined(N9H20K5_32MB)
     #define MEMSIZE 0x2000000
     #define EXEADDR 0x900000

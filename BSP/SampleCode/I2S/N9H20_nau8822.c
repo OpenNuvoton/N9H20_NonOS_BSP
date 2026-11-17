@@ -59,38 +59,9 @@ static BOOL i2c_Write_8bitSlaveAddr_8bitReg_8bitData(UINT8 uAddr, UINT8 uRegAddr
 	return TRUE;
 }
 
-static int i2c_Read_8bitSlaveAddr_8bitReg_9bitData(UINT8 uAddr, UINT8 uRegAddr)
-{
-	UINT8 u8Data[2];
-	int data;
-	
-	// 2-Phase(ID address, register address) write transmission
-	DrvI2CH_SendStart();
-	DrvI2CH_WriteByte(FALSE, uAddr, TRUE, FALSE);		// Write ID address to sensor
-	DrvI2CH_WriteByte(FALSE, uRegAddr, TRUE, FALSE);	// Write register address to sensor
-
-	// 2-Phase(ID-address, data(8bits)) read transmission
-	DrvI2CH_SendStart();
-	DrvI2CH_ReadByte(FALSE, &u8Data[1], TRUE, FALSE);		// Read high-byte data
-	DrvI2CH_ReadByte(FALSE, &u8Data[0], TRUE, FALSE);		// Read low-byte data
-	DrvI2CH_SendStop();
-	data = (u8Data[1]<<8) | u8Data[0];
-	return data;
-}
-
 static void i2C_WriteData(char data1, char data2)
 {
 	i2c_Write_8bitSlaveAddr_8bitReg_8bitData(0x34, data1, data2);
-}
-
-static int i2C_ReadData(char data1)
-{
-	return i2c_Read_8bitSlaveAddr_8bitReg_9bitData(0x34, data1);
-}
-
-static int NAU8822_ReadData(char addr)
-{
-	return i2C_ReadData(addr);
 }
 
 static int NAU8822_WriteData(char addr, unsigned short data)

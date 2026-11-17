@@ -16,7 +16,7 @@
 #include "N9H20.h"
 #include "nvtloader.h"
 
-#if defined(N9H20K3) || defined(N9H20K5)
+#if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 static int _complete = 0;
 static int _offset = 0;
 static int _fd;
@@ -33,7 +33,7 @@ static volatile BOOL bEscapeKeyPress=FALSE;
 static volatile BOOL bSetVolume=FALSE;
 UINT32 u16Volume = 0x1F;	// 60*63/100=; Linux driver default = 60 
 // use callback function of AVI player to load kernel
-#if defined(N9H20K3) || defined(N9H20K5)
+#if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 void loadKernel(AVI_INFO_T *aviInfo)
 {
 	int bytes, result;
@@ -301,7 +301,7 @@ void moveFrameBufferData(PUINT8 pu8Src, UINT32 u32Len)
 	}
 }
 */
-#if defined(N9H20K3) || defined(N9H20K5)
+#if defined(N9H20K3) || defined(N9H20K5) || defined(N9H20K6)
 void playAni(int kfd, char* pcString)
 {
 	char aniPath[64];

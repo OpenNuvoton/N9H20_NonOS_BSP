@@ -83,6 +83,10 @@ Reset_Handler:
         //--------------------------------
         // Initial Stack Pointer register
         //--------------------------------
+#if (N9H20K6 == 1)
+	ldr    r0,=0x4000000
+#endif
+
 #if (N9H20K5 == 1)
 	ldr    r0,=0x2000000
 #endif

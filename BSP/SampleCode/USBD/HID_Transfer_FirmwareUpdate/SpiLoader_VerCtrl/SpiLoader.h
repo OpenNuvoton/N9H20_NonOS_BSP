@@ -45,4 +45,13 @@ int SPIReadFast(BOOL bEDMAread, UINT32 addr, UINT32 len, UINT32 *buf);
     #define PANEL_HEIGHT    272
 #endif
 
-#define FB_ADDR  0x500000
+#if defined(N9H20K6)
+#define FB_ADDR		0xC00000
+#endif
+#if defined(N9H20K5) || defined(N9H20K3)
+#define FB_ADDR		0x500000
+#endif
+#if defined(N9H20K1) 
+#define FB_ADDR		0x190000	/* N9H20K1 don't support logo due to conflict with loader's heap area. But still define it*/
+#endif
+

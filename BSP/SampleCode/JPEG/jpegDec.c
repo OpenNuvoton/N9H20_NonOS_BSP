@@ -48,7 +48,6 @@ int setOutputBuffer(UINT32 u32Width, UINT32 u32Height, UINT32 u32Format)
 	INT8	fill = 0xFF;
 	UINT32 u32OutputOffset;
 	UINT32 u32TargetWidth,u32TargetHeight;
-	UINT16 u16Width,u16Height;	
 		
 	if(g_bDecPanelTest && !g_bDecWindecTest)
 	{
@@ -191,7 +190,6 @@ int setOutputBuffer(UINT32 u32Width, UINT32 u32Height, UINT32 u32Format)
 	
 		if(g_u32DecFormat == JPEG_DEC_PRIMARY_PLANAR_YUV)
 		{
-		  UINT32 u32FrameBuffer; 			   	
 	   	/* Allocate Raw Data Buffer for Decode Operation (Prepare 1MB for Planar output) */	
 	  	/* Or user needs to get image size to allocate buffer before Decode Trigger for Planar */
 	  	g_pu8DecFrameBuffer = (PUINT8)malloc(sizeof(CHAR) * (u32BufferSize + 0x03));			
@@ -659,4 +657,3 @@ END_ERROR_FORMAT:
 
     return;
 }
-

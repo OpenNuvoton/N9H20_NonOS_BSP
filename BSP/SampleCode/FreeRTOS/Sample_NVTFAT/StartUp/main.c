@@ -32,7 +32,7 @@ UINT32 StorageForSD(void)
 {
 	uint32_t u32ExtFreqKHz;
 	uint32_t u32PllOutKHz;
-	uint32_t u32BlockSize, u32FreeSize, u32DiskSize;
+	UINT32 u32BlockSize, u32FreeSize, u32DiskSize;
 
 	u32ExtFreqKHz = sysGetExternalClock();
 	u32PllOutKHz = sysGetPLLOutputKhz(eSYS_UPLL, u32ExtFreqKHz);
@@ -170,7 +170,7 @@ static void worker_nvtfat ( void *pvArgs )
 	int id = *((int*)pvArgs);
 	int hFile = 0;
 	int32_t i32Ret;
-	int32_t num = 0;
+	INT num = 0;
 	int i32Counter=0;
 	int j;
 	FILE_STAT_T sFileState;
@@ -198,7 +198,7 @@ static void worker_nvtfat ( void *pvArgs )
 		
 		// Write
 		num = 0;
-		i32Ret = fsWriteFile(hFile, (UINT8 *)testBuf, wsize, (INT *)&num);
+		i32Ret = fsWriteFile(hFile, (UINT8 *)testBuf, wsize, &num);
 		if (i32Ret < 0 || (num != wsize) )
 		{
 			printf("Fail to write - %s %x.\n", szFileName, i32Ret);

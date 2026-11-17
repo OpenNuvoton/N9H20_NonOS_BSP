@@ -51,8 +51,4 @@ int main(void)
 		sysDelay(20);
 	
 	}
-	kpi_close();
-	sysprintf("quit kpi test...\n");
-	return(0);
-	
 }
