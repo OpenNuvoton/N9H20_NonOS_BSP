@@ -525,6 +525,9 @@ int main()
 #if defined(N9H20K5)
     FWInfo[FileInfoIdx].executeAddr = 0x900000;
 #endif
+#if defined(N9H20K6)
+    FWInfo[FileInfoIdx].executeAddr = 0xF00000;
+#endif
 #if defined(N9H20K3)
     FWInfo[FileInfoIdx].executeAddr = 0x700000;
 #endif
@@ -544,6 +547,9 @@ int main()
 #if defined(N9H20K5)
         BootCodeMark_new.ExeAddr = 0x900000;
 #endif
+#if defined(N9H20K6)
+        BootCodeMark_new.ExeAddr = 0xF00000;
+#endif
 #if defined(N9H20K3)
         BootCodeMark_new.ExeAddr = 0x700000;
 #endif
@@ -558,6 +564,9 @@ int main()
         BootCodeMark.BootCodeMarker = 0x57425AA5;
 #if defined(N9H20K5)
         BootCodeMark.ExeAddr = 0x900000;
+#endif
+#if defined(N9H20K6)
+        BootCodeMark.ExeAddr = 0xF00000;
 #endif
 #if defined(N9H20K3)
         BootCodeMark.ExeAddr = 0x700000;
@@ -683,6 +692,9 @@ WriteLogo:
 #if defined(N9H20K5) || defined(N9H20K3)
     FWInfo[FileInfoIdx].executeAddr = 0x500000;
 #endif
+#if defined(N9H20K6)
+    FWInfo[FileInfoIdx].executeAddr = 0xC00000;
+#endif
 #if defined(N9H20K1)
     FWInfo[FileInfoIdx].executeAddr = 0x190000;	//Although didn't support logo in 2MB solution. But we still defined it.
 #endif
@@ -787,6 +799,9 @@ WriteNVTLoader:
 
 #if defined(N9H20K5)
     FWInfo[FileInfoIdx].executeAddr = 0x800000;
+#endif
+#if defined(N9H20K6)
+    FWInfo[FileInfoIdx].executeAddr = 0xE00000;
 #endif
 #if defined(N9H20K3)
     FWInfo[FileInfoIdx].executeAddr = 0x600000;
