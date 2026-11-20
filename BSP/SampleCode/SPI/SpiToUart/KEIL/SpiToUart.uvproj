@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_SpiToUart</TargetName>
+      <TargetName>N9H20K1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -430,7 +430,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_SpiToUart</TargetName>
+      <TargetName>N9H20K3</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -853,7 +853,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_SpiToUart</TargetName>
+      <TargetName>N9H20K5</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1276,7 +1276,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_SpiToUart</TargetName>
+      <TargetName>N9H20K6</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>

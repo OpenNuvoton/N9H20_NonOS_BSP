@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_SDLoader_192MHz</TargetName>
+      <TargetName>N9H20K1_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -460,7 +460,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_SDLoader_S605_192MHz</TargetName>
+      <TargetName>N9H20K1_S605_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -913,7 +913,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_SDLoader_192MHz</TargetName>
+      <TargetName>N9H20K3_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1366,7 +1366,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_SDLoader_S605_192MHz</TargetName>
+      <TargetName>N9H20K3_S605_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1819,7 +1819,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_SDLoader_192MHz</TargetName>
+      <TargetName>N9H20K5_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -2272,7 +2272,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_SDLoader_S605_192MHz</TargetName>
+      <TargetName>N9H20K5_S605_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -2725,7 +2725,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_SDLoader_192MHz</TargetName>
+      <TargetName>N9H20K6_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -3178,7 +3178,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_SDLoader_S605_192MHz</TargetName>
+      <TargetName>N9H20K6_S605_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>

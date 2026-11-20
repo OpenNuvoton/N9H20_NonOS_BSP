@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_VirtualCom</TargetName>
+      <TargetName>N9H20K1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -450,7 +450,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_VirtualCom</TargetName>
+      <TargetName>N9H20K3</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -893,7 +893,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_VirtualCom</TargetName>
+      <TargetName>N9H20K5</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1336,7 +1336,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_VirtualCom</TargetName>
+      <TargetName>N9H20K6</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>

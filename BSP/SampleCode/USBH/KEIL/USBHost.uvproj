@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_USBH</TargetName>
+      <TargetName>N9H20K1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -468,7 +468,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_USBH</TargetName>
+      <TargetName>N9H20K3</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -929,7 +929,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_USBH</TargetName>
+      <TargetName>N9H20K5</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>
@@ -1390,7 +1390,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_USBH</TargetName>
+      <TargetName>N9H20K6</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060528::V5.06 update 5 (build 528)::ARMCC</pCCUsed>

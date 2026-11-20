@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_NANDLoader_192MHz</TargetName>
+      <TargetName>N9H20K1_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -523,7 +523,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_NANDLoader_120MHz</TargetName>
+      <TargetName>N9H20K1_120MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1039,7 +1039,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_NANDLoader_96MHz</TargetName>
+      <TargetName>N9H20K1_96MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1555,7 +1555,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_NANDLoader_192MHz_Logo</TargetName>
+      <TargetName>N9H20K1_192MHz_Logo</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -2028,7 +2028,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_NANDLoader_No_RTC</TargetName>
+      <TargetName>N9H20K1_No_RTC</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -2544,7 +2544,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_NANDLoader_192MHz</TargetName>
+      <TargetName>N9H20K3_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -3060,7 +3060,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_NANDLoader_120MHz</TargetName>
+      <TargetName>N9H20K3_120MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -3576,7 +3576,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_NANDLoader_96MHz</TargetName>
+      <TargetName>N9H20K3_96MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -4092,7 +4092,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_NANDLoader_192_Logo</TargetName>
+      <TargetName>N9H20K3_192_Logo</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -4565,7 +4565,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_NANDLoader_No_RTC</TargetName>
+      <TargetName>N9H20K3_No_RTC</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -5081,7 +5081,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_NANDLoader_192MHz</TargetName>
+      <TargetName>N9H20K5_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -5597,7 +5597,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_NANDLoader_120MHz</TargetName>
+      <TargetName>N9H20K5_120MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -6113,7 +6113,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_NANDLoader_96MHz</TargetName>
+      <TargetName>N9H20K5_96MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -6629,7 +6629,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_NANDLoader_192_Logo</TargetName>
+      <TargetName>N9H20K5_192_Logo</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -7102,7 +7102,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_NANDLoader_No_RTC</TargetName>
+      <TargetName>N9H20K5_No_RTC</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -7618,7 +7618,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_NANDLoader_192MHz</TargetName>
+      <TargetName>N9H20K6_192MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -8134,7 +8134,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_NANDLoader_120MHz</TargetName>
+      <TargetName>N9H20K6_120MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -8650,7 +8650,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_NANDLoader_96MHz</TargetName>
+      <TargetName>N9H20K6_96MHz</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -9166,7 +9166,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_NANDLoader_192_Logo</TargetName>
+      <TargetName>N9H20K6_192_Logo</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -9639,7 +9639,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_NANDLoader_No_RTC</TargetName>
+      <TargetName>N9H20K6_No_RTC</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>

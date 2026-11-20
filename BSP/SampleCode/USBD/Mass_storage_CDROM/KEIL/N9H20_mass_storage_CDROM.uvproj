@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_MSC_CDROM_Only</TargetName>
+      <TargetName>N9H20K1_CDROM_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -759,7 +759,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_NAND_Only</TargetName>
+      <TargetName>N9H20K1_NAND_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1511,7 +1511,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_SD_PORT0_Only</TargetName>
+      <TargetName>N9H20K1_SD_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -2263,7 +2263,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_SD_PORT1_Only</TargetName>
+      <TargetName>N9H20K1_SD_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -3015,7 +3015,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_SD_PORT2_Only</TargetName>
+      <TargetName>N9H20K1_SD_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -3767,7 +3767,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_SD_MP_PORT0_Only</TargetName>
+      <TargetName>N9H20K1_SD_MP_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -4519,7 +4519,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_SD_MP_PORT1_Only</TargetName>
+      <TargetName>N9H20K1_SD_MP_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -5271,7 +5271,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_SD_MP_PORT2_Only</TargetName>
+      <TargetName>N9H20K1_SD_MP_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -6023,7 +6023,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K1_MSC_SPI</TargetName>
+      <TargetName>N9H20K1_SPI</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -6757,7 +6757,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_CDROM_Only</TargetName>
+      <TargetName>N9H20K3_CDROM_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -7509,7 +7509,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_RamDiskOnly</TargetName>
+      <TargetName>N9H20K3_RamDiskOnly</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -8261,7 +8261,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_NAND_Only</TargetName>
+      <TargetName>N9H20K3_NAND_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -9013,7 +9013,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_SD_PORT0_Only</TargetName>
+      <TargetName>N9H20K3_SD_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -9765,7 +9765,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_SD_PORT1_Only</TargetName>
+      <TargetName>N9H20K3_SD_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -10517,7 +10517,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_SD_PORT2_Only</TargetName>
+      <TargetName>N9H20K3_SD_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -11269,7 +11269,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_SD_MP_PORT0_Only</TargetName>
+      <TargetName>N9H20K3_SD_MP_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -12021,7 +12021,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_SD_MP_PORT1_Only</TargetName>
+      <TargetName>N9H20K3_SD_MP_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -12773,7 +12773,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_SD_MP_PORT2_Only</TargetName>
+      <TargetName>N9H20K3_SD_MP_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -13525,7 +13525,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_All_Storage_SD_PORT0</TargetName>
+      <TargetName>N9H20K3_All_Storage_SD_PORT0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -14277,7 +14277,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_All_Storage_SD_PORT1</TargetName>
+      <TargetName>N9H20K3_All_Storage_SD_PORT1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -15029,7 +15029,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_All_Storage_SD_MP_PORT0</TargetName>
+      <TargetName>N9H20K3_All_Storage_SD_MP_PORT0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -15781,7 +15781,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_All_Storage_SD_MP_PORT1</TargetName>
+      <TargetName>N9H20K3_All_Storage_SD_MP_PORT1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -16533,7 +16533,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_MSC_SPI</TargetName>
+      <TargetName>N9H20K3_SPI</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -17267,7 +17267,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_CDROM_Only</TargetName>
+      <TargetName>N9H20K5_CDROM_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -18047,7 +18047,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_RamDiskOnly</TargetName>
+      <TargetName>N9H20K5_RamDiskOnly</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -18827,7 +18827,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_NAND_Only</TargetName>
+      <TargetName>N9H20K5_NAND_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -19607,7 +19607,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_SD_PORT0_Only</TargetName>
+      <TargetName>N9H20K5_SD_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -20387,7 +20387,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_SD_PORT1_Only</TargetName>
+      <TargetName>N9H20K5_SD_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -21167,7 +21167,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_SD_PORT2_Only</TargetName>
+      <TargetName>N9H20K5_SD_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -21947,7 +21947,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_SD_MP_PORT0_Only</TargetName>
+      <TargetName>N9H20K5_SD_MP_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -22727,7 +22727,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_SD_MP_PORT1_Only</TargetName>
+      <TargetName>N9H20K5_SD_MP_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -23507,7 +23507,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_SD_MP_PORT2_Only</TargetName>
+      <TargetName>N9H20K5_SD_MP_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -24287,7 +24287,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_All_Storage_SD_PORT0</TargetName>
+      <TargetName>N9H20K5_All_Storage_SD_PORT0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -25067,7 +25067,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_All_Storage_SD_PORT1</TargetName>
+      <TargetName>N9H20K5_All_Storage_SD_PORT1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -25847,7 +25847,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_All_Storage_SD_MP_PORT0</TargetName>
+      <TargetName>N9H20K5_All_Storage_SD_MP_PORT0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -26627,7 +26627,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_All_Storage_SD_MP_PORT1</TargetName>
+      <TargetName>N9H20K5_All_Storage_SD_MP_PORT1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -27407,7 +27407,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_MSC_SPI</TargetName>
+      <TargetName>N9H20K5_SPI</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -28168,7 +28168,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_CDROM_Only</TargetName>
+      <TargetName>N9H20K6_CDROM_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -28948,7 +28948,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_RamDiskOnly</TargetName>
+      <TargetName>N9H20K6_RamDiskOnly</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -29728,7 +29728,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_NAND_Only</TargetName>
+      <TargetName>N9H20K6_NAND_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -30508,7 +30508,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_SD_PORT0_Only</TargetName>
+      <TargetName>N9H20K6_SD_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -31288,7 +31288,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_SD_PORT1_Only</TargetName>
+      <TargetName>N9H20K6_SD_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -32068,7 +32068,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_SD_PORT2_Only</TargetName>
+      <TargetName>N9H20K6_SD_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -32848,7 +32848,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_SD_MP_PORT0_Only</TargetName>
+      <TargetName>N9H20K6_SD_MP_PORT0_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -33628,7 +33628,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_SD_MP_PORT1_Only</TargetName>
+      <TargetName>N9H20K6_SD_MP_PORT1_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -34408,7 +34408,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_SD_MP_PORT2_Only</TargetName>
+      <TargetName>N9H20K6_SD_MP_PORT2_Only</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -35188,7 +35188,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_All_Storage_SD_PORT0</TargetName>
+      <TargetName>N9H20K6_All_Storage_SD_PORT0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -35968,7 +35968,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_All_Storage_SD_PORT1</TargetName>
+      <TargetName>N9H20K6_All_Storage_SD_PORT1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -36748,7 +36748,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_All_Storage_SD_MP_PORT0</TargetName>
+      <TargetName>N9H20K6_All_Storage_SD_MP_PORT0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -37528,7 +37528,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_All_Storage_SD_MP_PORT1</TargetName>
+      <TargetName>N9H20K6_All_Storage_SD_MP_PORT1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -38308,7 +38308,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_MSC_SPI</TargetName>
+      <TargetName>N9H20K6_SPI</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>

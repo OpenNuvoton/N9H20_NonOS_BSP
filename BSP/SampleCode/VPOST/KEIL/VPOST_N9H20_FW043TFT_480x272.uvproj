@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_VPOST_FW043TFT_480x272</TargetName>
+      <TargetName>N9H20K1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -426,7 +426,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_VPOST_FW043TFT_480x272</TargetName>
+      <TargetName>N9H20K3</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -845,7 +845,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_VPOST_FW043TFT_480x272</TargetName>
+      <TargetName>N9H20K5</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1264,7 +1264,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_VPOST_FW043TFT_480x272</TargetName>
+      <TargetName>N9H20K6</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>

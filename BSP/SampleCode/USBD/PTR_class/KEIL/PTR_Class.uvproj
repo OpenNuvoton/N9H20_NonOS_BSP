@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>N9H20K1_PTR_Class</TargetName>
+      <TargetName>N9H20K1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -445,7 +445,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K3_PTR_Class</TargetName>
+      <TargetName>N9H20K3</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -883,7 +883,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K5_PTR_Class</TargetName>
+      <TargetName>N9H20K5</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -1321,7 +1321,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>N9H20K6_PTR_Class</TargetName>
+      <TargetName>N9H20K6</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
