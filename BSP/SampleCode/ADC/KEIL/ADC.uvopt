@@ -146,6 +146,7 @@
       <LintConfigFile></LintConfigFile>
     </TargetOption>
   </Target>
+
   <Target>
     <TargetName>N9H20K3</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
@@ -272,6 +273,7 @@
       <LintConfigFile></LintConfigFile>
     </TargetOption>
   </Target>
+
   <Target>
     <TargetName>N9H20K5</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
@@ -398,6 +400,7 @@
       <LintConfigFile></LintConfigFile>
     </TargetOption>
   </Target>
+
   <Target>
     <TargetName>N9H20K6</TargetName>
     <ToolsetNumber>0x4</ToolsetNumber>
