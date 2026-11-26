@@ -51,7 +51,7 @@
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\adc_Data\</ListingPath>
+          <ListingPath>.\ADC_Data\K1\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -514,7 +514,7 @@
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\adc_Data\</ListingPath>
+          <ListingPath>.\ADC_Data\K3\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -977,7 +977,7 @@
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\adc_Data\</ListingPath>
+          <ListingPath>.\ADC_Data\K5\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
